@@ -1,4 +1,21 @@
 {
   "type": "PTE",
-  "templateUrl": "https://github.com/BusinessCentralDemos/AL-Go-PTE@PowerPlatform"
+  "templateUrl": "https://github.com/businesscentraldemos/AL-Go-PTE@PowerPlatform",
+  "powerPlatformSolutionFolder": "BusinessCentralPowerPlatform",
+  "environments": [
+    "QA",
+    "Staging"
+  ],
+  "DeployToQA": {
+    "environmentName": "Sandbox",
+    "ppEnvironmentUrl": "https://orgc791aad2.crm.dynamics.com/",
+    "environment": "Sandbox",
+    "companyId": "a2db7307-078b-ed11-aad8-000d3a21edc2"
+  },
+  "DeployToStaging": {
+    "environmentName": "Production",
+    "ppEnvironmentUrl": "https://org835014c5.crm.dynamics.com/",
+    "environment": "Production",
+    "companyId": "a2db7307-078b-ed11-aad8-000d3a21edc2"
+  }
 }
