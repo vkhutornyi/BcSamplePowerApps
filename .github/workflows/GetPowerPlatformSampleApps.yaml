@@ -1,0 +1,54 @@
+name: " Get Power Platform Sample Apps (Preview)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      directCommit:
+        description: Direct COMMIT (Y/N)
+        required: false
+        default: "N"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+defaults:
+  run:
+    shell: powershell
+
+jobs:
+  PullChanges:
+    runs-on: [windows-latest]
+    name: Pull changes from ${{ inputs.environment }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Initialize the workflow
+        id: init
+        uses: BusinessCentralDemos/AL-Go-Actions/WorkflowInitialize@PowerPlatform
+        with:
+          shell: powershell
+          eventId: "DO0103"
+
+      - name: Get the sample apps 
+        uses: BusinessCentralDemos/AL-Go-Actions/GetPPTestArtifacts@PowerPlatform
+        with: 
+          shell: powershell
+
+      - name: unpack-solution action 
+        uses: microsoft/powerplatform-actions/unpack-solution@v0
+        with:
+          solution-file: ${{ env.bcSampleAppFilePath }}
+          solution-folder: ${{ env.bcSampleAppFile }}
+          solution-type: "Unmanaged"
+          overwrite-files: false
+          process-canvas-apps: true
+
+      - name: Finalize the workflow
+        if: always()
+        uses: BusinessCentralDemos/AL-Go-Actions/WorkflowPostProcess@PowerPlatform
+        with:
+          shell: powershell
+          eventId: "DO0103"
+          telemetryScopeJson: ${{ steps.init.outputs.telemetryScopeJson }}
