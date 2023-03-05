@@ -3,10 +3,10 @@
   "templateUrl": "https://github.com/businesscentraldemos/AL-Go-PTE@PowerPlatform",
   "powerPlatformSolutionFolder": "BusinessCentralPowerPlatform",
   "environments": [
-    "QA",
+    "Dev",
     "Staging"
   ],
-  "DeployToQA": {
+  "DeployToDev": {
     "environmentName": "Sandbox",
     "ppEnvironmentUrl": "https://orgc791aad2.crm.dynamics.com/",
     "environment": "Sandbox",
