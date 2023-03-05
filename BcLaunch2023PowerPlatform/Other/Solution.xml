@@ -80,7 +80,7 @@
       </Addresses>
     </Publisher>
     <RootComponents>
-      <RootComponent type="300" schemaName="new_bcwarehousehelper_290e3" behavior="0" />
+      <RootComponent type="300" schemaName="new_BcLaunch2023PowerPlatform_290e3" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>
