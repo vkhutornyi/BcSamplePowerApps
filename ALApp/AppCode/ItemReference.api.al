@@ -1,4 +1,4 @@
-page 50100 ItemReference
+page 51000 ItemReference
 {
     PageType = API;
     Caption = 'Item Reference';
