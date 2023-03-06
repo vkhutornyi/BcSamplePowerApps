@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ImportExportXml version="9.2.23015.198" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
-    <UniqueName>BcLaunch2023PowerPlatformExtraExtra</UniqueName>
+    <UniqueName>BcLaunch2023PowerPlatformExtra</UniqueName>
     <LocalizedNames>
-      <LocalizedName description="BcLaunch2023PowerPlatformExtraExtra" languagecode="1033" />
+      <LocalizedName description="BcLaunch2023PowerPlatformExtra" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
     <Version>1.0.12.0</Version>
