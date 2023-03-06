@@ -102,11 +102,11 @@
     "Id": "6f127793-fc9a-43ae-b032-1f2f6bb30506",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "Name": "BcLaunch Warehouse Helper",
+    "Name": "Bc Launch 2023 Warehouse Helper (Extra)",
     "OriginatingVersion": "1.326"
   },
   "PublishInfo": {
-    "AppName": "BcLaunch Warehouse Helper",
+    "AppName": "Bc Launch 2023 Warehouse Helper (Extra)",
     "BackgroundColor": "rgba(255, 255, 255, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "",
