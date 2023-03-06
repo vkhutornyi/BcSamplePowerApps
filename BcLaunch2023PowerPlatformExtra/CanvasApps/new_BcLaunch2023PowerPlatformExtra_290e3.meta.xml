@@ -9,7 +9,7 @@
   <IsCdsUpgraded>0</IsCdsUpgraded>
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>rgba(255, 255, 255, 1)</BackgroundColor>
-  <DisplayName>BcLaunch Warehouse Helper_202303050305</DisplayName>
+  <DisplayName>BcLaunch Warehouse Helper (extra)</DisplayName>
   <Description>Test app for Business Central to help manage warehouse inventory</Description>
   <CommitMessage></CommitMessage>
   <Publisher></Publisher>
