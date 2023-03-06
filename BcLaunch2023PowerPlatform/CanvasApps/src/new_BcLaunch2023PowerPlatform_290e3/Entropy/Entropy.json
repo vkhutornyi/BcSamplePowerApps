@@ -77,15 +77,12 @@
     "78aad8aec73243dfa573a57ac5b247ee": 0
   },
   "OrderDataSource": {
-    "colStoredAppState": 9,
-    "ComboBoxSample": 4,
-    "companyInformation (v2.0)": 5,
-    "CustomGallerySample": 3,
-    "DropDownSample": 1,
-    "itemReferences (andersg/powerApps/beta)": 8,
-    "items (v2.0)": 7,
-    "itemsWithImage (microsoft/powerApps/beta)": 2,
-    "locations (v2.0)": 6,
+    "colStoredAppState": 6,
+    "companyInformation (v2.0)": 2,
+    "itemReferences (andersg/powerApps/beta)": 5,
+    "items (v2.0)": 4,
+    "itemsWithImage (microsoft/powerApps/beta)": 1,
+    "locations (v2.0)": 3,
     "Office365-brugere": 0
   },
   "OrderGroupControls": {},
