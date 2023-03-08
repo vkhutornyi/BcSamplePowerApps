@@ -13,9 +13,9 @@
     "companyId": "a2db7307-078b-ed11-aad8-000d3a21edc2"
   },
   "DeployToStaging": {
-    "environmentName": "Production",
+    "environmentName": "Sandbox",
     "ppEnvironmentUrl": "https://org835014c5.crm.dynamics.com/",
-    "environment": "Production",
+    "environment": "Sandbox",
     "companyId": "a2db7307-078b-ed11-aad8-000d3a21edc2"
   }
 }
