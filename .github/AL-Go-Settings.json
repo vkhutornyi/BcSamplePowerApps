@@ -1,7 +1,7 @@
 {
   "type": "PTE",
   "templateUrl": "https://github.com/businesscentraldemos/AL-Go-PTE@PowerPlatform",
-  "powerPlatformSolutionFolder": "BcSamplePowerApps",
+  "powerPlatformSolutionFolder": "BcSampleAppsSolution",
   "environments": [
     "Dev",
     "Staging"
