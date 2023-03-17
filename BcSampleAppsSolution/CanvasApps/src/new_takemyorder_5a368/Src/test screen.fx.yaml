@@ -1,0 +1,21 @@
+"'test screen' As screen":
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    Toggle1 As toggleSwitch:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        FalseFill: =RGBA(128, 130, 133, 1)
+        FalseText: ="Auto load enabled"
+        HandleFill: =RGBA(255, 255, 255, 1)
+        Height: =64
+        OnChange: =Set(varStopAutoLoad, Self.Value)
+        Size: =21
+        TextPosition: =TextPosition.Left
+        Tooltip: ="Stop auto load"
+        TrueFill: =RGBA(100, 118, 132, 1)
+        TrueText: ="Auto load stopped"
+        Width: =457
+        X: =60
+        Y: =60
+        ZIndex: =2
+

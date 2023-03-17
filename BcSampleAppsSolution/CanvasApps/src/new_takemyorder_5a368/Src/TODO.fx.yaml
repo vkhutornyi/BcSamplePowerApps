@@ -1,0 +1,43 @@
+TODO As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    Label9 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =1136
+        Size: =18
+        Text: |-
+            ="Input from Blazej 
+            
+            In current order, if the order is active, you should not be able to change the quantities 
+            
+            
+            Add to order scenario 
+            - Maybe we need more indication of the context 
+            
+            
+            Importing Power Automate 
+            - Can we automatically set up a connection?
+            
+            
+            
+            Input from Christian 
+            
+            The expanded bullet should allow users to use numeric keyboard
+            Clicking ""-"" and ""+"" shows borders 
+            
+            Try out the border element as HTML element
+            - Both for divider and background shadow for images
+            
+            Images 
+            - overlay with square to get color
+            
+            
+            Navigation 
+            - remove eraser with bin and move back to tables selection
+            
+            - If add-to-order, the bin takes you back to the order"
+        Width: =640
+        ZIndex: =1
+
