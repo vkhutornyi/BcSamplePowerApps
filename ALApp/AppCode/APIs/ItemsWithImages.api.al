@@ -65,6 +65,7 @@ page 51001 ItemWithImage
                 }
                 field(itemCategoryName; ItemCatagoryName)
                 {
+                    Editable = false;
                     Caption = 'Item Category Name';
                 }
                 field("itemCategoryCode"; Rec."Item Category Code")
@@ -121,10 +122,11 @@ page 51001 ItemWithImage
         NameValueBufferBlob.Insert();
 
         //Anders test
+        ItemCatagoryName := '';
         if Rec."Item Category Code" <> '' then begin
-            ItemCategory.Code := Rec."Item Category Code";
-            ItemCategory.Find('=');
-            ItemCatagoryName := ItemCategory.Description;
+            if ItemCategory.Get(Rec."Item Category Code")
+            then
+                ItemCatagoryName := ItemCategory.Description
         end;
     end;
 }

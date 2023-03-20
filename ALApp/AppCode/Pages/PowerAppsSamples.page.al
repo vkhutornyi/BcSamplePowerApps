@@ -3,6 +3,7 @@ page 51000 PowerAppsSamplePage
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
+    Caption = 'PowerApps Sample Page 2';
 
     layout
     {
@@ -32,7 +33,7 @@ page 51000 PowerAppsSamplePage
     {
         area(Processing)
         {
-            action(GenerateTestDate)
+            action(GenerateTestData)
             {
                 ApplicationArea = All;
                 Promoted = true;
@@ -41,12 +42,21 @@ page 51000 PowerAppsSamplePage
                 var
                     myCodeUnit: Codeunit PowerAppsDemoDataGenerator;
                 begin
-                    myCodeUnit.GenerateDemoDataForTakeMyOrder();
+                    myCodeUnit.GenerateDemoDataForPowerApps();
+                end;
+            }
+            action(DeleteTestData)
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                Caption = 'Delete PowerApp Data';
+                trigger OnAction()
+                var
+                    myCodeUnit: Codeunit PowerAppsDemoDataGenerator;
+                begin
+                    myCodeUnit.DeleteDemoDataForPowerApps();
                 end;
             }
         }
     }
-
-    var
-        myInt: Integer;
 }

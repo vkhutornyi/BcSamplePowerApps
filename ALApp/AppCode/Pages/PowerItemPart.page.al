@@ -18,6 +18,22 @@ page 51005 PowerItemListPart
                 {
                     ApplicationArea = All;
                 }
+                field(ItemPrice; Rec."Unit Price")
+                {
+                    ApplicationArea = All;
+                }
+                field("Item Category Code"; Rec."Item Category Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("longDescription"; Rec.LongItemDescription)
+                {
+                    ApplicationArea = All;
+                }
+                field(AllergenInformation; Rec.AllergenInformation)
+                {
+                    ApplicationArea = All;
+                }
                 field(showInPowerApp; Rec.SoldInRestaurant)
                 {
                     ApplicationArea = All;
