@@ -1,4 +1,4 @@
-page 50104 PowerAppLanguageResources
+page 51004 PowerAppLanguageResources
 {
     PageType = API;
     Caption = 'PowerApp Language Resources';

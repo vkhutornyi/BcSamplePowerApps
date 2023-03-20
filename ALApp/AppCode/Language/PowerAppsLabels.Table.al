@@ -1,4 +1,4 @@
-table 50100 "Power Apps labels"
+table 51000 "Power Apps labels"
 {
     Caption = 'Power Apps labels';
     DataClassification = SystemMetadata;
