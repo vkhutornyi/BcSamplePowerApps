@@ -103,11 +103,10 @@ jobs:
         uses: BusinessCentralDemos/AL-Go-Actions/DeployPowerPlatform@PowerPlatform
         with:
           shell: powershell
-          solutionName: .buildartifacts
           parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
           artifactPath: '.artifacts'
-          deploySettings: ${{ steps.authContext.outputs.deployTo }} 
-          authSettings: ${{ steps.authContext.outputs.authContext }}
+          deploySettings: ${{ env.deployTo }} 
+          authSettings: ${{ env.authContext }}
 
       - name: Finalize the workflow
         if: always()
