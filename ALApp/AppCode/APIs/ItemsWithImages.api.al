@@ -1,4 +1,4 @@
-page 50101 ItemWithImage
+page 51001 ItemWithImage
 {
     PageType = API;
     Caption = 'Item with image';
@@ -35,25 +35,13 @@ page 50101 ItemWithImage
                 {
                     Caption = 'Unit price';
                 }
-                field(itemCategoryCode; Rec."Item Category Code")
-                {
-                    Caption = 'Item Category Code';
-                }
                 field(baseUnitOfMeasureCode; Rec."Base Unit of Measure")
                 {
                     Caption = 'Base Unit Of Measure Code';
                 }
-                field(inventoryPostingGroup; Rec."Inventory Posting Group")
-                {
-                    Caption = 'Inventory Posting Group';
-                }
                 field(inventory; Rec.Inventory)
                 {
                     Caption = 'Inventory';
-                }
-                field(picture; NameValueBufferBlob."Value BLOB")
-                {
-                    Caption = 'Picture';
                 }
                 field(itemImageText; Rec.Picture)
                 {
@@ -63,11 +51,37 @@ page 50101 ItemWithImage
                 {
                     Caption = 'GTIN';
                 }
+                field(SoldInRestaurant; Rec.SoldInRestaurant)
+                {
+                    Caption = 'Sold In Restaurant';
+                }
+                field(LongItemDescription; Rec.LongItemDescription)
+                {
+                    Caption = 'Long Item Description';
+                }
+                field(AllergenInformation; Rec.AllergenInformation)
+                {
+                    Caption = 'Allergen Information';
+                }
+                field(itemCategoryName; ItemCatagoryName)
+                {
+                    Editable = false;
+                    Caption = 'Item Category Name';
+                }
+                field("itemCategoryCode"; Rec."Item Category Code")
+                {
+                    Caption = 'Item Category Code';
+                }
+                field(picture; NameValueBufferBlob."Value BLOB")
+                {
+                    Caption = 'Picture';
+                }
             }
         }
     }
 
     var
+        ItemCatagoryName: Text[100];
         NameValueBufferBlob: Record "Name/Value Buffer" temporary; // This can be any table with a field of type Blob
         ConfigMediaBuffer: Record "Config. Media Buffer" temporary; // This can be any table with a field of type Media
 
@@ -79,6 +93,8 @@ page 50101 ItemWithImage
         MediaId: Guid;
         RecordR: RecordRef;
         FieldR: FieldRef;
+        //Anders test
+        ItemCategory: Record "Item Category";
     begin
         NameValueBufferBlob.DeleteAll();
         NameValueBufferBlob.Init();
@@ -104,5 +120,13 @@ page 50101 ItemWithImage
         // **END**
 
         NameValueBufferBlob.Insert();
+
+        //Anders test
+        ItemCatagoryName := '';
+        if Rec."Item Category Code" <> '' then begin
+            if ItemCategory.Get(Rec."Item Category Code")
+            then
+                ItemCatagoryName := ItemCategory.Description
+        end;
     end;
 }

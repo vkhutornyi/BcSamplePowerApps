@@ -1,4 +1,4 @@
-page 50103 CustomersWithImage
+page 51003 CustomersWithImage
 {
     PageType = API;
     Caption = 'Customers with image';
@@ -51,6 +51,10 @@ page 50103 CustomersWithImage
                 field(itemImageText; Rec.Image)
                 {
                     Caption = 'Picture reference';
+                }
+                field(IsTable; Rec.IsTable)
+                {
+                    Caption = 'IsTable';
                 }
             }
         }

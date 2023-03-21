@@ -1,4 +1,4 @@
-codeunit 50100 "Power Apps label management"
+codeunit 51000 "Power Apps label management"
 {
     // // Codeunit for generating the static values that Power BI reports use for titles or other
     // // text labels. These values are exposed through a web service for page 6318. This approach
