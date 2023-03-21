@@ -180,7 +180,7 @@
                     =If(
                         Not(IsBlank(ctxShowQuantityControlForIs)),
                         UpdateContext({ctxShowQuantityControlForIs: Blank()}),
-                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem, ctxSelectedItemQuantity: LookUp(colSelectedItems, id = ThisItem.id).quantity})
+                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem})
                     )
                 PressedFill: =Color.Transparent
                 Visible: =Not(IsBlank(ThisItem.quantity))
@@ -515,7 +515,7 @@
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
         OnSelect: |-
-            =UpdateContext({ctxShowLoadingScreen: true, ctxLoadingScreenMessage: "Adding items to order"});
+            =UpdateContext({ctxShowLoadingScreen: true});
             
             // Add selected items to existing order
             ForAll(
@@ -550,19 +550,27 @@
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
         OnSelect: |-
-            =UpdateContext({ctxShowLoadingScreen: true, ctxLoadingScreenMessage: "Submit order"});
+            =UpdateContext({ctxShowLoadingScreen: true});
+            
+            Clear(colLinePathResponse);
             
             Set(varCreatedSalesOrder, Patch('salesOrders (v2.0)', Defaults('salesOrders (v2.0)'), {customerId: varSelectedTable.id}));
-            //TODO: Add error handling
             
-            ForAll(
-                colSelectedItems,
-                Patch('salesOrderLines (v2.0)', Defaults('salesOrderLines (v2.0)'), {documentId: varCreatedSalesOrder.id, itemId: ThisRecord.id, quantity: ThisRecord.quantity});
-            );
+            If(IsBlankOrError(varCreatedSalesOrder), 
+                   Notify("An error happened while creating the order");
+                ,
+                    ForAll(colSelectedItems,
+                        Collect(colLinePathResponse, 
+                                    Patch('salesOrderLines (v2.0)', Defaults('salesOrderLines (v2.0)'), 
+                                        {documentId: varCreatedSalesOrder.id, itemId: ThisRecord.id, quantity: ThisRecord.quantity}
+                                    )
+                        );
+                    );
             
-            ClearCollect(colSelectedItems, Blank());
-            UpdateContext({ctxShowLoadingScreen: false});
-            Navigate('Order submitted screen', ScreenTransition.Fade);
+                    ClearCollect(colSelectedItems, Blank());
+                    UpdateContext({ctxShowLoadingScreen: false});
+                    Navigate('Order submitted screen', ScreenTransition.Fade);
+            )
         RadiusBottomLeft: =30
         RadiusBottomRight: =30
         RadiusTopLeft: =30
@@ -572,7 +580,7 @@
         Visible: =Not(ctxHasOrderBeenCreated)
         Width: =280
         X: =Parent.Width/2 - Self.Width/2
-        Y: =Parent.Height - Self.Height - 45
+        Y: =1039
         ZIndex: =3
 
     conActiveOrderButtons As groupContainer:
@@ -633,7 +641,7 @@
         Width: =Parent.Width
         ZIndex: =5
 
-        Label7 As label:
+        lblCurrentOrderNumber As label:
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =varTheme.primaryColor
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -647,15 +655,7 @@
             Y: =110
             ZIndex: =1
 
-        Rectangle5 As rectangle:
-            BorderColor: =RGBA(32, 54, 71, 1)
-            Fill: =varTheme.dividerColor
-            Height: =10
-            Width: =Parent.Width
-            Y: =100
-            ZIndex: =2
-
-        Label10_1 As label:
+        lblCurrentOrderTable As label:
             Align: =Align.Center
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =varTheme.primaryColor
@@ -666,9 +666,9 @@
             Width: =335
             X: =Parent.Width/2 - Self.Width/2
             Y: =30
-            ZIndex: =3
+            ZIndex: =2
 
-        Icon6 As icon.ChevronLeft:
+        icnBack As icon.ChevronLeft:
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -679,6 +679,12 @@
             Width: =40
             X: =40
             Y: =30
+            ZIndex: =3
+
+        comBigDivider_2 As comBigDivider:
+            Height: =16
+            Width: =Parent.Width
+            Y: =100
             ZIndex: =4
 
         icnCancel As icon.ChevronLeft:
@@ -790,7 +796,7 @@
             Y: =449
             ZIndex: =4
 
-    conDeleteDraftOrder As groupContainer.manualLayoutContainer:
+    conDeleteDraftOrderDialog As groupContainer.manualLayoutContainer:
         Fill: =RGBA(166, 166, 166, 0.84)
         Height: =Parent.Height
         Visible: =ctxShowDeleteDraftDialog
@@ -885,7 +891,7 @@
             Y: =449
             ZIndex: =4
 
-    comLoadingCurrentOrder As comLoadingOverlay:
+    comLoadingCurrentOrderOverlay As comLoadingOverlay:
         Visible: =ctxShowLoadingScreen
         ZIndex: =9
 

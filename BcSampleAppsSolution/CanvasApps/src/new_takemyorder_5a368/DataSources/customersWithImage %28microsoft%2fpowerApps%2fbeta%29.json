@@ -7,25 +7,21 @@
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "addressLine1": "Address Line 1",
-      "addressLine2": "Address Line 2",
-      "city": "City",
-      "code": "Code",
-      "contact": "Contact",
-      "country": "Country/Region Code",
-      "displayName": "Name",
-      "email": "Email",
-      "id": "Id",
-      "phoneNumber": "Phone No.",
-      "postalCode": "ZIP Code",
-      "state": "State",
-      "website": "Website"
+      "address": "address",
+      "displayName": "displayName",
+      "id": "id",
+      "IsTable": "IsTable",
+      "itemImageText": "itemImageText",
+      "mail": "mail",
+      "number": "number",
+      "phone": "phone",
+      "picture": "picture"
     },
     "DatasetName": "POWERAPPSTEST,a0d54bf1-ffb7-ed11-a389-000d3a269d47",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "locations (v2.0)",
+    "Name": "customersWithImage (microsoft/powerApps/beta)",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

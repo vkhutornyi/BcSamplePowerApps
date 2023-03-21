@@ -12,7 +12,7 @@
         ZIndex: =1
 
     Rectangle1 As rectangle:
-        Fill: =Transparent
+        Fill: =Color.Transparent
         Height: =1136
         OnSelect: =Navigate('Scan screen', ScreenTransition.Fade)
         Width: =640

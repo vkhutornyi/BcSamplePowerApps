@@ -1,7 +1,7 @@
 {
   "FormatVersion": "0.24",
   "Header": {
-    "DocVersion": "1.328",
+    "DocVersion": "1.330",
     "MinVersionToLoad": "1.327",
     "MSAppStructureVersion": "2.0"
   },
@@ -19,20 +19,21 @@
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
       "classiccontrols": false,
-      "consistentreturnschemafortabularfunctions": false,
+      "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": false,
       "datatablev2control": true,
       "dataverseactionsenabled": false,
       "delaycontrolrendering": false,
       "delayloadscreens": true,
       "disablecdsfileandlargeimage": false,
-      "disablecommandbar": false,
       "dynamicschema": false,
       "enableactionenhancedcomponentproperties": false,
       "enableappembeddingux": false,
       "enablebarcodereaderfeature": false,
+      "enablechatbotfeature": false,
       "enablecomponentnamemaps": false,
       "enablecomponentscopeoldbehavior": false,
+      "enabledataanalyzercontrol": false,
       "enableeditcacherefreshfrequency": false,
       "enableexcelonlinebusinessv2connector": true,
       "enableideaspanel": true,
@@ -122,7 +123,7 @@
     "Item Screen",
     "Item updated screen",
     "Scan screen",
-    "Test web scan screen",
+    "Debug Screen",
     "Test Screen"
   ]
 }

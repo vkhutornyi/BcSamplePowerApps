@@ -105,7 +105,7 @@
         "Name": "HTMLDivider",
         "Parent": "comBigDivider",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 146,
+        "PublishOrderIndex": 149,
         "Rules": [
           {
             "Category": "Data",
@@ -260,7 +260,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638146537359740952",
+    "LastModifiedTimestamp": "638150238625719470",
     "Name": "comBigDivider",
     "Rules": [
       {
@@ -319,7 +319,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638146537359740952",
+  "LastModifiedTimestamp": "638150238625719470",
   "Name": "430876e924554e59ad42421ce08f66dc",
   "OverridableProperties": {},
   "Version": "638146385275533569"
