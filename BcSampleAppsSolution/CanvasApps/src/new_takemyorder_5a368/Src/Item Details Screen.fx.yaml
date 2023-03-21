@@ -105,7 +105,7 @@
                                 id: ctxSelectedItem.id,
                                 name: ctxSelectedItem.displayName,
                                 price: ctxSelectedItem.unitPrice,
-                                group: ctxSelectedItem.inventoryPostingGroup,
+                                group: ctxSelectedItem.'Item Category Name',
                                 quantity: 1,
                                 // Use placeholder image if the image is not provided
                                 image: If(
@@ -191,8 +191,7 @@
                     Height: =70
                     HoverColor: =RGBA(255, 255, 255, 1)
                     HoverFill: =varTheme.primaryColor
-                    OnSelect: |-
-                        =UpdateContext({ctxShowQuantityControl: true})
+                    OnSelect: =
                     PressedFill: =varTheme.primaryColor
                     RadiusBottomLeft: =35
                     RadiusBottomRight: =35
@@ -367,6 +366,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =RGBA(255, 188, 0, 0.08)
                 Height: =imgItemDetailsImage.Height
+                Visible: =false
                 Width: =imgItemDetailsImage.Width
                 X: =imgItemDetailsImage.X
                 Y: =imgItemDetailsImage.Y

@@ -3,18 +3,23 @@
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: |-
         =Clear(colTablesWithStatus);
+        Clear(colCachedSalesOrdersForTables);
         
+        // Ensure sales orders inlcude latest changes
         Refresh('salesOrders (v2.0)');
-        Set(varCachedSalesOrders, Blank());
-        Set(varCachedSalesOrders, ShowColumns('salesOrders (v2.0)', "customerId", "number"));
+        
+        // Cache sales orders to avoid calling connector in ForAll and only load needed columns
+        UpdateContext({ctxCachedSalesOrders: ShowColumns('salesOrders (v2.0)', "customerId", "number")});
         
         ForAll(varTables, 
+            // Collect is the only storage allowed in ForAll
+            Collect(colCachedSalesOrdersForTables, LookUp(ctxCachedSalesOrders, customerId = id));
             Collect(colTablesWithStatus, {
                 id: ThisRecord.id,
                 displayName: ThisRecord.displayName,
-                free: IsBlank(LookUp(varCachedSalesOrders, customerId = id)),
-                orderNumber: LookUp(varCachedSalesOrders, customerId = id).number,
-                customerId: LookUp(varCachedSalesOrders, customerId = id).customerId    
+                free: IsBlank(LookUp(colCachedSalesOrdersForTables, customerId = id)),
+                orderNumber: LookUp(colCachedSalesOrdersForTables, customerId = id).number,
+                customerId: LookUp(colCachedSalesOrdersForTables, customerId = id).customerId    
             });
         ); 
 

@@ -26,7 +26,6 @@
       "delaycontrolrendering": true,
       "delayloadscreens": true,
       "disablecdsfileandlargeimage": false,
-      "disablecommandbar": false,
       "dynamicschema": false,
       "enableactionenhancedcomponentproperties": false,
       "enableappembeddingux": false,
@@ -34,6 +33,7 @@
       "enablechatbotfeature": false,
       "enablecomponentnamemaps": false,
       "enablecomponentscopeoldbehavior": false,
+      "enabledataanalyzercontrol": false,
       "enableeditcacherefreshfrequency": false,
       "enableexcelonlinebusinessv2connector": true,
       "enableideaspanel": true,
@@ -118,7 +118,6 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Loading screen",
     "Start screen",
     "Info screen",
     "Select table screen",
@@ -127,7 +126,7 @@
     "Current Order Screen",
     "Order submitted screen",
     "Item Details Screen",
-    "test screen",
+    "Debug screen",
     "TODO"
   ]
 }

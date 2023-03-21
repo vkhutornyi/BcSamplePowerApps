@@ -12,9 +12,9 @@
     BarcodeScanner As barcodeScanner:
         BorderThickness: =0
         Fill: =varTheme.brandColor
-        Font: ='Segoe UI'
+        Font: =Font.'Segoe UI'
         Height: =85
-        HoverBorderColor: =Black
+        HoverBorderColor: =Color.Black
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(255, 255, 255, 1)
         OnCancel: =Navigate('Start Page', ScreenTransition.Fade);
@@ -36,7 +36,7 @@
         OnSelect: |-
             =If(
                 Not(Checkbox1.Value),
-                Navigate('Test web scan screen')
+                Navigate('Debug Screen')
             )
         Size: =24
         Text: ="Button"

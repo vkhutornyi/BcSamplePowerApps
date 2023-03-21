@@ -20,7 +20,7 @@
                 id: LookUp(colTempCachedItems, id = itemId).id,
                 name: LookUp(colTempCachedItems, id = itemId).displayName,
                 price: LookUp(colTempCachedItems, id = itemId).unitPrice,
-                group: LookUp(colTempCachedItems, id = itemId).inventoryPostingGroup,
+                group: LookUp(colTempCachedItems, id = itemId).'Item Category Name',
                 quantity: quantity,
                 // Use placeholder image if the image is not provided
                 image: If(
@@ -34,10 +34,10 @@
         // Navigate to Current order screen
         If(
             Not(varStopAutoLoad),
-            Select(Button2)
+            Select(btnNavigateToCurrentOrder)
         );
 
-    Button2 As button:
+    btnNavigateToCurrentOrder As button:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)

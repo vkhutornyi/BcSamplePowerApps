@@ -14,10 +14,9 @@
         
         // Parse app state
         If(Not(IsBlank(varAppState)), 
-            IfError(
-                // See if local state warehouse is still available
-                Set(varSelectedWarehouse, LookUp(varWarehouses, id = varAppState.warehouse)), 
-                Set(varSelectedWarehouse, Blank())         
+            // See if local state warehouse is still available
+            IfError(Set(varSelectedWarehouse, LookUp(varWarehouses, id = varAppState.warehouse))
+                , Set(varSelectedWarehouse, First(varWarehouses))         
         ))
         
 
@@ -35,7 +34,7 @@
     Dropdown1 As dropdown:
         BorderThickness: =0
         ChevronBackground: =varTheme.brandColor
-        ChevronFill: =White
+        ChevronFill: =Color.White
         ChevronHoverBackground: =varTheme.brandColor
         ChevronHoverFill: =RGBA(237, 237, 237, 1)
         Color: =RGBA(255, 255, 255, 1)
@@ -55,7 +54,7 @@
         OnSelect: =
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =
-        SelectionColor: =Black
+        SelectionColor: =Color.Black
         SelectionFill: =varTheme.secondaryColor
         Size: =21
         Width: =319

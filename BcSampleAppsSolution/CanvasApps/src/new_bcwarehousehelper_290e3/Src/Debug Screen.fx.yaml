@@ -1,4 +1,4 @@
-"'Test web scan screen' As screen":
+"'Debug Screen' As screen":
     Fill: =varTheme.secondaryColor
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":

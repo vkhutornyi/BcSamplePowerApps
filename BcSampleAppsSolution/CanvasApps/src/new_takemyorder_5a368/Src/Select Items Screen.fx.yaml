@@ -1,7 +1,9 @@
 "'Select Items Screen' As screen":
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: |-
-        =UpdateContext({ctxShowQuantityControlForIs: Blank(), ctxSelectedItemGroup: Blank()});
+        =UpdateContext({ctxItemShowingQuantityControl: Blank()});
+        
+        ClearCollect(colAvailableItems, Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'));
 
     conButtom As groupContainer.manualLayoutContainer:
         Height: =110
@@ -72,7 +74,7 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
-            Items: =Filter('itemsWithImage (microsoft/powerApps/beta)', inventoryPostingGroup = ctxSelectedItemGroup)
+            Items: =Filter(colAvailableItems, If(IsBlank(varSelectedItemGroup), true, itemCategoryName = varSelectedItemGroup))
             Layout: =Layout.Vertical
             OnSelect: =
             TemplatePadding: =0
@@ -135,6 +137,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =RGBA(255, 188, 0, 0.08)
                 Height: =imgItemImage.Height
+                Visible: =false
                 Width: =imgItemImage.Width
                 X: =imgItemImage.X
                 Y: =imgItemImage.Y
@@ -187,7 +190,7 @@
                         // Dismiss the quantity control
                         UpdateContext({ctxItemShowingQuantityControl: Blank()}),
                         // Open the selected Item
-                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem, ctxSelectedItemQuantity: LookUp(colSelectedItems, id = ThisItem.id).quantity})
+                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem})
                     )
                 PressedFill: =Color.Transparent
                 Width: =Parent.TemplateWidth
@@ -204,11 +207,11 @@
                 OnSelect: |-
                     =// Clear quantity control if it is showing
                     UpdateContext({ctxItemShowingQuantityControl: Blank()});
-                    // Check if item is in list
-                    UpdateContext({ ctxIsItemInList: IsBlank(LookUp(colSelectedItems, id = ThisItem.id))});
                     
                     If(
-                        ctxIsItemInList,
+                        // Check if item is in list
+                        IsBlank(LookUp(colSelectedItems, id = ThisItem.id))
+                        ,
                         // Add item to list
                         Collect(
                             colSelectedItems,
@@ -216,7 +219,7 @@
                                 id: ThisItem.id,
                                 name: ThisItem.displayName,
                                 price: ThisItem.unitPrice,
-                                group: ThisItem.inventoryPostingGroup,
+                                group: ThisItem.itemCategoryName,
                                 quantity: 1,
                                 // Use placeholder image if the image is not provided
                                 image: If(
@@ -293,8 +296,7 @@
                     Height: =70
                     HoverColor: =RGBA(255, 255, 255, 1)
                     HoverFill: =varTheme.primaryColor
-                    OnSelect: |-
-                        =UpdateContext({ctxShowQuantityControl: true})
+                    OnSelect: =
                     PressedFill: =varTheme.primaryColor
                     RadiusBottomLeft: =35
                     RadiusBottomRight: =35
@@ -445,7 +447,7 @@
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
         OnSelect: |-
-            =UpdateContext({ctxShowQuantityControlForIs: Blank()});
+            =UpdateContext({ctxItemShowingQuantityControl: Blank()});
             Navigate('Current Order Screen', ScreenTransition.Cover);
         RadiusBottomLeft: =30
         RadiusBottomRight: =30
@@ -470,7 +472,7 @@
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
         OnSelect: |-
-            =UpdateContext({ctxShowQuantityControlForIs: Blank()});
+            =UpdateContext({ctxItemShowingQuantityControl: Blank()});
             Navigate('Current Order Screen', ScreenTransition.Cover);
         RadiusBottomLeft: =30
         RadiusBottomRight: =30
@@ -492,9 +494,13 @@
         galItemGroups As gallery.galleryHorizontal:
             BorderColor: =RGBA(32, 54, 71, 1)
             Height: =70
-            Items: =FirstN(colItemGroup, 4)
+            Items: =colItemGroup
             OnSelect: |-
-                =If(ThisItem.Result = "Full menu", UpdateContext({ctxSelectedItemGroup: Blank()}), UpdateContext({ctxSelectedItemGroup: ThisItem.Result}))
+                =If(ThisItem.Value = First(colItemGroup).Value, 
+                    Set(varSelectedItemGroup, Blank())
+                    ,
+                    Set(varSelectedItemGroup, ThisItem.Value)
+                )
             TemplateSize: =(Parent.Width / 4) - 10
             Width: =Parent.Width
             Y: =Parent.Height - Self.Height
@@ -532,7 +538,7 @@
                 PressedColor: =Color.Black
                 PressedFill: =Color.Transparent
                 Size: =16
-                Text: =ThisItem.Result
+                Text: =ThisItem.Value
                 Width: =152
                 ZIndex: =2
 
@@ -557,7 +563,7 @@
             Height: =40
             Icon: =Icon.Trash
             OnSelect: |
-                =UpdateContext({ctxShowQuantityControlForIs: Blank()});
+                =UpdateContext({ctxItemShowingQuantityControl: Blank()});
                 Clear(colSelectedItems);
                 
                 If(varAddItemsToCurrentOrder, 

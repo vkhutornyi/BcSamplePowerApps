@@ -1,4 +1,48 @@
 {
+  "6cb6806c-e815-4e58-8693-91bcb31c69e7": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "displayName": "Dynamics 365 Business Central",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/patches/1624/ase-v3-la-99-no-usgov/1.0.1624.3222/dynamicssmbsaas/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "POWERAPPSTEST,a0d54bf1-ffb7-ed11-a389-000d3a269d47": {
+        "dataSources": {
+          "companyInformation (v2.0)": {
+            "tableName": "companyInformation,v2.0"
+          },
+          "customersWithImage (microsoft/powerApps/beta)": {
+            "tableName": "customersWithImage,microsoft%252FpowerApps%252Fbeta"
+          },
+          "itemsWithImage (microsoft/powerApps/beta)": {
+            "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
+          },
+          "salesOrderLines (v2.0)": {
+            "tableName": "salesOrderLines,v2.0"
+          },
+          "salesOrders (v2.0)": {
+            "tableName": "salesOrders,v2.0"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "companyInformation (v2.0)",
+      "customersWithImage (microsoft/powerApps/beta)",
+      "itemsWithImage (microsoft/powerApps/beta)",
+      "salesOrders (v2.0)",
+      "salesOrderLines (v2.0)"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6cb6806c-e815-4e58-8693-91bcb31c69e7"
+  },
   "870dfb89-5a04-4c28-9b03-98ba7bf445bb": {
     "connectionParameters": {
       "logicAppHostType": "ARM",
@@ -21,7 +65,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
+          "value": "e96a8f85-c731-4347-b257-40b38013f6f2"
         }
       },
       "parameterHintsV2": {
@@ -32,7 +76,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
+          "value": "e96a8f85-c731-4347-b257-40b38013f6f2"
         }
       }
     },
@@ -53,33 +97,13 @@
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Dynamics 365 Business Central",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1617/1.0.1617.3171/dynamicssmbsaas/icon.png",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/patches/1624/ase-v3-la-99-no-usgov/1.0.1624.3222/dynamicssmbsaas/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
       "parameterHints": {},
       "parameterHintsV2": {}
     },
-    "datasets": {
-      "sandbox,a2db7307-078b-ed11-aad8-000d3a21edc2": {
-        "dataSources": {
-          "companyInformation (v2.0)": {
-            "tableName": "companyInformation,v2.0"
-          },
-          "customers (v2.0)": {
-            "tableName": "customers,v2.0"
-          },
-          "salesOrderLines (v2.0)": {
-            "tableName": "salesOrderLines,v2.0"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "salesOrders (v2.0)",
-      "itemsWithImage (microsoft/powerApps/beta)",
-      "companyInformation (v2.0)",
-      "customers (v2.0)",
-      "salesOrderLines (v2.0)"
-    ],
+    "datasets": {},
+    "dataSources": [],
     "dependencies": {},
     "dependents": [
       "870dfb89-5a04-4c28-9b03-98ba7bf445bb"
@@ -93,7 +117,7 @@
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Office 365 Users",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1618/1.0.1618.3179/office365users/icon.png",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/releases/ase-v3-99-la-only-no-gov/1.0.1622.3206/office365users/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_office365users",
       "parameterHints": {},
       "parameterHintsV2": {}

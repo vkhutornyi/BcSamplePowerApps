@@ -1,11 +1,8 @@
 App As appinfo:
     BackEnabled: =false
+    OnError: =
     OnStart: |
         =Set(
-            varDefaultScreenHeight,
-            812
-        );
-        Set(
             varCurrenScreenRatio,
             //App.Height / varDefaultScreenHeight
             1
@@ -35,4 +32,21 @@ App As appinfo:
             }
         );
         Set(varCurrencyFormat, "$#,##0.00");
+        
+        // Set up data
+        Set(varAddItemsToCurrentOrder, false);
+        Set(varActiveorderForSelectedTable, Blank());
+        Set(varSelectedTable, Blank());
+        
+        Clear(colSelectedItems); 
+        Clear(colCurrentOrder);
+        
+        ClearCollect(colItemGroup, "Full menu");
+        Concurrent(
+            Set(varUserName,Office365Users.MyProfile().DisplayName),
+            Set(varCompanyName,First('companyInformation (v2.0)').displayName),
+            Set(varTables, Filter('customersWithImage (microsoft/powerApps/beta)', IsTable));
+            Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
+        );
+    StartScreen: ='Start screen'
 
