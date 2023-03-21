@@ -3,7 +3,7 @@
   "templateUrl": "https://github.com/businesscentraldemos/AL-Go-PTE@PowerPlatform",
   "powerPlatformSolutionFolder": "BcSampleAppsSolution",
   "environments": [
-    "Dev",
+    "Dev (production)",
     "Staging"
   ],
   "DeployToDev": {
