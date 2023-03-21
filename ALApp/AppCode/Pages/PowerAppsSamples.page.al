@@ -3,7 +3,7 @@ page 51000 PowerAppsSamplePage
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'PowerApps Sample Page 2';
+    Caption = 'PowerApps Sample Page';
 
     layout
     {
