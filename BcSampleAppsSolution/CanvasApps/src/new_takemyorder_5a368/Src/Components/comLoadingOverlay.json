@@ -11,12 +11,19 @@
           {
             "AFDDataSourceName": "",
             "AutoRuleBindingEnabled": false,
-            "AutoRuleBindingString": "SampleImage",
+            "AutoRuleBindingString": "",
             "InvariantPropertyName": "Image",
             "IsLockable": false,
             "NameMapSourceSchema": "?"
           },
-          "ImagePosition",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "ImagePosition",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "ImageRotation",
           {
             "AFDDataSourceName": "",
@@ -34,8 +41,22 @@
             "IsLockable": false,
             "NameMapSourceSchema": "?"
           },
-          "Width",
-          "Height",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "Width",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "Height",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "Fill",
           "DisabledFill",
           "PressedFill",
@@ -76,13 +97,13 @@
         "Rules": [
           {
             "Category": "Data",
-            "InvariantScript": "'loading spinner'",
+            "InvariantScript": "'loading-spinner'",
             "Property": "Image",
             "RuleProviderType": "Unknown"
           },
           {
             "Category": "Design",
-            "InvariantScript": "ImagePosition.Fit",
+            "InvariantScript": "ImagePosition.Fill",
             "Property": "ImagePosition",
             "RuleProviderType": "Unknown"
           },
@@ -106,13 +127,13 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "196",
+            "InvariantScript": "300",
             "Property": "Width",
             "RuleProviderType": "Unknown"
           },
           {
             "Category": "Design",
-            "InvariantScript": "213",
+            "InvariantScript": "300",
             "Property": "Height",
             "RuleProviderType": "Unknown"
           },
@@ -295,7 +316,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638150238625715715",
+    "LastModifiedTimestamp": "638150793540864980",
     "Name": "comLoadingOverlay",
     "Rules": [
       {
@@ -354,7 +375,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638150238625715715",
+  "LastModifiedTimestamp": "638150793540864980",
   "Name": "b3dd31404fa9463fbc93ea675e93165d",
   "OverridableProperties": {},
   "Version": "638143320484491260"

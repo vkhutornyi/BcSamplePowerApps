@@ -1,16 +1,35 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |-
-        =Set(varTheme, {
+        =// Set theming constants
+        Set(varTheme, {
             font: Font.'Segoe UI',
             brandColor: ColorValue("#186CCB"),
             secondaryColor: ColorValue("#E2F8FF")
         });
         
+        // Set device contants
+        Set(varIsBrowser, IsBlank(Acceleration.X));
         
-        Set(varSizes, {
-            halfWidth: (App.Width/2)
         
-        });
-    StartScreen: =
+        // Load available warehouses
+        Set(varWarehouses, 'locations (v2.0)');
+        Set(varSelectedWarehouse, First(varWarehouses));
+        
+        // Load app state from local storage
+        Set(varAppStateKey, "BCWarehouseAppStateKey");
+        Set(varAppStateAvailable, true);
+        
+        // Check if local storage is available
+        IfError(LoadData(colStoredAppState, varAppStateKey), Set(varAppStateAvailable, false));
+        
+        // Check if entry exists
+        If(varAppStateAvailable, Set(varAppState, First(colStoredAppState)),Set(varAppState, Blank()));
+        
+        // Parse app state
+        If(Not(IsBlank(varAppState)), 
+            // See if local state warehouse is still available
+            IfError(Set(varSelectedWarehouse, LookUp(varWarehouses, id = varAppState.warehouse)), Set(varSelectedWarehouse, First(varWarehouses))         
+        ))
+    StartScreen: ='Start Screen'
 

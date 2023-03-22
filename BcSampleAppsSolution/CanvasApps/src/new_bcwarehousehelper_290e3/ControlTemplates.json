@@ -69,19 +69,19 @@
     "OverridableProperties": {},
     "Version": "2.1.0"
   },
-  "dropdown": {
+  "circle": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/dropdown",
+    "Id": "http://microsoft.com/appmagic/shapes/circle",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": false,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": true,
     "LastModifiedTimestamp": "0",
-    "Name": "dropdown",
+    "Name": "circle",
     "OverridableProperties": {},
-    "Version": "2.3.1"
+    "Version": "2.3.0"
   },
   "gallery": {
     "CustomGroupControlTemplateName": "",
@@ -124,6 +124,20 @@
     "Name": "groupContainer",
     "OverridableProperties": {},
     "Version": "1.1.0"
+  },
+  "htmlViewer": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/htmlViewer",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "htmlViewer",
+    "OverridableProperties": {},
+    "Version": "2.1.0"
   },
   "icon": {
     "CustomGroupControlTemplateName": "",

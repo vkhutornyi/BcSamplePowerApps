@@ -32,7 +32,7 @@
         Image2 As image:
             BorderColor: =RGBA(116, 116, 116, 1)
             BorderThickness: =2
-            Height: =136
+            Height: =92
             Image: =ThisItem.picture
             ImagePosition: =ImagePosition.Fill
             OnSelect: =Select(Parent)
@@ -40,9 +40,8 @@
             RadiusBottomRight: =20
             RadiusTopLeft: =20
             RadiusTopRight: =20
-            Width: =159
-            X: =81
-            Y: =12
+            X: =58
+            Y: =34
             ZIndex: =2
 
         Title1 As label:
@@ -55,8 +54,8 @@
             Text: =ThisItem.number
             VerticalAlign: =VerticalAlign.Top
             Width: =273
-            X: =302
-            Y: =20
+            X: =183
+            Y: =36
             ZIndex: =3
 
         Subtitle1 As label:
@@ -69,7 +68,7 @@
             Text: =ThisItem.displayName
             VerticalAlign: =VerticalAlign.Top
             Width: =Title1.Width
-            X: =302
+            X: =183
             Y: =72
             ZIndex: =4
 

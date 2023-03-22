@@ -46,17 +46,17 @@
         {
           "Category": "Design",
           "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
@@ -77,7 +77,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "Image2": {
+    "Image2_1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -161,7 +161,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Image2",
+      "Name": "Image2_1",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

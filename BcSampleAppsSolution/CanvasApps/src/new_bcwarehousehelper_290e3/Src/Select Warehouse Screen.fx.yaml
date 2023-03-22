@@ -1,0 +1,145 @@
+"'Select Warehouse Screen' As screen":
+    Fill: =varTheme.brandColor
+    OnVisible: |+
+        =
+        
+
+    conStartScreenContent_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =22
+
+        conSelectWarehouseHeader As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =80
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            icnSelectWarehouseBack As icon.ArrowLeft:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =30
+                Icon: =Icon.ChevronLeft
+                OnSelect: =Back(ScreenTransition.UnCoverRight);
+                Width: =120
+                ZIndex: =1
+
+            lblSelectedWarehouseHeader As label:
+                Color: =RGBA(255, 255, 255, 1)
+                FillPortions: =1
+                Font: =Font.'Segoe UI'
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =200
+                Size: =28
+                Text: ="Select warehouse"
+                Width: =560
+                X: =40
+                Y: =40
+                ZIndex: =2
+
+        recSelectWarehouseHeaderDivider As rectangle:
+            Fill: =Color.White
+            Height: =2
+            Width: =Parent.Width - 60
+            ZIndex: =3
+
+        "galWarehouses As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Default: =varSelectedWarehouse
+            Items: =varWarehouses
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            OnSelect: |-
+                =Set(varSelectedWarehouse, ThisItem);
+                
+                // Persists in local storage
+                ClearCollect(colStoredAppState, {warehouse: varSelectedWarehouse.Id});
+                IfError(SaveData(colStoredAppState, varAppStateKey), Set(varAppStateAvailable, false));
+                
+                Back(ScreenTransition.UnCoverRight);
+            TemplatePadding: =0
+            TemplateSize: =140
+            Width: =Parent.Width - 60
+            ZIndex: =4
+
+            recSelectWarehouseDivider As rectangle:
+                Fill: =RGBA(255, 255, 255, 0.5)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =1
+
+            conWarehouseInformation As groupContainer:
+                Height: =146
+                Width: =505
+                X: =75
+                ZIndex: =2
+
+                lblWarehouseLocation As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =36
+                    OnSelect: =
+                    Size: =21
+                    Text: =ThisItem.City
+                    Width: =425
+                    X: =40
+                    Y: =Parent.Height/2 
+                    ZIndex: =1
+
+                lblWarehouseName As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =36
+                    OnSelect: =
+                    Size: =21
+                    Text: =ThisItem.Name
+                    Width: =425
+                    X: =40
+                    Y: =Parent.Height/2 - Self.Height
+                    ZIndex: =2
+
+            conWarehouseSelectionStatus As groupContainer.manualLayoutContainer:
+                Height: =100
+                Width: =100
+                X: =5
+                Y: =Parent.TemplateHeight/2 - Self.Height/2
+                ZIndex: =3
+
+                cirWarehouseIndicator As circle:
+                    BorderColor: =Color.White
+                    BorderThickness: =If(ThisItem.IsSelected, 0 , 2)
+                    Fill: =If(ThisItem.IsSelected, Color.White, Color.Transparent)
+                    Height: =60
+                    OnSelect: =
+                    Width: =60
+                    X: =Parent.Width/2 - Self.Width/2
+                    Y: =Parent.Height/2 - Self.Height/2
+                    ZIndex: =1
+
+                "icnWarehouseIcon As icon.'3DPrinting'":
+                    Color: =If(ThisItem.IsSelected, varTheme.brandColor, Color.White)
+                    Height: =40
+                    Icon: =Icon.Home
+                    Width: =40
+                    X: =Parent.Width/2 - Self.Width/2
+                    Y: =Parent.Height/2 -Self.Height/2
+                    ZIndex: =2
+
+            btnWarehouseOverlay As button:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =Parent.TemplateHeight
+                HoverFill: =Color.Transparent
+                OnSelect: =Select(Parent)
+                PressedFill: =Color.Transparent
+                Size: =24
+                Text: =""
+                Width: =Parent.TemplateWidth
+                ZIndex: =4
+
