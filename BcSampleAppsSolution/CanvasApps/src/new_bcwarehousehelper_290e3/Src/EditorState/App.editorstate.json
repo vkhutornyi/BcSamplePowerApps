@@ -8,7 +8,14 @@
         "ConfirmExit",
         "SizeBreakpoints",
         "BackEnabled",
-        "StartScreen",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "StartScreen",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

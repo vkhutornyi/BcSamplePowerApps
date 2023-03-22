@@ -1,12 +1,10 @@
 "'Scan screen' As screen":
     Fill: =varTheme.secondaryColor
     OnVisible: |-
-        =Set(varIsBrowser, IsBlank(Acceleration.X));
-        
-        // Barcode scanner is only supported for devices
-        If(Not(varIsBrowser),
+        =// Barcode scanner is only supported for devices
+        If(And(Not(varIsBrowser)),
             Select(BarcodeScanner),
-            Select(btnNavigateToTest)
+            Select(btnNavigateToDebug)
         )
 
     BarcodeScanner As barcodeScanner:
@@ -17,10 +15,19 @@
         HoverBorderColor: =Color.Black
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(255, 255, 255, 1)
-        OnCancel: =Navigate('Start Page', ScreenTransition.Fade);
+        OnCancel: =Navigate('Start Screen', ScreenTransition.Fade);
         OnScan: |-
-            =Set(varScannedItem, LookUp('itemsWithImage (microsoft/powerApps/beta)', number = Self.Value ));
-            Navigate('Item Screen', ScreenTransition.Fade);
+            =UpdateContext({ctxErrorOnItemLookup: false});
+            Set(varScannedCode, Self.Value);
+            
+            IfError(Set(varScannedItem, LookUp('itemsWithImage (microsoft/powerApps/beta)', GTIN = Self.Value )), 
+                    UpdateContext({ctxErrorOnItemLookup: true})
+            );
+            
+            If(ctxErrorOnItemLookup, 
+                Navigate('Not Found Screen'), 
+                Navigate('Item Screen')
+            );
         RadiusBottomLeft: =350
         RadiusBottomRight: =350
         RadiusTopLeft: =350
@@ -31,13 +38,13 @@
         Width: =640
         ZIndex: =1
 
-    btnNavigateToTest As button:
+    btnNavigateToDebug As button:
         Height: =70
-        OnSelect: |-
+        OnSelect: |
             =If(
                 Not(Checkbox1.Value),
                 Navigate('Debug Screen')
-            )
+            );
         Size: =24
         Text: ="Button"
         Visible: =false
@@ -45,10 +52,16 @@
         Y: =1054
         ZIndex: =2
 
-    Icon8 As icon.CameraApertureFocus:
+    icnCamera As icon.CameraApertureFocus:
         Color: =varTheme.brandColor
         Height: =200
         Icon: =Icon.CameraAperture
+        OnSelect: |-
+            =// Barcode scanner is only supported for devices
+            If(Not(varIsBrowser),
+                Select(BarcodeScanner),
+                Navigate('Debug Screen')
+            )
         Width: =200
         X: =Parent.Width/2 - Self.Width/2
         Y: =Parent.Height/2 - Self.Height/2

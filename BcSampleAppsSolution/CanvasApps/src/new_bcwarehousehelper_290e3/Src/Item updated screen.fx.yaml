@@ -1,7 +1,7 @@
 "'Item updated screen' As screen":
     Fill: =varTheme.secondaryColor
 
-    Icon7 As icon.Check:
+    icnItemUpdatedSuccess As icon.Check:
         Color: =varTheme.brandColor
         Height: =220
         Icon: =Icon.Check
@@ -11,14 +11,15 @@
         Y: =Parent.Height/2 - Self.Height/2
         ZIndex: =1
 
-    Rectangle1 As rectangle:
+    recClickableOverlay As rectangle:
         Fill: =Color.Transparent
         Height: =1136
         OnSelect: =Navigate('Scan screen', ScreenTransition.Fade)
+        TabIndex: =0
         Width: =640
         ZIndex: =2
 
-    Timer1 As timer:
+    timerNavigateAway As timer:
         AutoStart: =true
         Duration: =3000
         Height: =70

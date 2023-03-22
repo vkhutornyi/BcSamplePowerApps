@@ -93,14 +93,14 @@
     "DocumentAppType": "Phone",
     "DocumentLayoutHeight": 1136,
     "DocumentLayoutLockOrientation": true,
-    "DocumentLayoutMaintainAspectRatio": true,
+    "DocumentLayoutMaintainAspectRatio": false,
     "DocumentLayoutOrientation": "portrait",
-    "DocumentLayoutScaleToFit": true,
+    "DocumentLayoutScaleToFit": false,
     "DocumentLayoutWidth": 640,
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "af12c332-9a89-43f1-854a-6991cb0cd288",
-    "Id": "6f127793-fc9a-43ae-b032-1f2f6bb30506",
+    "Id": "14f77541-b209-4b97-899d-1f0161564e1f",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "Name": "BC Warehouse Helper",
@@ -118,12 +118,15 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Start Page",
+    "Start Screen",
+    "Select Warehouse Screen",
     "Info Screen",
     "Item Screen",
     "Item updated screen",
     "Scan screen",
+    "Not Found Screen",
     "Debug Screen",
+    "Style Screen",
     "Test Screen"
   ]
 }
