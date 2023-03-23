@@ -25,10 +25,11 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             Height: =250
             Size: =21
             Text: |-
-                ="Take My Order is a Business Central sample app. Lorem ipsum dolor nunc est bibendum.
+                ="""Take your order"" is a Business Central sample app. Lorem ipsum dolor nunc est bibendum.
                 
                 Read more about Business Central sample apps here"
             Width: =500
@@ -39,6 +40,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             FontWeight: =FontWeight.Semibold
             Height: =70
             Size: =21

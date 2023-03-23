@@ -19,8 +19,9 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             Height: =36
-            Size: =21
+            Size: =24
             Text: =Sum(colSelectedItems, quantity)
             Width: =126
             X: =24
@@ -31,8 +32,9 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             Height: =36
-            Size: =21
+            Size: =22
             Text: |-
                 ="Items:"
             Width: =126
@@ -45,9 +47,10 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             Height: =39
-            Size: =21
-            Text: =Text(Sum(colSelectedItems, price * quantity), varCurrencyFormat)
+            Size: =24
+            Text: =Text(Sum(colSelectedItems, price * quantity), varCurrencyFormat, varBcLocale)
             Width: =196
             X: =413
             Y: =57
@@ -58,8 +61,9 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             Height: =36
-            Size: =21
+            Size: =22
             Text: |-
                 ="Total:"
             Width: =130
@@ -83,7 +87,7 @@
             OnSelect: =
             ShowScrollbar: =false
             TemplatePadding: =0
-            TemplateSize: =varTheme.rowHeight
+            TemplateSize: =140
             Width: =Parent.Width
             Y: =10
             ZIndex: =1
@@ -151,13 +155,13 @@
             lblItemDisplayName As label:
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
-                Height: =35
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
-                Size: =20
+                Size: =22
                 Text: =ThisItem.displayName
                 VerticalAlign: =VerticalAlign.Top
                 Width: =371
@@ -168,15 +172,16 @@
             lblItemPrice As label:
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =varTheme.font
                 Height: =35
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Size: =18
+                Size: =21
                 Text: |
-                    =Text(ThisItem.unitPrice, varCurrencyFormat)
+                    =Text(ThisItem.unitPrice, varCurrencyFormat, varBcLocale)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =300
                 X: =124
@@ -207,7 +212,8 @@
                 Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =varTheme.iconSizeSmall
+                FocusedBorderThickness: =0
+                Height: =60
                 Icon: =Icon.Add
                 OnSelect: |-
                     =// Clear quantity control if it is showing
@@ -243,9 +249,13 @@
                             {quantity: Value(btnQCQuantity.Text) + 1}
                         )
                     );
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
                 TabIndex: =0
                 Tooltip: ="View item details"
-                Width: =varTheme.iconSizeSmall
+                Width: =60
                 X: =Parent.Width - (icnAddItem.Width/2) - 50
                 Y: =(galItems.TemplateHeight /2) - (icnAddItem.Height /2)
                 ZIndex: =8
@@ -255,8 +265,9 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =varTheme.primaryColor
+                Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
-                Height: =varTheme.iconSizeBig
+                Height: =60
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =varTheme.primaryColor
                 OnSelect: |-
@@ -265,7 +276,7 @@
                 RadiusBottomRight: =35
                 RadiusTopLeft: =35
                 RadiusTopRight: =35
-                Size: =24
+                Size: =26
                 Text: =LookUp(colSelectedItems, id = ThisItem.id).quantity
                 Visible: |-
                     =// Does quantity have a value
@@ -273,7 +284,7 @@
                         Not(btnQuantity.Text = "0"),
                         Not(IsBlank(btnQuantity.Text))
                     )
-                Width: =varTheme.iconSizeBig
+                Width: =60
                 X: =Parent.Width - (btnQuantity.Width/2) - 50
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
                 ZIndex: =9
@@ -367,6 +378,7 @@
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     Fill: =varTheme.primaryColor
+                    Font: =varTheme.font
                     FontWeight: =FontWeight.Semibold
                     Height: =60
                     HoverColor: =RGBA(255, 255, 255, 1)
@@ -376,7 +388,7 @@
                     RadiusBottomRight: =35
                     RadiusTopLeft: =35
                     RadiusTopRight: =35
-                    Size: =24
+                    Size: =26
                     Text: =LookUp(colSelectedItems, id = ThisItem.id).quantity
                     Width: =60
                     X: =115
@@ -450,6 +462,7 @@
         DisabledFill: =RGBA(244, 244, 244, 1)
         DisplayMode: =If(Sum(colSelectedItems, quantity) > 0, DisplayMode.Edit, DisplayMode.Disabled)
         Fill: =varTheme.primaryColor
+        Font: =varTheme.font
         FontWeight: =FontWeight.Semibold
         Height: =70
         HoverColor: =RGBA(255, 255, 255, 1)
@@ -461,7 +474,7 @@
         RadiusBottomRight: =30
         RadiusTopLeft: =30
         RadiusTopRight: =30
-        Size: =20
+        Size: =24
         Text: ="Review"
         Visible: =Not(varAddItemsToCurrentOrder)
         Width: =280
@@ -558,6 +571,7 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =varTheme.primaryColor
             DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =varTheme.font
             Height: =65
             OnSelect: =
             Size: =30
@@ -571,7 +585,7 @@
             Color: =varTheme.primaryColor
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
-            Height: =40
+            Height: =60
             Icon: =Icon.Trash
             OnSelect: |
                 =UpdateContext({ctxItemShowingQuantityControl: Blank()});
@@ -583,8 +597,12 @@
                     , 
                     Navigate('Select table screen', ScreenTransition.UnCoverRight)
                 )
-            Width: =40
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Width: =60
             X: =Parent.Width - Self.Width - 25  
-            Y: =40
+            Y: =30
             ZIndex: =3
 
