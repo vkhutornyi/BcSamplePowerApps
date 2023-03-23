@@ -14,14 +14,14 @@
     "datasets": {
       "POWERAPPSTEST,a0d54bf1-ffb7-ed11-a389-000d3a269d47": {
         "dataSources": {
-          "companyInformation (v2.0)": {
-            "tableName": "companyInformation,v2.0"
-          },
           "customersWithImage (microsoft/powerApps/beta)": {
             "tableName": "customersWithImage,microsoft%252FpowerApps%252Fbeta"
           },
           "itemsWithImage (microsoft/powerApps/beta)": {
             "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
+          },
+          "localizationInformations (microsoft/powerApps/beta)": {
+            "tableName": "localizationInformations,microsoft%252FpowerApps%252Fbeta"
           },
           "salesOrderLines (v2.0)": {
             "tableName": "salesOrderLines,v2.0"
@@ -33,11 +33,11 @@
       }
     },
     "dataSources": [
-      "companyInformation (v2.0)",
       "customersWithImage (microsoft/powerApps/beta)",
       "itemsWithImage (microsoft/powerApps/beta)",
       "salesOrders (v2.0)",
-      "salesOrderLines (v2.0)"
+      "salesOrderLines (v2.0)",
+      "localizationInformations (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [],
@@ -109,25 +109,5 @@
       "870dfb89-5a04-4c28-9b03-98ba7bf445bb"
     ],
     "id": "aae83c9c-696b-45a6-8171-5eb3b316643e"
-  },
-  "edc50207-c5a7-44a8-a0b7-7120a20a896d": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Office 365 Users",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/releases/ase-v3-99-la-only/1.0.1622.3207/office365users/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365Users"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "edc50207-c5a7-44a8-a0b7-7120a20a896d"
   }
 }

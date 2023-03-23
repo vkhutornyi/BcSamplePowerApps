@@ -46,46 +46,6 @@
     "dependents": [],
     "id": "870dfb89-5a04-4c28-9b03-98ba7bf445bb"
   },
-  "d12d2ff4-7368-496c-b006-e50fd64afc64": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Office 365 Users",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/releases/ase-v3-99-la-only/1.0.1622.3207/office365users/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365-brugere"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "d12d2ff4-7368-496c-b006-e50fd64afc64"
-  },
-  "edc50207-c5a7-44a8-a0b7-7120a20a896d": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Office 365 Users",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/releases/ase-v3-99-la-only/1.0.1622.3207/office365users/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365Users"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "edc50207-c5a7-44a8-a0b7-7120a20a896d"
-  },
   "fc5cc552-9879-4472-be2f-2efce8c414bd": {
     "connectionParameters": {
       "sku": "Enterprise"
@@ -101,14 +61,14 @@
     "datasets": {
       "POWERAPPSTEST,a0d54bf1-ffb7-ed11-a389-000d3a269d47": {
         "dataSources": {
-          "companyInformation (v2.0)": {
-            "tableName": "companyInformation,v2.0"
-          },
           "items (v2.0)": {
             "tableName": "items,v2.0"
           },
           "itemsWithImage (microsoft/powerApps/beta)": {
             "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
+          },
+          "localizationInformations (microsoft/powerApps/beta)": {
+            "tableName": "localizationInformations,microsoft%252FpowerApps%252Fbeta"
           },
           "locations (v2.0)": {
             "tableName": "locations,v2.0"
@@ -119,8 +79,8 @@
     "dataSources": [
       "items (v2.0)",
       "itemsWithImage (microsoft/powerApps/beta)",
-      "companyInformation (v2.0)",
-      "locations (v2.0)"
+      "locations (v2.0)",
+      "localizationInformations (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [],

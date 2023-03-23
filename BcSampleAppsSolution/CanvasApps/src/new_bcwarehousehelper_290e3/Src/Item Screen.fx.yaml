@@ -39,12 +39,16 @@
 
             icnCloseItemScreen As icon.Cancel:
                 Color: =varTheme.brandColor
-                Height: =50
+                Height: =70
                 Icon: =Icon.Cancel
                 OnSelect: |-
                     =UpdateContext({ctxSubmitInprogress: true});
                     Select(btnTriggerBarcodeScanner);
-                Width: =50
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =70
                 X: =Parent.Width - Self.Width - 20
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =2
@@ -162,27 +166,35 @@
                 ZIndex: =1
 
             icnAddInventory As icon.Add:
-                Height: =40
+                Height: =60
                 Icon: =Icon.Add
                 OnSelect: |
                     =UpdateContext({ctxInventory: ctxInventory + 1, ctxAllowSubmit: true});
-                Width: =40
-                X: =Parent.Width -20 - Self.Width
-                Y: =20
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =60
+                X: =Parent.Width - Self.Width - 10
+                Y: =10
                 ZIndex: =3
 
             icnSubtractInventory As icon.HorizontalLine:
                 Color: =If(ctxInventory > 0, RGBA(0, 18, 107, 1), Color.DimGray)
-                Height: =40
+                Height: =60
                 Icon: =Icon.HorizontalLine
                 OnSelect: |-
                     =If(ctxInventory > 0,
                         UpdateContext({ctxInventory: ctxInventory - 1, ctxAllowSubmit: true}),
                         false
                     );
-                Width: =40
-                X: =20
-                Y: =20
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =60
+                X: =10
+                Y: =10
                 ZIndex: =4
 
             inpInventoryNumber As text:

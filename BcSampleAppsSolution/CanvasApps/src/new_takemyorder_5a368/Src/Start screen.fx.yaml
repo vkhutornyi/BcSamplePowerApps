@@ -76,7 +76,7 @@
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
                 Height: =50
-                Size: =varTheme.textSizeMedium
+                Size: =22
                 Text: =varUserName
                 Width: =Parent.Width
                 Y: =lblUserLabel.Height
@@ -89,7 +89,7 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 Height: =50
-                Size: =varTheme.textSizeSmall
+                Size: =20  
                 Text: |-
                     ="user:"
                 Width: =Parent.Width
@@ -119,7 +119,7 @@
             RadiusBottomRight: =30
             RadiusTopLeft: =30
             RadiusTopRight: =30
-            Size: =varTheme.textSizeMedium
+            Size: =24
             Text: ="Take Order"
             Width: =280
             X: =(Parent.Width / 2) - (btnStart.Width / 2)

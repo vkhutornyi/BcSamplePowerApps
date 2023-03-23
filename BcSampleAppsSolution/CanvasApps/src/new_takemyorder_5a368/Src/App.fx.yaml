@@ -13,38 +13,22 @@ App As appinfo:
                 font: Font.'Segoe UI',
                 primaryColor: ColorValue("#615B4C"),
                 secondaryColor: ColorValue("#FFFAEC"),    
-                dividerColor: ColorFade(RGBA(202, 202, 202, 1), 70%),
-               //Text
-                textSizeSmall: Round(16 * varCurrenScreenRatio, 0),
-                textSizeMedium: Round(20 * varCurrenScreenRatio, 0),
-                textSizeBig: Round(24 * varCurrenScreenRatio, 0),
-                textSizeExtraBig: Round(32 * varCurrenScreenRatio, 0),
-                //Icons
-                iconSizeSmall: Round(40 * varCurrenScreenRatio, 0),
-                iconSizeMedium: Round(50 * varCurrenScreenRatio, 0),
-                iconSizeBig: Round(60 * varCurrenScreenRatio, 0),
-                //Layout
-                smallSpace: Round(15 * varCurrenScreenRatio, 0),
-                bigSpace: Round(20 * varCurrenScreenRatio, 0),
-                rowHeight: Round(140 * varCurrenScreenRatio, 0),
-                topArea: Round(136 * varCurrenScreenRatio, 0),
-                bottomArea: Round(88 * varCurrenScreenRatio, 0)
+                dividerColor: ColorFade(RGBA(202, 202, 202, 1), 70%)
             }
         );
         
         // Set up data
         ClearCollect(colItemGroup, "Full menu");
         Concurrent(
-            Set(varUserName,Office365Users.MyProfile().DisplayName),
-            Set(varBcCompany,First('companyInformation (v2.0)')),
-            Set(varTables, Filter('customersWithImage (microsoft/powerApps/beta)', IsTable));
+            Set(varUserName,User().FullName),
+            Set(varBcCompany,First('localizationInformations (microsoft/powerApps/beta)')),
+            Set(varTables, Filter('customersWithImage (microsoft/powerApps/beta)', IsTable)),
             Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
         );
         
         // Get the BC locale 
         Set(varCurrencyFormat, "$#,##0.00");
-        Set(varBcCurrency, varBcCompany.'Currency Code');
-        Set(varBcLocale, varBcCompany.'Country/Region Code');
+        Set(varBcLocale, varBcCompany.powerAppLocale);
         Set(varCompanyName,varBcCompany.displayName);
     StartScreen: ='Start screen'
 

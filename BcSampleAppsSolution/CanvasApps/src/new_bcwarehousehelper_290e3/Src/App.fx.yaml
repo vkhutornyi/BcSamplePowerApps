@@ -8,8 +8,11 @@ App As appinfo:
             secondaryColor: ColorValue("#E2F8FF")
         });
         
-        // Load available warehouses
-        Set(varWarehouses, 'locations (v2.0)');
+        // Load Data
+        Concurrent(
+            Set(varWarehouses, 'locations (v2.0)'),
+            Set(varCompanyInformation, First('localizationInformations (microsoft/powerApps/beta)'));
+        );
         Set(varSelectedWarehouse, First(varWarehouses));
         
         // Load app state from local storage
@@ -17,15 +20,23 @@ App As appinfo:
         Set(varAppStateAvailable, true);
         
         // Check if local storage is available
-        IfError(LoadData(colStoredAppState, varAppStateKey), Set(varAppStateAvailable, false));
+        IfError(LoadData(colStoredAppState, varAppStateKey), 
+            Set(varAppStateAvailable, false)
+        );
         
         // Check if entry exists
-        If(varAppStateAvailable, Set(varAppState, First(colStoredAppState)),Set(varAppState, Blank()));
+        If(varAppStateAvailable, 
+            Set(varAppState, First(colStoredAppState))
+            ,
+            Set(varAppState, Blank())
+        );
         
         // Parse app state
         If(Not(IsBlank(varAppState)), 
             // See if local state warehouse is still available
-            IfError(Set(varSelectedWarehouse, LookUp(varWarehouses, id = varAppState.warehouse)), Set(varSelectedWarehouse, First(varWarehouses))         
+            IfError(Set(varSelectedWarehouse, LookUp(varWarehouses, id = varAppState.warehouse)), 
+                Set(varSelectedWarehouse, First(varWarehouses)
+            )         
         ))
     StartScreen: ='Start Screen'
 
