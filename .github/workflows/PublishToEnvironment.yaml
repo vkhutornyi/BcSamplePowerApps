@@ -99,16 +99,6 @@ jobs:
           parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
           artifactVersion: ${{ github.event.inputs.appVersion }}
 
-      - name: Deploy PowerPlatform
-        if: ${{ env.deployPP == 'true' }}
-        uses: BusinessCentralDemos/AL-Go-Actions/DeployPowerPlatform@PowerPlatform
-        with:
-          shell: powershell
-          parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
-          artifactPath: '.artifacts'
-          deploySettings: ${{ env.deployTo }} 
-          authSettings: ${{ env.authContext }}
-
       - name: Deploy AL
         uses: BusinessCentralDemos/AL-Go-Actions/Deploy@PowerPlatform
         env:
@@ -120,6 +110,17 @@ jobs:
           projects: ${{ env.projects }}
           environmentName: ${{ env.environmentName }}
           artifacts: ${{ github.event.inputs.appVersion }}
+          
+      - name: Deploy PowerPlatform
+        if: ${{ env.deployPP == 'true' }}
+        uses: BusinessCentralDemos/AL-Go-Actions/DeployPowerPlatform@PowerPlatform
+        with:
+          shell: powershell
+          parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
+          artifactPath: '.artifacts'
+          deploySettings: ${{ env.deployTo }} 
+          authSettings: ${{ env.authContext }}
+
 
   PostProcess:
     if: always()
