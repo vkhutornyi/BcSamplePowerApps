@@ -254,6 +254,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.conQuantityControl.icnQCRemoveItem.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.conQuantityControl.icnQCRemoveItem.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Select Items Screen",
+                "type": "'Select Items Screen'.conMid.galItems.conQuantityControl.icnQCRemoveItem"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.conQuantityControl.icnQCAddItem.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.conQuantityControl.icnQCAddItem.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Select Items Screen",
+                "type": "'Select Items Screen'.conMid.galItems.conQuantityControl.icnQCAddItem"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Debug screen'.Container1.Toggle1.AccessibleLabel"
                 }
               ],
@@ -284,19 +344,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Info screen'.Icon6_2.AccessibleLabel"
+                  "fullyQualifiedName": "'Info screen'.icnCloseInfoScreen.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Info screen'.Icon6_2.AccessibleLabel",
+                  "fullyQualifiedName": "'Info screen'.icnCloseInfoScreen.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Info screen",
-                "type": "'Info screen'.Icon6_2"
+                "type": "'Info screen'.icnCloseInfoScreen"
               }
             }
           ],
@@ -314,19 +374,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Info screen'.Icon6_2.TabIndex"
+                  "fullyQualifiedName": "'Info screen'.icnCloseInfoScreen.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Info screen'.Icon6_2.TabIndex",
+                  "fullyQualifiedName": "'Info screen'.icnCloseInfoScreen.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Info screen",
-                "type": "'Info screen'.Icon6_2"
+                "type": "'Info screen'.icnCloseInfoScreen"
               }
             }
           ],
@@ -404,19 +464,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order submitted screen'.Icon9.AccessibleLabel"
+                  "fullyQualifiedName": "'Action Success Screen'.icnSuccess.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order submitted screen'.Icon9.AccessibleLabel",
+                  "fullyQualifiedName": "'Action Success Screen'.icnSuccess.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Order submitted screen",
-                "type": "'Order submitted screen'.Icon9"
+                "module": "Action Success Screen",
+                "type": "'Action Success Screen'.icnSuccess"
               }
             }
           ],
@@ -434,19 +494,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order submitted screen'.Icon9.TabIndex"
+                  "fullyQualifiedName": "'Action Success Screen'.icnSuccess.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order submitted screen'.Icon9.TabIndex",
+                  "fullyQualifiedName": "'Action Success Screen'.icnSuccess.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Order submitted screen",
-                "type": "'Order submitted screen'.Icon9"
+                "module": "Action Success Screen",
+                "type": "'Action Success Screen'.icnSuccess"
               }
             }
           ],
@@ -464,19 +524,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnBack.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnBack.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnBack.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnBack.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.conTop_currentOrder.icnBack"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.conTop_currentOrder.icnBack"
               }
             }
           ],
@@ -494,19 +554,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnBack.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnBack.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnBack.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnBack.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.conTop_currentOrder.icnBack"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.conTop_currentOrder.icnBack"
               }
             }
           ],
@@ -524,19 +584,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnCancel.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnCancel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnCancel.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnCancel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.conTop_currentOrder.icnCancel"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.conTop_currentOrder.icnCancel"
               }
             }
           ],
@@ -554,19 +614,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnCancel.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnCancel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.conTop_currentOrder.icnCancel.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.conTop_currentOrder.icnCancel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.conTop_currentOrder.icnCancel"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.conTop_currentOrder.icnCancel"
               }
             }
           ],
@@ -584,49 +644,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.conDeleteDraftOrderDialog.btnDialogBackground.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.galCurrentOrder"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.conDeleteDraftOrderDialog.btnDialogBackground.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.galCurrentOrder"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.conDeleteDraftOrderDialog.btnDialogBackground"
               }
             }
           ],
@@ -644,19 +674,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.figItemOverlay_1.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.figItemOverlay_1.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.galCurrentOrder.figItemOverlay_1"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder"
               }
             }
           ],
@@ -674,19 +704,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.figItemOverlay_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.figItemOverlay_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.galCurrentOrder.figItemOverlay_1"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder"
               }
             }
           ],
@@ -704,19 +734,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.conHeader.recOverLay.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.conHeader.recOverLay.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.galCurrentOrder.conHeader.recOverLay"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1"
               }
             }
           ],
@@ -734,19 +764,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.conHeader.recOverLay.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Current Order Screen'.galCurrentOrder.conHeader.recOverLay.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Current Order Screen",
-                "type": "'Current Order Screen'.galCurrentOrder.conHeader.recOverLay"
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay"
               }
             }
           ],
@@ -824,19 +914,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetailsTop.icnCloseItemDetails.AccessibleLabel"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetailsTop.icnCloseItemDetails.AccessibleLabel",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetailsTop.icnCloseItemDetails"
+                "type": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails"
               }
             }
           ],
@@ -854,19 +944,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetailsTop.icnCloseItemDetails.TabIndex"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetailsTop.icnCloseItemDetails.TabIndex",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetailsTop.icnCloseItemDetails"
+                "type": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails"
               }
             }
           ],
@@ -944,6 +1034,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCRemoveItem_2.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCRemoveItem_2.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Item Details Screen",
+                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCRemoveItem_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCAddItem_2.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCAddItem_2.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Item Details Screen",
+                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCAddItem_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemImage.recItemQuantityOverlayMiddel.AccessibleLabel"
                 }
               ],
@@ -1004,6 +1154,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Item Details Screen",
+                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Item Details Screen",
+                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.recItemQuantityOverlayExtraInfo.AccessibleLabel"
                 }
               ],
@@ -1058,6 +1268,96 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varBcCurrency"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varBcCurrency",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varBcCurrency",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varBcLocale"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varBcLocale",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varBcLocale",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varStopAutoLoad"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varStopAutoLoad",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varStopAutoLoad",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
         }
       ],
       "tool": {
@@ -1097,6 +1397,40 @@
                 "level": "Medium",
                 "primaryCategory": "accessibility",
                 "whyFix": "People who use the keyboard with your app will not be able to access this element without a tab stop."
+              }
+            },
+            {
+              "id": "acc-FocusBorderShouldBeVisible",
+              "messageStrings": {
+                "issue": {
+                  "text": "Focus isn't showing"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Change the FocusedBorderThickness property to be more than 0."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "If the focus isn't visible, people who don't use a mouse won't be able to see it when they're interacting with the app."
+              }
+            },
+            {
+              "id": "app-UnusedVariables",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unused variable"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Remove the unused variable."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "This variable is declared but is not referenced by any control, so it is not needed."
               }
             }
           ],

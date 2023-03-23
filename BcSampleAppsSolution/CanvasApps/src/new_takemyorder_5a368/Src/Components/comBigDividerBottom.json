@@ -12,7 +12,14 @@
           "DisabledFill",
           "Font",
           "Color",
-          "Fill",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "Fill",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "BorderColor",
           "DisabledBorderColor",
           "PressedBorderColor",
@@ -105,11 +112,11 @@
         "Name": "HTMLDivider_1",
         "Parent": "comBigDividerBottom",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 150,
+        "PublishOrderIndex": 147,
         "Rules": [
           {
             "Category": "Data",
-            "InvariantScript": "\"<div style='\r\nheight: \" & Self.Height-1 & \"px;   \r\nwidth: 100%;   \r\nbackground: linear-gradient(0deg, rgba(48,49,51,0.1) 30%, rgba(48,49,51,0) 100%);\r\n'></div>\r\n\"",
+            "InvariantScript": "\"<div style='\r\nheight: \" & Self.Height -1 & \"px;   \r\nwidth: 100%;   \r\nbackground: linear-gradient(0deg, rgba(48,49,51,0.1) 30%, rgba(48,49,51,0) 100%);\r\n'></div>\r\n\"",
             "Property": "HtmlText",
             "RuleProviderType": "Unknown"
           },
@@ -187,7 +194,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "RGBA(255, 255, 255, 0)",
+            "InvariantScript": "RGBA(0, 0, 0, 0)",
             "Property": "Fill",
             "RuleProviderType": "Unknown"
           },
@@ -260,7 +267,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638150783792764183",
+    "LastModifiedTimestamp": "638151720276949806",
     "Name": "comBigDividerBottom",
     "Rules": [
       {
@@ -319,7 +326,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638150783792764183",
+  "LastModifiedTimestamp": "638151720276949806",
   "Name": "994ada8841c046348956657475c63a7b",
   "OverridableProperties": {},
   "TemplateOriginalName": "430876e924554e59ad42421ce08f66dc",

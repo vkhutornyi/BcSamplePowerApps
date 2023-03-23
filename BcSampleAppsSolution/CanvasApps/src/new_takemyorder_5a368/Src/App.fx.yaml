@@ -31,22 +31,20 @@ App As appinfo:
                 bottomArea: Round(88 * varCurrenScreenRatio, 0)
             }
         );
-        Set(varCurrencyFormat, "$#,##0.00");
         
         // Set up data
-        Set(varAddItemsToCurrentOrder, false);
-        Set(varActiveorderForSelectedTable, Blank());
-        Set(varSelectedTable, Blank());
-        
-        Clear(colSelectedItems); 
-        Clear(colCurrentOrder);
-        
         ClearCollect(colItemGroup, "Full menu");
         Concurrent(
             Set(varUserName,Office365Users.MyProfile().DisplayName),
-            Set(varCompanyName,First('companyInformation (v2.0)').displayName),
+            Set(varBcCompany,First('companyInformation (v2.0)')),
             Set(varTables, Filter('customersWithImage (microsoft/powerApps/beta)', IsTable));
             Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
         );
+        
+        // Get the BC locale 
+        Set(varCurrencyFormat, "$#,##0.00");
+        Set(varBcCurrency, varBcCompany.'Currency Code');
+        Set(varBcLocale, varBcCompany.'Country/Region Code');
+        Set(varCompanyName,varBcCompany.displayName);
     StartScreen: ='Start screen'
 

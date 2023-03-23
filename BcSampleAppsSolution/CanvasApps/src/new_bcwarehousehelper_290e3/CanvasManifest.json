@@ -93,9 +93,9 @@
     "DocumentAppType": "Phone",
     "DocumentLayoutHeight": 1136,
     "DocumentLayoutLockOrientation": true,
-    "DocumentLayoutMaintainAspectRatio": false,
+    "DocumentLayoutMaintainAspectRatio": true,
     "DocumentLayoutOrientation": "portrait",
-    "DocumentLayoutScaleToFit": false,
+    "DocumentLayoutScaleToFit": true,
     "DocumentLayoutWidth": 640,
     "DocumentType": "App",
     "EnableInstrumentation": false,
@@ -123,10 +123,7 @@
     "Info Screen",
     "Item Screen",
     "Item updated screen",
-    "Scan screen",
     "Not Found Screen",
-    "Debug Screen",
-    "Style Screen",
-    "Test Screen"
+    "Web scan test screen"
   ]
 }

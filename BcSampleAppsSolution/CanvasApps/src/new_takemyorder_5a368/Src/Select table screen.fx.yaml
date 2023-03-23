@@ -4,6 +4,12 @@
     OnVisible: |-
         =Clear(colTablesWithStatus);
         Clear(colCachedSalesOrdersForTables);
+        Clear(colSelectedItems);
+        Clear(colOrderSummary);
+        
+        Set(varSelectedItemGroup, Blank());
+        Set(varAddItemsToCurrentOrder, Blank());
+        Set(varActiveorderForSelectedTable, Blank());
         
         // Ensure sales orders inlcude latest changes
         Refresh('salesOrders (v2.0)');
@@ -11,15 +17,15 @@
         // Cache sales orders to avoid calling connector in ForAll and only load needed columns
         UpdateContext({ctxCachedSalesOrders: ShowColumns('salesOrders (v2.0)', "customerId", "number")});
         
-        ForAll(varTables, 
+        ForAll(varTables As table, 
             // Collect is the only storage allowed in ForAll
-            Collect(colCachedSalesOrdersForTables, LookUp(ctxCachedSalesOrders, customerId = id));
+            Collect(colCachedSalesOrdersForTables, LookUp(ctxCachedSalesOrders, customerId = table.id));
             Collect(colTablesWithStatus, {
-                id: ThisRecord.id,
-                displayName: ThisRecord.displayName,
-                free: IsBlank(LookUp(colCachedSalesOrdersForTables, customerId = id)),
-                orderNumber: LookUp(colCachedSalesOrdersForTables, customerId = id).number,
-                customerId: LookUp(colCachedSalesOrdersForTables, customerId = id).customerId    
+                id: table.id,
+                displayName: table.displayName,
+                free: IsBlank(LookUp(colCachedSalesOrdersForTables, customerId = table.id)),
+                orderNumber: LookUp(colCachedSalesOrdersForTables, customerId = table.id).number,
+                customerId: LookUp(colCachedSalesOrdersForTables, customerId = table.id).customerId    
             });
         ); 
 
@@ -40,7 +46,7 @@
             LayoutMinHeight: =70
             LayoutMinWidth: =560
             Size: =30
-            Text: ="Select Tables"
+            Text: ="Select table"
             Width: =Parent.Width
             X: =Parent.Width/2 - Self.Width/2
             Y: =20
@@ -60,27 +66,20 @@
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320
-            OnSelect: |
+            LoadingSpinner: =LoadingSpinner.Controls
+            OnSelect: |+
                 =Clear(colSelectedItems);
                 Set(varSelectedTable, ThisItem);
                 
                 If(varSelectedTable.free,
-                    Set(varActiveorderForSelectedTable, Blank()),
-                    Set(varActiveorderForSelectedTable, LookUp('salesOrders (v2.0)',number = varSelectedTable.orderNumber))
+                    Set(varActiveorderForSelectedTable, Blank());
+                    Navigate('Select Items Screen', ScreenTransition.Cover);
+                    ,
+                    Set(varActiveorderForSelectedTable, LookUp('salesOrders (v2.0)',number = varSelectedTable.orderNumber));
+                    Navigate('Order Summary Screen', ScreenTransition.Cover);    
                 );
                 
-                If(
-                    IsBlank(varActiveorderForSelectedTable),
-                    Navigate(
-                        'Select Items Screen',
-                        ScreenTransition.Cover
-                    ),
-                    Navigate(
-                        'Load Order screen',
-                        ScreenTransition.Cover
-                    );
-                    
-                );
+            ShowNavigation: =true
             TemplatePadding: =0
             TemplateSize: =120
             Y: =
@@ -113,6 +112,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
                 Height: =50
                 OnSelect: =Select(Parent)
                 Size: =21
@@ -147,13 +147,13 @@
 
             icnSelectTable As icon.ChevronRight:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =Color.DarkGray
+                Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =40
+                Height: =30
                 Icon: =Icon.ChevronRight
                 OnSelect: =Select(Parent)
-                Width: =40
+                Width: =30
                 X: =Parent.Width - Self.Width - 30
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
                 ZIndex: =12

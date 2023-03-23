@@ -1,8 +1,8 @@
-"'Order submitted screen' As screen":
+"'Action Success Screen' As screen":
     Fill: =varTheme.secondaryColor
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
 
-    Icon9 As icon.Check:
+    icnSuccess As icon.Check:
         BorderColor: =RGBA(32, 54, 71, 1)
         Color: =varTheme.primaryColor
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -15,7 +15,7 @@
         Y: =Parent.Height/2 - Self.Height/2
         ZIndex: =1
 
-    Timer1 As timer:
+    timeNavigateAway As timer:
         AutoStart: =true
         Duration: =2000
         Fill: =RGBA(100, 118, 132, 1)

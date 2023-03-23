@@ -4,50 +4,52 @@
         =UpdateContext({ctxItemDetailsImage: Blank()});
         UpdateContext({ctxItemDetailsImage: LookUp('itemsWithImage (microsoft/powerApps/beta)', id = ctxSelectedItem.id).picture});
 
-    conItemDetailsTop As groupContainer.manualLayoutContainer:
-        Height: =120
-        Width: =Parent.Width
-        ZIndex: =1
-
-        comBigDivider_1 As comBigDivider:
-            Height: =16  
-            Y: =Parent.Height - Self.Height
-
-        lblItemDetailsHeader As label:
-            Align: =Align.Center
-            BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =varTheme.primaryColor
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            Height: =65
-            OnSelect: =
-            Size: =30
-            Text: ="Item Details"
-            Width: =Parent.Width
-            Y: =25
-            ZIndex: =2
-
-        icnCloseItemDetails As icon.Lock:
-            BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =varTheme.primaryColor
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(244, 244, 244, 1)
-            Height: =40
-            Icon: =Icon.Cancel
-            OnSelect: |-
-                =UpdateContext({ctxShowItemQuantityControl: false});
-                Back(ScreenTransition.UnCoverRight);
-            Width: =40
-            X: =Parent.Width - Self.Width - 25  
-            Y: =40
-            ZIndex: =3
-
     conItemDetails As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height - conItemDetailsTop.Height
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
-        Y: =conItemDetailsTop.Height
         ZIndex: =3
+
+        conItemDetailsTop As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            Height: =120
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =1
+
+            comBigDivider_1 As comBigDivider:
+                Height: =16  
+                Y: =Parent.Height - Self.Height
+
+            lblItemDetailsHeader As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =varTheme.primaryColor
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =65
+                OnSelect: =
+                Size: =30
+                Text: ="Item Details"
+                Width: =Parent.Width
+                Y: =25
+                ZIndex: =2
+
+            icnCloseItemDetails As icon.Lock:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =varTheme.primaryColor
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =40
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({ctxShowItemQuantityControl: false});
+                    Back(ScreenTransition.UnCoverRight);
+                Width: =40
+                X: =Parent.Width - Self.Width - 25  
+                Y: =40
+                ZIndex: =3
 
         conItemMainInfo As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -56,12 +58,13 @@
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             Width: =Parent.Width
-            ZIndex: =1
+            ZIndex: =2
 
             Label1 As label:
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
                 Height: =70
                 Size: =21
                 Text: =ctxSelectedItem.displayName
@@ -233,6 +236,7 @@
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =0
                     Height: =50
                     Icon: =Icon.Add
                     OnSelect: |-
@@ -301,6 +305,7 @@
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =0
                     Height: =50
                     Icon: =Icon.HorizontalLine
                     OnSelect: |-
@@ -324,11 +329,11 @@
         conItemImage As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
-            Height: =400
+            Height: =420
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             Width: =Parent.Width
-            ZIndex: =2
+            ZIndex: =3
 
             htmlItemDetailsImageShadow As htmlViewer:
                 Height: =345
@@ -389,19 +394,81 @@
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =4
 
-            Label4 As label:
-                BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Height: =70
-                Size: =21
-                Text: =LookUp('itemsWithImage (microsoft/powerApps/beta)', id = ctxSelectedItem.id).GTIN
-                Width: =560
-                X: =15
-                Y: =65
+            conItemInfoLayout As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =30
+                PaddingRight: =30
+                Width: =Parent.Width
                 ZIndex: =1
+
+                lblItemAllergens As label:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =50
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =21
+                    Text: ="Allergens"
+                    Visible: =ctxSelectedItem.'Allergen Information' <> ""
+                    Width: =560
+                    X: =40
+                    Y: =40
+                    ZIndex: =1
+
+                txtItemAllergens As text:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ctxSelectedItem.'Allergen Information'
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =DisplayMode.View
+                    FocusedBorderThickness: =4
+                    Height: =100
+                    HoverBorderColor: =RGBA(32, 54, 71, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(205, 209, 213, 1)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    Size: =21
+                    Visible: =ctxSelectedItem.'Allergen Information' <> ""
+                    Width: =Parent.Width - 60
+                    X: =(Parent.Width - Self.Width) /2
+                    ZIndex: =2
+
+                txtItemLongDescription As text:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ctxSelectedItem.'Long Item Description'
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =DisplayMode.View
+                    FocusedBorderThickness: =4
+                    Height: =170
+                    HoverBorderColor: =RGBA(32, 54, 71, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(205, 209, 213, 1)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    Size: =21
+                    Width: =Parent.Width - 60
+                    X: =(Parent.Width - Self.Width) /2
+                    ZIndex: =3
 
             recItemQuantityOverlayExtraInfo As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
@@ -413,13 +480,4 @@
                 Width: =Parent.Width
                 X: =
                 ZIndex: =2
-
-        conItemAddNote As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
-            FillPortions: =0
-            Height: =100
-            LayoutMinHeight: =112
-            LayoutMinWidth: =250
-            Width: =Parent.Width
-            ZIndex: =5
 

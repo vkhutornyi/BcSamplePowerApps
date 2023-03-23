@@ -1,7 +1,12 @@
 "'Item Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
     Fill: =varTheme.secondaryColor
     OnVisible: |+
-        =UpdateContext({ctxInventory: 0, ctxAllowSubmit: false});
+        =UpdateContext({ctxInventory: 0, ctxAllowSubmit: false, ctxSubmitInprogress: false});
+        
+        If(ctxStartScan,
+            UpdateContext({ctxStartScan: false});
+            Select(btnTriggerBarcodeScanner);
+        );
         
 
     conItemScreenContent As groupContainer.verticalAutoLayoutContainer:
@@ -20,8 +25,10 @@
             LayoutMinWidth: =250
             ZIndex: =1
 
-            Label2 As label:
+            lblItemScreenHeader As label:
                 Align: =Align.Center
+                Font: =varTheme.font
+                FontWeight: =FontWeight.Semibold
                 Height: =80  
                 Size: =24
                 Text: =varSelectedWarehouse.displayName
@@ -30,11 +37,13 @@
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1
 
-            Icon1 As icon.Cancel:
+            icnCloseItemScreen As icon.Cancel:
                 Color: =varTheme.brandColor
                 Height: =50
                 Icon: =Icon.Cancel
-                OnSelect: =Navigate('Scan screen', ScreenTransition.Fade)
+                OnSelect: |-
+                    =UpdateContext({ctxSubmitInprogress: true});
+                    Select(btnTriggerBarcodeScanner);
                 Width: =50
                 X: =Parent.Width - Self.Width - 20
                 Y: =Parent.Height/2 - Self.Height/2
@@ -51,6 +60,7 @@
             Rectangle2 As rectangle:
                 Fill: =RGBA(163, 163, 163, 0.35)
                 Height: =imgItemImage.Height + 4
+                Visible: =false
                 Width: =imgItemImage.Width + 4
                 X: =imgItemImage.X - 2
                 ZIndex: =1
@@ -58,12 +68,37 @@
             imgItemImage As image:
                 BorderColor: =RGBA(149, 149, 149, 1)
                 Height: =400
-                Image: =varScannedItem.picture
+                Image: |-
+                    =If(varScannedItem.'Picture reference' = GUID("00000000-0000-0000-0000-000000000000"),
+                        placeholder
+                        ,
+                        varScannedItem.Picture  
+                    )
                 ImagePosition: =ImagePosition.Fill
                 Width: =300
                 X: =Parent.Width/2 - Self.Width/2
-                Y: =2
+                Y: =1
                 ZIndex: =2
+
+            htmlItemDetailsImageShadow As htmlViewer:
+                Height: =imgItemImage.Height + 2
+                HtmlText: |+
+                    ="<div style='
+                    height: " & Self.Height - 3 & "px;   
+                    width: " & Self.Width - 2 & "px;   
+                    box-shadow: 1px 1px 1px 1px gray;
+                    margin: 1px;
+                    '></div>
+                    "
+                    
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Tooltip: =
+                Width: =imgItemImage.Width + 2
+                X: =imgItemImage.X - 1
+                ZIndex: =3
 
         conItemDetails As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -77,21 +112,24 @@
 
             Label3 As label:
                 Align: =Align.Center
+                Font: =varTheme.font
+                FontWeight: =FontWeight.Semibold
                 Height: =70
-                Size: =21
-                Text: =varScannedItem.number & " " & varScannedItem.displayName
+                Size: =22
+                Text: =varScannedItem.displayName
                 Width: =454
                 X: =Parent.Width/2 - Self.Width/2
+                Y: =10
                 ZIndex: =1
 
             Label3_2 As label:
                 Align: =Align.Center
-                Height: =50
-                Size: =21
-                Text: =varScannedItem.baseUnitOfMeasureCode
-                Width: =400
+                Font: =varTheme.font
+                Size: =17
+                Text: =varScannedItem.baseUnitOfMeasureCode & "   |   " & varScannedItem.Number
+                Width: =300
                 X: =Parent.Width/2 - Self.Width/2
-                Y: =80
+                Y: =70
                 ZIndex: =2
 
         conInventoryControl As groupContainer.manualLayoutContainer:
@@ -105,7 +143,7 @@
             Y: =715
             ZIndex: =6
 
-            Button1 As button:
+            btnInventoryControlBackground As button:
                 BorderThickness: =0
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
@@ -123,7 +161,7 @@
                 Width: =300
                 ZIndex: =1
 
-            Icon2 As icon.Add:
+            icnAddInventory As icon.Add:
                 Height: =40
                 Icon: =Icon.Add
                 OnSelect: |
@@ -133,17 +171,21 @@
                 Y: =20
                 ZIndex: =3
 
-            Icon3 As icon.HorizontalLine:
+            icnSubtractInventory As icon.HorizontalLine:
+                Color: =If(ctxInventory > 0, RGBA(0, 18, 107, 1), Color.DimGray)
                 Height: =40
                 Icon: =Icon.HorizontalLine
                 OnSelect: |-
-                    =UpdateContext({ctxInventory: ctxInventory - 1, ctxAllowSubmit: true})
+                    =If(ctxInventory > 0,
+                        UpdateContext({ctxInventory: ctxInventory - 1, ctxAllowSubmit: true}),
+                        false
+                    );
                 Width: =40
                 X: =20
                 Y: =20
                 ZIndex: =4
 
-            TextInput1 As text:
+            inpInventoryNumber As text:
                 Align: =Align.Center
                 BorderThickness: =0
                 Color: =varTheme.brandColor
@@ -164,26 +206,26 @@
             BorderThickness: =0
             DisabledColor: =RGBA(255, 255, 255, 1)
             DisabledFill: =RGBA(237, 237, 237, 1)
-            DisplayMode: =If(ctxAllowSubmit, DisplayMode.Edit, DisplayMode.Disabled)
+            DisplayMode: = DisplayMode.Edit
             Fill: =varTheme.brandColor
+            Font: =varTheme.font
             Height: =220
             LayoutMinHeight: =70
             LayoutMinWidth: =280
-            OnSelect: |
-                =UpdateContext({ctxAllowSubmit: false, ctxSubmitInprogress: true});
+            OnSelect: |-
+                =UpdateContext({ctxShowLoadingScreen: true, ctxErrorUpdatingItem: false});
+                Set(varErrorOnPatch, false);
                 
-                
-                IfError(
-                    Patch('items (v2.0)', {id: varScannedItem.id}, {inventory: ctxInventory }),
-                    Set(varErrorOnPatch, true);
-                    Notify("Inventory update failed for " &varScannedItem.displayName & " " & FirstError.Message, NotificationType.Error)
+                IfError(Patch('items (v2.0)', {id: varScannedItem.id}, {inventory: ctxInventory }),
+                    UpdateContext({ctxErrorUpdatingItem: true});
+                    Notify("Inventory update failed for " &varScannedItem.displayName & " " & FirstError.Message, NotificationType.Error);
                 );
                 
-                If(Not(varErrorOnPatch), 
-                    Navigate('Item updated screen', ScreenTransition.Fade)
+                If(Not(ctxErrorUpdatingItem), 
+                    Navigate('Item updated screen', ScreenTransition.Fade);
                 );
                 
-                UpdateContext({ctxAllowSubmit: true, ctxSubmitInprogress: false});
+                UpdateContext({ctxShowLoadingScreen: false, ctxErrorUpdatingItem: false});
             RadiusBottomLeft: =Self.Width / 2
             RadiusBottomRight: =Self.Width / 2
             RadiusTopLeft: =Self.Width / 2
@@ -203,7 +245,57 @@
         Width: =Parent.Width
         ZIndex: =16
 
-        comLoadingOverlay_1 As comLoadingOverlay:
+        comLoadingOverlayItemSubmit As comLoadingOverlay:
             LayoutMinHeight: =640
             LayoutMinWidth: =640
+
+    BarcodeScanner As barcodeScanner:
+        BorderThickness: =0
+        Fill: =varTheme.brandColor
+        Font: =varTheme.font
+        FontWeight: =FontWeight.Normal
+        Height: =85
+        HoverBorderColor: =Color.Black
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        OnCancel: =Navigate('Start Screen', ScreenTransition.Fade);
+        OnScan: |-
+            =UpdateContext({ctxErrorOnItemLookup: false, ctxSubmitInprogress: true});
+            Set(varScannedCode, Self.Value);
+            
+            IfError(Set(varScannedItem, LookUp('itemsWithImage (microsoft/powerApps/beta)', GTIN = Self.Value )), 
+                    UpdateContext({ctxErrorOnItemLookup: true})
+            );
+            
+            If(Or(ctxErrorOnItemLookup, IsBlank(varScannedItem)), 
+                Navigate('Not Found Screen')
+                , 
+                UpdateContext({ctxSubmitInprogress: false});
+            );
+        RadiusBottomLeft: =350
+        RadiusBottomRight: =350
+        RadiusTopLeft: =350
+        RadiusTopRight: =350
+        Size: =22
+        Text: ="0"
+        Visible: =false
+        Width: =73
+        ZIndex: =17
+
+    btnTriggerBarcodeScanner As button:
+        Height: =70
+        OnSelect: |-
+            =Set(varIsBrowser, IsBlank(Acceleration.X));
+            If(varIsBrowser,
+                // Barcode scanner is only supported for devices - fallback to test page in web    
+                Navigate('Web scan test screen');
+                ,
+                UpdateContext({ctxSubmitInprogress: true, ctxInventory: 0});
+                Select(BarcodeScanner)
+            )
+        Size: =24
+        Text: ="Button"
+        Visible: =false
+        Width: =95
+        ZIndex: =18
 

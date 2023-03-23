@@ -14,7 +14,8 @@
     recClickableOverlay As rectangle:
         Fill: =Color.Transparent
         Height: =1136
-        OnSelect: =Navigate('Scan screen', ScreenTransition.Fade)
+        OnSelect: |-
+            =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
         TabIndex: =0
         Width: =640
         ZIndex: =2
@@ -23,7 +24,8 @@
         AutoStart: =true
         Duration: =3000
         Height: =70
-        OnTimerEnd: =Navigate('Scan screen', ScreenTransition.Fade)
+        OnTimerEnd: |-
+            =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
         Start: =true
         Visible: =false
         Width: =280

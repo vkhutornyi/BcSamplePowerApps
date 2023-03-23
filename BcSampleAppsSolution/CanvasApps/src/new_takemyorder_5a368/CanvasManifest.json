@@ -103,11 +103,11 @@
     "Id": "ebab0d7e-2376-42e3-8e64-4301ca0b94c0",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "Name": "Take My Order",
+    "Name": "Take Your Order",
     "OriginatingVersion": "1.326"
   },
   "PublishInfo": {
-    "AppName": "Take My Order",
+    "AppName": "Take Your Order",
     "BackgroundColor": "rgba(97, 91, 76, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "CheckList",
@@ -122,9 +122,8 @@
     "Info screen",
     "Select table screen",
     "Select Items Screen",
-    "Load Order screen",
-    "Current Order Screen",
-    "Order submitted screen",
+    "Order Summary Screen",
+    "Action Success Screen",
     "Item Details Screen",
     "Debug screen",
     "TODO"

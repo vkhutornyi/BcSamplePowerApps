@@ -6,10 +6,21 @@
         Height: =Parent.Height - 30
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutGap: =100
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
+
+        icnCloseNotFound As icon.Cancel:
+            AlignInContainer: =AlignInContainer.End
+            Height: =70
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
+            PaddingRight: =20
+            PaddingTop: =20
+            Width: =70
+            ZIndex: =1
 
         Label6 As label:
             Align: =Align.Center
@@ -20,35 +31,25 @@
             Size: =28
             Text: ="Item not found"
             Width: =560
-            ZIndex: =1
+            ZIndex: =2
+
+        Icon1 As icon.Bell:
+            Color: =varTheme.brandColor
+            Height: =200
+            Icon: =Icon.Error
+            Width: =200
+            ZIndex: =3
 
         Label7 As label:
-            FillPortions: =1
-            Height: =70
+            Align: =Align.Center
+            Height: =200
             LayoutMinHeight: =70
             LayoutMinWidth: =560
             Size: =21
-            Text: =varScannedCode
+            Text: |-
+                ="We could not find a item with a GTIN code that matches the scanned item
+                
+                Scanned code: " & varScannedCode
             Width: =560
-            ZIndex: =2
-
-        btnSubChanges_1 As button:
-            BorderThickness: =0
-            DisabledColor: =RGBA(255, 255, 255, 1)
-            DisabledFill: =RGBA(237, 237, 237, 1)
-            Fill: =varTheme.brandColor
-            Height: =220
-            LayoutMinHeight: =70
-            LayoutMinWidth: =280
-            OnSelect: =Navigate('Scan screen');
-            RadiusBottomLeft: =Self.Width / 2
-            RadiusBottomRight: =Self.Width / 2
-            RadiusTopLeft: =Self.Width / 2
-            RadiusTopRight: =Self.Width / 2
-            Size: =24
-            Text: ="Scan again"
-            Width: =220
-            X: =Parent.Width/2 - Self.Width/2
-            Y: =Parent.Height - Self.Height - 20
-            ZIndex: =3
+            ZIndex: =4
 

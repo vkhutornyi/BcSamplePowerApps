@@ -8,10 +8,6 @@ App As appinfo:
             secondaryColor: ColorValue("#E2F8FF")
         });
         
-        // Set device contants
-        Set(varIsBrowser, IsBlank(Acceleration.X));
-        
-        
         // Load available warehouses
         Set(varWarehouses, 'locations (v2.0)');
         Set(varSelectedWarehouse, First(varWarehouses));

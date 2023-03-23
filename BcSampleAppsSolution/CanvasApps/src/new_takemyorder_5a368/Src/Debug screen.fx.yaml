@@ -31,32 +31,6 @@
             Y: =327
             ZIndex: =3
 
-        Button2 As button:
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            Fill: =varTheme.primaryColor
-            FontWeight: =FontWeight.Semibold
-            Height: =70
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            LayoutMinHeight: =70
-            LayoutMinWidth: =280
-            OnSelect: |-
-                =Clear(colAvailableItems);
-                Clear(colCurrentOrder);
-                Clear(colCachedSalesOrdersForTables);
-                Clear(colSelectedItems);
-                Clear(colItemGroup);
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
-            Size: =24
-            Text: ="Clear data"
-            Width: =280
-            ZIndex: =4
-
     comBigDivider_3 As comBigDivider:
         Y: =120
         ZIndex: =2
