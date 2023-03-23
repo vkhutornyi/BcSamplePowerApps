@@ -47,7 +47,7 @@ codeunit 51001 PowerAppsDemoDataGenerator
         // Add item catagories
         AddItemCatagories('Warm drinks', 'warmDrinks');
         AddItemCatagories('Cold drinks', 'coldDrinks');
-        AddItemCatagories('Dessert', 'dessert');
+        AddItemCatagories('Food', 'food');
 
         // Add items
         AddItem('W0001', 'Caffè', 'warmDrinks', '', 'Hawaii dark roast has scents of cedar and roasted hazelnuts with flavors of chocolate, toasted nuts, and a tangy strawberry finish.', 2.00, itemImageCodeUnit.W0001_Caffe());
@@ -60,12 +60,12 @@ codeunit 51001 PowerAppsDemoDataGenerator
         AddItem('C0003', 'Coke Zero', 'coldDrinks', '', '25 cl Coke Zero with ice', 2.00, itemImageCodeUnit.C0003_Coke());
         AddItem('C0004', 'Frappuccino', 'coldDrinks', 'Lactose', 'Espresso with milk, crushed ice and whipped cream', 5.00, itemImageCodeUnit.C0004_Frappuccino());
         AddItem('C0005', 'Cold brew', 'coldDrinks', 'Lactose', 'Cold brewed coffee with crushed ice and milk', 3.00, itemImageCodeUnit.C0005_IceCoffee());
-        AddItem('P0001', 'Croissant', 'dessert', '', 'French croissant based on the recipe from ”Des substances alimentaires”, 1853', 2.50, itemImageCodeUnit.P0001_Croissant());
-        AddItem('P0002', 'Scone', 'dessert', 'Nuts, lactose, gluten', 'British scone with raisins served with butter and jam', 2.50, itemImageCodeUnit.P0002_Scone());
-        AddItem('P0003', 'Cinnamon bun', 'dessert', 'Lactose, gluten', 'Classic Swedish “kanelbulla” recipe with both ground cinnamon, cardamom and pearl sugar', 3.00, itemImageCodeUnit.P0003_CinnamonRoll());
-        AddItem('P0004', 'Chocolate muffin', 'dessert', 'Nuts, lactose, gluten', 'Moist American quickbread muffin with chocolate chip', 3.50, itemImageCodeUnit.P0004_ChocolateMuffin());
-        AddItem('P0005', 'Lemon tart', 'dessert', 'Lactose, gluten', 'Pastry base with lemon curd topped with meringue', 4.00, itemImageCodeUnit.P0005_LemonTart());
-        AddItem('P0006', 'Blueberry pie', 'dessert', 'Nuts, lactose, gluten', 'Hazelnut pie base with Finnish blueberry, vanilla cream, milk chocolate and mint', 4.00, itemImageCodeUnit.P0006_BlueberryPie());
+        AddItem('P0001', 'Croissant', 'food', '', 'French croissant based on the recipe from ”Des substances alimentaires”, 1853', 2.50, itemImageCodeUnit.P0001_Croissant());
+        AddItem('P0002', 'Scone', 'food', 'Nuts, lactose, gluten', 'British scone with raisins served with butter and jam', 2.50, itemImageCodeUnit.P0002_Scone());
+        AddItem('P0003', 'Cinnamon bun', 'food', 'Lactose, gluten', 'Classic Swedish “kanelbulla” recipe with both ground cinnamon, cardamom and pearl sugar', 3.00, itemImageCodeUnit.P0003_CinnamonRoll());
+        AddItem('P0004', 'Chocolate muffin', 'food', 'Nuts, lactose, gluten', 'Moist American quickbread muffin with chocolate chip', 3.50, itemImageCodeUnit.P0004_ChocolateMuffin());
+        AddItem('P0005', 'Lemon tart', 'food', 'Lactose, gluten', 'Pastry base with lemon curd topped with meringue', 4.00, itemImageCodeUnit.P0005_LemonTart());
+        AddItem('P0006', 'Blueberry pie', 'food', 'Nuts, lactose, gluten', 'Hazelnut pie base with Finnish blueberry, vanilla cream, milk chocolate and mint', 4.00, itemImageCodeUnit.P0006_BlueberryPie());
 
         AddItemUnitOfMeasure('W0001');
         AddItemUnitOfMeasure('W0002');
