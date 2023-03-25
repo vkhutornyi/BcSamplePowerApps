@@ -1,7 +1,18 @@
 "'Select table screen' As screen":
     Fill: =varTheme.secondaryColor
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
-    OnVisible: =Select(icnUpdateTables)
+    OnVisible: |-
+        =// Clear data
+        Clear(colCachedSalesOrdersForTables);
+        Clear(colSelectedItems);
+        Clear(colOrderSummary);
+        
+        Set(varSelectedItemGroup, Blank());
+        Set(varAddItemsToCurrentOrder, Blank());
+        Set(varActiveorderForSelectedTable, Blank());
+        
+        // Load table data
+        Select(icnUpdateTables)
 
     conSelecTableContent As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -40,25 +51,17 @@
                 OnSelect: |
                     =UpdateContext({ctxShowLoading: true});
                     
-                    Clear(colTableStatus);
-                    Clear(colCachedSalesOrdersForTables);
-                    Clear(colSelectedItems);
-                    Clear(colOrderSummary);
-                    
-                    Set(varSelectedItemGroup, Blank());
-                    Set(varAddItemsToCurrentOrder, Blank());
-                    Set(varActiveorderForSelectedTable, Blank());
-                    
                     // Ensure sales orders inlcude latest changes
                     Refresh('salesOrders (v2.0)');
                     
                     // Cache sales orders to avoid calling connector in ForAll and only load needed columns
                     UpdateContext({ctxCachedSalesOrders: ShowColumns('salesOrders (v2.0)', "customerId", "number")});
                     
+                    Clear(colTempTableStatus);
                     ForAll(varTables As table, 
-                        // Collect is the only storage allowed in ForAll
+                        // Only load the sales orders we need in the collection we lookup
                         Collect(colCachedSalesOrdersForTables, LookUp(ctxCachedSalesOrders, customerId = table.id));
-                        Collect(colTableStatus, {
+                        Collect(colTempTableStatus, {
                             id: table.id,
                             displayName: table.displayName,
                             free: IsBlank(LookUp(colCachedSalesOrdersForTables, customerId = table.id)),
@@ -67,7 +70,12 @@
                         });
                     ); 
                     
-                    UpdateContext({ctxShowLoading: false});
+                    ClearCollect(colTableStatus, colTempTableStatus);
+                    
+                    // Clear temporary variables
+                    Clear(colTempTableStatus);
+                    Clear(colCachedSalesOrdersForTables);
+                    UpdateContext({ctxShowLoading: false, ctxCachedSalesOrders: Blank()});
                 PaddingBottom: =30
                 PaddingLeft: =30
                 PaddingRight: =30

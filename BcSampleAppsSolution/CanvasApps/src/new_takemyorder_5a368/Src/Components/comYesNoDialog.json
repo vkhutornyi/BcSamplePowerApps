@@ -72,7 +72,7 @@
         "Name": "recBackgroundOverlay",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 144,
+        "PublishOrderIndex": 146,
         "Rules": [
           {
             "Category": "Design",
@@ -287,7 +287,7 @@
             "Name": "btnBackground",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 146,
+            "PublishOrderIndex": 148,
             "Rules": [
               {
                 "Category": "Data",
@@ -621,7 +621,7 @@
             "Name": "lblDialogMessage",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 147,
+            "PublishOrderIndex": 149,
             "Rules": [
               {
                 "Category": "Data",
@@ -1058,7 +1058,7 @@
                 "Name": "btnNo",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 149,
+                "PublishOrderIndex": 151,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1473,7 +1473,7 @@
                 "Name": "btnYes",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 150,
+                "PublishOrderIndex": 152,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1797,7 +1797,7 @@
             "Name": "conButtons",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 148,
+            "PublishOrderIndex": 150,
             "Rules": [
               {
                 "Category": "Design",
@@ -1983,7 +1983,7 @@
         "Name": "conDialog",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 145,
+        "PublishOrderIndex": 147,
         "Rules": [
           {
             "Category": "Design",
@@ -2126,7 +2126,7 @@
       "behaviorNo",
       "PrimaryColor"
     ],
-    "LastModifiedTimestamp": "638153415143970038",
+    "LastModifiedTimestamp": "638153450916127336",
     "Name": "comYesNoDialog",
     "Rules": [
       {
@@ -2247,7 +2247,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638153415143970038",
+  "LastModifiedTimestamp": "638153450916127336",
   "Name": "01906efe1f6b4ac885f5f6ea0fc7bf76",
   "OverridableProperties": {},
   "Version": "638153340657157122"

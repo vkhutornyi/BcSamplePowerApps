@@ -224,36 +224,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.figItemOverlay.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.figItemOverlay.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Select Items Screen",
-                "type": "'Select Items Screen'.conMid.galItems.figItemOverlay"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.figItemOverlay.AccessibleLabel"
                 }
               ],
@@ -278,6 +248,36 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.figItemOverlay.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Select Items Screen'.conMid.galItems.figItemOverlay.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Select Items Screen",
+                "type": "'Select Items Screen'.conMid.galItems.figItemOverlay"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -987,6 +987,66 @@
                 "member": "TabIndex",
                 "module": "Start screen",
                 "type": "'Start screen'.conStartScreenContent.icnLearnMore"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Item Details Screen",
+                "type": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Item Details Screen",
+                "type": "'Item Details Screen'.conItemDetails.conItemDetailsTop.icnCloseItemDetails"
               }
             }
           ],
