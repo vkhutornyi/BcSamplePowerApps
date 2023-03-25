@@ -100,7 +100,7 @@
                     Font: =varTheme.font
                     Height: =70
                     Size: =21
-                    Text: =varSelectedWarehouse.displayName
+                    Text: =varSelectedWarehouse.Name
                     Width: =Min(Len(Self.Text) * 17, 400)
                     X: =Parent.Width/2 - Self.Width/2 - icnLocationChrev.Width/2
                     Y: =Parent.Height/2 - Self.Height/2

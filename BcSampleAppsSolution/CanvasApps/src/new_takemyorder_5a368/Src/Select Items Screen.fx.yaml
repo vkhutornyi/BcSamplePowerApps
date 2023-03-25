@@ -82,7 +82,7 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
-            Items: =Filter(colAvailableItems, If(IsBlank(varSelectedItemGroup), true, itemCategoryName = varSelectedItemGroup))
+            Items: =Filter(colAvailableItems, If(IsBlank(varSelectedItemGroup), true, 'Item Category Name' = varSelectedItemGroup))
             Layout: =Layout.Vertical
             OnSelect: =
             ShowScrollbar: =false
@@ -162,7 +162,7 @@
                 PaddingLeft: =0
                 PaddingRight: =0
                 Size: =22
-                Text: =ThisItem.displayName
+                Text: =ThisItem.DisplayName
                 VerticalAlign: =VerticalAlign.Top
                 Width: =371
                 X: =124
@@ -181,7 +181,7 @@
                 PaddingTop: =0
                 Size: =21
                 Text: |
-                    =Text(ThisItem.unitPrice, varCurrencyFormat, varBcLocale)
+                    =Text(ThisItem.'Unit price', varCurrencyFormat, varBcLocale)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =300
                 X: =124
@@ -200,7 +200,7 @@
                         // Dismiss the quantity control
                         UpdateContext({ctxItemShowingQuantityControl: Blank()}),
                         // Open the selected Item
-                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem})
+                        Navigate('Item Details Screen', ScreenTransition.Cover, {ctxSelectedItem: ThisItem, ctxCallingPage: 'Select Items Screen'})
                     )
                 PressedFill: =Color.Transparent
                 Width: =Parent.TemplateWidth
@@ -212,8 +212,13 @@
                 Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(LookUp(colSelectedItems, id = ThisItem.id).quantity >= 99,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 FocusedBorderThickness: =0
-                Height: =60
+                Height: =80
                 Icon: =Icon.Add
                 OnSelect: |-
                     =// Clear quantity control if it is showing
@@ -249,13 +254,13 @@
                             {quantity: Value(btnQCQuantity.Text) + 1}
                         )
                     );
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
+                PaddingBottom: =20
+                PaddingLeft: =20
+                PaddingRight: =20
+                PaddingTop: =20
                 TabIndex: =0
                 Tooltip: ="View item details"
-                Width: =60
+                Width: =80
                 X: =Parent.Width - (icnAddItem.Width/2) - 50
                 Y: =(galItems.TemplateHeight /2) - (icnAddItem.Height /2)
                 ZIndex: =8
@@ -354,9 +359,14 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(202, 202, 202, 1)
+                    DisplayMode: |-
+                        =If(LookUp(colSelectedItems, id = ThisItem.id).quantity >= 99,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
                     FocusedBorderThickness: =0
-                    Height: =50
+                    Height: =70
                     Icon: =Icon.Add
                     OnSelect: |-
                         =Patch(
@@ -364,26 +374,32 @@
                             {id: ThisItem.id},
                             {quantity: Value(btnQCQuantity.Text) + 1}
                         )
+                    PaddingBottom: =15
+                    PaddingLeft: =15
+                    PaddingRight: =15
+                    PaddingTop: =15
                     TabIndex: =0
                     Tooltip: ="View item details"
-                    Width: =50
-                    X: =205
-                    Y: =11
+                    Width: =70
+                    X: =195
                     ZIndex: =3
 
                 btnQCQuantity As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisabledBorderColor: =Color.White
+                    DisabledColor: =Color.White
+                    DisabledFill: =varTheme.primaryColor
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =varTheme.primaryColor
                     Font: =varTheme.font
                     FontWeight: =FontWeight.Semibold
                     Height: =60
+                    HoverBorderColor: =Color.White
                     HoverColor: =RGBA(255, 255, 255, 1)
                     HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
                     OnSelect: =
+                    PressedBorderColor: =Color.White
                     RadiusBottomLeft: =35
                     RadiusBottomRight: =35
                     RadiusTopLeft: =35
@@ -424,9 +440,14 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(202, 202, 202, 1)
+                    DisplayMode: |-
+                        =If(LookUp(colSelectedItems, id = ThisItem.id).quantity <= 0,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
                     FocusedBorderThickness: =0
-                    Height: =50
+                    Height: =70
                     Icon: =Icon.HorizontalLine
                     OnSelect: |-
                         =If(
@@ -437,21 +458,25 @@
                                 {quantity: Value(btnQCQuantity.Text) - 1}
                             )
                         )
-                    PaddingLeft: =5
-                    PaddingRight: =5
+                    PaddingBottom: =15
+                    PaddingLeft: =15
+                    PaddingRight: =15
+                    PaddingTop: =15
                     TabIndex: =0
                     Tooltip: ="View item details"
-                    Width: =50
-                    X: =25
-                    Y: =11
+                    Width: =70
+                    X: =15
                     ZIndex: =6
 
         comSelectItemDividerButton As comBigDividerBottom:
+            Fill: =Color.Transparent
             Height: =16
+            Width: =Parent.Width
             Y: =Parent.Height - Self.Height
             ZIndex: =2
 
         comSelectItemsDivider As comBigDivider:
+            Fill: =Color.Transparent
             Height: =16
             Width: =Parent.Width
             ZIndex: =3
@@ -585,24 +610,52 @@
             Color: =varTheme.primaryColor
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
-            Height: =60
-            Icon: =Icon.Trash
-            OnSelect: |
-                =UpdateContext({ctxItemShowingQuantityControl: Blank()});
-                Clear(colSelectedItems);
-                
-                If(varAddItemsToCurrentOrder, 
-                    Set(varAddItemsToCurrentOrder, false);
-                    Navigate('Order Summary Screen', ScreenTransition.UnCover)
-                    , 
-                    Navigate('Select table screen', ScreenTransition.UnCoverRight)
+            Height: =100
+            Icon: |-
+                =If(Sum(colSelectedItems, quantity) > 0, 
+                    Icon.Trash,
+                    Icon.Cancel
                 )
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            Width: =60
-            X: =Parent.Width - Self.Width - 25  
-            Y: =30
+            OnSelect: |
+                =If(Sum(colSelectedItems, quantity) > 0, 
+                    //Show dialog
+                    UpdateContext({ctxShowDeleteItemSelectionDialog: true})
+                    ,
+                    UpdateContext({ctxItemShowingQuantityControl: Blank()});
+                    Clear(colSelectedItems);
+                
+                    If(varAddItemsToCurrentOrder, 
+                        Set(varAddItemsToCurrentOrder, false);
+                        Navigate('Order Summary Screen', ScreenTransition.UnCoverRight)
+                        , 
+                        Navigate('Select table screen', ScreenTransition.UnCoverRight)
+                    )    
+                );
+            PaddingBottom: =30
+            PaddingLeft: =30
+            PaddingRight: =30
+            PaddingTop: =30
+            Width: =100
+            X: =Parent.Width - Self.Width
+            Y: =3
             ZIndex: =3
+
+    comYesNoDialogDeleteDraft As comYesNoDialog:
+        behaviorNo: |-
+            =UpdateContext({ctxShowDeleteItemSelectionDialog: false});
+        behaviorYes: |-
+            =UpdateContext({ctxItemShowingQuantityControl: Blank(), ctxShowDeleteItemSelectionDialog: false});
+            Clear(colSelectedItems);
+            
+            If(varAddItemsToCurrentOrder, 
+                Set(varAddItemsToCurrentOrder, false);
+                Navigate('Order Summary Screen', ScreenTransition.UnCover)
+                , 
+                Navigate('Select table screen', ScreenTransition.UnCoverRight)
+            )
+        Height: =Parent.Height
+        PrimaryColor: =varTheme.primaryColor
+        Visible: =ctxShowDeleteItemSelectionDialog
+        Width: =Parent.Width
+        ZIndex: =6
 

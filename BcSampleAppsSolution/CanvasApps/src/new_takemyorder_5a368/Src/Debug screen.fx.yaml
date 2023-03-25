@@ -11,26 +11,6 @@
         Y: =156
         ZIndex: =1
 
-        Toggle1 As toggleSwitch:
-            BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =RGBA(0, 0, 0, 1)
-            FalseFill: =RGBA(128, 130, 133, 1)
-            FalseText: ="Auto load enabled"
-            HandleFill: =RGBA(255, 255, 255, 1)
-            Height: =60
-            LayoutMinHeight: =49
-            LayoutMinWidth: =154
-            OnChange: =Set(varStopAutoLoad, Self.Value)
-            Size: =21
-            TextPosition: =TextPosition.Left
-            Tooltip: ="Stop auto load"
-            TrueFill: =RGBA(100, 118, 132, 1)
-            TrueText: ="Auto load stopped"
-            Width: =457
-            X: =87
-            Y: =327
-            ZIndex: =3
-
     comBigDivider_3 As comBigDivider:
         Y: =120
         ZIndex: =2

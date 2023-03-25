@@ -12,7 +12,14 @@
           "DisabledFill",
           "Font",
           "Color",
-          "Fill",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "Fill",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "BorderColor",
           "DisabledBorderColor",
           "PressedBorderColor",
@@ -105,11 +112,11 @@
         "Name": "HTMLDivider",
         "Parent": "comBigDivider",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 146,
+        "PublishOrderIndex": 142,
         "Rules": [
           {
             "Category": "Data",
-            "InvariantScript": "\"<div style='\r\nheight: \" & Self.Height-1 & \"px;   \r\nwidth: 100%;   \r\nbackground: linear-gradient(180deg, rgba(48,49,51,0.1) 30%, rgba(48,49,51,0) 100%);\r\n'></div>\r\n\"",
+            "InvariantScript": "\"<div style='\r\nheight: \" & Self.Height - 1 &\"px;   \r\nwidth: 100%;   \r\nbackground: linear-gradient(180deg, rgba(48,49,51,0.1) 30%, rgba(48,49,51,0) 100%);\r\n'></div>\r\n\"",
             "Property": "HtmlText",
             "RuleProviderType": "Unknown"
           },
@@ -187,7 +194,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "RGBA(255, 255, 255, 0)",
+            "InvariantScript": "RGBA(0, 0, 0, 0)",
             "Property": "Fill",
             "RuleProviderType": "Unknown"
           },
@@ -260,7 +267,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638151720276948602",
+    "LastModifiedTimestamp": "638153415143967444",
     "Name": "comBigDivider",
     "Rules": [
       {
@@ -319,7 +326,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638151720276948602",
+  "LastModifiedTimestamp": "638153415143967444",
   "Name": "430876e924554e59ad42421ce08f66dc",
   "OverridableProperties": {},
   "Version": "638146385275533569"

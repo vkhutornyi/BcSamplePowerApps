@@ -1,0 +1,38 @@
+"'Loading Screen' As screen":
+    Fill: =varTheme.primaryColor
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: =
+
+    comLoadingOverlayLoadingScreen As comLoadingOverlay:
+
+    timeStartLoading As timer:
+        AutoStart: =true
+        BorderColor: =Color.Transparent
+        BorderThickness: =0
+        Duration: =1000
+        Fill: =Color.Transparent
+        Height: =Parent.Height
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: |
+            =// Set up data
+            ClearCollect(colItemGroup, "Full menu");
+            Concurrent(
+                Set(varUserName,User().FullName),
+                Set(varBcCompany,First('localizationInformations (microsoft/powerApps/beta)')),
+                Set(varTables, Filter('customersWithImage (microsoft/powerApps/beta)', IsTable)),
+                Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
+            );
+            
+            // Get the BC locale 
+            Set(varCurrencyFormat, "$#,##0.00");
+            Set(varBcLocale, varBcCompany.powerAppLocale);
+            Set(varCompanyName,varBcCompany.displayName);
+            
+            Navigate('Start screen', ScreenTransition.Fade);
+        OnTimerStart: =Select(Self);
+        Start: =true
+        Text: =
+        Width: =Parent.Width
+        ZIndex: =2
+

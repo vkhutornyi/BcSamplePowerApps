@@ -1,13 +1,71 @@
 "'Item Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
     Fill: =varTheme.secondaryColor
     OnVisible: |+
-        =UpdateContext({ctxInventory: 0, ctxAllowSubmit: false, ctxSubmitInprogress: false});
+        =UpdateContext({ctxInventory: 0, ctxShowLoadingScreen: false});
         
         If(ctxStartScan,
             UpdateContext({ctxStartScan: false});
             Select(btnTriggerBarcodeScanner);
         );
         
+
+    btnTriggerBarcodeScanner As button:
+        Height: =50
+        OnSelect: |-
+            =Set(varIsBrowser, IsBlank(Acceleration.X));
+            If(varIsBrowser,
+                // Barcode scanner is only supported for devices - fallback to test page in web    
+                Navigate('Web scan test screen');
+                ,
+                UpdateContext({ctxShowLoadingScreen: true, ctxInventory: 0});
+                Select(BarcodeScanner)
+            )
+        Size: =24
+        Text: ="Button"
+        Visible: =false
+        Width: =50
+        ZIndex: =1
+
+    BarcodeScanner As barcodeScanner:
+        BorderThickness: =0
+        Fill: =varTheme.brandColor
+        Font: =varTheme.font
+        FontWeight: =FontWeight.Normal
+        Height: =50
+        HoverBorderColor: =Color.Black
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        OnCancel: =Navigate('Start Screen', ScreenTransition.Fade);
+        OnScan: |-
+            =UpdateContext({ctxErrorOnItemLookup: false, ctxSubmitInprogress: true});
+            Set(varScannedCode, Self.Value);
+            
+            If(Len(varScannedCode) <= 14,
+                IfError(Set(varScannedItem, LookUp('itemsWithImage (microsoft/powerApps/beta)', GTIN = Self.Value )), 
+                    UpdateContext({ctxErrorOnItemLookup: true});
+                    Trace("Error trying to lookup item: "& Self.Value, NotificationType.Error, FirstError);
+                )
+                ,
+                UpdateContext({ctxErrorOnItemLookup: true});
+                Trace("Wrong code format: "& Self.Value, NotificationType.Error);
+            );
+            
+            
+            If(Or(ctxErrorOnItemLookup, IsBlank(varScannedItem)), 
+                Navigate('Not Found Screen')
+                , 
+                UpdateContext({ctxSubmitInprogress: false});
+                Navigate('Item updated screen', ScreenTransition.Fade);
+            );
+        RadiusBottomLeft: =350
+        RadiusBottomRight: =350
+        RadiusTopLeft: =350
+        RadiusTopRight: =350
+        Size: =22
+        Text: ="0"
+        Visible: =false
+        Width: =50
+        ZIndex: =2
 
     conItemScreenContent As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height - 40
@@ -16,7 +74,7 @@
         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
-        ZIndex: =15
+        ZIndex: =3
 
         conItemPageHeader As groupContainer.manualLayoutContainer:
             FillPortions: =0
@@ -31,7 +89,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =80  
                 Size: =24
-                Text: =varSelectedWarehouse.displayName
+                Text: =varSelectedWarehouse.Name
                 Width: =Parent.Width
                 X: =
                 Y: =Parent.Height/2 - Self.Height/2
@@ -120,7 +178,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =70
                 Size: =22
-                Text: =varScannedItem.displayName
+                Text: =varScannedItem.DisplayName
                 Width: =454
                 X: =Parent.Width/2 - Self.Width/2
                 Y: =10
@@ -205,7 +263,12 @@
                 Format: =TextFormat.Number
                 Height: =80
                 OnChange: |
-                    =UpdateContext({ctxInventory: Value(Self.Text), ctxAllowSubmit: true});
+                    =If(Value(Self.Text) < 0, 
+                        UpdateContext({ctxInventory: 0, ctxAllowSubmit: true});
+                        Reset(Self);
+                        ,
+                        UpdateContext({ctxInventory: Value(Self.Text), ctxAllowSubmit: true});
+                    );
                 OnSelect: |-
                     =UpdateContext({ctxAllowSubmit: true})
                 PaddingLeft: =5
@@ -225,19 +288,20 @@
             LayoutMinHeight: =70
             LayoutMinWidth: =280
             OnSelect: |-
-                =UpdateContext({ctxShowLoadingScreen: true, ctxErrorUpdatingItem: false});
-                Set(varErrorOnPatch, false);
+                =UpdateContext({ctxShowLoadingScreen: true, ctxShouldShowError: false});
                 
                 IfError(Patch('items (v2.0)', {id: varScannedItem.id}, {inventory: ctxInventory }),
-                    UpdateContext({ctxErrorUpdatingItem: true});
-                    Notify("Inventory update failed for " &varScannedItem.displayName & " " & FirstError.Message, NotificationType.Error);
+                    // Parse error message
+                    UpdateContext({ctxShouldShowError: true, ctxErrorMessage: Match(FirstError.Message, ":.*").FullMatch});
+                    Trace("Inventory update failed for " &varScannedItem.DisplayName, NotificationType.Error, FirstError);    
                 );
                 
-                If(Not(ctxErrorUpdatingItem), 
+                If(ctxShouldShowError, 
+                    Notify(Substitute(ctxErrorMessage, ":", ""), NotificationType.Error);   
+                    UpdateContext({ctxShowLoadingScreen: false, ctxErrorUpdatingItem: false});
+                    ,
                     Navigate('Item updated screen', ScreenTransition.Fade);
                 );
-                
-                UpdateContext({ctxShowLoadingScreen: false, ctxErrorUpdatingItem: false});
             RadiusBottomLeft: =Self.Width / 2
             RadiusBottomRight: =Self.Width / 2
             RadiusTopLeft: =Self.Width / 2
@@ -249,65 +313,7 @@
             Y: =Parent.Height - Self.Height - 20
             ZIndex: =7
 
-    conSubmitOverlay As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height
-        LayoutDirection: =LayoutDirection.Vertical
-        LayoutMode: =LayoutMode.Auto
-        Visible: =ctxSubmitInprogress
-        Width: =Parent.Width
-        ZIndex: =16
-
-        comLoadingOverlayItemSubmit As comLoadingOverlay:
-            LayoutMinHeight: =640
-            LayoutMinWidth: =640
-
-    BarcodeScanner As barcodeScanner:
-        BorderThickness: =0
-        Fill: =varTheme.brandColor
-        Font: =varTheme.font
-        FontWeight: =FontWeight.Normal
-        Height: =85
-        HoverBorderColor: =Color.Black
-        HoverColor: =RGBA(0, 0, 0, 1)
-        HoverFill: =RGBA(255, 255, 255, 1)
-        OnCancel: =Navigate('Start Screen', ScreenTransition.Fade);
-        OnScan: |-
-            =UpdateContext({ctxErrorOnItemLookup: false, ctxSubmitInprogress: true});
-            Set(varScannedCode, Self.Value);
-            
-            IfError(Set(varScannedItem, LookUp('itemsWithImage (microsoft/powerApps/beta)', GTIN = Self.Value )), 
-                    UpdateContext({ctxErrorOnItemLookup: true})
-            );
-            
-            If(Or(ctxErrorOnItemLookup, IsBlank(varScannedItem)), 
-                Navigate('Not Found Screen')
-                , 
-                UpdateContext({ctxSubmitInprogress: false});
-            );
-        RadiusBottomLeft: =350
-        RadiusBottomRight: =350
-        RadiusTopLeft: =350
-        RadiusTopRight: =350
-        Size: =22
-        Text: ="0"
-        Visible: =false
-        Width: =73
-        ZIndex: =17
-
-    btnTriggerBarcodeScanner As button:
-        Height: =70
-        OnSelect: |-
-            =Set(varIsBrowser, IsBlank(Acceleration.X));
-            If(varIsBrowser,
-                // Barcode scanner is only supported for devices - fallback to test page in web    
-                Navigate('Web scan test screen');
-                ,
-                UpdateContext({ctxSubmitInprogress: true, ctxInventory: 0});
-                Select(BarcodeScanner)
-            )
-        Size: =24
-        Text: ="Button"
-        Visible: =false
-        Width: =95
-        ZIndex: =18
+    comLoadingOverlayItemScreen As comLoadingOverlay:
+        Visible: =ctxShowLoadingScreen
+        ZIndex: =4
 

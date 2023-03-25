@@ -1,0 +1,13 @@
+"'Debug screen' As screen":
+
+    Button1 As button:
+        Height: =70
+        OnSelect: |
+            =Set(varTemp, Match("Text string: This is :a sample text.", ":.*"));
+        Size: =24
+        Text: ="Button"
+        Width: =280
+        X: =150
+        Y: =1066
+        ZIndex: =1
+

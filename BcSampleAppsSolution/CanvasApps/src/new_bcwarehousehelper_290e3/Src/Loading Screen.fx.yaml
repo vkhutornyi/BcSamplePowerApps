@@ -1,0 +1,48 @@
+"'Loading Screen' As screen":
+    Fill: =varTheme.brandColor
+    OnVisible: |+
+        =
+        
+
+    comLoadingOverlayLoadingScreen As comLoadingOverlay:
+
+    timeStartLoading As timer:
+        AutoStart: =true
+        BorderThickness: =0
+        Duration: =1000
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        HoverFill: =Color.Transparent
+        OnSelect: |-
+            =// Load Data
+            Concurrent(
+                Set(varWarehouses, 'locations (v2.0)'),
+                Set(varCompanyInformation, First('localizationInformations (microsoft/powerApps/beta)'));
+            );
+            
+            // Load app state from local storage
+            Set(varAppStateKey, "BCWarehouseAppStateKey");
+            Set(varAppStateAvailable, true);
+            
+            // Check if local storage is available
+            IfError(LoadData(colStoredAppState, varAppStateKey), 
+                Set(varAppStateAvailable, false)
+            );
+            
+            // Parse app state
+            If(Not(IsBlank(First(colStoredAppState))), 
+                // See if local state warehouse is still available
+                IfError(Set(varSelectedWarehouse, LookUp(varWarehouses, id = First(colStoredAppState).warehouse)), 
+                    Set(varSelectedWarehouse, First(varWarehouses))
+                )
+                ,
+                Set(varSelectedWarehouse, First(varWarehouses));
+            );
+            
+            Navigate('Start Screen', ScreenTransition.Fade);
+        OnTimerStart: =Select(Self);
+        Start: =true
+        Text: =
+        Width: =Parent.Width
+        ZIndex: =2
+
