@@ -5,7 +5,14 @@
       "ControlPropertyState": [
         "MinScreenHeight",
         "MinScreenWidth",
-        "ConfirmExit",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "ConfirmExit",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "SizeBreakpoints",
         "BackEnabled",
         {
@@ -22,6 +29,14 @@
           "AutoRuleBindingEnabled": false,
           "AutoRuleBindingString": "",
           "InvariantPropertyName": "StartScreen",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "ConfirmExitMessage",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         }
@@ -46,6 +61,11 @@
         {
           "Category": "Data",
           "PropertyName": "BackEnabled",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ConfirmExitMessage",
           "RuleProviderType": "Unknown"
         },
         {

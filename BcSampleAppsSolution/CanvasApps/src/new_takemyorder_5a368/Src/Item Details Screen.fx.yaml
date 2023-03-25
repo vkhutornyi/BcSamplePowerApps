@@ -1,8 +1,8 @@
 "'Item Details Screen' As screen":
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: |-
-        =UpdateContext({ctxItemDetailsImage: Blank()});
-        UpdateContext({ctxItemDetailsImage: LookUp('itemsWithImage (microsoft/powerApps/beta)', id = ctxSelectedItem.id).picture});
+        =UpdateContext({ctxItemDetails: Blank()});
+        UpdateContext({ctxItemDetails: LookUp('itemsWithImage (microsoft/powerApps/beta)', id = ctxSelectedItem.id)});
 
     conItemDetails As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -42,18 +42,21 @@
                 Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =60
+                Height: =100
                 Icon: =Icon.Cancel
                 OnSelect: |-
                     =UpdateContext({ctxShowItemQuantityControl: false});
-                    Back(ScreenTransition.UnCoverRight);
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
-                Width: =60
-                X: =Parent.Width - Self.Width - 25  
-                Y: =30
+                    If(ctxCallingPage = 'Order Summary Screen',
+                        Navigate('Order Summary Screen', ScreenTransition.Fade, {ctxCallingPage: 'Item Details Screen'})
+                        ,
+                        Back(ScreenTransition.Fade);
+                    );
+                PaddingBottom: =30
+                PaddingLeft: =30
+                PaddingRight: =30
+                PaddingTop: =30
+                Width: =100
+                X: =Parent.Width - Self.Width
                 ZIndex: =3
 
         conItemMainInfo As groupContainer.manualLayoutContainer:
@@ -73,7 +76,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =70
                 Size: =24
-                Text: =ctxSelectedItem.displayName
+                Text: =ctxItemDetails.DisplayName
                 Width: =465
                 X: =40
                 Y: =7
@@ -86,7 +89,7 @@
                 Font: =varTheme.font
                 Height: =70
                 Size: =24
-                Text: =Text(ctxSelectedItem.unitPrice, varCurrencyFormat, varBcLocale)
+                Text: =Text(ctxItemDetails.'Unit price', varCurrencyFormat, varBcLocale)
                 Width: =177
                 X: =40
                 Y: =50
@@ -98,7 +101,8 @@
                 Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =60
+                FocusedBorderThickness: =0
+                Height: =70
                 Icon: =Icon.Add
                 OnSelect: |-
                     =// Clear quantity control if it is showing
@@ -133,13 +137,13 @@
                             {quantity: Value(btnQCQuantity_2.Text) + 1}
                         )
                     );
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
+                PaddingBottom: =15
+                PaddingLeft: =15
+                PaddingRight: =15
+                PaddingTop: =15
                 TabIndex: =0
                 Tooltip: ="View item details"
-                Width: =60
+                Width: =70
                 X: =Parent.Width - (icnAddItem_2.Width/2) - 50
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =3
@@ -247,7 +251,12 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(219, 219, 219, 1)
+                    DisplayMode: |-
+                        =If(LookUp(colSelectedItems, id = ctxItemDetails.id).quantity >= 99,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
                     FocusedBorderThickness: =0
                     Height: =50
                     Icon: =Icon.Add
@@ -266,10 +275,10 @@
 
                 btnQCQuantity_2 As button:
                     BorderColor: =Color.White
-                    BorderThickness: =1
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =Color.White
+                    DisabledFill: =varTheme.primaryColor
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =varTheme.primaryColor
                     Font: =varTheme.font
                     FontWeight: =FontWeight.Semibold
@@ -317,7 +326,12 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(219, 219, 219, 1)
+                    DisplayMode: |-
+                        =If(LookUp(colSelectedItems, id = ctxItemDetails.id).quantity <= 0,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
                     FocusedBorderThickness: =0
                     Height: =50
                     Icon: =Icon.HorizontalLine
@@ -374,7 +388,7 @@
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Height: =320
-                Image: =ctxItemDetailsImage
+                Image: =ctxItemDetails.Picture
                 Width: =320
                 X: =40
                 Y: =40
@@ -429,7 +443,7 @@
                     LayoutMinWidth: =560
                     Size: =24
                     Text: ="Allergens"
-                    Visible: =ctxSelectedItem.'Allergen Information' <> ""
+                    Visible: =ctxItemDetails.'Allergen Information' <> ""
                     Width: =560
                     X: =40
                     Y: =40
@@ -440,7 +454,7 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
-                    Default: =ctxSelectedItem.'Allergen Information'
+                    Default: =ctxItemDetails.'Allergen Information'
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -456,7 +470,7 @@
                     Mode: =TextMode.MultiLine
                     PaddingLeft: =5
                     Size: =24
-                    Visible: =ctxSelectedItem.'Allergen Information' <> ""
+                    Visible: =ctxItemDetails.'Allergen Information' <> ""
                     Width: =Parent.Width - 60
                     X: =(Parent.Width - Self.Width) /2
                     ZIndex: =2
@@ -466,7 +480,7 @@
                     BorderColor: =RGBA(32, 54, 71, 1)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
-                    Default: =ctxSelectedItem.'Long Item Description'
+                    Default: =ctxItemDetails.'Long Item Description'
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)

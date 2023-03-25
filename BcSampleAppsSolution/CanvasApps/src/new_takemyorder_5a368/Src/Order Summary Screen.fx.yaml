@@ -1,59 +1,10 @@
 "'Order Summary Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
-    OnVisible: |
-        =UpdateContext({ctxShowLoadingScreen: true});
-        
-        // Map data from sales order if it exits for table
-        UpdateContext({ctxShouldLoadActiveOrder: And(Not(IsBlank(varActiveorderForSelectedTable)), Not(varAddItemsToCurrentOrder))});
-        If(ctxShouldLoadActiveOrder,
-            // Load lines for active table order
-            ClearCollect(colTempSalesOrderLines, Filter('salesOrderLines (v2.0)', documentId = varActiveorderForSelectedTable.id));
-        
-            // Find all unique Items from Sales orders
-            Clear(colUniqueItemFromOrder);
-            ForAll(Distinct(colTempSalesOrderLines, itemId), 
-                Collect(colUniqueItemFromOrder, LookUp('itemsWithImage (microsoft/powerApps/beta)', id = Value));
-            );
-        
-            // Add items to collection with sum quantity
-            Clear(colSelectedItems);
-            ForAll(colUniqueItemFromOrder As uniqueItem, 
-                Collect(colSelectedItems, {
-                    id: uniqueItem.id,
-                    name: uniqueItem.displayName,
-                    price: uniqueItem.unitPrice,
-                    group: uniqueItem.itemCategoryName,
-                    quantity: Sum(Filter(colTempSalesOrderLines, 'Item Id' = uniqueItem.id), Quantity),
-                    // Use placeholder image if the image is not provided
-                    image: If(
-                        uniqueItem.itemImageText = GUID("00000000-0000-0000-0000-000000000000"),
-                        placeholder,
-                        uniqueItem.picture
-                    )                        
-                });
-            );
+    OnVisible: |-
+        =If(ctxCallingPage <> 'Item Details Screen', 
+            UpdateContext({ctxCallingPage: 'Order Summary Screen'});
+            Select(btnLoadSummary);
         );
-        
-        
-        // Clear collections related to this page
-        Clear(colOrderSummary);
-        Clear(colCurrentOrderState_CollapsedGroups);
-        
-        // Map selected items into groups for current order
-        UpdateContext({ctxAllGroupsForCurrentOrder: ForAll(Distinct(colSelectedItems, group), {Result: ThisRecord.Value})});
-        ForAll(ctxAllGroupsForCurrentOrder,
-            // Add Group header item
-            Collect(colOrderSummary, {name: Result, id: GUID(), header: true});
-            // Set initial group state to collapsed
-            Collect(colCurrentOrderState_CollapsedGroups, {name: Result});
-            // All all items for group
-            Collect(colOrderSummary, Filter(colSelectedItems, And(group = Result, quantity > 0)))
-        );
-        
-        Collect(colOrderSummary, {id: GUID(), total: true});
-        
-        // Set state for page actions
-        UpdateContext({ctxHasOrderBeenCreated: Not(IsBlank(varActiveorderForSelectedTable)), ctxShowLoadingScreen: false});
 
     "galCurrentOrder As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
         BorderColor: =RGBA(32, 54, 71, 1)
@@ -67,7 +18,7 @@
         TemplatePadding: =0
         TemplateSize: =123
         Width: =Parent.Width
-        Y: =conTop_currentOrder.Height
+        Y: =conOrderSummaryHeader.Height
         ZIndex: =1
 
         grpRowContent As group:
@@ -82,6 +33,11 @@
                 BorderThickness: =1
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
+                        DisplayMode.View, 
+                        DisplayMode.Edit
+                    )
                 Height: =80
                 Image: =ThisItem.image
                 OnSelect: =Select(Parent)
@@ -98,6 +54,11 @@
             lblItemDisplayName_1 As label:
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: |-
+                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
+                        DisplayMode.View, 
+                        DisplayMode.Edit
+                    )
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -118,6 +79,11 @@
             lblItemPrice_1 As label:
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: |-
+                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
+                        DisplayMode.View, 
+                        DisplayMode.Edit
+                    )
                 Font: =varTheme.font
                 Height: =39
                 OnSelect: =Select(Parent)
@@ -140,6 +106,11 @@
                 Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
+                        DisplayMode.View, 
+                        DisplayMode.Edit
+                    )
                 Height: =70
                 Icon: =Icon.Add
                 OnSelect: |
@@ -169,6 +140,11 @@
 
             figItemSeparator_1 As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
+                DisplayMode: |-
+                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
+                        DisplayMode.View, 
+                        DisplayMode.Edit
+                    )
                 Fill: =varTheme.primaryColor
                 Height: =2
                 OnSelect: =Select(Parent)
@@ -182,6 +158,11 @@
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(Or(IsBlank(varActiveorderForSelectedTable), varAddItemsToCurrentOrder), 
+                        DisplayMode.Edit, 
+                        DisplayMode.View
+                    )
                 Fill: =varTheme.primaryColor
                 FontWeight: =FontWeight.Semibold
                 Height: =70
@@ -212,10 +193,10 @@
                 Height: =122
                 HoverFill: =Color.Transparent
                 OnSelect: |-
-                    =If(
-                        Not(IsBlank(ctxShowQuantityControlForIs)),
-                        UpdateContext({ctxShowQuantityControlForIs: Blank()}),
-                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem})
+                    =If(Not(IsBlank(ctxShowQuantityControlForIs)),
+                        UpdateContext({ctxShowQuantityControlForIs: Blank()})
+                        ,
+                        Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem, ctxCallingPage: 'Order Summary Screen'})
                     )
                 PressedFill: =Color.Transparent
                 Visible: =Not(IsBlank(ThisItem.quantity))
@@ -224,6 +205,11 @@
                 ZIndex: =15
 
             conQuantityControl_1 As groupContainer.manualLayoutContainer:
+                DisplayMode: |-
+                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
+                        DisplayMode.View, 
+                        DisplayMode.Edit
+                    )
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =galCurrentOrder.TemplateHeight - 5
                 Visible: =And(ctxShowQuantityControlForIs = ThisItem.id, ThisItem.IsSelected)
@@ -287,6 +273,7 @@
                     Color: =varTheme.primaryColor
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =0
                     Height: =50
                     Icon: =Icon.Add
                     OnSelect: |-
@@ -579,19 +566,19 @@
             
             // Align with warehouse helper error-handling (using iferror)
             If(IsBlankOrError(varCreatedSalesOrder), 
-                   Notify("An error happened while creating the order");
+                Notify("An error happened while creating the order");
                 ,
-                    ForAll(colSelectedItems,
-                        Collect(colLinePathResponse, 
-                                    Patch('salesOrderLines (v2.0)', Defaults('salesOrderLines (v2.0)'), 
-                                        {documentId: varCreatedSalesOrder.id, itemId: ThisRecord.id, quantity: ThisRecord.quantity}
-                                    )
-                        );
+                ForAll(colSelectedItems,
+                    Collect(colLinePathResponse, 
+                                Patch('salesOrderLines (v2.0)', Defaults('salesOrderLines (v2.0)'), 
+                                    {documentId: varCreatedSalesOrder.id, itemId: ThisRecord.id, quantity: ThisRecord.quantity}
+                                )
                     );
+                );
             
-                    ClearCollect(colSelectedItems, Blank());
-                    UpdateContext({ctxShowLoadingScreen: false});
-                    Navigate('Action Success Screen', ScreenTransition.Fade);
+                ClearCollect(colSelectedItems, Blank());
+                UpdateContext({ctxShowLoadingScreen: false});
+                Navigate('Action Success Screen', ScreenTransition.Fade);
             )
         RadiusBottomLeft: =30
         RadiusBottomRight: =30
@@ -662,7 +649,7 @@
             Y: =1
             ZIndex: =2
 
-    conTop_currentOrder As groupContainer:
+    conOrderSummaryHeader As groupContainer:
         Height: =173
         Width: =Parent.Width
         ZIndex: =6
@@ -725,10 +712,10 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(219, 219, 219, 1)
             DisplayMode: =If(Or(Not(ctxHasOrderBeenCreated), varAddItemsToCurrentOrder), DisplayMode.Edit, DisplayMode.Disabled)
             Height: =60
-            Icon: =Icon.Cancel
+            Icon: =Icon.Trash
             OnSelect: |-
                 =UpdateContext({ctxShowDeleteDraftDialog: true});
             PaddingBottom: =10
@@ -740,198 +727,119 @@
             Y: =20
             ZIndex: =6
 
-    conCheckOutDialog As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(166, 166, 166, 0.84)
+    comYesNoDialogCheckout As comYesNoDialog:
+        behaviorNo: |-
+            =UpdateContext({ctxShowCheckOutDialog: false});
+        behaviorYes: |-
+            =UpdateContext({ctxShowCheckOutDialog: false, ctxShowLoadingScreen: true});
+            
+            // Add error handling
+            PostBCSalesOrder.Run(varActiveorderForSelectedTable.id);
+            Clear(colSelectedItems);
+            Set(varSelectedTable, Blank());
+            Set(varAddItemsToCurrentOrder, false);
+            
+            UpdateContext({ctxShowLoadingScreen: false});
+            Navigate('Action Success Screen', ScreenTransition.Fade);
+        DialogText: ="Are you sure you want to checkout and close the order?"
         Height: =Parent.Height
+        PrimaryColor: =varTheme.primaryColor
         Visible: =ctxShowCheckOutDialog
         Width: =Parent.Width
-        ZIndex: =7
+        ZIndex: =10
 
-        Button1 As button:
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =DisplayMode.Disabled
-            Fill: =RGBA(100, 118, 132, 1)
-            FontWeight: =FontWeight.Semibold
-            Height: =300
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            Size: =24
-            Text: =""
-            Width: =500
-            X: =Parent.Width/2 - Self.Width/2
-            Y: =Parent.Height/2 - Self.Height/2
-            ZIndex: =1
-
-        btnCheckoutYes As button:
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(Sum(colSelectedItems, quantity), DisplayMode.Edit, DisplayMode.Disabled)
-            Fill: =varTheme.primaryColor
-            FontWeight: =FontWeight.Semibold
-            Height: =70
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            OnSelect: |-
-                =UpdateContext({ctxShowCheckOutDialog: false});
-                UpdateContext({ctxShowLoadingScreen: true});
-                
-                // Add error handling
-                PostBCSalesOrder.Run(varActiveorderForSelectedTable.id);
-                Clear(colSelectedItems);
-                Set(varSelectedTable, Blank());
+    comYesNoDialogDelete As comYesNoDialog:
+        behaviorNo: |-
+            =UpdateContext({ctxShowDeleteDraftDialog: false});
+        behaviorYes: |+
+            =Clear(colOrderSummary);
+            Clear(colSelectedItems);
+            If(varAddItemsToCurrentOrder, 
                 Set(varAddItemsToCurrentOrder, false);
-                
-                UpdateContext({ctxShowLoadingScreen: false});
-                Navigate('Action Success Screen', ScreenTransition.Fade);
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
-            Size: =20
-            Text: ="Yes"
-            Width: =188
-            X: =351
-            Y: =620
-            ZIndex: =2
-
-        btnCheckoutNo As button:
-            BorderColor: =varTheme.primaryColor
-            Color: =varTheme.primaryColor
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(Sum(colSelectedItems, quantity), DisplayMode.Edit, DisplayMode.Disabled)
-            Fill: =Color.White
-            FontWeight: =FontWeight.Semibold
-            Height: =70
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            OnSelect: |-
-                =UpdateContext({ctxShowCheckOutDialog:false});
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
-            Size: =20
-            Text: ="No"
-            Width: =188
-            X: =108
-            Y: =620
-            ZIndex: =3
-
-        Label8 As label:
-            Align: =Align.Center
-            BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =RGBA(0, 0, 0, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            Height: =125
-            Size: =21
-            Text: ="Are you sure you want to checkout and close the order?"
-            Width: =431
-            X: =108
-            Y: =449
-            ZIndex: =4
-
-    conDeleteDraftOrderDialog As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(166, 166, 166, 0.84)
+                Select(btnLoadSummary);
+                ,
+                Set(varActiveorderForSelectedTable, Blank());
+                Navigate('Select table screen', ScreenTransition.UnCoverRight);
+            );
+            UpdateContext({ctxShowDeleteDraftDialog: false});
+            
+        DialogText: ="""Are you sure you want to cancel the draft order?"""
         Height: =Parent.Height
+        PrimaryColor: =varTheme.primaryColor
         Visible: =ctxShowDeleteDraftDialog
         Width: =Parent.Width
-        ZIndex: =8
+        ZIndex: =11
 
-        btnDialogBackground As button:
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =DisplayMode.Disabled
-            Fill: =RGBA(100, 118, 132, 1)
-            FontWeight: =FontWeight.Semibold
-            Height: =300
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            Size: =24
-            TabIndex: =-1
-            Text: =""
-            Width: =500
-            X: =Parent.Width/2 - Self.Width/2
-            Y: =Parent.Height/2 - Self.Height/2
-            ZIndex: =1
-
-        btnCancelDraftYes As button:
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(Sum(colSelectedItems, quantity), DisplayMode.Edit, DisplayMode.Disabled)
-            Fill: =varTheme.primaryColor
-            FontWeight: =FontWeight.Semibold
-            Height: =70
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            OnSelect: |+
-                =Clear(colOrderSummary);
-                Clear(colSelectedItems);
-                If(varAddItemsToCurrentOrder, 
-                    Set(varAddItemsToCurrentOrder, false);
-                    Navigate('Order Summary Screen', ScreenTransition.Fade);
-                    ,
-                    Set(varActiveorderForSelectedTable, Blank());
-                    Navigate('Select table screen', ScreenTransition.UnCoverRight);
-                );
-                UpdateContext({ctxShowDeleteDraftDialog: false});
-                
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
-            Size: =20
-            Text: ="Yes"
-            Width: =188
-            X: =351
-            Y: =620
-            ZIndex: =2
-
-        btnCancelDraftNo As button:
-            BorderColor: =varTheme.primaryColor
-            Color: =varTheme.primaryColor
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(Sum(colSelectedItems, quantity), DisplayMode.Edit, DisplayMode.Disabled)
-            Fill: =Color.White
-            FontWeight: =FontWeight.Semibold
-            Height: =70
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-            OnSelect: |-
-                =UpdateContext({ctxShowDeleteDraftDialog:false});
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
-            Size: =20
-            Text: ="No"
-            Width: =188
-            X: =108
-            Y: =620
-            ZIndex: =3
-
-        lblDeleteDraftMessage As label:
-            Align: =Align.Center
-            BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =RGBA(0, 0, 0, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            Height: =125
-            Size: =21
-            Text: ="Are you sure you want to cancel the draft order?"
-            Width: =431
-            X: =108
-            Y: =449
-            ZIndex: =4
-
-    comLoadingCurrentOrderOverlay As comLoadingOverlay:
+    comLoadingOverlaySummaryScreen As comLoadingOverlay:
         Visible: =ctxShowLoadingScreen
-        ZIndex: =9
+        ZIndex: =12
+
+    btnLoadSummary As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(100, 118, 132, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        OnSelect: |
+            =UpdateContext({ctxShowLoadingScreen: true});
+            
+            // Map data from sales order if it exits for table
+            UpdateContext({ctxShouldLoadActiveOrder: And(Not(IsBlank(varActiveorderForSelectedTable)), Not(varAddItemsToCurrentOrder))});
+            If(ctxShouldLoadActiveOrder,
+                // Load lines for active table order
+                ClearCollect(colTempSalesOrderLines, Filter('salesOrderLines (v2.0)', documentId = varActiveorderForSelectedTable.id));
+            
+                // Find all unique Items from Sales orders
+                Clear(colUniqueItemFromOrder);
+                ForAll(Distinct(colTempSalesOrderLines, itemId), 
+                    Collect(colUniqueItemFromOrder, LookUp('itemsWithImage (microsoft/powerApps/beta)', id = Value));
+                );
+            
+                // Add items to collection with sum quantity
+                Clear(colSelectedItems);
+                ForAll(colUniqueItemFromOrder As uniqueItem, 
+                    Collect(colSelectedItems, {
+                        id: uniqueItem.id,
+                        name: uniqueItem.displayName,
+                        price: uniqueItem.unitPrice,
+                        group: uniqueItem.itemCategoryName,
+                        quantity: Sum(Filter(colTempSalesOrderLines, 'Item Id' = uniqueItem.id), Quantity),
+                        // Use placeholder image if the image is not provided
+                        image: If(
+                            uniqueItem.itemImageText = GUID("00000000-0000-0000-0000-000000000000"),
+                            placeholder,
+                            uniqueItem.picture
+                        )                        
+                    });
+                );
+            );
+            
+            
+            // Clear collections related to this page
+            Clear(colOrderSummary);
+            Clear(colCurrentOrderState_CollapsedGroups);
+            
+            // Map selected items into groups for current order
+            UpdateContext({ctxAllGroupsForCurrentOrder: ForAll(Distinct(colSelectedItems, group), {Result: ThisRecord.Value})});
+            ForAll(ctxAllGroupsForCurrentOrder,
+                // Add Group header item
+                Collect(colOrderSummary, {name: Result, id: GUID(), header: true});
+                // Set initial group state to collapsed
+                Collect(colCurrentOrderState_CollapsedGroups, {name: Result});
+                // All all items for group
+                Collect(colOrderSummary, Filter(colSelectedItems, And(group = Result, quantity > 0)))
+            );
+            
+            Collect(colOrderSummary, {id: GUID(), total: true});
+            
+            // Set state for page actions
+            UpdateContext({ctxHasOrderBeenCreated: Not(IsBlank(varActiveorderForSelectedTable)), ctxShowLoadingScreen: false});
+        Size: =24
+        Text: =""
+        Visible: =false
+        Width: =50
+        ZIndex: =13
 

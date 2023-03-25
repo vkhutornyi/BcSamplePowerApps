@@ -28,9 +28,7 @@
                 PaddingLeft: =30
                 PaddingRight: =30
                 Size: =28
-                Text: |-
-                    ="Web scan placeholder 
-                     only for test"
+                Text: ="Debug screen - only web"
                 Width: =Parent.Width
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1

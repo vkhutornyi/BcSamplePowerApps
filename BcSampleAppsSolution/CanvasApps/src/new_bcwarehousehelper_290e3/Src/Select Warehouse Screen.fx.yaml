@@ -77,7 +77,7 @@
             conWarehouseInformation As groupContainer:
                 Height: =146
                 Width: =505
-                X: =75
+                X: =conWarehouseSelectionStatus.Width
                 ZIndex: =2
 
                 lblWarehouseLocation As label:
@@ -88,7 +88,6 @@
                     Size: =21
                     Text: =ThisItem.City
                     Width: =425
-                    X: =40
                     Y: =Parent.Height/2 
                     ZIndex: =1
 
@@ -100,7 +99,6 @@
                     Size: =21
                     Text: =ThisItem.Name
                     Width: =425
-                    X: =40
                     Y: =Parent.Height/2 - Self.Height
                     ZIndex: =2
 

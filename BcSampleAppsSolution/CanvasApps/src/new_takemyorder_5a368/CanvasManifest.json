@@ -15,7 +15,7 @@
       "appinstrumentationcorrelationtracing": false,
       "autocreateenvironmentvariables": false,
       "backfromhostaction": false,
-      "behaviorpropertyui": false,
+      "behaviorpropertyui": true,
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
       "classiccontrols": false,
@@ -118,6 +118,7 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
+    "Loading Screen",
     "Start screen",
     "Info screen",
     "Select table screen",
@@ -125,7 +126,6 @@
     "Order Summary Screen",
     "Action Success Screen",
     "Item Details Screen",
-    "Debug screen",
-    "TODO"
+    "Debug screen"
   ]
 }

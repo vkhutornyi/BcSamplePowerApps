@@ -118,12 +118,14 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
+    "Loading Screen",
     "Start Screen",
     "Select Warehouse Screen",
     "Info Screen",
     "Item Screen",
     "Item updated screen",
     "Not Found Screen",
-    "Web scan test screen"
+    "Web scan test screen",
+    "Debug screen"
   ]
 }
