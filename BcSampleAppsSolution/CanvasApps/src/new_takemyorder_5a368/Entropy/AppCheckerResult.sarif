@@ -434,19 +434,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnUpdateTables.AccessibleLabel"
+                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnReloadTableData.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnUpdateTables.AccessibleLabel",
+                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnReloadTableData.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Select table screen",
-                "type": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnUpdateTables"
+                "type": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnReloadTableData"
               }
             }
           ],
@@ -464,19 +464,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnUpdateTables.TabIndex"
+                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnReloadTableData.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnUpdateTables.TabIndex",
+                  "fullyQualifiedName": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnReloadTableData.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Select table screen",
-                "type": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnUpdateTables"
+                "type": "'Select table screen'.conSelecTableContent.conSelectTableHeader.icnReloadTableData"
               }
             }
           ],
@@ -794,19 +794,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "AccessibleLabel",
+                "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1"
+                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder"
               }
             }
           ],
@@ -816,27 +816,27 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.figItemOverlay_1"
+                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder"
               }
             }
           ],
@@ -854,19 +854,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conQuantityControl_1.icnQCAddItem_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conQuantityControl_1.icnQCAddItem_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conQuantityControl_1.icnQCAddItem_1"
+                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum"
               }
             }
           ],
@@ -878,6 +878,366 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conQuantityControl_1.icnQCAddItem_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conQuantityControl_1.icnQCAddItem_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conQuantityControl_1.icnQCAddItem_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Order Summary Screen",
+                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
         },
         {
           "locations": [

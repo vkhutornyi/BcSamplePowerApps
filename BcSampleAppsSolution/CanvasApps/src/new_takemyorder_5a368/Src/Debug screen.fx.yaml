@@ -22,9 +22,9 @@
             LayoutMinWidth: =560
             Size: =21
             Text: |-
-                =tempTest.salesorderid& "
+                =varLabels.welcome &"
                 
-                :" & tempTest.status
+                "& varLabels.description
             Width: =560
             ZIndex: =1
 
@@ -39,9 +39,13 @@
             HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
             LayoutMinHeight: =70
             LayoutMinWidth: =280
-            OnSelect: |-
-                =Set(tempTest, Blank());
-                Set(tempTest, PostBCSalesOrder.Run("8715f97c-0ccb-ed11-a7c7-000d3a41d7b4"))
+            OnSelect: |
+                =Set(varLabelsTabel, 'powerappLanguageResources (microsoft/powerApps/beta)');
+                
+                Set(varLabels, {
+                    welcome: LookUp(varLabelsTabel, labelId = "StartPage_Welcome").displayName,
+                    description: LookUp(varLabelsTabel, labelId = "StartPage_Description").displayName
+                });
             Size: =24
             Text: ="Button"
             Width: =280

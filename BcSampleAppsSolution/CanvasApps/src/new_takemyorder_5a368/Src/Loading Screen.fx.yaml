@@ -29,6 +29,15 @@
             Set(varBcLocale, varBcCompany.powerAppLocale);
             Set(varCompanyName,varBcCompany.displayName);
             
+            // Get localized labels from Bc
+            // Note: AL logic to parse language parameter fails
+            Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
+            Set(varLabels, {
+                welcome: LookUp(varLanguageResources, labelId = "StartPage_Welcome").displayName,
+                description: LookUp(varLanguageResources, labelId = "StartPage_Description").displayName
+            });
+            
+            
             Navigate('Start screen', ScreenTransition.Fade);
         OnTimerStart: =Select(Self);
         Start: =true

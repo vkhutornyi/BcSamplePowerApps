@@ -9,6 +9,7 @@
       "workflowPath": "/subscriptions/ac07fa44-4742-482d-aa28-c00945932935/resourceGroups/56c3f19867534f7ab8d79c599c3d96ef-default56c3f19867534f7ab8d79c599c3d96ef-env/providers/Microsoft.Logic/workflows/7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
     },
     "connectionRef": {
+      "apiTier": "Standard",
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
@@ -69,6 +70,9 @@
           "localizationInformations (microsoft/powerApps/beta)": {
             "tableName": "localizationInformations,microsoft%252FpowerApps%252Fbeta"
           },
+          "powerappLanguageResources (microsoft/powerApps/beta)": {
+            "tableName": "powerappLanguageResources,microsoft%252FpowerApps%252Fbeta"
+          },
           "salesOrderLines (v2.0)": {
             "tableName": "salesOrderLines,v2.0"
           },
@@ -83,7 +87,8 @@
       "itemsWithImage (microsoft/powerApps/beta)",
       "salesOrders (v2.0)",
       "salesOrderLines (v2.0)",
-      "localizationInformations (microsoft/powerApps/beta)"
+      "localizationInformations (microsoft/powerApps/beta)",
+      "powerappLanguageResources (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [

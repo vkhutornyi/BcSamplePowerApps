@@ -29,8 +29,8 @@
     "comLoadingOverlayLoadingScreen": 98,
     "conDebugHeader": 43,
     "conDebugScreenContent": 42,
-    "conInfoContent": 36,
-    "conInfoTitle": 37,
+    "conInfoContent": 35,
+    "conInfoTitle": 36,
     "conInventoryControl": 23,
     "conItemDetails": 20,
     "conItemImage": 16,
@@ -58,10 +58,10 @@
     "icnAddInventory": 27,
     "icnCloseDebugScreen": 46,
     "icnCloseDebugScreen_1": 45,
-    "icnCloseInfoPage": 35,
+    "icnCloseInfoPage": 40,
     "icnCloseItemScreen": 15,
     "icnCloseNotFound": 75,
-    "icnInfoIcon": 39,
+    "icnInfoIcon": 38,
     "icnItemUpdatedSuccess": 33,
     "icnLearnMore": 60,
     "icnLocationChrev": 70,
@@ -81,8 +81,8 @@
     "Label3_2": 22,
     "Label6": 76,
     "Label7": 78,
-    "lblInfoHeader": 38,
-    "lblInfoText": 40,
+    "lblInfoHeader": 37,
+    "lblInfoText": 39,
     "lblItemScreenHeader": 14,
     "lblLocationValue": 69,
     "lblSelectedWarehouseHeader": 82,
@@ -113,7 +113,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "03/25/2023 12:01:30",
+  "HeaderLastSavedDateTimeUTC": "03/25/2023 20:46:28",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "870dfb89-5a04-4c28-9b03-98ba7bf445bb": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/7bb38b8c2eac5e1dcf06964dfa46ae5a-5e1f21561f5613c9\"",
@@ -128,11 +128,11 @@
     "warehouse helper logo": "9d030933-0683-49c1-98ba-1df4e127c037.png"
   },
   "LocalResourceRootPaths": {
-    "loading spinner": "https://docserverpwaprodeus.blob.core.windows.net/4da98e86-20ce-4da4-b9ca-92d572f926bd-1/resource/Assets0Images0b6d67436-fee0-498a-9b45-5cda1e995876.gif?sv=2018-03-28&sr=b&sig=ARKNu0MGIejFc8YaRDvU%2BilkfJd2GsW0XJ0hi9IR5%2Bc%3D&spr=https&se=2023-03-26T12%3A14%3A06Z&sp=r",
-    "loading-spinner": "https://docserverpwaprodeus.blob.core.windows.net/4da98e86-20ce-4da4-b9ca-92d572f926bd-1/resource/Assets0Images0bfece569-47a8-4ee2-8efb-f808d267dbdd.gif?sv=2018-03-28&sr=b&sig=mczdKjKeACAy4Al9pPXo88Hayn%2BFgk%2F2WrONdnbU26U%3D&spr=https&se=2023-03-26T12%3A14%3A06Z&sp=r",
-    "placeholder": "https://docserverpwaprodeus.blob.core.windows.net/4da98e86-20ce-4da4-b9ca-92d572f926bd-1/resource/Assets0Images07dc34ebb-f979-4d2a-b190-ab5b0882dd1c.png?sv=2018-03-28&sr=b&sig=VWdKMCqOeUHhdEJaSd96tKJ0GghLKCzPW5QForj5EqI%3D&spr=https&se=2023-03-26T12%3A14%3A06Z&sp=r",
-    "tempLogo": "https://docserverpwaprodeus.blob.core.windows.net/4da98e86-20ce-4da4-b9ca-92d572f926bd-1/resource/Assets0Images0845717f4-4857-4af2-b1db-7efc55ac3e97.png?sv=2018-03-28&sr=b&sig=IqxYddz7zf0kSwGxNNdyOd1AfN4VtfgyDEfknfJBYrE%3D&spr=https&se=2023-03-26T12%3A14%3A06Z&sp=r",
-    "warehouse helper logo": "https://docserverpwaprodeus.blob.core.windows.net/4da98e86-20ce-4da4-b9ca-92d572f926bd-1/resource/Assets0Images09d030933-0683-49c1-98ba-1df4e127c037.png?sv=2018-03-28&sr=b&sig=pGcqhLGW%2Fey3vkFHFkBsowenA5kjvMPZ4SQy8l4zscs%3D&spr=https&se=2023-03-26T12%3A14%3A06Z&sp=r"
+    "loading spinner": "https://docserverpwaprodeus.blob.core.windows.net/85ce09a5-766d-45f2-a881-f5bc855ba902-1/resource/Assets0Images0b6d67436-fee0-498a-9b45-5cda1e995876.gif?sv=2018-03-28&sr=b&sig=75l1v1YZYoXipIKhHuHqHSR9q6ig5Zh94vCfloVO2z8%3D&spr=https&se=2023-03-26T20%3A59%3A31Z&sp=r",
+    "loading-spinner": "https://docserverpwaprodeus.blob.core.windows.net/85ce09a5-766d-45f2-a881-f5bc855ba902-1/resource/Assets0Images0bfece569-47a8-4ee2-8efb-f808d267dbdd.gif?sv=2018-03-28&sr=b&sig=a7NRteJDSTgBz3H57ngQXrrZg7fYdfjczARV4HCTPLg%3D&spr=https&se=2023-03-26T20%3A59%3A31Z&sp=r",
+    "placeholder": "https://docserverpwaprodeus.blob.core.windows.net/85ce09a5-766d-45f2-a881-f5bc855ba902-1/resource/Assets0Images07dc34ebb-f979-4d2a-b190-ab5b0882dd1c.png?sv=2018-03-28&sr=b&sig=jXpczSdPw5KAx68Jof%2FC8egDX6q3B9eDs%2B8QUrabzeE%3D&spr=https&se=2023-03-26T20%3A59%3A31Z&sp=r",
+    "tempLogo": "https://docserverpwaprodeus.blob.core.windows.net/85ce09a5-766d-45f2-a881-f5bc855ba902-1/resource/Assets0Images0845717f4-4857-4af2-b1db-7efc55ac3e97.png?sv=2018-03-28&sr=b&sig=DmXYhnoqzEGjrHGrd7Zk%2FWCJkckHc7rn9BITtvgVYRA%3D&spr=https&se=2023-03-26T20%3A59%3A31Z&sp=r",
+    "warehouse helper logo": "https://docserverpwaprodeus.blob.core.windows.net/85ce09a5-766d-45f2-a881-f5bc855ba902-1/resource/Assets0Images09d030933-0683-49c1-98ba-1df4e127c037.png?sv=2018-03-28&sr=b&sig=Ne1H%2Bpkd2%2FdqZ7JLx31EvG8fCHt2QM3hsNek%2B2KLlqU%3D&spr=https&se=2023-03-26T20%3A59%3A31Z&sp=r"
   },
   "OldLogoFileName": "vufb4v1g.jpg",
   "OrderComponentMetadata": {
@@ -146,7 +146,7 @@
     "ef758bf817284650be105716effde2cb": 1
   },
   "OrderDataSource": {
-    "colStoredAppState": 8,
+    "colStoredAppState": 9,
     "ComboBoxSample": 4,
     "CustomGallerySample": 3,
     "DropDownSample": 1,
@@ -154,7 +154,8 @@
     "itemsWithImage (microsoft/powerApps/beta)": 6,
     "localizationInformations (microsoft/powerApps/beta)": 5,
     "locations (v2.0)": 2,
-    "PostBCSalesOrder": 0
+    "PostBCSalesOrder": 0,
+    "powerappLanguageResources (microsoft/powerApps/beta)": 8
   },
   "OrderGroupControls": {},
   "OrderPcfTemplate": {},
@@ -332,7 +333,7 @@
     "icnCloseItemScreen": 42,
     "icnCloseNotFound": 61,
     "icnInfoIcon": 34,
-    "icnItemUpdatedSuccess": 59,
+    "icnItemUpdatedSuccess": 57,
     "icnLearnMore": 3,
     "icnLocationChrev": 13,
     "icnSelectWarehouseBack": 19,
@@ -365,7 +366,7 @@
     "lblWarehouseName_1": 75,
     "Loading Screen": 0,
     "Not Found Screen": 0,
-    "recClickableOverlay": 57,
+    "recClickableOverlay": 58,
     "recLocationBottomDivider": 14,
     "recLocationTopDivider": 9,
     "recSelectWarehouseDivider": 30,
@@ -376,7 +377,7 @@
     "Select Warehouse Screen": 0,
     "Start Screen": 0,
     "Test_7F478737223C4B69": 0,
-    "timerNavigateAway": 58,
+    "timerNavigateAway": 59,
     "timeStartLoading": 1,
     "Web scan test screen": 0
   },
@@ -391,7 +392,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.43190329999999999,
+    "AnalysisLoadTime": 0.45624389999999998,
     "ControlCount": {
       "05d62057b31643aab857545719a86f80": 1,
       "barcodeScanner": 1,
@@ -413,7 +414,7 @@
       "text": 1,
       "timer": 2
     },
-    "DeserializationLoadTime": 1.6763976,
+    "DeserializationLoadTime": 2.3043591999999999,
     "ErrorCount": 0
   },
   "WasLocalDatabaseReferencesEmpty": true

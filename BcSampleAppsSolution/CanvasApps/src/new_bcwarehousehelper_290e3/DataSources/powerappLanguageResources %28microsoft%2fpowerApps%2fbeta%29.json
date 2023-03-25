@@ -1,0 +1,21 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
+    "CdpRevision": {
+      "BaseUrl": "/v3",
+      "LastChangedTimeString": "2023-03-24T16:12:47.5350000Z",
+      "RevisionNumber": 3
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "displayName": "displayName",
+      "labelId": "labelId",
+      "languageCode": "languageCode"
+    },
+    "DatasetName": "POWERAPPSTEST,a0d54bf1-ffb7-ed11-a389-000d3a269d47",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "powerappLanguageResources (microsoft/powerApps/beta)",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

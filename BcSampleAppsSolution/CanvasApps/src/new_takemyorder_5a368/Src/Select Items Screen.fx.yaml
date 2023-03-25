@@ -481,61 +481,10 @@
             Width: =Parent.Width
             ZIndex: =3
 
-    btnReviewSelectedItems As button:
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        DisplayMode: =If(Sum(colSelectedItems, quantity) > 0, DisplayMode.Edit, DisplayMode.Disabled)
-        Fill: =varTheme.primaryColor
-        Font: =varTheme.font
-        FontWeight: =FontWeight.Semibold
-        Height: =70
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-        OnSelect: |-
-            =UpdateContext({ctxItemShowingQuantityControl: Blank()});
-            Navigate('Order Summary Screen', ScreenTransition.Cover);
-        RadiusBottomLeft: =30
-        RadiusBottomRight: =30
-        RadiusTopLeft: =30
-        RadiusTopRight: =30
-        Size: =24
-        Text: ="Review"
-        Visible: =Not(varAddItemsToCurrentOrder)
-        Width: =280
-        X: =(Parent.Width/2) - (btnReviewSelectedItems.Width/2)
-        Y: =Parent.Height - conButtom.Height - (btnReviewSelectedItems.Height/2)
-        ZIndex: =3
-
-    btnAddSelectedItems As button:
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        DisplayMode: =If(Sum(colSelectedItems, quantity) > 0, DisplayMode.Edit, DisplayMode.Disabled)
-        Fill: =varTheme.primaryColor
-        FontWeight: =FontWeight.Semibold
-        Height: =70
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-        OnSelect: |-
-            =UpdateContext({ctxItemShowingQuantityControl: Blank()});
-            Navigate('Order Summary Screen', ScreenTransition.Cover);
-        RadiusBottomLeft: =30
-        RadiusBottomRight: =30
-        RadiusTopLeft: =30
-        RadiusTopRight: =30
-        Size: =20
-        Text: ="Add to order"
-        Visible: =varAddItemsToCurrentOrder
-        Width: =280
-        X: =(Parent.Width/2) - (btnAddSelectedItems.Width/2)
-        Y: =Parent.Height - conButtom.Height - (btnAddSelectedItems.Height/2)
-        ZIndex: =4
-
     conTop As groupContainer.manualLayoutContainer:
         Height: =160
         Width: =Parent.Width
-        ZIndex: =5
+        ZIndex: =3
 
         galItemGroups As gallery.galleryHorizontal:
             BorderColor: =RGBA(32, 54, 71, 1)
@@ -639,6 +588,57 @@
             X: =Parent.Width - Self.Width
             Y: =3
             ZIndex: =3
+
+    btnReviewSelectedItems As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(Sum(colSelectedItems, quantity) > 0, DisplayMode.Edit, DisplayMode.Disabled)
+        Fill: =varTheme.primaryColor
+        Font: =varTheme.font
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        OnSelect: |-
+            =UpdateContext({ctxItemShowingQuantityControl: Blank()});
+            Navigate('Order Summary Screen', ScreenTransition.Cover);
+        RadiusBottomLeft: =30
+        RadiusBottomRight: =30
+        RadiusTopLeft: =30
+        RadiusTopRight: =30
+        Size: =24
+        Text: ="Review"
+        Visible: =Not(varAddItemsToCurrentOrder)
+        Width: =280
+        X: =(Parent.Width/2) - (btnReviewSelectedItems.Width/2)
+        Y: =Parent.Height - conButtom.Height - (btnReviewSelectedItems.Height/2)
+        ZIndex: =4
+
+    btnAddSelectedItems As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(Sum(colSelectedItems, quantity) > 0, DisplayMode.Edit, DisplayMode.Disabled)
+        Fill: =varTheme.primaryColor
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        OnSelect: |-
+            =UpdateContext({ctxItemShowingQuantityControl: Blank()});
+            Navigate('Order Summary Screen', ScreenTransition.Cover);
+        RadiusBottomLeft: =30
+        RadiusBottomRight: =30
+        RadiusTopLeft: =30
+        RadiusTopRight: =30
+        Size: =20
+        Text: ="Add to order"
+        Visible: =varAddItemsToCurrentOrder
+        Width: =280
+        X: =(Parent.Width/2) - (btnAddSelectedItems.Width/2)
+        Y: =Parent.Height - conButtom.Height - (btnAddSelectedItems.Height/2)
+        ZIndex: =5
 
     comYesNoDialogDeleteDraft As comYesNoDialog:
         behaviorNo: |-

@@ -149,9 +149,15 @@
                 ZIndex: =3
 
             btnQuantity_1 As button:
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisabledBorderColor: =varTheme.primaryColor
+                DisabledColor: =Color.White
+                DisabledFill: =varTheme.primaryColor
+                DisplayMode: |-
+                    =If(Or(IsBlank(varActiveorderForSelectedTable), varAddItemsToCurrentOrder), 
+                        DisplayMode.Edit
+                        , 
+                        DisplayMode.Disabled
+                    )
                 Fill: =varTheme.primaryColor
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold

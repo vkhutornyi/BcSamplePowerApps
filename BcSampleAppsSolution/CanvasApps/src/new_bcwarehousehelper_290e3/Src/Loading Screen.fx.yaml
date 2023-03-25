@@ -24,6 +24,14 @@
             Set(varAppStateKey, "BCWarehouseAppStateKey");
             Set(varAppStateAvailable, true);
             
+            // Get localized labels from Bc
+            // Note: AL logic to parse language parameter fails
+            Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
+            Set(varLabels, {
+                welcome: LookUp(varLanguageResources, labelId = "StartPage_Welcome").displayName,
+                description: LookUp(varLanguageResources, labelId = "StartPage_Description").displayName
+            });
+            
             // Check if local storage is available
             IfError(LoadData(colStoredAppState, varAppStateKey), 
                 Set(varAppStateAvailable, false)
