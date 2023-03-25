@@ -6,9 +6,11 @@
       <object name="ManualTriggerInput">
         <property name="text" type="string" />
       </object>
-      <string name="ResponseActionOutput_response_def" />
+      <string name="ResponseActionOutput_salesorderid_def" />
+      <string name="ResponseActionOutput_status_def" />
       <object name="ResponseActionOutput">
-        <property name="response" type="string" />
+        <property name="salesorderid" type="string" />
+        <property name="status" type="string" />
       </object>
       <object name="Run_responses_default_def" />
     </jsonTypes>

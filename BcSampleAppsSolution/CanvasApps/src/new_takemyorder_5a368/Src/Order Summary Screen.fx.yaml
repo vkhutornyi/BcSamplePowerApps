@@ -734,13 +734,21 @@
             =UpdateContext({ctxShowCheckOutDialog: false, ctxShowLoadingScreen: true});
             
             // Add error handling
-            PostBCSalesOrder.Run(varActiveorderForSelectedTable.id);
-            Clear(colSelectedItems);
-            Set(varSelectedTable, Blank());
-            Set(varAddItemsToCurrentOrder, false);
+            Set(varPostSalesOrderResponse, PostBCSalesOrder.Run(varActiveorderForSelectedTable.id));
+            
+            If(And(Not(IsBlankOrError(varPostSalesOrderResponse)), Value(varPostSalesOrderResponse.status) > 0),
+                // Post succeded 
+                Clear(colSelectedItems);
+                Set(varSelectedTable, Blank());
+                Set(varAddItemsToCurrentOrder, false);
+                Navigate('Action Success Screen', ScreenTransition.Fade);
+                ,
+                // Handle post failed
+                Notify("Error checking out the order for "& varSelectedTable.displayName &". Check 'Post BC Sales Order' Flow for more information", NotificationType.Error);
+                Trace("Error happened during post. Sales Order Id: "& varActiveorderForSelectedTable.Id, TraceSeverity.Error);
+            );
             
             UpdateContext({ctxShowLoadingScreen: false});
-            Navigate('Action Success Screen', ScreenTransition.Fade);
         DialogText: ="Are you sure you want to checkout and close the order?"
         Height: =Parent.Height
         PrimaryColor: =varTheme.primaryColor
