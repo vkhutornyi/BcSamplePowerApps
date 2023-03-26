@@ -37,7 +37,7 @@
         HoverFill: =RGBA(255, 255, 255, 1)
         OnCancel: =Navigate('Start Screen', ScreenTransition.Fade);
         OnScan: |-
-            =UpdateContext({ctxErrorOnItemLookup: false, ctxSubmitInprogress: true});
+            =UpdateContext({ctxErrorOnItemLookup: false, ctxShowLoadingScreen: true});
             Set(varScannedCode, Self.Value);
             
             If(Len(varScannedCode) <= 14,
@@ -50,12 +50,10 @@
                 Trace("Wrong code format: "& Self.Value, NotificationType.Error);
             );
             
-            
             If(Or(ctxErrorOnItemLookup, IsBlank(varScannedItem)), 
                 Navigate('Not Found Screen')
                 , 
-                UpdateContext({ctxSubmitInprogress: false});
-                Navigate('Item updated screen', ScreenTransition.Fade);
+                UpdateContext({ctxShowLoadingScreen: false});
             );
         RadiusBottomLeft: =350
         RadiusBottomRight: =350

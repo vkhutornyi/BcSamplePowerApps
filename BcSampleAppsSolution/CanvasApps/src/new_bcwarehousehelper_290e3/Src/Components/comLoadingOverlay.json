@@ -93,7 +93,7 @@
         "Name": "Image2_1",
         "Parent": "comLoadingOverlay",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 82,
+        "PublishOrderIndex": 84,
         "Rules": [
           {
             "Category": "Data",
@@ -316,7 +316,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638153738720044726",
+    "LastModifiedTimestamp": "638154338761614331",
     "Name": "comLoadingOverlay",
     "Rules": [
       {
@@ -375,7 +375,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638153738720044726",
+  "LastModifiedTimestamp": "638154338761614331",
   "Name": "c0748778186540b1b3f490cd4b58a52e",
   "OverridableProperties": {},
   "TemplateOriginalName": "b3dd31404fa9463fbc93ea675e93165d",

@@ -1634,19 +1634,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription"
+                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens"
               }
             }
           ],
@@ -1664,19 +1664,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens"
+                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription"
               }
             }
           ],

@@ -3,7 +3,37 @@
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: =
 
-    comLoadingOverlayLoadingScreen As comLoadingOverlay:
+    conLoadingContent As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =100
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        imgLoadingLogo As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =320
+            Image: =tempLogo
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            Width: =320
+            X: =(Parent.Width / 2) - (imgLoadingLogo.Width / 2)
+            Y: =46
+            ZIndex: =1
+
+        imgSpinner As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Image: ='loading-spinner'
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            ZIndex: =2
 
     timeStartLoading As timer:
         AutoStart: =true

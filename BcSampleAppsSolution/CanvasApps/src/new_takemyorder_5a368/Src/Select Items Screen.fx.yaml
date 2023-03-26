@@ -276,7 +276,15 @@
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =varTheme.primaryColor
                 OnSelect: |-
-                    =UpdateContext({ctxItemShowingQuantityControl: ThisItem.id})
+                    =// Update item quantity
+                    Patch(
+                        colSelectedItems,
+                        {id: ThisItem.id},
+                        // Consider getting the value via look up in the list
+                        {quantity: Value(btnQCQuantity.Text) + 1}
+                    );
+                    
+                    UpdateContext({ctxItemShowingQuantityControl: ThisItem.id});
                 RadiusBottomLeft: =35
                 RadiusBottomRight: =35
                 RadiusTopLeft: =35
