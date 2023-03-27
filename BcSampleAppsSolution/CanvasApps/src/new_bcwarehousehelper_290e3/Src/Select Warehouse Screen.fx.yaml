@@ -58,7 +58,10 @@
                 
                 // Persists in local storage
                 ClearCollect(colStoredAppState, {warehouse: varSelectedWarehouse.Id});
-                IfError(SaveData(colStoredAppState, varAppStateKey), Set(varAppStateAvailable, false));
+                
+                If(varAppStateAvailable, 
+                    SaveData(colStoredAppState, varAppStateKey)
+                );
                 
                 Back(ScreenTransition.UnCoverRight);
             TemplatePadding: =0

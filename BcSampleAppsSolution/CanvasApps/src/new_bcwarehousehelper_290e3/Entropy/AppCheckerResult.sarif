@@ -824,47 +824,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varAppStateAvailable"
+                  "fullyQualifiedName": "App.varLabels"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.varAppStateAvailable",
+                  "fullyQualifiedName": "App.varLabels",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "varAppStateAvailable",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varTemp"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varTemp",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varTemp",
+                "member": "varLabels",
                 "module": "App",
                 "type": "App"
               }
@@ -895,36 +865,6 @@
               },
               "properties": {
                 "member": "varCompanyInformation",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varLabels"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varLabels",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varLabels",
                 "module": "App",
                 "type": "App"
               }

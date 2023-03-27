@@ -7,11 +7,6 @@ App As appinfo:
     OnError: =
     OnStart: |
         =Set(
-            varCurrenScreenRatio,
-            //App.Height / varDefaultScreenHeight
-            1
-        );
-        Set(
             varTheme,
             {
                 font: Font.'Segoe UI',

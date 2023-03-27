@@ -44,7 +44,7 @@
         Height: =Parent.Height
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =Color.Transparent
-        OnSelect: |
+        OnSelect: |-
             =// Set up data
             ClearCollect(colItemGroup, "Full menu");
             Concurrent(
@@ -54,10 +54,11 @@
                 Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
             );
             
-            // Get the BC locale 
-            Set(varCurrencyFormat, "$#,##0.00");
-            Set(varBcLocale, varBcCompany.powerAppLocale);
             Set(varCompanyName,varBcCompany.displayName);
+            Set(varBcLocale, varBcCompany.powerAppLocale);
+            
+            // Note: when this format is used with locale, the currentcy sign is localized by the platform
+            Set(varCurrencyFormat, "$#,##0.00");
             
             // Get localized labels from Bc
             // Note: AL logic to parse language parameter fails
@@ -66,7 +67,6 @@
                 welcome: LookUp(varLanguageResources, labelId = "StartPage_Welcome").displayName,
                 description: LookUp(varLanguageResources, labelId = "StartPage_Description").displayName
             });
-            
             
             Navigate('Start screen', ScreenTransition.Fade);
         OnTimerStart: =Select(Self);

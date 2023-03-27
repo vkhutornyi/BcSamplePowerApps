@@ -43,32 +43,33 @@
                 Set(varWarehouses, 'locations (v2.0)'),
                 Set(varCompanyInformation, First('localizationInformations (microsoft/powerApps/beta)'));
             );
-            
-            // Load app state from local storage
-            Set(varAppStateKey, "BCWarehouseAppStateKey");
-            Set(varAppStateAvailable, true);
+            Set(varSelectedWarehouse, First(varWarehouses));
             
             // Get localized labels from Bc
-            // Note: AL logic to parse language parameter fails
+            // TODO: AL logic to parse language parameter fails
             Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
             Set(varLabels, {
                 welcome: LookUp(varLanguageResources, labelId = "StartPage_Welcome").displayName,
                 description: LookUp(varLanguageResources, labelId = "StartPage_Description").displayName
             });
             
+            // Load app state from local storage
+            Set(varAppStateKey, "BCWarehouseAppStateKey");
+            Set(varAppStateAvailable, true);
+            
             // Check if local storage is available
             IfError(LoadData(colStoredAppState, varAppStateKey), 
                 Set(varAppStateAvailable, false)
             );
             
-            // Parse app state
-            If(Not(IsBlank(First(colStoredAppState))), 
-                // See if local state warehouse is still available
-                IfError(Set(varSelectedWarehouse, LookUp(varWarehouses, id = First(colStoredAppState).warehouse)), 
-                    Set(varSelectedWarehouse, First(varWarehouses))
-                )
-                ,
-                Set(varSelectedWarehouse, First(varWarehouses));
+            If(varAppStateAvailable, 
+                With({
+                    storedWarehouse: LookUp(varWarehouses, id = First(colStoredAppState).warehouse)
+                },
+                    If(Not(IsBlankOrError(storedWarehouse)),
+                        Set(varSelectedWarehouse, storedWarehouse);
+                    );
+                );
             );
             
             Navigate('Start Screen', ScreenTransition.Fade);

@@ -1,9 +1,14 @@
 "'Order Summary Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
-    OnVisible: |-
-        =If(ctxCallingPage <> 'Item Details Screen', 
-            UpdateContext({ctxCallingPage: 'Order Summary Screen'});
-            Select(btnLoadSummary);
+    OnVisible: |
+        =With({
+            shouldReloadData: Or(IsBlank(ctxCallingPage), ctxCallingPage <> 'Item Details Screen')
+            }
+            ,
+            If(shouldReloadData, 
+                UpdateContext({ctxCallingPage: 'Order Summary Screen'});
+                Select(btnLoadSummary);
+            );
         );
 
     "galCurrentOrder As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
@@ -11,8 +16,11 @@
         Fill: =RGBA(255, 255, 255, 1)
         Height: =881
         Items: |-
-            =// There is a explicit property for group headers that we can filter on 
-            Filter(colOrderSummary, Or(IsBlank(quantity), Not(group in colCurrentOrderState_CollapsedGroups)))
+            =Filter(colOrderSummary, Or(
+                                        Or(header, total), 
+                                        Not(group in colCurrentOrderState_CollapsedGroups)
+                                    )
+            )
         Layout: =Layout.Vertical
         OnSelect: =
         ShowScrollbar: =false
@@ -99,7 +107,7 @@
                         },
                             Text(groupCost, varCurrencyFormat, varBcLocale)
                     )
-                Visible: =Not(IsBlank(LookUp(colCurrentOrderState_CollapsedGroups, name = ThisItem.name)))
+                Visible: =ThisItem.name in colCurrentOrderState_CollapsedGroups
                 Width: =200
                 X: =Parent.Width - Self.Width - 20
                 ZIndex: =3
@@ -130,7 +138,7 @@
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 Height: =30
                 Icon: |-
-                    =If(Not(IsBlank(LookUp(colCurrentOrderState_CollapsedGroups, name = ThisItem.name))), 
+                    =If(ThisItem.name in colCurrentOrderState_CollapsedGroups, 
                         Icon.ChevronDown,
                         Icon.ChevronUp    
                     )
@@ -144,15 +152,11 @@
                 Fill: =Color.Transparent
                 Height: =Parent.Height
                 OnSelect: |
-                    =UpdateContext({ctxIsGroupCollapsed: IsBlank(LookUp(colCurrentOrderState_CollapsedGroups, name = ThisItem.name)) });
-                    
-                    If(
-                        ctxIsGroupCollapsed,
-                        Collect(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name}), 
+                    =If(ThisItem.name in colCurrentOrderState_CollapsedGroups,
                         Remove(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name})
+                        ,
+                        Collect(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name})
                     );
-                    
-                    UpdateContext({ctxIsGroupCollapsed: Blank() });
                 Width: =Parent.Width
                 ZIndex: =6
 
@@ -173,11 +177,7 @@
 
             figItemSeparator_1 As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                DisplayMode: |-
-                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
-                        DisplayMode.View, 
-                        DisplayMode.Edit
-                    )
+                DisplayMode: =DisplayMode.View
                 Fill: =varTheme.primaryColor
                 Height: =2
                 Width: =Parent.Width
@@ -190,18 +190,12 @@
                 BorderThickness: =1
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: |-
-                    =If(Not(IsBlank(varActiveorderForSelectedTable)), 
-                        DisplayMode.View, 
-                        DisplayMode.Edit
-                    )
                 Height: =80
                 Image: =ThisItem.image
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
-                Visible: =Not(IsBlank(ThisItem.quantity))
                 Width: =80
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =2
