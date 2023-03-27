@@ -22,7 +22,7 @@
 
     timerNavigateAway As timer:
         AutoStart: =true
-        Duration: =3000
+        Duration: =1500
         Height: =70
         OnTimerEnd: |-
             =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})

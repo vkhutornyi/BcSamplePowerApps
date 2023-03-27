@@ -734,19 +734,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder"
+                "type": "'Order Summary Screen'.galOrderSummary"
               }
             }
           ],
@@ -764,19 +764,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder"
+                "type": "'Order Summary Screen'.galOrderSummary"
               }
             }
           ],
@@ -794,19 +794,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblTotalOrder.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblTotalOrder.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder"
+                "type": "'Order Summary Screen'.galOrderSummary.conTotal.lblTotalOrder"
               }
             }
           ],
@@ -824,19 +824,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblTotalOrder.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblTotalOrder.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblTotalOrder"
+                "type": "'Order Summary Screen'.galOrderSummary.conTotal.lblTotalOrder"
               }
             }
           ],
@@ -854,19 +854,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblItemTotalSum.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblItemTotalSum.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum"
+                "type": "'Order Summary Screen'.galOrderSummary.conTotal.lblItemTotalSum"
               }
             }
           ],
@@ -884,19 +884,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblItemTotalSum.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conTotal.lblItemTotalSum.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conTotal.lblItemTotalSum"
+                "type": "'Order Summary Screen'.galOrderSummary.conTotal.lblItemTotalSum"
               }
             }
           ],
@@ -914,19 +914,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemOverlayOrderSummary.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemOverlayOrderSummary.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.figItemOverlayOrderSummary"
               }
             }
           ],
@@ -944,19 +944,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemOverlayOrderSummary.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemOverlayOrderSummary.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemOverlay_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.figItemOverlayOrderSummary"
               }
             }
           ],
@@ -974,19 +974,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conQuantityControl_1.icnQCAddItem_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conQuantityControlOrderSummary.icnQCAddItemOS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conQuantityControl_1.icnQCAddItem_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conQuantityControlOrderSummary.icnQCAddItemOS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conQuantityControl_1.icnQCAddItem_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.conQuantityControlOrderSummary.icnQCAddItemOS"
               }
             }
           ],
@@ -1004,19 +1004,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.imgItemImageOrderSummary.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.imgItemImageOrderSummary.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.imgItemImageOrderSummary"
               }
             }
           ],
@@ -1034,19 +1034,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.imgItemImageOrderSummary.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.imgItemImageOrderSummary.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.imgItemImage_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.imgItemImageOrderSummary"
               }
             }
           ],
@@ -1064,19 +1064,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemDisplayName_1.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemDisplayName_1.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemDisplayName_1"
               }
             }
           ],
@@ -1094,19 +1094,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemDisplayName_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemDisplayName_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemDisplayName_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemDisplayName_1"
               }
             }
           ],
@@ -1124,19 +1124,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemPrice_1.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemPrice_1.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemPrice_1"
               }
             }
           ],
@@ -1154,19 +1154,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemPrice_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemPrice_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.conItemInformation.lblItemPrice_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.conItemInformation.lblItemPrice_1"
               }
             }
           ],
@@ -1184,19 +1184,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemSeparatorOrderSummary.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemSeparatorOrderSummary.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.figItemSeparatorOrderSummary"
               }
             }
           ],
@@ -1214,19 +1214,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemSeparatorOrderSummary.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conContent.figItemSeparatorOrderSummary.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conContent.figItemSeparator_1"
+                "type": "'Order Summary Screen'.galOrderSummary.conContent.figItemSeparatorOrderSummary"
               }
             }
           ],
@@ -1244,19 +1244,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.AccessibleLabel"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conHeader.recOverLay.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.AccessibleLabel",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conHeader.recOverLay.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay"
+                "type": "'Order Summary Screen'.galOrderSummary.conHeader.recOverLay"
               }
             }
           ],
@@ -1274,19 +1274,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.TabIndex"
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conHeader.recOverLay.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay.TabIndex",
+                  "fullyQualifiedName": "'Order Summary Screen'.galOrderSummary.conHeader.recOverLay.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Order Summary Screen",
-                "type": "'Order Summary Screen'.galCurrentOrder.conHeader.recOverLay"
+                "type": "'Order Summary Screen'.galOrderSummary.conHeader.recOverLay"
               }
             }
           ],
@@ -1634,19 +1634,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens"
+                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription"
               }
             }
           ],
@@ -1664,19 +1664,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription.AccessibleLabel",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemLongDescription"
+                "type": "'Item Details Screen'.conItemDetails.conItemExtraInfo.conItemInfoLayout.txtItemAllergens"
               }
             }
           ],

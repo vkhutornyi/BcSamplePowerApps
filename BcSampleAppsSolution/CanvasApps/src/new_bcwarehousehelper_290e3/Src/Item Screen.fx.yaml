@@ -95,17 +95,17 @@
 
             icnCloseItemScreen As icon.Cancel:
                 Color: =varTheme.brandColor
-                Height: =70
+                Height: =100
                 Icon: =Icon.Cancel
                 OnSelect: |-
                     =UpdateContext({ctxSubmitInprogress: true});
                     Select(btnTriggerBarcodeScanner);
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
-                Width: =70
-                X: =Parent.Width - Self.Width - 20
+                PaddingBottom: =30
+                PaddingLeft: =30
+                PaddingRight: =30
+                PaddingTop: =30
+                Width: =100
+                X: =Parent.Width - Self.Width 
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =2
 

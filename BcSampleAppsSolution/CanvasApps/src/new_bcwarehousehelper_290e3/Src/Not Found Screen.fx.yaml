@@ -13,13 +13,15 @@
 
         icnCloseNotFound As icon.Cancel:
             AlignInContainer: =AlignInContainer.End
-            Height: =70
+            Height: =100
             Icon: =Icon.Cancel
             OnSelect: |-
                 =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
+            PaddingBottom: =20
+            PaddingLeft: =20
             PaddingRight: =20
             PaddingTop: =20
-            Width: =70
+            Width: =100
             ZIndex: =1
 
         Label6 As label:

@@ -19,7 +19,7 @@
         ZIndex: =3
 
     conAboutPageContent As groupContainer:
-        Height: =330
+        Height: =500
         X: =Parent.Width/2 -Self.Width/2
         Y: =Parent.Height/2 - Self.Height/2
         ZIndex: =4
@@ -29,12 +29,13 @@
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =varTheme.font
-            Height: =250
-            Size: =21
+            Height: =Parent.Height - icnAboutHeader.Height
+            Size: =22
             Text: |-
-                ="""Take your order"" is a Business Central sample app. Lorem ipsum dolor nunc est bibendum.
+                ="""Take your order"" is a Business Central sample app. The app is meant as an inspiration on how you can build a high fidelity canvas app using the Business Central connector.
                 
-                Read more about Business Central sample apps here"
+                
+                Read more about Business Central sample apps at https://aka.ms/BcPApps"
             Width: =500
             Y: =lblAboutHeader.Height + 10
             ZIndex: =1

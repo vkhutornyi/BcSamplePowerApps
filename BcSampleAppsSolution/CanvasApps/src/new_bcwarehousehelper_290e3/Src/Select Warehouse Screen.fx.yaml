@@ -32,10 +32,14 @@
 
             icnSelectWarehouseBack As icon.ArrowLeft:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =40
+                Height: =80
                 Icon: =Icon.ChevronLeft
                 OnSelect: =Back(ScreenTransition.UnCoverRight);
-                Width: =40
+                PaddingBottom: =20
+                PaddingLeft: =20
+                PaddingRight: =20
+                PaddingTop: =20
+                Width: =80
                 X: =30
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =2
