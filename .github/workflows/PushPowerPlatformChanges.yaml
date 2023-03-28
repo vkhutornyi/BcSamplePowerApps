@@ -99,7 +99,7 @@ jobs:
           solutionFolder: ${{ env.powerPlatformSolutionFolder }}
           outputFolder: .buildartifacts/PowerPlatformSolution/
           outputFileName: tempSolutionName.zip
-          environment: ${{ env.environmentName }}
+          environmentName: ${{ env.environmentName }}
           companyId: ${{ env.companyId }}
       
       - name: Export and push changes to Power Platform
