@@ -92,13 +92,6 @@ jobs:
           envName: ${{ steps.envName.outputs.envName }}
           environment: ${{ steps.envName.outputs.envName }}
 
-      - name: Get Artifacts
-        uses: BusinessCentralDemos/AL-Go-Actions/GetArtifacts@PowerPlatform
-        with:
-          shell: powershell
-          parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
-          artifactVersion: ${{ github.event.inputs.appVersion }}
-
       - name: Deploy AL
         uses: BusinessCentralDemos/AL-Go-Actions/Deploy@PowerPlatform
         env:
@@ -110,6 +103,13 @@ jobs:
           projects: ${{ env.projects }}
           environmentName: ${{ env.environmentName }}
           artifacts: ${{ github.event.inputs.appVersion }}
+
+      - name: Get Artifacts
+        uses: BusinessCentralDemos/AL-Go-Actions/GetArtifacts@PowerPlatform
+        with:
+          shell: powershell
+          parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
+          artifactVersion: ${{ github.event.inputs.appVersion }}
           
       - name: Deploy PowerPlatform
         if: ${{ env.deployPP == 'true' }}
