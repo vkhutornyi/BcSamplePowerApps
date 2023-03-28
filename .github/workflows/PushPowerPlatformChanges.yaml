@@ -98,7 +98,7 @@ jobs:
           parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
           solutionFolder: ${{ env.powerPlatformSolutionFolder }}
           outputFolder: .buildartifacts/PowerPlatformSolution/
-          outputFileName: tempSolutionName.zip
+          outputFileName: tempsolution-PowerPlatformSolution-
           environmentName: ${{ env.environmentName }}
           companyId: ${{ env.companyId }}
       
