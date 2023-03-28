@@ -5,7 +5,7 @@
   "environments": [
     "andersg (Production)",
     "Staging",
-    "UX"
+    "UX (Production)"
   ],
   "DeployToAndersg": {
     "environmentName": "Sandbox",
