@@ -107,7 +107,7 @@ jobs:
         with:
           shell: powershell
           parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
-          artifactPath: '.artifacts'
+          artifactPath: '.buildartifacts'
           deploySettings: ${{ env.deployTo }} 
           authSettings: ${{ env.authContext }}
 
