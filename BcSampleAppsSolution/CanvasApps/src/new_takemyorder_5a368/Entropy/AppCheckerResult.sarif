@@ -1484,19 +1484,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCRemoveItem_2.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControlItemDetails.icnQCRemoveItemItemDetails.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCRemoveItem_2.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControlItemDetails.icnQCRemoveItemItemDetails.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCRemoveItem_2"
+                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControlItemDetails.icnQCRemoveItemItemDetails"
               }
             }
           ],
@@ -1514,19 +1514,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCAddItem_2.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControlItemDetails.icnQCAddItemItemDetails.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCAddItem_2.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControlItemDetails.icnQCAddItemItemDetails.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControl_2.icnQCAddItem_2"
+                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.conQuantityControlItemDetails.icnQCAddItemItemDetails"
               }
             }
           ],
@@ -1544,19 +1544,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.icnAddItem_2.FocusedBorderThickness"
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.icnAddItemDetails.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.icnAddItem_2.FocusedBorderThickness",
+                  "fullyQualifiedName": "'Item Details Screen'.conItemDetails.conItemMainInfo.icnAddItemDetails.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "Item Details Screen",
-                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.icnAddItem_2"
+                "type": "'Item Details Screen'.conItemDetails.conItemMainInfo.icnAddItemDetails"
               }
             }
           ],

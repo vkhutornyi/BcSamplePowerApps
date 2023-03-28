@@ -82,7 +82,13 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
-            Items: =Filter(colAvailableItems, If(IsBlank(varSelectedItemGroup), true, 'Item Category Name' = varSelectedItemGroup))
+            Items: |-
+                =Filter(colAvailableItems, 
+                    If(IsBlank(varSelectedItemGroup), 
+                        true, 
+                        'Item Category Name' = varSelectedItemGroup
+                    )
+                )
             Layout: =Layout.Vertical
             OnSelect: =
             ShowScrollbar: =false
@@ -338,7 +344,7 @@
                     X: =15
                     ZIndex: =1
 
-                btnQCAddItemBack As button:
+                btnQCAddItemBackground As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(255, 255, 255, 1)

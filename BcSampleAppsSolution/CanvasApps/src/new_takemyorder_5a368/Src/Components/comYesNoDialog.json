@@ -1782,7 +1782,11 @@
               "LayoutOverflowX",
               "LayoutOverflowY",
               "LayoutWrap",
-              "ZIndex"
+              "ZIndex",
+              "RadiusTopLeft",
+              "RadiusTopRight",
+              "RadiusBottomLeft",
+              "RadiusBottomRight"
             ],
             "ControlUniqueId": "14",
             "HasDynamicProperties": false,
@@ -1906,6 +1910,30 @@
                 "InvariantScript": "RGBA(0, 0, 0, 1)",
                 "Property": "BorderColor",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Design",
+                "InvariantScript": "0",
+                "Property": "RadiusTopLeft",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Design",
+                "InvariantScript": "0",
+                "Property": "RadiusTopRight",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Design",
+                "InvariantScript": "0",
+                "Property": "RadiusBottomLeft",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Design",
+                "InvariantScript": "0",
+                "Property": "RadiusBottomRight",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "",
@@ -1919,7 +1947,7 @@
               "LastModifiedTimestamp": "0",
               "Name": "groupContainer",
               "OverridableProperties": {},
-              "Version": "1.1.0"
+              "Version": "1.2.0"
             },
             "Type": "ControlInfo",
             "VariantName": "horizontalAutoLayoutContainer"
@@ -1968,7 +1996,11 @@
           "LayoutJustifyContent",
           "LayoutOverflowX",
           "LayoutOverflowY",
-          "ZIndex"
+          "ZIndex",
+          "RadiusTopLeft",
+          "RadiusTopRight",
+          "RadiusBottomLeft",
+          "RadiusBottomRight"
         ],
         "ControlUniqueId": "11",
         "HasDynamicProperties": false,
@@ -2074,6 +2106,30 @@
             "InvariantScript": "RGBA(0, 0, 0, 1)",
             "Property": "BorderColor",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "0",
+            "Property": "RadiusTopLeft",
+            "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "0",
+            "Property": "RadiusTopRight",
+            "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "0",
+            "Property": "RadiusBottomLeft",
+            "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "0",
+            "Property": "RadiusBottomRight",
+            "RuleProviderType": "Unknown"
           }
         ],
         "StyleName": "",
@@ -2087,7 +2143,7 @@
           "LastModifiedTimestamp": "0",
           "Name": "groupContainer",
           "OverridableProperties": {},
-          "Version": "1.1.0"
+          "Version": "1.2.0"
         },
         "Type": "ControlInfo",
         "VariantName": ""
@@ -2126,7 +2182,7 @@
       "behaviorNo",
       "PrimaryColor"
     ],
-    "LastModifiedTimestamp": "638155248768392621",
+    "LastModifiedTimestamp": "638155960703349644",
     "Name": "comYesNoDialog",
     "Rules": [
       {
@@ -2247,7 +2303,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638155248768392621",
+  "LastModifiedTimestamp": "638155960703349644",
   "Name": "01906efe1f6b4ac885f5f6ea0fc7bf76",
   "OverridableProperties": {},
   "Version": "638153340657157122"

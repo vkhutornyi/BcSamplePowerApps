@@ -95,7 +95,7 @@
                 Y: =50
                 ZIndex: =2
 
-            icnAddItem_2 As icon.ChevronRight:
+            icnAddItemDetails As icon.ChevronRight:
                 AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Color: =varTheme.primaryColor
@@ -134,7 +134,7 @@
                         Patch(
                             colSelectedItems,
                             {id: ctxSelectedItem.id},
-                            {quantity: Value(btnQCQuantity_2.Text) + 1}
+                            {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
                         )
                     );
                 PaddingBottom: =15
@@ -144,11 +144,11 @@
                 TabIndex: =0
                 Tooltip: ="View item details"
                 Width: =70
-                X: =Parent.Width - (icnAddItem_2.Width/2) - 50
+                X: =Parent.Width - (icnAddItemDetails.Width/2) - 50
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =3
 
-            btnQuantity_1 As button:
+            btnQuantityItemDetails As button:
                 DisabledBorderColor: =varTheme.primaryColor
                 DisabledColor: =Color.White
                 DisabledFill: =varTheme.primaryColor
@@ -175,12 +175,12 @@
                 Visible: |-
                     =// Does quantity have a value
                     And(
-                        Not(btnQuantity_1.Text = "0"),
-                        Not(IsBlank(btnQuantity_1.Text))
+                        Not(btnQuantityItemDetails.Text = "0"),
+                        Not(IsBlank(btnQuantityItemDetails.Text))
                     )
                         
                 Width: =60
-                X: =Parent.Width - (btnQuantity_1.Width/2) - 50
+                X: =Parent.Width - (btnQuantityItemDetails.Width/2) - 50
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =5
 
@@ -195,7 +195,7 @@
                 X: =
                 ZIndex: =6
 
-            conQuantityControl_2 As groupContainer.manualLayoutContainer:
+            conQuantityControlItemDetails As groupContainer.manualLayoutContainer:
                 Height: =70
                 Visible: |
                     =ctxShowItemQuantityControl 
@@ -204,7 +204,7 @@
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =7
 
-                btnQCBackground_2 As button:
+                btnQCBackgroundItemDetails As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -228,7 +228,7 @@
                     X: =15
                     ZIndex: =1
 
-                btnQCAddItemBack_2 As button:
+                btnQCAddItemBackItemDetails As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(255, 255, 255, 1)
@@ -252,7 +252,7 @@
                     Y: =5
                     ZIndex: =2
 
-                icnQCAddItem_2 As icon.ChevronRight:
+                icnQCAddItemItemDetails As icon.ChevronRight:
                     AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =varTheme.primaryColor
@@ -270,7 +270,7 @@
                         =Patch(
                             colSelectedItems,
                             {id: ctxSelectedItem.id},
-                            {quantity: Value(btnQCQuantity_2.Text) + 1}
+                            {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
                         )
                     TabIndex: =0
                     Tooltip: ="View item details"
@@ -279,7 +279,7 @@
                     Y: =11
                     ZIndex: =3
 
-                btnQCQuantity_2 As button:
+                btnQCQuantityItemDetails As button:
                     BorderColor: =Color.White
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =Color.White
@@ -303,7 +303,7 @@
                     Y: =5
                     ZIndex: =4
 
-                btnQCRemoveItemBack_2 As button:
+                btnQCRemoveItemBackgroundItemDetails As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(255, 255, 255, 1)
@@ -327,7 +327,7 @@
                     Y: =5
                     ZIndex: =5
 
-                icnQCRemoveItem_2 As icon.ChevronRight:
+                icnQCRemoveItemItemDetails As icon.ChevronRight:
                     AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =varTheme.primaryColor
@@ -343,11 +343,11 @@
                     Icon: =Icon.HorizontalLine
                     OnSelect: |-
                         =If(
-                            Value(btnQCQuantity_2.Text) > 0,
+                            Value(btnQCQuantityItemDetails.Text) > 0,
                             Patch(
                                 colSelectedItems,
                                 {id: ctxSelectedItem.id},
-                                {quantity: Value(btnQCQuantity_2.Text) - 1}
+                                {quantity: Value(btnQCQuantityItemDetails.Text) - 1}
                             )
                         )
                     PaddingLeft: =5
