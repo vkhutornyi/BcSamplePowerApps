@@ -5,7 +5,7 @@
   "environments": [
     "andersg (Production)",
     "Staging",
-    "UX (Production)"
+    "UX"
   ],
   "DeployToAndersg": {
     "environmentName": "Sandbox",
@@ -18,7 +18,7 @@
     "ppEnvironmentUrl": "https://org835014c5.crm.dynamics.com/"
   },
   "DeployToUX": {
-    "environmentName": "production",
+    "environmentName": "Sandbox",
     "companyId": "a2db7307-078b-ed11-aad8-000d3a21edc2",
     "ppEnvironmentUrl": "https://orgbcdd3464.crm.dynamics.com/"
   }
