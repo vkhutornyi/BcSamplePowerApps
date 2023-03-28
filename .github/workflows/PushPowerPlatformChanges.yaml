@@ -82,17 +82,25 @@ jobs:
           write-host "Solution name: $solutionName"
           Add-Content -Path $env:GITHUB_ENV -Value "powerPlatformSolutionFolder=$solutionName"
 
+      - name: Parse DeployToSettings and AuthContext
+        uses: BusinessCentralDemos/AL-Go-Actions/ReadPowerPlatformSettings@PowerPlatform
+        with:
+          shell: powershell
+          parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
+          deploySettings: ${{ env.deployTo }} 
+          authSettings: ${{ env.authContext }}
+
       - name: Build PowerPlatform Solution
         id: BuildPowerPlatform
         uses: BusinessCentralDemos/AL-Go-Actions/BuildPowerPlatform@PowerPlatform
         with:
           shell: powershell
           parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
-          solutionName: ${{ env.powerPlatformSolutionFolder }}
+          solutionFolder: ${{ env.powerPlatformSolutionFolder }}
           outputFolder: .buildartifacts/PowerPlatformSolution/
           outputFileName: tempSolutionName.zip
-          appRevision: ${{ env.appRevision }}
-          appBuild: ${{ env.appBuild }}
+          environment: ${{ env.environmentName }}
+          companyId: ${{ env.companyId }}
       
       - name: Export and push changes to Power Platform
         uses: BusinessCentralDemos/AL-Go-Actions/DeployPowerPlatform@PowerPlatform
