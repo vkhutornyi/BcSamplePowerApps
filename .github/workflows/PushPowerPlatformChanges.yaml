@@ -84,7 +84,6 @@ jobs:
 
       - name: Build PowerPlatform Solution
         id: BuildPowerPlatform
-        if: matrix.project == env.powerPlatformSolutionFolder && matrix.buildMode == 'default'
         uses: BusinessCentralDemos/AL-Go-Actions/BuildPowerPlatform@PowerPlatform
         with:
           shell: powershell
