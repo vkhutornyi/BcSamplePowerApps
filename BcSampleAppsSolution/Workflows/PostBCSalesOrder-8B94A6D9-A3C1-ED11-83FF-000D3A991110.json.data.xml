@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Workflow WorkflowId="{8b94a6d9-a3c1-ed11-83ff-000d3a991110}" Name="Post Bc Sales Order" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/PostBCSalesOrder-8B94A6D9-A3C1-ED11-83FF-000D3A991110.json</JsonFileName>
+  <JsonFileName>/Workflows/PostBcSalesOrder-8B94A6D9-A3C1-ED11-83FF-000D3A991110.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
