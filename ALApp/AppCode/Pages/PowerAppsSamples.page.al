@@ -40,7 +40,7 @@ page 51000 PowerAppsSamplePage
                 Caption = 'Generate PowerApp Data';
                 trigger OnAction()
                 var
-                    myCodeUnit: Codeunit PowerAppsDemoDataGenerator;
+                    myCodeUnit: Codeunit PowerAppsSampleDemoDataGenerator;
                 begin
                     myCodeUnit.GenerateDemoDataForPowerApps();
                 end;

@@ -1,4 +1,4 @@
-codeunit 51001 PowerAppsDemoDataGenerator
+codeunit 51001 PowerAppsSampleDemoDataGenerator
 {
     procedure DeleteDemoDataForPowerApps()
     var
