@@ -1,4 +1,4 @@
-permissionset 51000 GeneratedPermission
+permissionset 51000 BCS_Permissions
 {
     Assignable = true;
     Permissions = tabledata BCS_Labels = RIMD,
