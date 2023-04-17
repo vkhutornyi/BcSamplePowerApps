@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "powerAppsTest",
+            "environmentName": "Sandbox",
             "startupObjectId": 51000,
             "startupObjectType": "Page",
             "breakOnError": "All",
