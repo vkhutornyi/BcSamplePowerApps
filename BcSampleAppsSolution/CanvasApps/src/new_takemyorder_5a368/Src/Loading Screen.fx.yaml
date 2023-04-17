@@ -18,7 +18,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Height: =320
-            Image: =tempLogo
+            Image: ='Fourth Coffe_logo_x2 (1)'
             LayoutMinHeight: =320
             LayoutMinWidth: =320
             Width: =320
@@ -30,7 +30,7 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            Image: ='loading-spinner'
+            Image: =Spinner_DarkBeige_2x
             LayoutMinHeight: =320
             LayoutMinWidth: =320
             ZIndex: =2
@@ -46,7 +46,7 @@
         HoverFill: =Color.Transparent
         OnSelect: |-
             =// Set up data
-            ClearCollect(colItemGroup, "Full menu");
+            ClearCollect(colItemGroup, varLabels.TakeOrderScreen_FullMenu);
             Concurrent(
                 Set(varUserName,User().FullName),
                 Set(varBcCompany,First('localizationInformations (microsoft/powerApps/beta)')),
@@ -64,8 +64,29 @@
             // Note: AL logic to parse language parameter fails
             Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
             Set(varLabels, {
-                welcome: LookUp(varLanguageResources, labelId = "StartPage_Welcome").displayName,
-                description: LookUp(varLanguageResources, labelId = "StartPage_Description").displayName
+                StartScreen_TakeOrder: LookUp(varLanguageResources, labelId = "StartScreen_TakeOrder").displayName,
+                StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").displayName,
+                StartScreen_InfoScreen: LookUp(varLanguageResources, labelId = "StartScreen_InfoScreen").displayName,    
+                InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").displayName,    
+                InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").displayName,        
+                SelectTableScreen_Title: LookUp(varLanguageResources, labelId = "SelectTableScreen_Title").displayName,            
+                SelectTableScreen_Free: LookUp(varLanguageResources, labelId = "SelectTableScreen_Free").displayName,            
+                SelectTableScreen_Occupied: LookUp(varLanguageResources, labelId = "SelectTableScreen_Occupied").displayName,            
+                SelectTableScreen_Update: LookUp(varLanguageResources, labelId = "SelectTableScreen_Update").displayName,           
+                TakeOrderScreen_FullMenu: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FullMenu").displayName,                
+                TakeOrderScreen_Items: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Items").displayName,                
+                TakeOrderScreen_Totals: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Totals").displayName,                
+                TakeOrderScreen_Review: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Review").displayName,    
+                TakeOrderScreen_Close: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Close").displayName,                
+                TakeOrderScreen_Delete: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Delete").displayName,                
+                SummaryScreen_Delete: LookUp(varLanguageResources, labelId = "SummaryScreen_Delete").displayName,               
+                SummaryScreen_Back: LookUp(varLanguageResources, labelId = "SummaryScreen_Back").displayName,                 
+                SummaryScreen_Submit: LookUp(varLanguageResources, labelId = "SummaryScreen_Submit").displayName,                 
+                SummaryScreen_AddMore: LookUp(varLanguageResources, labelId = "SummaryScreen_AddMore").displayName,                 
+                SummaryScreen_CheckOut: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOut").displayName,                 
+                SummaryScreen_Total: LookUp(varLanguageResources, labelId = "SummaryScreen_Total").displayName,                 
+                SummaryScreen_DeleteMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_DeleteMessage").displayName,                 
+                SummaryScreen_CheckOutMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOutMessage").displayName
             });
             
             Navigate('Start screen', ScreenTransition.Fade);

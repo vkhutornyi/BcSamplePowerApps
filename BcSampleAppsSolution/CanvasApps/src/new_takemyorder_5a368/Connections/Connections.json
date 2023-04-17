@@ -1,13 +1,5 @@
 {
   "150e2896-54f3-405b-a1ae-bdda9e197568": {
-    "connectionParameters": {
-      "logicAppHostType": "ARM",
-      "workFlowCallbackUri": "https://prod-161.westus.logic.azure.com:443/workflows/2cdb4ceeb26143efb158efa773d11e42/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B37WkKQrk-cuzVLp4MSKLxOefVwDK1pCQ3iXQc0vGV4",
-      "workflowEndpoint": "/subscriptions/ac07fa44-4742-482d-aa28-c00945932935/resourceGroups/56c3f19867534f7ab8d79c599c3d96ef-default56c3f19867534f7ab8d79c599c3d96ef-env/providers/Microsoft.Logic/workflows/7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a",
-      "workflowEntityId": "8b94a6d9-a3c1-ed11-83ff-000d3a991110",
-      "workflowName": "7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a",
-      "workflowPath": "/subscriptions/ac07fa44-4742-482d-aa28-c00945932935/resourceGroups/56c3f19867534f7ab8d79c599c3d96ef-default56c3f19867534f7ab8d79c599c3d96ef-env/providers/Microsoft.Logic/workflows/7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Logic flows",
@@ -21,7 +13,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
+          "value": "d2969b09-5d18-4625-892d-43f1669bfcf5"
         }
       },
       "parameterHintsV2": {
@@ -32,7 +24,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
+          "value": "d2969b09-5d18-4625-892d-43f1669bfcf5"
         }
       }
     },
@@ -47,9 +39,6 @@
     "id": "150e2896-54f3-405b-a1ae-bdda9e197568"
   },
   "6cb6806c-e815-4e58-8693-91bcb31c69e7": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Dynamics 365 Business Central",
@@ -59,7 +48,7 @@
       "parameterHintsV2": {}
     },
     "datasets": {
-      "POWERAPPSTEST,a0d54bf1-ffb7-ed11-a389-000d3a269d47": {
+      "Sandbox,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f": {
         "dataSources": {
           "customersWithImage (microsoft/powerApps/beta)": {
             "tableName": "customersWithImage,microsoft%252FpowerApps%252Fbeta"
