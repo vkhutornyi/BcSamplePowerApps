@@ -1,15 +1,15 @@
 permissionset 51000 GeneratedPermission
 {
     Assignable = true;
-    Permissions = tabledata "Power Apps labels" = RIMD,
-        table "Power Apps labels" = X,
-        codeunit "Power Apps label management" = X,
-        codeunit PowerAppsSampleDataGenerator = X,
-        codeunit PowerAppsItemImages = X,
-        page CustomersWithImage = X,
-        page ItemWithImage = X,
-        page PowerAppLanguageResources = X,
-        page PowerAppsSamplePage = X,
-        page PowerCustomerListPart = X,
-        page PowerItemListPart = X;
+    Permissions = tabledata BCS_Labels = RIMD,
+        table BCS_Labels = X,
+        codeunit BCS_LabelManagement = X,
+        codeunit BCS_SampleDataGenerator = X,
+        codeunit BCS_ItemImages = X,
+        page BCS_CustomersWithImage = X,
+        page BCS_ItemWithImage = X,
+        page BCS_LanguageResources = X,
+        page BCS_SamplePage = X,
+        page BCS_CustomerListPart = X,
+        page BCS_ItemListPart = X;
 }

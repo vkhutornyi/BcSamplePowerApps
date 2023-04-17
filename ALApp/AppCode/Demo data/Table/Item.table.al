@@ -1,4 +1,4 @@
-tableextension 51001 PowerAppsItem extends Item
+tableextension 51001 BCS_Item extends Item
 {
     fields
     {

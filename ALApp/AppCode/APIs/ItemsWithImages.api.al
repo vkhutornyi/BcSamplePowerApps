@@ -1,4 +1,4 @@
-page 51001 ItemWithImage
+page 51001 BCS_ItemWithImage
 {
     PageType = API;
     Caption = 'Item with image';

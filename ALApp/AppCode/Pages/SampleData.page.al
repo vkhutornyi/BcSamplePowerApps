@@ -1,9 +1,9 @@
-page 51000 PowerAppsSamplePage
+page 51000 BCS_SamplePage
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'PowerApps Sample Page';
+    Caption = 'PowerApps Sample data';
 
     layout
     {
@@ -11,17 +11,17 @@ page 51000 PowerAppsSamplePage
         {
             group(GroupName)
             {
-                Caption = 'PowerApp Tables';
-                part(PowerAppCustomers; PowerCustomerListPart)
+                Caption = 'Sample Tables';
+                part(PowerAppCustomers; BCS_CustomerListPart)
                 {
                     Caption = 'Customers';
                 }
             }
             group(GroupName2)
             {
-                Caption = 'PowerApp Items';
+                Caption = 'Sample Items';
 
-                part(PowerAppItems; PowerItemListPart)
+                part(PowerAppItems; BCS_ItemListPart)
                 {
                     Caption = 'Items';
                 }
@@ -37,10 +37,10 @@ page 51000 PowerAppsSamplePage
             {
                 ApplicationArea = All;
                 Promoted = true;
-                Caption = 'Generate PowerApp Data';
+                Caption = 'Generate sample Data';
                 trigger OnAction()
                 var
-                    myCodeUnit: Codeunit PowerAppsSampleDataGenerator;
+                    myCodeUnit: Codeunit BCS_SampleDataGenerator;
                 begin
                     myCodeUnit.GenerateDemoDataForPowerApps();
                 end;
@@ -49,10 +49,10 @@ page 51000 PowerAppsSamplePage
             {
                 ApplicationArea = All;
                 Promoted = true;
-                Caption = 'Delete PowerApp Data';
+                Caption = 'Delete sample Data';
                 trigger OnAction()
                 var
-                    myCodeUnit: Codeunit PowerAppsSampleDataGenerator;
+                    myCodeUnit: Codeunit BCS_SampleDataGenerator;
                 begin
                     myCodeUnit.DeleteDemoDataForPowerApps();
                 end;

@@ -1,4 +1,4 @@
-tableextension 51000 PowerAppsCustomer extends Customer
+tableextension 51000 BCS_Customer extends Customer
 {
     fields
     {

@@ -1,4 +1,4 @@
-page 51004 PowerAppLanguageResources
+page 51004 BCS_LanguageResources
 {
     PageType = API;
     Caption = 'PowerApp Language Resources';
@@ -10,7 +10,7 @@ page 51004 PowerAppLanguageResources
 
     InsertAllowed = false;
     ModifyAllowed = false;
-    SourceTable = "Power Apps Labels";
+    SourceTable = BCS_Labels;
     SourceTableTemporary = true;
     Extensible = false;
     ODataKeyFields = "Label ID";
@@ -43,7 +43,7 @@ page 51004 PowerAppLanguageResources
 
     trigger OnOpenPage()
     var
-        PowerAppsLabelMgt: Codeunit "Power Apps Label Management";
+        PowerAppsLabelMgt: Codeunit BCS_LabelManagement;
         LanguageFilter: Text;
     begin
         LanguageFilter := Rec.GetFilter("Language Code");

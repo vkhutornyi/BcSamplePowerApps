@@ -1,4 +1,4 @@
-codeunit 51001 PowerAppsSampleDataGenerator
+codeunit 51001 BCS_SampleDataGenerator
 {
     procedure DeleteDemoDataForPowerApps()
     var
@@ -34,7 +34,7 @@ codeunit 51001 PowerAppsSampleDataGenerator
     var
         customerRecord: Record Customer;
         itemRecord: Record Item;
-        itemImageCodeUnit: Codeunit PowerAppsItemImages;
+        itemImageCodeUnit: Codeunit BCS_ItemImages;
     begin
         // Add tables
         AddCustomer('Table 1');

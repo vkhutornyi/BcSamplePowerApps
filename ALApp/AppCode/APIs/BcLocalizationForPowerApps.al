@@ -1,4 +1,4 @@
-page 51007 BcLocalizationForPowerApps
+page 51007 BCS_LocalizationForPowerApps
 {
     PageType = API;
     Caption = 'Business Central Localization information for PowerApps';

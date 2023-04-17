@@ -1,4 +1,4 @@
-page 51002 PowerCustomerListPart
+page 51002 BCS_CustomerListPart
 {
     PageType = ListPart;
     SourceTable = Customer;

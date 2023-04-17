@@ -1,6 +1,6 @@
-table 51000 "Power Apps labels"
+table 51000 BCS_Labels
 {
-    Caption = 'Power Apps labels';
+    Caption = 'Sample Apps labels';
     DataClassification = SystemMetadata;
     ReplicateData = false;
     TableType = "temporary";

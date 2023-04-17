@@ -1,4 +1,4 @@
-page 51005 PowerItemListPart
+page 51005 BCS_ItemListPart
 {
     PageType = ListPart;
     SourceTable = Item;

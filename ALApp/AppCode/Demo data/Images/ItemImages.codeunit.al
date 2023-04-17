@@ -1,4 +1,4 @@
-codeunit 51004 PowerAppsItemImages
+codeunit 51004 BCS_ItemImages
 {
     procedure P0001_Croissant(): Text
     begin

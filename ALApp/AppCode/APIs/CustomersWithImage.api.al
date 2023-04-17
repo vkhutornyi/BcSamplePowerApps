@@ -1,4 +1,4 @@
-page 51003 CustomersWithImage
+page 51003 BCS_CustomersWithImage
 {
     PageType = API;
     Caption = 'Customers with image';
