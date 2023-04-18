@@ -14,6 +14,7 @@
         PaddingLeft: =20
         PaddingRight: =20
         PaddingTop: =20
+        Tooltip: =varLabels.TakeOrderScreen_Close
         Width: =90
         X: =Parent.Width - Self.Width
         ZIndex: =3
@@ -31,11 +32,7 @@
             Font: =varTheme.font
             Height: =Parent.Height - icnAboutHeader.Height
             Size: =22
-            Text: |-
-                ="""Take your order"" is a Business Central sample app. The app is meant as an inspiration on how you can build a high fidelity canvas app using the Business Central connector.
-                
-                
-                Read more about Business Central sample apps at https://aka.ms/BcPApps"
+            Text: =varLabels.InfoScreen_Text
             Width: =500
             Y: =lblAboutHeader.Height + 10
             ZIndex: =1
@@ -48,7 +45,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =70
             Size: =21
-            Text: ="Business Central sample App"
+            Text: =varLabels.InfoScreen_Title
             Width: =328
             X: =icnAboutHeader.X + icnAboutHeader.Width + 20  
             ZIndex: =2
