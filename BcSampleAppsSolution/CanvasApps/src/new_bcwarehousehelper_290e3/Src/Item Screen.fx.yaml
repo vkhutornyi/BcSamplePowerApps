@@ -311,7 +311,18 @@
             Y: =Parent.Height - Self.Height - 20
             ZIndex: =7
 
-    comLoadingOverlayItemScreen As comLoadingOverlay:
+    conLoadingOverlay As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(1, 122, 122, 0.4)
+        Height: =Parent.Height
         Visible: =ctxShowLoadingScreen
+        Width: =Parent.Width
         ZIndex: =4
+
+        imgLoadingSubmit As image:
+            Height: =250
+            Image: =Spinner_LightBlue_2x
+            Width: =250
+            X: =Parent.Width/2 - Self.Width/2
+            Y: =Parent.Height/2 - Self.Height/2
+            ZIndex: =1
 
