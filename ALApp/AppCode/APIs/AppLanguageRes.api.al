@@ -43,11 +43,10 @@ page 51004 BCS_LanguageResources
 
     trigger OnOpenPage()
     var
-        PowerAppsLabelMgt: Codeunit BCS_LabelManagement;
+        PowerAppsLabelMgt: Codeunit BCS_TO_LabelManagement;
         LanguageFilter: Text;
     begin
         LanguageFilter := Rec.GetFilter("Language Code");
-
         PowerAppsLabelMgt.GetLabelsForUserLanguage(Rec, UserSecurityId());
     end;
 }
