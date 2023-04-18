@@ -191,6 +191,11 @@
     <appMagic:includeProperty name="Height" defaultValue="40" phoneDefaultValue="70" webDefaultValue="32" />
     <appMagic:includeProperty name="TabIndex" />
   </appMagic:includeProperties>
+  <appMagic:requirementsMetadata>
+    <appMagic:requiredConditions>
+      <appMagic:previewFlag name="EnableLegacyBarcodeScanner" />
+    </appMagic:requiredConditions>
+  </appMagic:requirementsMetadata>
   <appMagic:insertMetadata>
     <appMagic:category name="Media" priority="30" />
   </appMagic:insertMetadata>

@@ -25,7 +25,7 @@
             ZIndex: =1
 
         imgLoadingSpinner As image:
-            Image: ='loading-spinner'
+            Image: =Spinner_DarkBlue_2x
             LayoutMinHeight: =320
             LayoutMinWidth: =320
             ZIndex: =2
@@ -49,8 +49,19 @@
             // TODO: AL logic to parse language parameter fails
             Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
             Set(varLabels, {
-                welcome: LookUp(varLanguageResources, labelId = "StartPage_Welcome").displayName,
-                description: LookUp(varLanguageResources, labelId = "StartPage_Description").displayName
+                StartScreen_Scan: LookUp(varLanguageResources, labelId = "StartScreen_Scan").displayName,
+                StartScreen_InfoPage: LookUp(varLanguageResources, labelId = "StartScreen_InfoPage").displayName,
+                StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").displayName,
+                Close: LookUp(varLanguageResources, labelId = "Close").displayName,
+                InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").displayName,
+                InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").displayName,
+                ItemScreen_Submit: LookUp(varLanguageResources, labelId = "ItemScreen_Submit").displayName,
+                ItemScreen_Add: LookUp(varLanguageResources, labelId = "ItemScreen_Add").displayName,
+                ItemScreen_SubStract: LookUp(varLanguageResources, labelId = "ItemScreen_SubStract").displayName,
+                ItemScreen_SubStractBlocked: LookUp(varLanguageResources, labelId = "ItemScreen_SubStractBlocked").displayName,
+                NotFoundScreen_Title: LookUp(varLanguageResources, labelId = "NotFoundScreen_Title").displayName,
+                NotFoundScreen_Text: LookUp(varLanguageResources, labelId = "NotFoundScreen_Text").displayName,
+                NotFoundScreen_Scan: LookUp(varLanguageResources, labelId = "NotFoundScreen_Scan").displayName
             });
             
             // Load app state from local storage

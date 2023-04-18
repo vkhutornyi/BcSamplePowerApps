@@ -68,6 +68,7 @@
                 );
                 
                 Back(ScreenTransition.UnCoverRight);
+            ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =140
             Width: =Parent.Width - 60

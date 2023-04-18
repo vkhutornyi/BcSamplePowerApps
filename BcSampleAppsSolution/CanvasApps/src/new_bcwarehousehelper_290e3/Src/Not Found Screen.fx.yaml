@@ -3,55 +3,70 @@
     OnVisible: =
 
     conNotFoundContent As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height - 30
+        Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =100
+        LayoutJustifyContent: =LayoutJustifyContent.Center
         LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =100
+        PaddingRight: =100
         Width: =Parent.Width
         ZIndex: =1
 
-        icnCloseNotFound As icon.Cancel:
-            AlignInContainer: =AlignInContainer.End
-            Height: =100
-            Icon: =Icon.Cancel
-            OnSelect: |-
-                =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
-            PaddingBottom: =20
-            PaddingLeft: =20
-            PaddingRight: =20
-            PaddingTop: =20
-            Width: =100
+        imgNotFound As image:
+            Height: =175
+            Image: ='not found icon'
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            Width: =175
             ZIndex: =1
 
-        Label6 As label:
-            Align: =Align.Center
-            Font: =Font.'Segoe UI'
-            Height: =90
-            LayoutMinHeight: =70
-            LayoutMinWidth: =560
-            Size: =28
-            Text: ="Item not found"
-            Width: =560
+        conNotFoudText As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            Height: =250
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
             ZIndex: =2
 
-        Icon1 As icon.Bell:
-            Color: =varTheme.brandColor
-            Height: =200
-            Icon: =Icon.Error
-            Width: =200
-            ZIndex: =3
+            lblNotFoundDescription As label:
+                Height: =160
+                Size: =21
+                Text: ="Would could not find an item that matches the scanned code"
+                Width: =418
+                Y: =lblNotFoundTitle.Height
+                ZIndex: =1
 
-        Label7 As label:
-            Align: =Align.Center
-            Height: =200
+            lblNotFoundTitle As label:
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =90
+                Size: =28
+                Text: ="Scan another item or try again"
+                Width: =360
+                ZIndex: =2
+
+        btnScanNewItem As button:
+            BorderThickness: =0
+            Color: =Color.White
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(237, 237, 237, 1)
+            Fill: =varTheme.brandColor
+            Font: =varTheme.font
+            FontWeight: =FontWeight.Normal
+            Height: =220
             LayoutMinHeight: =70
-            LayoutMinWidth: =560
-            Size: =21
-            Text: |-
-                ="We could not find a item with a GTIN code that matches the scanned item
-                
-                Scanned code: " & varScannedCode
-            Width: =560
-            ZIndex: =4
+            LayoutMinWidth: =280
+            OnSelect: |-
+                =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true});
+            RadiusBottomLeft: =Self.Width / 2
+            RadiusBottomRight: =Self.Width / 2
+            RadiusTopLeft: =Self.Width / 2
+            RadiusTopRight: =Self.Width / 2
+            Size: =26
+            Text: ="Scan item"
+            Width: =220
+            X: =Parent.Width/2 - Self.Width/2
+            Y: =Parent.Height - Self.Height - 20
+            ZIndex: =3
 

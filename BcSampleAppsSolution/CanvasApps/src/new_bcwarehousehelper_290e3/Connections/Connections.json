@@ -1,13 +1,5 @@
 {
   "870dfb89-5a04-4c28-9b03-98ba7bf445bb": {
-    "connectionParameters": {
-      "logicAppHostType": "ARM",
-      "workFlowCallbackUri": "https://prod-161.westus.logic.azure.com:443/workflows/2cdb4ceeb26143efb158efa773d11e42/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B37WkKQrk-cuzVLp4MSKLxOefVwDK1pCQ3iXQc0vGV4",
-      "workflowEndpoint": "/subscriptions/ac07fa44-4742-482d-aa28-c00945932935/resourceGroups/56c3f19867534f7ab8d79c599c3d96ef-default56c3f19867534f7ab8d79c599c3d96ef-env/providers/Microsoft.Logic/workflows/7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a",
-      "workflowEntityId": "8b94a6d9-a3c1-ed11-83ff-000d3a991110",
-      "workflowName": "7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a",
-      "workflowPath": "/subscriptions/ac07fa44-4742-482d-aa28-c00945932935/resourceGroups/56c3f19867534f7ab8d79c599c3d96ef-default56c3f19867534f7ab8d79c599c3d96ef-env/providers/Microsoft.Logic/workflows/7bb38b8c-2eac-5e1d-cf06-964dfa46ae5a"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Logic flows",
@@ -21,7 +13,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "e96a8f85-c731-4347-b257-40b38013f6f2"
+          "value": "26482914-a262-4070-b23b-0e916fc6b794"
         }
       },
       "parameterHintsV2": {
@@ -32,7 +24,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "e96a8f85-c731-4347-b257-40b38013f6f2"
+          "value": "26482914-a262-4070-b23b-0e916fc6b794"
         }
       }
     },
@@ -47,9 +39,6 @@
     "id": "870dfb89-5a04-4c28-9b03-98ba7bf445bb"
   },
   "fc5cc552-9879-4472-be2f-2efce8c414bd": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Dynamics 365 Business Central",
