@@ -59,14 +59,14 @@
           "localizationInformations (microsoft/powerApps/beta)": {
             "tableName": "localizationInformations,microsoft%252FpowerApps%252Fbeta"
           },
-          "powerappLanguageResources (microsoft/powerApps/beta)": {
-            "tableName": "powerappLanguageResources,microsoft%252FpowerApps%252Fbeta"
-          },
           "salesOrderLines (v2.0)": {
             "tableName": "salesOrderLines,v2.0"
           },
           "salesOrders (v2.0)": {
             "tableName": "salesOrders,v2.0"
+          },
+          "takeOrderLanguageResources (microsoft/powerApps/beta)": {
+            "tableName": "takeOrderLanguageResources,microsoft%252FpowerApps%252Fbeta"
           }
         }
       }
@@ -77,7 +77,7 @@
       "salesOrders (v2.0)",
       "salesOrderLines (v2.0)",
       "localizationInformations (microsoft/powerApps/beta)",
-      "powerappLanguageResources (microsoft/powerApps/beta)"
+      "takeOrderLanguageResources (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [

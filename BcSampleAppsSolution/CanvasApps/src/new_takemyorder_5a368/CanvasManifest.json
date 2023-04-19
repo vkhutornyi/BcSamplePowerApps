@@ -105,6 +105,7 @@
     "Id": "ebab0d7e-2376-42e3-8e64-4301ca0b94c0",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
+    "ManualOfflineProfileId": "",
     "Name": "Take Order",
     "OriginatingVersion": "1.326"
   },

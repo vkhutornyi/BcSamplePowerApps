@@ -62,7 +62,7 @@
             
             // Get localized labels from Bc
             // Note: AL logic to parse language parameter fails
-            Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
+            Set(varLanguageResources, 'takeOrderLanguageResources (microsoft/powerApps/beta)');
             Set(varLabels, {
                 StartScreen_TakeOrder: LookUp(varLanguageResources, labelId = "StartScreen_TakeOrder").displayName,
                 StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").displayName,
