@@ -62,8 +62,8 @@
           "locations (v2.0)": {
             "tableName": "locations,v2.0"
           },
-          "powerappLanguageResources (microsoft/powerApps/beta)": {
-            "tableName": "powerappLanguageResources,microsoft%252FpowerApps%252Fbeta"
+          "warehousehelperlanguageresources (microsoft/powerApps/beta)": {
+            "tableName": "warehousehelperlanguageresources,microsoft%252FpowerApps%252Fbeta"
           }
         }
       }
@@ -73,7 +73,7 @@
       "itemsWithImage (microsoft/powerApps/beta)",
       "locations (v2.0)",
       "localizationInformations (microsoft/powerApps/beta)",
-      "powerappLanguageResources (microsoft/powerApps/beta)"
+      "warehousehelperlanguageresources (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [],

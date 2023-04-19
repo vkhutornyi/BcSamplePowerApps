@@ -24,6 +24,7 @@
             PaddingLeft: =20
             PaddingRight: =20
             PaddingTop: =20
+            Tooltip: =varLabels.StartScreen_InfoPage
             Width: =90
             X: =Parent.Width - Self.Width - 20
             Y: =20
@@ -54,8 +55,7 @@
                 Font: =varTheme.font
                 Height: =47
                 Size: =21
-                Text: |-
-                    ="User:"
+                Text: =varLabels.StartScreen_User
                 Width: =560
                 X: =Parent.Width/2 - Self.Width/2
                 ZIndex: =2
@@ -153,7 +153,7 @@
             RadiusTopLeft: =Self.Width / 2
             RadiusTopRight: =Self.Width / 2
             Size: =24
-            Text: ="Scan item"
+            Text: =varLabels.StartScreen_Scan
             Width: =220
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height - Self.Height - 20
