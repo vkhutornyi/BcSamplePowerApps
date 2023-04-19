@@ -21,6 +21,9 @@ codeunit 51000 BCS_WH_LabelManagement
         Close: Label 'Close', Locked = true;
         Close_ValueTxt: Label 'Close the page';
 
+        Back: Label 'Back', Locked = true;
+        Back_ValueTxt: Label 'Go back to the previous page';
+
         InfoScreen_Title: Label 'InfoScreen_Title', Locked = true;
         InfoScreen_Title_ValueTxt: Label 'Business Central sample App';
 
@@ -47,6 +50,9 @@ codeunit 51000 BCS_WH_LabelManagement
 
         NotFoundScreen_Scan: Label 'NotFoundScreen_Scan', Locked = true;
         NotFoundScreen_Scan_ValueTxt: Label 'Scan item';
+
+        SelectWarehouseScreen_Title: Label 'SelectWarehouseScreen_Title', Locked = true;
+        SelectWarehouseScreen_Title_ValueTxt: Label 'Select Warehouse';
 
 
         // Telemetry labels
