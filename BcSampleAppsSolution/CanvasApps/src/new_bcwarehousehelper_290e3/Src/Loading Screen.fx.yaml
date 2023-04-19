@@ -47,18 +47,20 @@
             
             // Get localized labels from Bc
             // TODO: AL logic to parse language parameter fails
-            Set(varLanguageResources, 'powerappLanguageResources (microsoft/powerApps/beta)');
+            Set(varLanguageResources, 'warehousehelperlanguageresources (microsoft/powerApps/beta)');
             Set(varLabels, {
                 StartScreen_Scan: LookUp(varLanguageResources, labelId = "StartScreen_Scan").displayName,
                 StartScreen_InfoPage: LookUp(varLanguageResources, labelId = "StartScreen_InfoPage").displayName,
                 StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").displayName,
                 Close: LookUp(varLanguageResources, labelId = "Close").displayName,
+                Back: LookUp(varLanguageResources, labelId = "Back").displayName,
                 InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").displayName,
                 InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").displayName,
                 ItemScreen_Submit: LookUp(varLanguageResources, labelId = "ItemScreen_Submit").displayName,
                 ItemScreen_Add: LookUp(varLanguageResources, labelId = "ItemScreen_Add").displayName,
                 ItemScreen_SubStract: LookUp(varLanguageResources, labelId = "ItemScreen_SubStract").displayName,
                 ItemScreen_SubStractBlocked: LookUp(varLanguageResources, labelId = "ItemScreen_SubStractBlocked").displayName,
+                SelectWarehouseScreen_Title: LookUp(varLanguageResources, labelId = "SelectWarehouseScreen_Title").displayName,    
                 NotFoundScreen_Title: LookUp(varLanguageResources, labelId = "NotFoundScreen_Title").displayName,
                 NotFoundScreen_Text: LookUp(varLanguageResources, labelId = "NotFoundScreen_Text").displayName,
                 NotFoundScreen_Scan: LookUp(varLanguageResources, labelId = "NotFoundScreen_Scan").displayName

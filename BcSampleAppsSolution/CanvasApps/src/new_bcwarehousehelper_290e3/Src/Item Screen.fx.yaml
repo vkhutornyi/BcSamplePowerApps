@@ -104,6 +104,7 @@
                 PaddingLeft: =30
                 PaddingRight: =30
                 PaddingTop: =30
+                Tooltip: =varLabels.Close
                 Width: =100
                 X: =Parent.Width - Self.Width 
                 Y: =Parent.Height/2 - Self.Height/2
@@ -230,6 +231,7 @@
                 PaddingLeft: =10
                 PaddingRight: =10
                 PaddingTop: =10
+                Tooltip: =varLabels.ItemScreen_Add
                 Width: =60
                 X: =Parent.Width - Self.Width - 10
                 Y: =10
@@ -248,6 +250,7 @@
                 PaddingLeft: =10
                 PaddingRight: =10
                 PaddingTop: =10
+                Tooltip: =If(ctxInventory <= 0, varLabels.ItemScreen_SubStractBlocked, varLabels.ItemScreen_SubStract)
                 Width: =60
                 X: =10
                 Y: =10
@@ -305,7 +308,7 @@
             RadiusTopLeft: =Self.Width / 2
             RadiusTopRight: =Self.Width / 2
             Size: =24
-            Text: ="Submit"
+            Text: =varLabels.ItemScreen_Submit
             Width: =220
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height - Self.Height - 20
