@@ -1,9 +1,9 @@
 page 51004 BCS_LanguageResources
 {
     PageType = API;
-    Caption = 'PowerApp Language Resources';
-    EntityName = 'PowerAppLanguageResource';
-    EntitySetName = 'PowerappLanguageResources';
+    Caption = 'Take Order Language Resources';
+    EntityName = 'takeOrderLanguageResource';
+    EntitySetName = 'takeOrderLanguageResources';
     APIPublisher = 'microsoft';
     APIGroup = 'powerApps';
     APIVersion = 'beta';
