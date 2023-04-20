@@ -32,7 +32,7 @@
             lblNotFoundDescription As label:
                 Height: =160
                 Size: =21
-                Text: ="We could not find an item with a code that matches the scanned item."
+                Text: =varLabels.NotFoundScreen_Text
                 Width: =439
                 Y: =lblNotFoundTitle.Height
                 ZIndex: =1
@@ -42,7 +42,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =90
                 Size: =28
-                Text: ="Scan another item or try again"
+                Text: =varLabels.NotFoundScreen_Title
                 Width: =360
                 ZIndex: =2
 
@@ -64,7 +64,7 @@
             RadiusTopLeft: =Self.Width / 2
             RadiusTopRight: =Self.Width / 2
             Size: =26
-            Text: ="Scan item"
+            Text: =varLabels.NotFoundScreen_Scan
             Width: =220
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height - Self.Height - 20
