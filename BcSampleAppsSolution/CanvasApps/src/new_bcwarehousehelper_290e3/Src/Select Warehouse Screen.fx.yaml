@@ -9,7 +9,8 @@
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
-        Width: =Parent.Width
+        Width: =Parent.Width * 0.9
+        X: =Parent.Width/2 - Self.Width/2
         ZIndex: =22
 
         conSelectWarehouseHeader As groupContainer.manualLayoutContainer:
@@ -30,24 +31,18 @@
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1
 
-            icnSelectWarehouseBack As icon.ArrowLeft:
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =80
-                Icon: =Icon.ChevronLeft
-                OnSelect: =Back(ScreenTransition.UnCoverRight);
-                PaddingBottom: =20
-                PaddingLeft: =20
-                PaddingRight: =20
-                PaddingTop: =20
-                Width: =80
-                X: =30
-                Y: =Parent.Height/2 - Self.Height/2
-                ZIndex: =2
+            imgBackIcon As image:
+                Image: ='back icon'
+                OnSelect: =Back(ScreenTransition.UnCoverRight)
+                PaddingBottom: =25
+                PaddingRight: =25
+                PaddingTop: =25
+                ZIndex: =3
 
         recSelectWarehouseHeaderDivider As rectangle:
             Fill: =Color.White
             Height: =2
-            Width: =Parent.Width - 60
+            Width: =Parent.Width
             ZIndex: =3
 
         "galWarehouses As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
@@ -71,7 +66,7 @@
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =140
-            Width: =Parent.Width - 60
+            Width: =Parent.Width
             ZIndex: =4
 
             recSelectWarehouseDivider As rectangle:
@@ -102,6 +97,7 @@
                 lblWarehouseName As label:
                     Color: =RGBA(255, 255, 255, 1)
                     Font: =varTheme.font
+                    FontWeight: =FontWeight.Semibold
                     Height: =36
                     OnSelect: =
                     Size: =21
@@ -121,21 +117,20 @@
                     BorderColor: =Color.White
                     BorderThickness: =If(ThisItem.IsSelected, 0 , 2)
                     Fill: =If(ThisItem.IsSelected, Color.White, Color.Transparent)
-                    Height: =60
+                    Height: =70
                     OnSelect: =
-                    Width: =60
+                    Width: =70
                     X: =Parent.Width/2 - Self.Width/2
                     Y: =Parent.Height/2 - Self.Height/2
                     ZIndex: =1
 
-                "icnWarehouseIcon As icon.'3DPrinting'":
-                    Color: =If(ThisItem.IsSelected, varTheme.brandColor, Color.White)
-                    Height: =40
-                    Icon: =Icon.Home
-                    Width: =40
-                    X: =Parent.Width/2 - Self.Width/2
-                    Y: =Parent.Height/2 -Self.Height/2
-                    ZIndex: =2
+                imgSelectedWarehouseIcon As image:
+                    Image: =If(ThisItem.IsSelected, 'Selected icon', 'icon default') 
+                    PaddingBottom: =30
+                    PaddingLeft: =30
+                    PaddingRight: =30
+                    PaddingTop: =30
+                    ZIndex: =3
 
             btnWarehouseOverlay As button:
                 Fill: =RGBA(0, 0, 0, 0)

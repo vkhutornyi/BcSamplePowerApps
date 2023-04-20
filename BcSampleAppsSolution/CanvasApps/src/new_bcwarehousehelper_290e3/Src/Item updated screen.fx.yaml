@@ -1,33 +1,28 @@
 "'Item updated screen' As screen":
     Fill: =varTheme.secondaryColor
 
-    icnItemUpdatedSuccess As icon.Check:
-        Color: =varTheme.brandColor
-        Height: =220
-        Icon: =Icon.Check
-        OnSelect: =
-        Width: =220
+    Image6 As image:
+        Height: =250
+        Image: ='succes icon'
+        Width: =250
         X: =Parent.Width/2 - Self.Width/2
         Y: =Parent.Height/2 - Self.Height/2
-        ZIndex: =1
-
-    recClickableOverlay As rectangle:
-        Fill: =Color.Transparent
-        Height: =1136
-        OnSelect: |-
-            =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
-        TabIndex: =0
-        Width: =640
         ZIndex: =2
 
     timerNavigateAway As timer:
         AutoStart: =true
+        BorderThickness: =0
         Duration: =1500
-        Height: =70
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        HoverFill: =Color.Transparent
+        OnSelect: |-
+            =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
         OnTimerEnd: |-
             =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true})
+        PressedColor: =Color.Transparent
         Start: =true
-        Visible: =false
-        Width: =280
-        ZIndex: =4
+        Text: =
+        Width: =Parent.Width
+        ZIndex: =3
 

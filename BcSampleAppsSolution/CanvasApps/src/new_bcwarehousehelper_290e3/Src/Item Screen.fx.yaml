@@ -84,7 +84,6 @@
             lblItemScreenHeader As label:
                 Align: =Align.Center
                 Font: =varTheme.font
-                FontWeight: =FontWeight.Semibold
                 Height: =80  
                 Size: =24
                 Text: =varSelectedWarehouse.Name
@@ -93,22 +92,17 @@
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1
 
-            icnCloseItemScreen As icon.Cancel:
-                Color: =varTheme.brandColor
-                Height: =100
-                Icon: =Icon.Cancel
+            Image3 As image:
+                Image: ='dismiss icon'
                 OnSelect: |-
-                    =UpdateContext({ctxSubmitInprogress: true});
+                    =Set(varScannedItem, Blank());
                     Select(btnTriggerBarcodeScanner);
-                PaddingBottom: =30
-                PaddingLeft: =30
-                PaddingRight: =30
-                PaddingTop: =30
-                Tooltip: =varLabels.Close
-                Width: =100
-                X: =Parent.Width - Self.Width 
-                Y: =Parent.Height/2 - Self.Height/2
-                ZIndex: =2
+                PaddingBottom: =20
+                PaddingLeft: =20
+                PaddingRight: =20
+                PaddingTop: =20
+                X: =Parent.Width - Self.Width
+                ZIndex: =3
 
         conItemImage As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -222,73 +216,70 @@
                 Width: =300
                 ZIndex: =1
 
-            icnAddInventory As icon.Add:
-                Height: =60
-                Icon: =Icon.Add
-                OnSelect: |
-                    =UpdateContext({ctxInventory: ctxInventory + 1, ctxAllowSubmit: true});
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
-                Tooltip: =varLabels.ItemScreen_Add
-                Width: =60
-                X: =Parent.Width - Self.Width - 10
-                Y: =10
-                ZIndex: =3
-
-            icnSubtractInventory As icon.HorizontalLine:
-                Color: =If(ctxInventory > 0, RGBA(0, 18, 107, 1), Color.DimGray)
-                Height: =60
-                Icon: =Icon.HorizontalLine
-                OnSelect: |-
-                    =If(ctxInventory > 0,
-                        UpdateContext({ctxInventory: ctxInventory - 1, ctxAllowSubmit: true}),
-                        false
-                    );
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
-                Tooltip: =If(ctxInventory <= 0, varLabels.ItemScreen_SubStractBlocked, varLabels.ItemScreen_SubStract)
-                Width: =60
-                X: =10
-                Y: =10
-                ZIndex: =4
-
             inpInventoryNumber As text:
                 Align: =Align.Center
                 BorderThickness: =0
                 Color: =varTheme.brandColor
                 Default: =ctxInventory
+                Font: =varTheme.font
+                FontWeight: =FontWeight.Semibold
                 Format: =TextFormat.Number
                 Height: =80
                 OnChange: |
-                    =If(Value(Self.Text) < 0, 
-                        UpdateContext({ctxInventory: 0, ctxAllowSubmit: true});
-                        Reset(Self);
-                        ,
-                        UpdateContext({ctxInventory: Value(Self.Text), ctxAllowSubmit: true});
+                    =With({
+                        value: Value(Self.Text)
+                    },
+                        If(Or(value < 0, value > 9999),
+                            Notify("Values have to be between 0 and 9999", NotificationType.Warning); 
+                        );
+                        
+                        UpdateContext({ctxInventory: value, ctxAllowSubmit: true});
                     );
                 OnSelect: |-
                     =UpdateContext({ctxAllowSubmit: true})
                 PaddingLeft: =5
-                Size: =26
+                Size: =34
                 Width: =140
                 X: =Parent.Width/2 - Self.Width/2
                 ZIndex: =7
+
+            imgAddIcon As image:
+                Height: =80
+                Image: ='add icon'
+                OnSelect: |-
+                    =If(ctxInventory < 99999, UpdateContext({ctxInventory: ctxInventory + 1})) 
+                PaddingBottom: =15
+                PaddingRight: =25
+                PaddingTop: =15
+                Tooltip: =varLabels.ItemScreen_Add
+                Width: =80
+                X: =Parent.Width - Self.Width
+                ZIndex: =8
+
+            imgSubtractIcon As image:
+                Height: =80
+                Image: ='substract icon'
+                OnSelect: |-
+                    =If(ctxInventory > 0, UpdateContext({ctxInventory: ctxInventory - 1}));
+                PaddingBottom: =15
+                PaddingLeft: =25
+                PaddingTop: =15
+                Tooltip: =If(ctxInventory > 0, varLabels.ItemScreen_SubStract, varLabels.ItemScreen_SubStractBlocked)
+                Transparency: =If(ctxInventory <= 0, 70%, 0)
+                Width: =80
+                ZIndex: =9
 
         btnSubChanges As button:
             BorderThickness: =0
             DisabledColor: =RGBA(255, 255, 255, 1)
             DisabledFill: =RGBA(237, 237, 237, 1)
-            DisplayMode: = DisplayMode.Edit
+            DisplayMode: =If(And(ctxInventory >= 0, ctxInventory <= 99999), DisplayMode.Edit, DisplayMode.Disabled)
             Fill: =varTheme.brandColor
             Font: =varTheme.font
             Height: =220
             LayoutMinHeight: =70
             LayoutMinWidth: =280
-            OnSelect: |-
+            OnSelect: |
                 =UpdateContext({ctxShowLoadingScreen: true, ctxShouldShowError: false});
                 
                 IfError(Patch('items (v2.0)', {id: varScannedItem.id}, {inventory: ctxInventory }),
@@ -315,16 +306,16 @@
             ZIndex: =7
 
     conLoadingOverlay As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(1, 122, 122, 0.4)
+        Fill: =RGBA(186, 186, 186, 0.69)
         Height: =Parent.Height
         Visible: =ctxShowLoadingScreen
         Width: =Parent.Width
         ZIndex: =4
 
         imgLoadingSubmit As image:
-            Height: =250
+            Height: =200
             Image: =Spinner_LightBlue_2x
-            Width: =250
+            Width: =200
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height/2 - Self.Height/2
             ZIndex: =1

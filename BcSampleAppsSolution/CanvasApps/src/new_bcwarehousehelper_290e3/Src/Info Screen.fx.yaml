@@ -1,29 +1,27 @@
 "'Info Screen' As screen":
     Fill: =varTheme.secondaryColor
 
-    conInfoContent As groupContainer:
-        Height: =398
-        Width: =554
+    conInfoContent As groupContainer.verticalAutoLayoutContainer:
+        Height: =500
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =40
+        Width: =Parent.Width * 0.9
         X: =Parent.Width/2 - Self.Width/2
-        Y: =Parent.Height/2 - Self.Height/2
+        Y: =Parent.Height/4 
         ZIndex: =1
 
-        lblInfoText As label:
-            Font: =varTheme.font
-            Height: =200
-            Size: =21
-            Text: =varLabels.InfoScreen_Text
-            Width: =474
-            X: =Parent.Width/2 - Self.Width/2
-            Y: =conInfoTitle.Y + conInfoTitle.Height
-            ZIndex: =1
-
         conInfoTitle As groupContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
             Height: =70
+            LayoutMinHeight: =80
+            LayoutMinWidth: =250
             Width: =320
             X: =lblInfoText.X
             Y: =40
-            ZIndex: =2
+            ZIndex: =1
 
             lblInfoHeader As label:
                 Font: =varTheme.font
@@ -32,28 +30,67 @@
                 Size: =21
                 Text: =varLabels.InfoScreen_Title
                 Width: =250
-                X: =icnInfoIcon.X + icnInfoIcon.Width + 20  
+                X: =70
                 ZIndex: =1
 
-            icnInfoIcon As icon.Help:
-                Color: =RGBA(153, 153, 153, 1)
-                Height: =60
-                Icon: =Icon.Help
-                Width: =60
-                Y: =5
-                ZIndex: =2
+            imgInfoIcon As image:
+                Height: =70
+                Image: ='info screen icon'
+                Width: =70
+                ZIndex: =3
 
-    icnCloseInfoPage As icon.Cancel:
-        Color: =varTheme.brandColor
-        Height: =100
-        Icon: =Icon.Cancel
-        OnSelect: =Back(ScreenTransition.UnCoverRight)
-        PaddingBottom: =25
-        PaddingLeft: =25
-        PaddingRight: =25
-        PaddingTop: =25
+        lblInfoText As label:
+            Font: =varTheme.font
+            Height: =180
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: =varLabels.InfoScreen_Text
+            Width: =474
+            X: =Parent.Width/2 - Self.Width/2
+            Y: =conInfoTitle.Y + conInfoTitle.Height
+            ZIndex: =2
+
+        lblInfoReadMore As label:
+            Font: =varTheme.font
+            Height: =90
+            Italic: =true
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: |-
+                ="Read more about Business Central sample app:"
+            Width: =474
+            X: =lblInfoText.X
+            Y: =lblInfoText.Y + lblInfoText.Height
+            ZIndex: =3
+
+        lblInfoLink As label:
+            Color: =RGBA(50, 86, 160, 1)
+            Font: =varTheme.font
+            Height: =90
+            Italic: =true
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            OnSelect: |-
+                =Launch("https://aka.ms/bcPApps");
+            Size: =21
+            Text: ="Sample apps"
+            Underline: =true
+            Width: =243
+            X: =lblInfoText.X
+            Y: =lblInfoReadMore.Y + lblInfoReadMore.Height
+            ZIndex: =4
+
+    imgCloseInfoPage As image:
+        Image: ='dismiss icon'
+        OnSelect: |
+            =Back(ScreenTransition.UnCoverRight)
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
         Tooltip: =varLabels.Close
-        Width: =100
         X: =Parent.Width - Self.Width 
         ZIndex: =2
 

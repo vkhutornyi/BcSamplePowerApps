@@ -5,42 +5,28 @@
         
 
     conStartScreenContent As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height - 40
+        Height: =Parent.Height - imgOpenInfoPage.Height - 40
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
-        Width: =Parent.Width
+        Width: =Parent.Width * 0.9
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =imgOpenInfoPage.Height
         ZIndex: =22
-
-        icnLearnMore As icon.Help:
-            AlignInContainer: =AlignInContainer.End
-            BorderColor: =RGBA(149, 149, 149, 1)
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =90
-            Icon: =Icon.Help
-            OnSelect: =Navigate('Info Screen', ScreenTransition.Cover)
-            PaddingBottom: =20
-            PaddingLeft: =20
-            PaddingRight: =20
-            PaddingTop: =20
-            Tooltip: =varLabels.StartScreen_InfoPage
-            Width: =90
-            X: =Parent.Width - Self.Width - 20
-            Y: =20
-            ZIndex: =1
 
         conUserName As groupContainer.manualLayoutContainer:
             FillPortions: =0
             Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
-            ZIndex: =2
+            ZIndex: =3
 
             lblUserNameValue As label:
                 Align: =Align.Center
                 Color: =RGBA(255, 255, 255, 1)
                 Font: =varTheme.font
+                FontWeight: =FontWeight.Semibold
                 Height: =53
                 Size: =21
                 Text: =User().FullName
@@ -68,7 +54,7 @@
             Width: =235
             X: =Parent.Width/2 - Self.Width/2
             Y: =80
-            ZIndex: =3
+            ZIndex: =4
 
         conLocationSelector As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
@@ -79,7 +65,8 @@
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =4
+            Width: =Parent.Width
+            ZIndex: =5
 
             recLocationTopDivider As rectangle:
                 Fill: =RGBA(255, 255, 255, 0.5)
@@ -98,10 +85,11 @@
                     Align: =Align.Right
                     Color: =RGBA(255, 255, 255, 1)
                     Font: =varTheme.font
+                    FontWeight: =FontWeight.Semibold
                     Height: =70
                     Size: =21
                     Text: =varSelectedWarehouse.Name
-                    Width: =Min(Len(Self.Text) * 16, 400)
+                    Width: =Min(Len(Self.Text) * 18, 400)
                     X: =Parent.Width/2 - Self.Width/2 - imgChevron.Width/2
                     Y: =Parent.Height/2 - Self.Height/2
                     ZIndex: =1
@@ -114,12 +102,13 @@
                     PaddingRight: =10
                     PaddingTop: =10
                     Width: =80
-                    X: =lblLocationValue.Width + Self.Width + 10
-                    Y: =Parent.Height/2 - Self.Height/2
+                    X: =lblLocationValue.X + lblLocationValue.Width
+                    Y: =20
                     ZIndex: =2
 
                 btnSelectLocationOverlay As button:
                     Fill: =RGBA(0, 0, 0, 0)
+                    FontWeight: =FontWeight.Normal
                     Height: =Parent.Height
                     HoverFill: =Color.Transparent
                     OnSelect: =Navigate('Select Warehouse Screen', ScreenTransition.Cover);
@@ -157,5 +146,15 @@
             Width: =220
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height - Self.Height - 20
-            ZIndex: =5
+            ZIndex: =6
+
+    imgOpenInfoPage As image:
+        Image: ='info page white icon'
+        OnSelect: =Navigate('Info Screen', ScreenTransition.Cover)
+        PaddingBottom: =20
+        PaddingLeft: =20
+        PaddingRight: =20
+        PaddingTop: =20
+        X: =Parent.Width - Self.Width
+        ZIndex: =23
 

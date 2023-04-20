@@ -28,31 +28,36 @@
                 PaddingLeft: =30
                 PaddingRight: =30
                 Size: =28
-                Text: ="Debug screen - only web"
+                Text: ="Debug screen"
                 Width: =Parent.Width
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1
 
             icnCloseDebugScreen As icon.ArrowLeft:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =90
-                Icon: =Icon.Cancel
-                OnSelect: =Back(ScreenTransition.UnCoverRight);
-                PaddingBottom: =20
-                PaddingLeft: =20
-                PaddingRight: =20
-                PaddingTop: =20
-                Width: =90
+                Height: =100
+                Icon: =Icon.QuestionMark
+                OnSelect: |-
+                    =UpdateContext({ctxShowExplainer: true});
+                PaddingBottom: =30
+                PaddingLeft: =30
+                PaddingRight: =30
+                PaddingTop: =30
+                Width: =100
                 X: =Parent.Width - Self.Width - 10
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =2
 
             icnCloseDebugScreen_1 As icon.ArrowLeft:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =40
+                Height: =100
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Navigate('Start Screen');
-                Width: =40
+                PaddingBottom: =20
+                PaddingLeft: =20
+                PaddingRight: =20
+                PaddingTop: =20
+                Width: =100
                 X: =40
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =3
@@ -152,4 +157,40 @@
                 Text: =""
                 Width: =Parent.TemplateWidth
                 ZIndex: =4
+
+    conExplaner As groupContainer.manualLayoutContainer:
+        Height: =1136
+        Visible: =ctxShowExplainer
+        Width: =640
+        ZIndex: =24
+
+        recExplainOverLay As rectangle:
+            Fill: =RGBA(250, 250, 250, 0.65)
+            Height: =1136
+            OnSelect: |-
+                =UpdateContext({ctxShowExplainer: false});
+            Width: =640
+            ZIndex: =1
+
+        btnBackGround As button:
+            DisplayMode: =DisplayMode.View
+            Fill: =varTheme.brandColor
+            Height: =470
+            Size: =24
+            Text: =" "
+            Width: =495
+            X: =72
+            Y: =333
+            ZIndex: =2
+
+        lblExplaner As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =440
+            Size: =26
+            Text: ="The barcode scanning capability is only available  on devices. This is a debug page that lets you test the app in the browser"
+            Width: =466
+            X: =87
+            Y: =348
+            ZIndex: =3
 

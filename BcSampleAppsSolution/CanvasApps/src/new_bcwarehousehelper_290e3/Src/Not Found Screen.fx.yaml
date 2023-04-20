@@ -32,8 +32,8 @@
             lblNotFoundDescription As label:
                 Height: =160
                 Size: =21
-                Text: ="Would could not find an item that matches the scanned code"
-                Width: =418
+                Text: ="We could not find an item with a code that matches the scanned item."
+                Width: =439
                 Y: =lblNotFoundTitle.Height
                 ZIndex: =1
 
