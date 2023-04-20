@@ -132,7 +132,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "04/20/2023 05:54:34",
+  "HeaderLastSavedDateTimeUTC": "04/20/2023 07:24:16",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "870dfb89-5a04-4c28-9b03-98ba7bf445bb": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/7bb38b8c2eac5e1dcf06964dfa46ae5a-5e1f21561f5613c9\"",
@@ -159,23 +159,23 @@
     "warehouse name arrow": "ad737b3f-9f8a-4977-8325-d12d808b99c9.svg"
   },
   "LocalResourceRootPaths": {
-    "add icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0629e33f6-d575-4acf-a563-43679dc006fb.svg?sv=2018-03-28&sr=b&sig=2h0efpYbIOwbYn459Ayj4cQlJ7BJC7gR4gcAOlkOBKI%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "back icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images024696a74-3ca0-4a67-8e19-4a3f90bdbf65.svg?sv=2018-03-28&sr=b&sig=MkVZ0lVd27ikFVRXYOQWQPVRvFkMD2b2Mb4lj8P6yKQ%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "dismiss icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0b308333e-f792-4a38-8e27-e0a4cfe09917.svg?sv=2018-03-28&sr=b&sig=5tttIGxbKuqZsLqpUzz2Akeiyqypv1IPSxeeG4altw4%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "icon default": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images02d720703-9ad2-4634-a66f-0d8cd38eebf2.svg?sv=2018-03-28&sr=b&sig=4%2B2i5XD0cQxWF4rAmeF45FO2N%2Bp8DtgPSnQVhVSb4LM%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "info page white icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images02a8cff6e-f277-42f8-8017-d8c336c86095.svg?sv=2018-03-28&sr=b&sig=qS8QFN5c6b4itvZb3D1RFPSVFw7Wn2gep5G8gToJjdM%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "info screen icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images098610518-04c3-42d2-b403-0af32af33127.svg?sv=2018-03-28&sr=b&sig=jA5O72OyrZa12JXO%2B8WimFdXtHJBrOklZBBo%2Fmx0o6M%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "loading-spinner": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0bfece569-47a8-4ee2-8efb-f808d267dbdd.gif?sv=2018-03-28&sr=b&sig=in7cd1M1hd22BOdzxqU1A8EXhWECwjCVpCedD7jRjyU%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "not found icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0059c3f53-be48-4ab6-8f12-2e9ec7191c01.svg?sv=2018-03-28&sr=b&sig=DkGUjYhmjoBsyCkczm5%2FHR%2FrNILYwka513rpB1YUlzc%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "placeholder": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images07dc34ebb-f979-4d2a-b190-ab5b0882dd1c.png?sv=2018-03-28&sr=b&sig=Q2ivb6bb%2BGbg%2FfusQuiBdmHHMdJjpRCksis%2B7o7G3sw%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "Selected icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images099e3acb9-a913-459c-8344-21935beecd53.svg?sv=2018-03-28&sr=b&sig=1XBziTGD3N8CKdDdKopQ5TJAeqgD9BwubmecPiaHNwI%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "Spinner_DarkBlue_2x": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images05cd1aabb-c2a2-40c1-ad69-473ee26ee451.gif?sv=2018-03-28&sr=b&sig=oewSyu8WzOl2PdpiYMwe%2BHCbLnDmYu%2BdaAEToGzbV3w%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "Spinner_LightBlue_2x": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0279db7c5-3c04-4e8b-add3-1a4a5c9d4d44.gif?sv=2018-03-28&sr=b&sig=pMoSUL5r2oNnytEzfrdmze2zvCCF4%2B8z0Pzn5HPw0B4%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "Spinner_WhiteBlue_2x": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images02f94a60d-8cb5-4042-8d3c-666288876286.gif?sv=2018-03-28&sr=b&sig=laWlOyxXcyQj6fmiXAuXM%2FpH1Wh3SEyuK1MRobK4w3c%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "substract icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0fc6a401e-1d29-47b5-95b7-ffe55550720c.svg?sv=2018-03-28&sr=b&sig=UOQhcIqDshujFt3hKibQB8y%2BatY56zfOwvRJfbh0Rhc%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "succes icon": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0f0bccbd6-0f81-4cdf-8d78-e7cf8d56ee6a.svg?sv=2018-03-28&sr=b&sig=V2%2BPbWfpnv6AuvmimCOi8ZWZHdI9rBbrvWtGl%2FaAnhc%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "warehouse helper logo": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images09d030933-0683-49c1-98ba-1df4e127c037.png?sv=2018-03-28&sr=b&sig=iht6y5QHajpfyekmUe3RFuwRdPnT6oaRbguyMq6qc8k%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r",
-    "warehouse name arrow": "https://docserverpwaprodeus.blob.core.windows.net/a8e1bfa1-2278-44f9-993e-14be8e78202f-1/resource/Assets0Images0ad737b3f-9f8a-4977-8325-d12d808b99c9.svg?sv=2018-03-28&sr=b&sig=CphHyZRPT9KEBd0O8tLr41rGSp7isfr1l9L1hyulrwE%3D&spr=https&se=2023-04-21T05%3A36%3A00Z&sp=r"
+    "add icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0629e33f6-d575-4acf-a563-43679dc006fb.svg?sv=2018-03-28&sr=b&sig=0B6Bnmpew%2FpB7RlsGXyOG57k876VUdQS1fd6OBwNHxo%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "back icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images024696a74-3ca0-4a67-8e19-4a3f90bdbf65.svg?sv=2018-03-28&sr=b&sig=qL3XplSz3WcKiBGQsEkDGnDFVekm%2F0M1VGIUWBXdX%2BA%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "dismiss icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0b308333e-f792-4a38-8e27-e0a4cfe09917.svg?sv=2018-03-28&sr=b&sig=if9W7pwUehsEG1kk0%2F5Xc%2Fvq5GcF5l84VahThJwjxOk%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "icon default": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images02d720703-9ad2-4634-a66f-0d8cd38eebf2.svg?sv=2018-03-28&sr=b&sig=nQGaVMyt4qLoqgeyP02sjOztWj8CK%2BkteOiwdwwnRCA%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "info page white icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images02a8cff6e-f277-42f8-8017-d8c336c86095.svg?sv=2018-03-28&sr=b&sig=FuysMQ4kBPJGXVWIdJBCClYyWWJgK02dq3R8LKI8jZo%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "info screen icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images098610518-04c3-42d2-b403-0af32af33127.svg?sv=2018-03-28&sr=b&sig=lqOGlZDLBcDRcSAvAJnCVASMTa1iKD%2FeKqF93cgC724%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "loading-spinner": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0bfece569-47a8-4ee2-8efb-f808d267dbdd.gif?sv=2018-03-28&sr=b&sig=YuVBQ6PH%2FM0Ri3qOOYFZJRBOgvvF9zMIWzwFHwjx3GA%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "not found icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0059c3f53-be48-4ab6-8f12-2e9ec7191c01.svg?sv=2018-03-28&sr=b&sig=ltaGzFT1UN7y34DM6pZ0UGnbMYF4wA5glM5T4hC0ciI%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "placeholder": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images07dc34ebb-f979-4d2a-b190-ab5b0882dd1c.png?sv=2018-03-28&sr=b&sig=MFuKUOxt7NC%2FCkgvI%2BXlIn8i5edf9Qz20h0FTfZgxF0%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "Selected icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images099e3acb9-a913-459c-8344-21935beecd53.svg?sv=2018-03-28&sr=b&sig=0Xq8LQwZ56mBRpRHO3RwuGT2RrVQ1KGSVQdVDyHUPtA%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "Spinner_DarkBlue_2x": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images05cd1aabb-c2a2-40c1-ad69-473ee26ee451.gif?sv=2018-03-28&sr=b&sig=3%2BP6s1%2FjP9RNEkTNZ0%2FIoGxrTyou1TE%2FPsgT3njfJA0%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "Spinner_LightBlue_2x": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0279db7c5-3c04-4e8b-add3-1a4a5c9d4d44.gif?sv=2018-03-28&sr=b&sig=fbXPXNKFnK7mIHRX8cNzcUNUTUjYV8EiVeGUinv2TIM%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "Spinner_WhiteBlue_2x": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images02f94a60d-8cb5-4042-8d3c-666288876286.gif?sv=2018-03-28&sr=b&sig=iPhxIlPA4bqb8%2BsFLliCfhodJI0uQ3U%2B%2BluS1PUtjdc%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "substract icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0fc6a401e-1d29-47b5-95b7-ffe55550720c.svg?sv=2018-03-28&sr=b&sig=ieCauSq3BBaTXILpSzbTjqx2y7gJEwaIJzUKlncC5AE%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "succes icon": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0f0bccbd6-0f81-4cdf-8d78-e7cf8d56ee6a.svg?sv=2018-03-28&sr=b&sig=fjzH4igzZQpllFKp6hskNuuboe%2BT%2B2tgdOlrWj4fhsc%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "warehouse helper logo": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images09d030933-0683-49c1-98ba-1df4e127c037.png?sv=2018-03-28&sr=b&sig=hdjjvgJ%2BgjvG%2B1NjPe79fKRxt66zS03bu280U3r%2B5yU%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r",
+    "warehouse name arrow": "https://docserverpwaprodeus.blob.core.windows.net/91fb7a86-1b47-4d6e-91a0-38430edde95d-1/resource/Assets0Images0ad737b3f-9f8a-4977-8325-d12d808b99c9.svg?sv=2018-03-28&sr=b&sig=Abp%2FdwP7StIme3xJba1tjB1gKRrPBXMYfSQxxBYDxRs%3D&spr=https&se=2023-04-21T07%3A22%3A26Z&sp=r"
   },
   "OldLogoFileName": "uldagpta.jpg",
   "OrderComponentMetadata": {
@@ -211,11 +211,11 @@
     "groupContainer": 2,
     "htmlViewer": 10,
     "icon": 4,
-    "image": 1,
+    "image": 0,
     "label": 3,
     "rectangle": 5,
     "text": 11,
-    "timer": 0
+    "timer": 1
   },
   "OverridablePropertiesEntry": {
     "566495f8-7ef6-473b-bca1-b539b41b7ee5": {},
@@ -404,7 +404,7 @@
     "icnWarehouseIcon_1": 96,
     "Image2_1": 103,
     "Image3": 57,
-    "Image6": 75,
+    "Image6": 74,
     "imgAddIcon": 70,
     "imgBackIcon": 32,
     "imgChevron": 26,
@@ -462,7 +462,7 @@
     "Select Warehouse Screen": 0,
     "Start Screen": 0,
     "Test_7F478737223C4B69": 0,
-    "timerNavigateAway": 74,
+    "timerNavigateAway": 75,
     "timeStartLoading": 0,
     "Web scan test screen": 0
   },
@@ -489,7 +489,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.55822450000000001,
+    "AnalysisLoadTime": 0.56316370000000004,
     "ControlCount": {
       "05d62057b31643aab857545719a86f80": 1,
       "barcodeScanner": 1,
@@ -511,7 +511,7 @@
       "text": 1,
       "timer": 2
     },
-    "DeserializationLoadTime": 6.6091708999999996,
+    "DeserializationLoadTime": 1.5233570999999999,
     "ErrorCount": 0
   },
   "WasLocalDatabaseReferencesEmpty": true

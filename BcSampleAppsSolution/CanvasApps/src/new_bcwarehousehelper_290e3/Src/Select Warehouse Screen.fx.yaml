@@ -26,7 +26,7 @@
                 Font: =varTheme.font
                 Height: =70
                 Size: =28
-                Text: ="Select warehouse"
+                Text: =varLabels.SelectWarehouseScreen_Title
                 Width: =Parent.Width
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1
@@ -37,6 +37,7 @@
                 PaddingBottom: =25
                 PaddingRight: =25
                 PaddingTop: =25
+                Tooltip: =varLabels.Back
                 ZIndex: =3
 
         recSelectWarehouseHeaderDivider As rectangle:

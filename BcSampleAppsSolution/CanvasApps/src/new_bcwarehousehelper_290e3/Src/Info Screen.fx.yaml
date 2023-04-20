@@ -58,8 +58,7 @@
             LayoutMinHeight: =70
             LayoutMinWidth: =560
             Size: =21
-            Text: |-
-                ="Read more about Business Central sample app:"
+            Text: =varLabels.InfoScreen_ReadMore
             Width: =474
             X: =lblInfoText.X
             Y: =lblInfoText.Y + lblInfoText.Height
@@ -75,7 +74,7 @@
             OnSelect: |-
                 =Launch("https://aka.ms/bcPApps");
             Size: =21
-            Text: ="Sample apps"
+            Text: =varLabels.InfoScreen_Link
             Underline: =true
             Width: =243
             X: =lblInfoText.X

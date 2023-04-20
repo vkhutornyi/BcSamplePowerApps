@@ -10,10 +10,10 @@ codeunit 51000 BCS_WH_LabelManagement
 
     var
         StartScreen_Scan: Label 'StartScreen_Scan', Locked = true;
-        StartScreen_Scan_ValueTxt: Label 'Scan';
+        StartScreen_Scan_ValueTxt: Label 'Scan item';
 
         StartScreen_InfoPage: Label 'StartScreen_InfoPage', Locked = true;
-        StartScreen_InfoPage_ValueTxt: Label 'Open the information page';
+        StartScreen_InfoPage_ValueTxt: Label 'Open information screen';
 
         StartScreen_User: Label 'StartScreen_User', Locked = true;
         StartScreen_User_ValueTxt: Label 'User:';
@@ -25,10 +25,16 @@ codeunit 51000 BCS_WH_LabelManagement
         Back_ValueTxt: Label 'Go back to the previous page';
 
         InfoScreen_Title: Label 'InfoScreen_Title', Locked = true;
-        InfoScreen_Title_ValueTxt: Label 'Business Central sample App';
+        InfoScreen_Title_ValueTxt: Label 'Business Central sample app';
 
         InfoScreen_Text: Label 'InfoScreen_Text', Locked = true;
         InfoScreen_Text_ValueTxt: Label 'Warehouse helper is a simple sample app that shows how to use the Power Apps integration in Business Central.';
+
+        InfoScreen_ReadMore: Label 'InfoScreen_ReadMore', Locked = true;
+        InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample app:';
+
+        InfoScreen_Link: Label 'InfoScreen_Link', Locked = true;
+        InfoScreen_Link_ValueTxt: Label 'Sample apps';
 
         ItemScreen_Submit: Label 'ItemScreen_Submit', Locked = true;
         ItemScreen_Submit_ValueTxt: Label 'Submit';
@@ -46,13 +52,22 @@ codeunit 51000 BCS_WH_LabelManagement
         NotFoundScreen_Title_ValueTxt: Label 'Scan another item or try again';
 
         NotFoundScreen_Text: Label 'NotFoundScreen_Text', Locked = true;
-        NotFoundScreen_Text_ValueTxt: Label 'We could not find an item that macthes the scanned code';
+        NotFoundScreen_Text_ValueTxt: Label 'We could not find an item with a code that matches the scanned item.';
 
         NotFoundScreen_Scan: Label 'NotFoundScreen_Scan', Locked = true;
         NotFoundScreen_Scan_ValueTxt: Label 'Scan item';
 
         SelectWarehouseScreen_Title: Label 'SelectWarehouseScreen_Title', Locked = true;
         SelectWarehouseScreen_Title_ValueTxt: Label 'Select Warehouse';
+
+        DebugScreen_Title: Label 'DebugScreen_Title', Locked = true;
+        DebugScreen_Title_ValueTxt: Label 'Debug screen';
+
+        DebugScreen_Message: Label 'DebugScreen_Message', Locked = true;
+        DebugScreen_Message_ValueTxt: Label 'The barcode scanning capability is only available on devices. This is a debug page that lets you test the app in the browser';
+
+        DebugScreen_LearnMore: Label 'DebugScreen_LearnMore', Locked = true;
+        DebugScreen_LearnMore_ValueTxt: Label 'Learn more';
 
 
         // Telemetry labels
@@ -92,15 +107,22 @@ codeunit 51000 BCS_WH_LabelManagement
         InsertLabel(TempPowerAppsLabels, StartScreen_InfoPage, StartScreen_InfoPage_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, StartScreen_User, StartScreen_User_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, Close, Close_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, Back, Back_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, InfoScreen_Title, InfoScreen_Title_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, InfoScreen_Text, InfoScreen_Text_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, InfoScreen_ReadMore, InfoScreen_ReadMore_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, InfoScreen_Link, InfoScreen_Link_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, ItemScreen_Submit, ItemScreen_Submit_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, ItemScreen_Add, ItemScreen_Add_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, ItemScreen_SubStract, ItemScreen_SubStract_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, ItemScreen_SubStractBlocked, ItemScreen_SubStractBlocked_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, NotFoundScreen_Title, NotFoundScreen_Title_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, NotFoundScreen_Text, NotFoundScreen_Text_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, SelectWarehouseScreen_Title, SelectWarehouseScreen_Title_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, NotFoundScreen_Scan, NotFoundScreen_Scan_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, DebugScreen_Title, DebugScreen_Title_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, DebugScreen_Message, DebugScreen_Message_ValueTxt, 'en-US');
+        insertLabel(TempPowerAppsLabels, DebugScreen_LearnMore, DebugScreen_LearnMore_ValueTxt, 'en-US');
     end;
 
     local procedure InsertLabel(var TempPowerAppsLabels: Record BCS_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; labelLanguage: Text[10])

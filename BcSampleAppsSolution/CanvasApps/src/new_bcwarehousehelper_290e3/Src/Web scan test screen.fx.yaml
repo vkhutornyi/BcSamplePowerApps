@@ -28,7 +28,7 @@
                 PaddingLeft: =30
                 PaddingRight: =30
                 Size: =28
-                Text: ="Debug screen"
+                Text: =varLabels.DebugScreen_Title
                 Width: =Parent.Width
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =1
@@ -43,6 +43,7 @@
                 PaddingLeft: =30
                 PaddingRight: =30
                 PaddingTop: =30
+                Tooltip: =varLabels.DebugScreen_LearnMore
                 Width: =100
                 X: =Parent.Width - Self.Width - 10
                 Y: =Parent.Height/2 - Self.Height/2
@@ -57,6 +58,7 @@
                 PaddingLeft: =20
                 PaddingRight: =20
                 PaddingTop: =20
+                Tooltip: =varLabels.Back
                 Width: =100
                 X: =40
                 Y: =Parent.Height/2 - Self.Height/2
@@ -188,7 +190,7 @@
             Color: =RGBA(255, 255, 255, 1)
             Height: =440
             Size: =26
-            Text: ="The barcode scanning capability is only available  on devices. This is a debug page that lets you test the app in the browser"
+            Text: =varLabels.DebugScreen_Message
             Width: =466
             X: =87
             Y: =348

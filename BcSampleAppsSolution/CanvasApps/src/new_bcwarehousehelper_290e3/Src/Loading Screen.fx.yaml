@@ -196,6 +196,8 @@
                 Back: LookUp(varLanguageResources, labelId = "Back").displayName,
                 InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").displayName,
                 InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").displayName,
+                InfoScreen_ReadMore: LookUp(varLanguageResources, labelId = "InfoScreen_ReadMore").displayName, 
+                InfoScreen_Link: LookUp(varLanguageResources, labelId = "InfoScreen_Link").displayName,    
                 ItemScreen_Submit: LookUp(varLanguageResources, labelId = "ItemScreen_Submit").displayName,
                 ItemScreen_Add: LookUp(varLanguageResources, labelId = "ItemScreen_Add").displayName,
                 ItemScreen_SubStract: LookUp(varLanguageResources, labelId = "ItemScreen_SubStract").displayName,
@@ -203,7 +205,10 @@
                 SelectWarehouseScreen_Title: LookUp(varLanguageResources, labelId = "SelectWarehouseScreen_Title").displayName,    
                 NotFoundScreen_Title: LookUp(varLanguageResources, labelId = "NotFoundScreen_Title").displayName,
                 NotFoundScreen_Text: LookUp(varLanguageResources, labelId = "NotFoundScreen_Text").displayName,
-                NotFoundScreen_Scan: LookUp(varLanguageResources, labelId = "NotFoundScreen_Scan").displayName
+                NotFoundScreen_Scan: LookUp(varLanguageResources, labelId = "NotFoundScreen_Scan").displayName,
+                DebugScreen_Title: LookUp(varLanguageResources, labelId = "DebugScreen_Title").displayName,
+                DebugScreen_LearnMore: LookUp(varLanguageResources, labelId = "DebugScreen_LearnMore").displayName, 
+                DebugScreen_Message: LookUp(varLanguageResources, labelId = "DebugScreen_Message").displayName    
             });
             
             // Load app state from local storage
