@@ -269,13 +269,13 @@
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =varTheme.primaryColor
                 OnSelect: |-
-                    =// Update item quantity
+                    =/*// Update item quantity
                     Patch(
                         colSelectedItems,
                         {id: ThisItem.id},
                         // Consider getting the value via look up in the list
                         {quantity: Value(btnQCQuantity.Text) + 1}
-                    );
+                    );*/
                     
                     UpdateContext({ctxItemShowingQuantityControl: ThisItem.id});
                 RadiusBottomLeft: =35
@@ -355,36 +355,6 @@
                     Y: =5
                     ZIndex: =2
 
-                icnQCAddItem As icon.ChevronRight:
-                    AccessibleLabel: =Self.Tooltip
-                    BorderColor: =RGBA(32, 54, 71, 1)
-                    Color: =varTheme.primaryColor
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(202, 202, 202, 1)
-                    DisplayMode: |-
-                        =If(LookUp(colSelectedItems, id = ThisItem.id).quantity >= 99,
-                            DisplayMode.Disabled,
-                            DisplayMode.Edit
-                        )
-                    FocusedBorderThickness: =0
-                    Height: =70
-                    Icon: =Icon.Add
-                    OnSelect: |-
-                        =Patch(
-                            colSelectedItems,
-                            {id: ThisItem.id},
-                            {quantity: Value(btnQCQuantity.Text) + 1}
-                        )
-                    PaddingBottom: =15
-                    PaddingLeft: =15
-                    PaddingRight: =15
-                    PaddingTop: =15
-                    TabIndex: =0
-                    Tooltip: ="View item details"
-                    Width: =70
-                    X: =195
-                    ZIndex: =3
-
                 btnQCQuantity As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
@@ -436,20 +406,13 @@
                     Y: =5
                     ZIndex: =5
 
-                icnQCRemoveItem As icon.ChevronRight:
-                    AccessibleLabel: =Self.Tooltip
+                imgRemoveQuantity As image:
                     BorderColor: =RGBA(32, 54, 71, 1)
-                    Color: =varTheme.primaryColor
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(202, 202, 202, 1)
-                    DisplayMode: |-
-                        =If(LookUp(colSelectedItems, id = ThisItem.id).quantity <= 0,
-                            DisplayMode.Disabled,
-                            DisplayMode.Edit
-                        )
-                    FocusedBorderThickness: =0
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
                     Height: =70
-                    Icon: =Icon.HorizontalLine
+                    HoverBorderColor: =Color.Transparent
+                    Image: ='substract icon'
                     OnSelect: |-
                         =If(
                             Value(btnQCQuantity.Text) > 0,
@@ -463,11 +426,37 @@
                     PaddingLeft: =15
                     PaddingRight: =15
                     PaddingTop: =15
+                    PressedBorderColor: =Color.Transparent
                     TabIndex: =0
-                    Tooltip: ="View item details"
+                    Tooltip: =varLabels.Subtract
+                    Transparency: =If(Value(btnQCQuantity.Text) > 0, 0, 60%)
                     Width: =70
                     X: =15
-                    ZIndex: =6
+                    ZIndex: =7
+
+                imgAddQuantity As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =70
+                    HoverBorderColor: =Color.Transparent
+                    Image: ='add icon'
+                    OnSelect: |-
+                        =Patch(
+                            colSelectedItems,
+                            {id: ThisItem.id},
+                            {quantity: Value(btnQCQuantity.Text) + 1}
+                        )
+                    PaddingBottom: =15
+                    PaddingLeft: =15
+                    PaddingRight: =15
+                    PaddingTop: =15
+                    PressedBorderColor: =Color.Transparent
+                    TabIndex: =0
+                    Tooltip: =varLabels.Subtract
+                    Width: =70
+                    X: =Parent.Width - Self.Width -10
+                    ZIndex: =8
 
         comSelectItemDividerButton As comBigDividerBottom:
             Fill: =Color.Transparent
@@ -555,17 +544,12 @@
             Y: =25
             ZIndex: =2
 
-        icnDeleteSelection As icon.Lock:
+        imgCancelSelection As image:
             BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =varTheme.primaryColor
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(244, 244, 244, 1)
-            Height: =100
-            Icon: |-
-                =If(Sum(colSelectedItems, quantity) > 0, 
-                    Icon.Trash,
-                    Icon.Cancel
-                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            HoverBorderColor: =Color.Transparent
+            Image: =If(Sum(colSelectedItems, quantity) > 0, 'delete icon', 'dismiss icon')
             OnSelect: |
                 =If(Sum(colSelectedItems, quantity) > 0, 
                     //Show dialog
@@ -581,15 +565,15 @@
                         Navigate('Select table screen', ScreenTransition.UnCoverRight)
                     )    
                 );
-            PaddingBottom: =30
-            PaddingLeft: =30
-            PaddingRight: =30
-            PaddingTop: =30
-            Tooltip: =varLabels.TakeOrderScreen_Close
-            Width: =100
+            PaddingBottom: =25
+            PaddingLeft: =25
+            PaddingRight: =25
+            PaddingTop: =25
+            PressedBorderColor: =Color.Transparent
+            TabIndex: =0
+            Tooltip: =If(Sum(colSelectedItems, quantity) > 0, varLabels.TakeOrderScreen_Delete, varLabels.TakeOrderScreen_Close)
             X: =Parent.Width - Self.Width
-            Y: =3
-            ZIndex: =3
+            ZIndex: =4
 
     btnReviewSelectedItems As button:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)

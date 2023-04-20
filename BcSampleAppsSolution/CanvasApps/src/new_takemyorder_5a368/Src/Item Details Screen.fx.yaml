@@ -37,27 +37,20 @@
                 Y: =25
                 ZIndex: =2
 
-            icnCloseItemDetails As icon.Lock:
+            imgCloseItemScreen As image:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =varTheme.primaryColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =100
-                Icon: =Icon.Cancel
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Image: ='dismiss icon'
                 OnSelect: |-
-                    =UpdateContext({ctxShowItemQuantityControl: false});
-                    If(ctxCallingPage = 'Order Summary Screen',
-                        Navigate('Order Summary Screen', ScreenTransition.Fade, {ctxCallingPage: 'Item Details Screen'})
-                        ,
-                        Back(ScreenTransition.Fade);
-                    );
+                    =Navigate('Order Summary Screen', ScreenTransition.Fade, {ctxCallingPage: 'Item Details Screen'});
                 PaddingBottom: =30
                 PaddingLeft: =30
                 PaddingRight: =30
                 PaddingTop: =30
-                Width: =100
-                X: =Parent.Width - Self.Width
-                ZIndex: =3
+                Tooltip: =varLabels.InfoScreen_Close
+                X: =Parent.Width -Self.Width
+                ZIndex: =4
 
         conItemMainInfo As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -94,59 +87,6 @@
                 X: =40
                 Y: =50
                 ZIndex: =2
-
-            icnAddItemDetails As icon.ChevronRight:
-                AccessibleLabel: =Self.Tooltip
-                BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =varTheme.primaryColor
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                FocusedBorderThickness: =0
-                Height: =70
-                Icon: =Icon.Add
-                OnSelect: |-
-                    =// Clear quantity control if it is showing
-                    UpdateContext({ctxShowItemQuantityControl: Blank()});
-                    // Check if item is in list
-                    UpdateContext({ ctxIsItemInList: IsBlank(LookUp(colSelectedItems, id = ctxSelectedItem.id))});
-                    
-                    If(
-                        ctxIsItemInList,
-                        // Add item to list
-                        Collect(
-                            colSelectedItems,
-                            {
-                                id: ctxSelectedItem.id,
-                                name: ctxSelectedItem.displayName,
-                                price: ctxSelectedItem.unitPrice,
-                                group: ctxSelectedItem.'Item Category Name',
-                                quantity: 1,
-                                // Use placeholder image if the image is not provided
-                                image: If(
-                                    ctxSelectedItem.itemImageText = GUID("00000000-0000-0000-0000-000000000000"),
-                                    placeholder,
-                                    ctxSelectedItem.picture
-                                )
-                            }
-                        );
-                        ,
-                        // Update item quantity
-                        Patch(
-                            colSelectedItems,
-                            {id: ctxSelectedItem.id},
-                            {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
-                        )
-                    );
-                PaddingBottom: =15
-                PaddingLeft: =15
-                PaddingRight: =15
-                PaddingTop: =15
-                TabIndex: =0
-                Tooltip: ="View item details"
-                Width: =70
-                X: =Parent.Width - (icnAddItemDetails.Width/2) - 50
-                Y: =Parent.Height/2 - Self.Height/2
-                ZIndex: =3
 
             btnQuantityItemDetails As button:
                 DisabledBorderColor: =varTheme.primaryColor
@@ -252,33 +192,6 @@
                     Y: =5
                     ZIndex: =2
 
-                icnQCAddItemItemDetails As icon.ChevronRight:
-                    AccessibleLabel: =Self.Tooltip
-                    BorderColor: =RGBA(32, 54, 71, 1)
-                    Color: =varTheme.primaryColor
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(219, 219, 219, 1)
-                    DisplayMode: |-
-                        =If(LookUp(colSelectedItems, id = ctxItemDetails.id).quantity >= 99,
-                            DisplayMode.Disabled,
-                            DisplayMode.Edit
-                        )
-                    FocusedBorderThickness: =0
-                    Height: =50
-                    Icon: =Icon.Add
-                    OnSelect: |-
-                        =Patch(
-                            colSelectedItems,
-                            {id: ctxSelectedItem.id},
-                            {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
-                        )
-                    TabIndex: =0
-                    Tooltip: ="View item details"
-                    Width: =50
-                    X: =205
-                    Y: =11
-                    ZIndex: =3
-
                 btnQCQuantityItemDetails As button:
                     BorderColor: =Color.White
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -327,20 +240,37 @@
                     Y: =5
                     ZIndex: =5
 
-                icnQCRemoveItemItemDetails As icon.ChevronRight:
-                    AccessibleLabel: =Self.Tooltip
+                imgAddQuantityItem As image:
                     BorderColor: =RGBA(32, 54, 71, 1)
-                    Color: =varTheme.primaryColor
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(219, 219, 219, 1)
-                    DisplayMode: |-
-                        =If(LookUp(colSelectedItems, id = ctxItemDetails.id).quantity <= 0,
-                            DisplayMode.Disabled,
-                            DisplayMode.Edit
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =70
+                    HoverBorderColor: =Color.Transparent
+                    Image: ='add icon'
+                    OnSelect: |
+                        =Patch(
+                            colSelectedItems,
+                            {id: ctxSelectedItem.id},
+                            {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
                         )
-                    FocusedBorderThickness: =0
-                    Height: =50
-                    Icon: =Icon.HorizontalLine
+                    PaddingBottom: =15
+                    PaddingLeft: =15
+                    PaddingRight: =15
+                    PaddingTop: =15
+                    PressedBorderColor: =Color.Transparent
+                    TabIndex: =0
+                    Tooltip: =varLabels.Subtract
+                    Width: =70
+                    X: =Parent.Width - Self.Width - 10
+                    ZIndex: =7
+
+                imgRemoveQuantityItem As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =70
+                    HoverBorderColor: =Color.Transparent
+                    Image: ='substract icon'
                     OnSelect: |-
                         =If(
                             Value(btnQCQuantityItemDetails.Text) > 0,
@@ -350,14 +280,17 @@
                                 {quantity: Value(btnQCQuantityItemDetails.Text) - 1}
                             )
                         )
-                    PaddingLeft: =5
-                    PaddingRight: =5
+                    PaddingBottom: =15
+                    PaddingLeft: =15
+                    PaddingRight: =15
+                    PaddingTop: =15
+                    PressedBorderColor: =Color.Transparent
                     TabIndex: =0
-                    Tooltip: ="View item details"
-                    Width: =50
-                    X: =25
-                    Y: =11
-                    ZIndex: =6
+                    Tooltip: =varLabels.Subtract
+                    Transparency: =If(Value(btnQCQuantity.Text) > 0, 0, 60%)
+                    Width: =70
+                    X: =15
+                    ZIndex: =8
 
         conItemImage As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
