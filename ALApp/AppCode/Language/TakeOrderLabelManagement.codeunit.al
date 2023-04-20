@@ -11,50 +11,78 @@ codeunit 51002 BCS_TO_LabelManagement
     var
         StartScreen_TakeOrder: Label 'StartScreen_TakeOrder', Locked = true;
         StartScreen_TakeOrder_ValueTxt: Label 'Take Order';
+
         StartScreen_User: Label 'StartScreen_User', Locked = true;
         StartScreen_User_ValueTxt: Label 'User:';
+
         StartScreen_InfoScreen: Label 'StartScreen_InfoScreen', Locked = true;
         StartScreen_InfoScreen_ValueTxt: Label 'Open about screen';
+
         InfoScreen_Close: Label 'InfoScreen_Close', Locked = true;
         InfoScreen_Close_ValueTxt: Label 'Close the page';
+
         InfoScreen_Title: Label 'InfoScreen_Title', Locked = true;
         InfoScreen_Title_ValueTxt: Label 'Business Central sample app';
+
         InfoScreen_Text: Label 'InfoScreen_Text', Locked = true;
-        InfoScreen_Text_ValueTxt: Label '"Take order" is a Business Central sample app. The app is meant as an inspiration on how you can build a high fidelity canvas app using the Business Central connector. Read more about Business Central sample apps at https://aka.ms/BcPApps';
+        InfoScreen_Text_ValueTxt: Label 'Take Order is a simple sample app that shows how to build a high fedelity Power App using Business Central data.';
+
+        InfoScreen_ReadMore: Label 'InfoScreen_ReadMore', Locked = true;
+        InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample app:';
+
+        InfoScreen_Link: Label 'InfoScreen_Link', Locked = true;
+        InfoScreen_Link_ValueTxt: Label 'Sample apps';
         SelectTableScreen_Title: Label 'SelectTableScreen_Title', Locked = true;
         SelectTableScreen_Title_ValueTxt: Label 'Select table';
+
         SelectTableScreen_Free: Label 'SelectTableScreen_Free', Locked = true;
         SelectTableScreen_Free_ValueTxt: Label 'Free';
+
         SelectTableScreen_Occupied: Label 'SelectTableScreen_Occupied', Locked = true;
         SelectTableScreen_Occupied_ValueTxt: Label 'Occupied';
+
         SelectTableScreen_Update: Label 'SelectTableScreen_Update', Locked = true;
         SelectTableScreen_Update_ValueTxt: Label 'Refresh the list';
+
         TakeOrderScreen_FullMenu: Label 'TakeOrderScreen_FullMenu', Locked = true;
         TakeOrderScreen_FullMenu_ValueTxt: Label 'Full menu';
+
         TakeOrderScreen_Items: Label 'TakeOrderScreen_Items', Locked = true;
         TakeOrderScreen_Items_ValueTxt: Label 'Items:';
+
         TakeOrderScreen_Totals: Label 'TakeOrderScreen_Totals', Locked = true;
         TakeOrderScreen_Totals_ValueTxt: Label 'Total:';
+
         TakeOrderScreen_Review: Label 'TakeOrderScreen_Review', Locked = true;
         TakeOrderScreen_Review_ValueTxt: Label 'Review';
+
         TakeOrderScreen_Close: Label 'TakeOrderScreen_Close', Locked = true;
         TakeOrderScreen_Close_ValueTxt: Label 'Close the list';
+
         TakeOrderScreen_Delete: Label 'TakeOrderScreen_Delete', Locked = true;
         TakeOrderScreen_Delete_ValueTxt: Label 'Delete the selection';
+
         SummaryScreen_Delete: Label 'SummaryScreen_Delete', Locked = true;
         SummaryScreen_Delete_ValueTxt: Label 'Delete the order';
+
         SummaryScreen_Back: Label 'SummaryScreen_Back', Locked = true;
         SummaryScreen_Back_ValueTxt: Label 'Go back to the previous page';
+
         SummaryScreen_Submit: Label 'SummaryScreen_Submit', Locked = true;
         SummaryScreen_Submit_ValueTxt: Label 'Submit';
+
         SummaryScreen_AddMore: Label 'SummaryScreen_AddMore', Locked = true;
         SummaryScreen_AddMore_ValueTxt: Label '+ Add more';
+
         SummaryScreen_CheckOut: Label 'SummaryScreen_CheckOut', Locked = true;
         SummaryScreen_CheckOut_ValueTxt: Label 'Checkout';
+
         SummaryScreen_Total: Label 'SummaryScreen_Total', Locked = true;
         SummaryScreen_Total_ValueTxt: Label 'Total:';
+
         SummaryScreen_DeleteMessage: Label 'SummaryScreen_DeleteMessage', Locked = true;
         SummaryScreen_DeleteMessage_ValueTxt: Label 'Are you sure you want to cancel the order?';
+
         SummaryScreen_CheckOutMessage: Label 'SummaryScreen_CheckOutMessage', Locked = true;
         SummaryScreen_CheckOutMessage_ValueTxt: Label 'Are you sure you want to check out and close the order?';
 
@@ -103,6 +131,8 @@ codeunit 51002 BCS_TO_LabelManagement
         InsertLabel(TempPowerAppsLabels, StartScreen_InfoScreen, StartScreen_InfoScreen_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, InfoScreen_Title, InfoScreen_Title_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, InfoScreen_Text, InfoScreen_Text_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, InfoScreen_ReadMore, InfoScreen_ReadMore_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, InfoScreen_Link, InfoScreen_Link_ValueTxt, 'en-US');
         insertLabel(TempPowerAppsLabels, InfoScreen_Close, InfoScreen_Close_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SelectTableScreen_Title, SelectTableScreen_Title_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SelectTableScreen_Free, SelectTableScreen_Free_ValueTxt, 'en-US');
