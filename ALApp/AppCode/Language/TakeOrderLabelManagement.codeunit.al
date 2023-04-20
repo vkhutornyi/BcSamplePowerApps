@@ -58,6 +58,12 @@ codeunit 51002 BCS_TO_LabelManagement
         SummaryScreen_CheckOutMessage: Label 'SummaryScreen_CheckOutMessage', Locked = true;
         SummaryScreen_CheckOutMessage_ValueTxt: Label 'Are you sure you want to check out and close the order?';
 
+        Subtract: Label 'Subtract', Locked = true;
+        SubTract_ValueTxt: Label 'Substract one from the quantity';
+
+        AddText: Label 'AddText', Locked = true;
+        AddText_ValueTxt: Label 'Add one to the quantity';
+
 
         // Telemetry labels
         LabelsGeneratedTelemetryTxt: Label 'Retrieving Power Apps labels for language "%1" (system language is "%2").', Locked = true;
@@ -116,7 +122,8 @@ codeunit 51002 BCS_TO_LabelManagement
         InsertLabel(TempPowerAppsLabels, SummaryScreen_Total, SummaryScreen_Total_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SummaryScreen_DeleteMessage, SummaryScreen_DeleteMessage_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SummaryScreen_CheckOutMessage, SummaryScreen_CheckOutMessage_ValueTxt, 'en-US');
-
+        InsertLabel(TempPowerAppsLabels, Subtract, SubTract_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, AddText, AddText_ValueTxt, 'en-US');
 
     end;
 
