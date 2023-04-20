@@ -565,10 +565,10 @@
                         Navigate('Select table screen', ScreenTransition.UnCoverRight)
                     )    
                 );
-            PaddingBottom: =25
-            PaddingLeft: =25
-            PaddingRight: =25
-            PaddingTop: =25
+            PaddingBottom: =30
+            PaddingLeft: =30
+            PaddingRight: =30
+            PaddingTop: =30
             PressedBorderColor: =Color.Transparent
             TabIndex: =0
             Tooltip: =If(Sum(colSelectedItems, quantity) > 0, varLabels.TakeOrderScreen_Delete, varLabels.TakeOrderScreen_Close)

@@ -43,7 +43,13 @@
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Image: ='dismiss icon'
                 OnSelect: |-
-                    =Navigate('Order Summary Screen', ScreenTransition.Fade, {ctxCallingPage: 'Item Details Screen'});
+                    =UpdateContext({ctxShowItemQuantityControl: false});
+                    
+                    If(ctxCallingPage = 'Order Summary Screen',
+                        Navigate('Order Summary Screen', ScreenTransition.Fade, {ctxCallingPage: 'Item Details Screen'})
+                        ,
+                        Back(ScreenTransition.Fade);
+                    );
                 PaddingBottom: =30
                 PaddingLeft: =30
                 PaddingRight: =30

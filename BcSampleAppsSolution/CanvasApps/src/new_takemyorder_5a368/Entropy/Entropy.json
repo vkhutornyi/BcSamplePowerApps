@@ -196,7 +196,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "04/20/2023 14:28:56",
+  "HeaderLastSavedDateTimeUTC": "04/20/2023 14:36:22",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "150e2896-54f3-405b-a1ae-bdda9e197568": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/7bb38b8c2eac5e1dcf06964dfa46ae5a-5e1f21561f5613c9\"",
@@ -648,8 +648,8 @@
     "Start screen": 0,
     "timeNavigateAway": 120,
     "timeStartLoading": 0,
-    "txtItemAllergens": 147,
-    "txtItemLongDescription": 148
+    "txtItemAllergens": 148,
+    "txtItemLongDescription": 147
   },
   "ResourcesJsonIndices": {
     "Image-add icon": 12,
