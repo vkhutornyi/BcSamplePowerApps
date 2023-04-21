@@ -36,8 +36,8 @@
     "ppEnvironmentUrl": "https://org44d4fdae.crm.dynamics.com/"
   },
     "DeployToASIA": {
-    "environmentName": "Directions",
-    "companyId": "3a5f398c-8cdf-ed11-a7c7-000d3aa3dd2a",
+    "environmentName": "DirAsia",
+    "companyId": "c599995e-f9c9-ed11-94c7-000d3abb1e46",
     "ppEnvironmentUrl": "https://orge41646a8.crm.dynamics.com/"
   }
 }
