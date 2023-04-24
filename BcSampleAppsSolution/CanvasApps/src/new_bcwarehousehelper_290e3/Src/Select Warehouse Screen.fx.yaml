@@ -32,11 +32,13 @@
                 ZIndex: =1
 
             imgBackIcon As image:
+                AccessibleLabel: =Self.Tooltip
                 Image: ='back icon'
                 OnSelect: =Back(ScreenTransition.UnCoverRight)
                 PaddingBottom: =25
                 PaddingRight: =25
                 PaddingTop: =25
+                TabIndex: =0
                 Tooltip: =varLabels.Back
                 ZIndex: =3
 
@@ -47,6 +49,7 @@
             ZIndex: =3
 
         "galWarehouses As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: =varLabels.SelectWarehouseScreen_GalleryToolTip
             AlignInContainer: =AlignInContainer.SetByContainer
             Default: =varSelectedWarehouse
             Items: =varWarehouses
@@ -65,6 +68,7 @@
                 
                 Back(ScreenTransition.UnCoverRight);
             ShowScrollbar: =false
+            TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =140
             Width: =Parent.Width
@@ -133,7 +137,7 @@
                     PaddingTop: =30
                     ZIndex: =3
 
-            btnWarehouseOverlay As button:
+            btnWarehouseSelect As button:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =Parent.TemplateHeight
                 HoverFill: =Color.Transparent
@@ -141,6 +145,7 @@
                 PressedFill: =Color.Transparent
                 Size: =24
                 Text: =""
+                Tooltip: =ThisItem.Name & ". " & varLabels.SelectWarehouseScreen_GallerySelect
                 Width: =Parent.TemplateWidth
                 ZIndex: =4
 

@@ -1,7 +1,7 @@
 "'Item updated screen' As screen":
     Fill: =varTheme.secondaryColor
 
-    Image6 As image:
+    imgSuccess As image:
         Height: =250
         Image: ='succes icon'
         Width: =250

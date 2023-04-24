@@ -81,18 +81,8 @@
             LayoutMinWidth: =250
             ZIndex: =1
 
-            lblItemScreenHeader As label:
-                Align: =Align.Center
-                Font: =varTheme.font
-                Height: =80  
-                Size: =24
-                Text: =varSelectedWarehouse.Name
-                Width: =Parent.Width
-                X: =
-                Y: =Parent.Height/2 - Self.Height/2
-                ZIndex: =1
-
-            Image3 As image:
+            imgCloseItemScreen As image:
+                AccessibleLabel: =Self.Tooltip
                 Image: ='dismiss icon'
                 OnSelect: |-
                     =Set(varScannedItem, Blank());
@@ -101,8 +91,19 @@
                 PaddingLeft: =20
                 PaddingRight: =20
                 PaddingTop: =20
+                TabIndex: =0
                 X: =Parent.Width - Self.Width
                 ZIndex: =3
+
+            lblItemScreenTitle As label:
+                Align: =Align.Center
+                Font: =varTheme.font
+                Height: =70
+                Size: =26
+                Text: =varSelectedWarehouse.Name
+                Width: =Parent.Width
+                Y: =(Parent.Height - Self.Height)/2
+                ZIndex: =4
 
         conItemImage As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -217,6 +218,7 @@
                 ZIndex: =1
 
             inpInventoryNumber As text:
+                AccessibleLabel: =Self.Tooltip
                 Align: =Align.Center
                 BorderThickness: =0
                 Color: =varTheme.brandColor
@@ -239,11 +241,13 @@
                     =UpdateContext({ctxAllowSubmit: true})
                 PaddingLeft: =5
                 Size: =34
+                Tooltip: =varLabels.ItemScreen_InventoryToolTip
                 Width: =140
                 X: =Parent.Width/2 - Self.Width/2
                 ZIndex: =7
 
             imgAddIcon As image:
+                AccessibleLabel: =Self.Tooltip
                 Height: =80
                 Image: ='add icon'
                 OnSelect: |-
@@ -251,12 +255,14 @@
                 PaddingBottom: =15
                 PaddingRight: =25
                 PaddingTop: =15
+                TabIndex: =0
                 Tooltip: =varLabels.ItemScreen_Add
                 Width: =80
                 X: =Parent.Width - Self.Width
                 ZIndex: =8
 
             imgSubtractIcon As image:
+                AccessibleLabel: =Self.Tooltip
                 Height: =80
                 Image: ='substract icon'
                 OnSelect: |-
@@ -264,6 +270,7 @@
                 PaddingBottom: =15
                 PaddingLeft: =25
                 PaddingTop: =15
+                TabIndex: =0
                 Tooltip: =If(ctxInventory > 0, varLabels.ItemScreen_SubStract, varLabels.ItemScreen_SubStractBlocked)
                 Transparency: =If(ctxInventory <= 0, 70%, 0)
                 Width: =80

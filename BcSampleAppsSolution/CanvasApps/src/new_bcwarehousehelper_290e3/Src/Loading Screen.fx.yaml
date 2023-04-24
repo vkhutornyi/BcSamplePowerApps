@@ -111,6 +111,7 @@
                     ZIndex: =2
 
                 btnSelectLocationOverlay_1 As button:
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =RGBA(0, 0, 0, 0)
                     FontWeight: =FontWeight.Normal
                     Height: =Parent.Height
@@ -118,6 +119,7 @@
                     OnSelect: =Navigate('Select Warehouse Screen', ScreenTransition.Cover);
                     PressedFill: =Color.Transparent
                     Size: =24
+                    TabIndex: =0   
                     Text: =""
                     Visible: =false
                     Width: =Parent.Width
@@ -135,6 +137,7 @@
             Color: =varTheme.brandColor
             DisabledColor: =RGBA(255, 255, 255, 1)
             DisabledFill: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
             Fill: =varTheme.secondaryColor
             Font: =varTheme.font
             Height: =220
@@ -147,6 +150,7 @@
             RadiusTopLeft: =Self.Width / 2
             RadiusTopRight: =Self.Width / 2
             Size: =24
+            TabIndex: =0   
             Text: =varLabels.StartScreen_Scan
             Width: =220
             X: =Parent.Width/2 - Self.Width/2
@@ -154,12 +158,17 @@
             ZIndex: =6
 
     imgOpenInfoPagePlaceholder As image:
+        AccessibleLabel: =Self.Tooltip
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.Disabled
         Image: ='info page white icon'
         OnSelect: =Navigate('Info Screen', ScreenTransition.Cover)
         PaddingBottom: =20
         PaddingLeft: =20
         PaddingRight: =20
         PaddingTop: =20
+        TabIndex: =0
         X: =Parent.Width - Self.Width
         Y: =20
         ZIndex: =2
@@ -189,6 +198,7 @@
             // TODO: AL logic to parse language parameter fails
             Set(varLanguageResources, 'warehousehelperlanguageresources (microsoft/powerApps/beta)');
             Set(varLabels, {
+                LoadingScreen_placeholder: LookUp(varLanguageResources, labelId = "LoadingScreen_placeholder").displayName,
                 StartScreen_Scan: LookUp(varLanguageResources, labelId = "StartScreen_Scan").displayName,
                 StartScreen_InfoPage: LookUp(varLanguageResources, labelId = "StartScreen_InfoPage").displayName,
                 StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").displayName,
@@ -197,17 +207,24 @@
                 InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").displayName,
                 InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").displayName,
                 InfoScreen_ReadMore: LookUp(varLanguageResources, labelId = "InfoScreen_ReadMore").displayName, 
+                InfoScreen_LinkToolTip: LookUp(varLanguageResources, labelId = "InfoScreen_LinkToolTip").displayName,
                 InfoScreen_Link: LookUp(varLanguageResources, labelId = "InfoScreen_Link").displayName,    
                 ItemScreen_Submit: LookUp(varLanguageResources, labelId = "ItemScreen_Submit").displayName,
                 ItemScreen_Add: LookUp(varLanguageResources, labelId = "ItemScreen_Add").displayName,
                 ItemScreen_SubStract: LookUp(varLanguageResources, labelId = "ItemScreen_SubStract").displayName,
                 ItemScreen_SubStractBlocked: LookUp(varLanguageResources, labelId = "ItemScreen_SubStractBlocked").displayName,
+                ItemScreen_InventoryToolTip: LookUp(varLanguageResources, labelId = "ItemScreen_InventoryToolTip").displayName,    
                 SelectWarehouseScreen_Title: LookUp(varLanguageResources, labelId = "SelectWarehouseScreen_Title").displayName,    
+                SelectWarehouseScreen_GalleryToolTip: LookUp(varLanguageResources, labelId = "SelectWarehouseScreen_GalleryToolTip").displayName,    
+                SelectWarehouseScreen_GallerySelect: LookUp(varLanguageResources, labelId = "SelectWarehouseScreen_GallerySelect").displayName,    
                 NotFoundScreen_Title: LookUp(varLanguageResources, labelId = "NotFoundScreen_Title").displayName,
                 NotFoundScreen_Text: LookUp(varLanguageResources, labelId = "NotFoundScreen_Text").displayName,
                 NotFoundScreen_Scan: LookUp(varLanguageResources, labelId = "NotFoundScreen_Scan").displayName,
                 DebugScreen_Title: LookUp(varLanguageResources, labelId = "DebugScreen_Title").displayName,
                 DebugScreen_LearnMore: LookUp(varLanguageResources, labelId = "DebugScreen_LearnMore").displayName, 
+                DebugScreen_Gallery: LookUp(varLanguageResources, labelId = "DebugScreen_Gallery").displayName, 
+                DebugScreen_DismissInfoMessage: LookUp(varLanguageResources, labelId = "DebugScreen_DismissInfoMessage").displayName, 
+                DebugScreen_GallerySelect: LookUp(varLanguageResources, labelId = "DebugScreen_GallerySelect").displayName,     
                 DebugScreen_Message: LookUp(varLanguageResources, labelId = "DebugScreen_Message").displayName    
             });
             
@@ -234,6 +251,7 @@
         OnTimerStart: =Select(Self);
         Start: =true
         Text: =
+        Tooltip: =varLabels.LoadingScreen_placeholder
         Width: =Parent.Width
         ZIndex: =4
 

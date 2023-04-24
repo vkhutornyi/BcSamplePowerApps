@@ -149,12 +149,14 @@
             ZIndex: =6
 
     imgOpenInfoPage As image:
+        AccessibleLabel: =Self.Tooltip
         Image: ='info page white icon'
         OnSelect: =Navigate('Info Screen', ScreenTransition.Cover)
         PaddingBottom: =20
         PaddingLeft: =20
         PaddingRight: =20
         PaddingTop: =20
+        TabIndex: =0
         X: =Parent.Width - Self.Width
         ZIndex: =23
 

@@ -66,6 +66,7 @@
 
         lblInfoLink As label:
             Color: =RGBA(50, 86, 160, 1)
+            FocusedBorderThickness: =1
             Font: =varTheme.font
             Height: =90
             Italic: =true
@@ -74,7 +75,9 @@
             OnSelect: |-
                 =Launch("https://aka.ms/bcPApps");
             Size: =21
+            TabIndex: =0
             Text: =varLabels.InfoScreen_Link
+            Tooltip: =varLabels.InfoScreen_LinkToolTip
             Underline: =true
             Width: =243
             X: =lblInfoText.X
@@ -82,6 +85,7 @@
             ZIndex: =4
 
     imgCloseInfoPage As image:
+        AccessibleLabel: =Self.Tooltip
         Image: ='dismiss icon'
         OnSelect: |
             =Back(ScreenTransition.UnCoverRight)
@@ -89,6 +93,7 @@
         PaddingLeft: =20
         PaddingRight: =20
         PaddingTop: =20
+        TabIndex: =0
         Tooltip: =varLabels.Close
         X: =Parent.Width - Self.Width 
         ZIndex: =2
