@@ -12,6 +12,7 @@
         );
 
     "galOrderSummary As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        AccessibleLabel: =varLabels.SummaryScreen_Gallery
         BorderColor: =RGBA(32, 54, 71, 1)
         Fill: =RGBA(255, 255, 255, 1)
         Height: =881
@@ -24,6 +25,7 @@
         Layout: =Layout.Vertical
         OnSelect: =
         ShowScrollbar: =false
+        TabIndex: =0
         TemplatePadding: =0
         TemplateSize: =123
         Width: =Parent.Width
@@ -130,7 +132,24 @@
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =3
 
+            recOverLay As rectangle:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Fill: =Color.Transparent
+                Height: =Parent.Height
+                OnSelect: |
+                    =If(ThisItem.name in colCurrentOrderState_CollapsedGroups,
+                        Remove(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name})
+                        ,
+                        Collect(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name})
+                    );
+                TabIndex: =0
+                Tooltip: =varLabels.DismissQuantityControl
+                Width: =Parent.Width
+                ZIndex: =4
+
             imgHeaderState As image:
+                AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -141,24 +160,22 @@
                         'collapse icon'
                     )
                           
+                OnSelect: =Select(recOverLay)
                 PaddingBottom: =20
                 PaddingLeft: =25
                 PaddingRight: =20
                 PaddingTop: =25
-                Tooltip: =varLabels.SummaryScreen_Back
-                ZIndex: =4
-
-            recOverLay As rectangle:
-                BorderColor: =RGBA(32, 54, 71, 1)
-                Fill: =Color.Transparent
-                Height: =Parent.Height
-                OnSelect: |
-                    =If(ThisItem.name in colCurrentOrderState_CollapsedGroups,
-                        Remove(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name})
-                        ,
-                        Collect(colCurrentOrderState_CollapsedGroups, {name: ThisItem.name})
-                    );
-                Width: =Parent.Width
+                TabIndex: =0
+                Tooltip: |
+                    =With({ summaryState: 
+                        If(ThisItem.name in colCurrentOrderState_CollapsedGroups, 
+                            varLabels.SummaryScreen_SummaryStateCollapsed, 
+                            varLabels.SummaryScreen_SummaryStateExpanded
+                        )
+                    },
+                        lblGroupNameExtra.Text & ". " & summaryState
+                    )
+                          
                 ZIndex: =5
 
         conContent As groupContainer:
@@ -178,7 +195,7 @@
 
             figItemSeparatorOrderSummary As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                DisplayMode: =DisplayMode.View
+                DisplayMode: =DisplayMode.Disabled
                 Fill: =varTheme.primaryColor
                 Height: =2
                 Width: =Parent.Width
@@ -187,6 +204,7 @@
                 ZIndex: =1
 
             imgItemImageOrderSummary As image:
+                AccessibleLabel: =varLabels.ItemImageText & ThisItem.name
                 BorderColor: =RGBA(32, 54, 71, 1)
                 BorderThickness: =1
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -254,6 +272,7 @@
                     ZIndex: =2
 
             figItemOverlayOrderSummary As rectangle:
+                AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledFill: =Color.Transparent
                 Fill: =RGBA(0, 0, 0, 0)
@@ -266,6 +285,8 @@
                         Navigate('Item Details Screen', ScreenTransition.Fade, {ctxSelectedItem: ThisItem, ctxCallingPage: 'Order Summary Screen'})
                     )
                 PressedFill: =Color.Transparent
+                TabIndex: =0
+                Tooltip: =varLabels.DismissQuantityControl
                 Width: =Parent.Width
                 Y: =1
                 ZIndex: =4
@@ -296,7 +317,12 @@
                 RadiusTopRight: =35
                 Size: =24
                 Text: =LookUp(colSelectedItems, id = ThisItem.id).quantity
-                Visible: =Not(IsBlank(ThisItem.quantity))
+                Visible: |-
+                    =And(
+                        Not(IsBlank(ThisItem.quantity)),
+                        // Not showing quantity control
+                        ThisItem.id <> ctxShowQuantityControlForIs
+                    )
                 Width: =70
                 X: =Parent.Width - Self.Width - 5
                 Y: =Parent.Height/2 - Self.Height/2
@@ -346,8 +372,8 @@
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =DisplayMode.View
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
                     FontWeight: =FontWeight.Semibold
                     Height: =60
@@ -368,15 +394,18 @@
                 btnQCQuantityOS As button:
                     BorderColor: =Color.White
                     BorderThickness: =1
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =Color.White
+                    DisabledFill: =varTheme.primaryColor
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =varTheme.primaryColor
                     FontWeight: =FontWeight.Semibold
                     Height: =60
+                    HoverBorderColor: =Color.White
                     HoverColor: =RGBA(255, 255, 255, 1)
                     HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
                     OnSelect: =Notify(ThisItem.id)
+                    PressedBorderColor: =Color.White
                     RadiusBottomLeft: =35
                     RadiusBottomRight: =35
                     RadiusTopLeft: =35
@@ -393,8 +422,8 @@
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =DisplayMode.View
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
                     FontWeight: =FontWeight.Semibold
                     Height: =60
@@ -413,6 +442,7 @@
                     ZIndex: =5
 
                 imgAddQuantitySummary As image:
+                    AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -446,6 +476,7 @@
                     ZIndex: =9
 
                 imgRemoveQuantitySummary As image:
+                    AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -669,6 +700,7 @@
             ZIndex: =5
 
         imgCancelOrder As image:
+            AccessibleLabel: =Self.Tooltip
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -685,6 +717,7 @@
             ZIndex: =7
 
         imgBackToSelect As image:
+            AccessibleLabel: =Self.Tooltip
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)

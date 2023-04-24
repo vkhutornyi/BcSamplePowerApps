@@ -38,6 +38,7 @@
                 ZIndex: =2
 
             imgCloseItemScreen As image:
+                AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -54,6 +55,7 @@
                 PaddingLeft: =30
                 PaddingRight: =30
                 PaddingTop: =30
+                TabIndex: =0
                 Tooltip: =varLabels.InfoScreen_Close
                 X: =Parent.Width -Self.Width
                 ZIndex: =4
@@ -119,27 +121,79 @@
                 Size: =26
                 Text: =LookUp(colSelectedItems, id = ctxSelectedItem.id).quantity
                 Visible: |-
-                    =// Does quantity have a value
-                    And(
-                        Not(btnQuantityItemDetails.Text = "0"),
-                        Not(IsBlank(btnQuantityItemDetails.Text))
-                    )
+                    =And(Not(ctxShowItemQuantityControl), LookUp(colSelectedItems, id = ctxSelectedItem.id).quantity > 0)
                         
                 Width: =60
                 X: =Parent.Width - (btnQuantityItemDetails.Width/2) - 50
                 Y: =Parent.Height/2 - Self.Height/2
-                ZIndex: =5
+                ZIndex: =3
+
+            imgAddItemDetail As image:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =80
+                Image: ='add icon'
+                OnSelect: |-
+                    =// Clear quantity control if it is showing
+                    UpdateContext({ctxItemShowingQuantityControl: Blank()});
+                    
+                    If(
+                        // Check if item is in list
+                        IsBlank(LookUp(colSelectedItems, id = ctxSelectedItem.id))
+                        ,
+                        // Add item to list
+                        Collect(
+                            colSelectedItems,
+                            {
+                                id: ctxSelectedItem.id,
+                                name: ctxSelectedItem.displayName,
+                                price: ctxSelectedItem.unitPrice,
+                                group: ctxSelectedItem.itemCategoryName,
+                                quantity: 1,
+                                // Use placeholder image if the image is not provided
+                                image: If(
+                                    ctxSelectedItem.itemImageText = GUID("00000000-0000-0000-0000-000000000000"),
+                                    placeholder,
+                                    ctxSelectedItem.picture
+                                )
+                            }
+                        );
+                        ,
+                        // Update item quantity
+                        Patch(
+                            colSelectedItems,
+                            {id: ctxSelectedItem.id},
+                            // Consider getting the value via look up in the list
+                            {quantity: Value(btnQuantityItemDetails.Text) + 1}
+                        )
+                    );
+                PaddingBottom: =20
+                PaddingLeft: =20
+                PaddingRight: =20
+                PaddingTop: =20
+                TabIndex: =0
+                Tooltip: =
+                Visible: =Not(btnQuantityItemDetails.Visible)
+                Width: =80  
+                X: =Parent.Width - Self.Width -10
+                Y: =Parent.Height/2 - Self.Height/2
+                ZIndex: =4
 
             recItemQuantityOverlayTop As rectangle:
+                AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =Color.Transparent
                 Height: =Parent.Height
                 OnSelect: |-
                     =UpdateContext({ctxShowItemQuantityControl: false});
+                TabIndex: =0
+                Tooltip: =varLabels.DismissQuantityControl
                 Visible: =ctxShowItemQuantityControl
                 Width: =Parent.Width
                 X: =
-                ZIndex: =6
+                ZIndex: =5
 
             conQuantityControlItemDetails As groupContainer.manualLayoutContainer:
                 Height: =70
@@ -148,7 +202,7 @@
                 Width: =275
                 X: =Parent.Width - 280
                 Y: =Parent.Height/2 - Self.Height/2
-                ZIndex: =7
+                ZIndex: =6
 
                 btnQCBackgroundItemDetails As button:
                     BorderColor: =Color.White
@@ -156,7 +210,7 @@
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =varTheme.primaryColor
-                    DisplayMode: =DisplayMode.View
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =varTheme.primaryColor
                     FontWeight: =FontWeight.Semibold
                     Height: =70
@@ -169,6 +223,7 @@
                     RadiusTopLeft: =35
                     RadiusTopRight: =35
                     Size: =24
+                    TabIndex: =
                     Text: =
                     Width: =250
                     X: =15
@@ -216,6 +271,7 @@
                     RadiusTopLeft: =35
                     RadiusTopRight: =35
                     Size: =26
+                    TabIndex: =0   
                     Text: =LookUp(colSelectedItems, id = ctxSelectedItem.id).quantity
                     Width: =60
                     X: =115
@@ -227,8 +283,8 @@
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =DisplayMode.View
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
                     FontWeight: =FontWeight.Semibold
                     Height: =60
@@ -247,6 +303,7 @@
                     ZIndex: =5
 
                 imgAddQuantityItem As image:
+                    AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -271,6 +328,7 @@
                     ZIndex: =7
 
                 imgRemoveQuantityItem As image:
+                    AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -329,6 +387,7 @@
                 ZIndex: =1
 
             imgItemDetailsImage As image:
+                AccessibleLabel: =varLabels.ItemImageText & ctxItemDetails.DisplayName
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -350,11 +409,14 @@
                 ZIndex: =3
 
             recItemQuantityOverlayMiddel As rectangle:
+                AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =Color.Transparent
                 Height: =Parent.Height
                 OnSelect: |-
                     =UpdateContext({ctxShowItemQuantityControl: false});
+                TabIndex: =If(ctxShowItemQuantityControl, 0, -1)
+                Tooltip: =varLabels.DismissQuantityControl
                 Visible: =ctxShowItemQuantityControl
                 Width: =Parent.Width
                 X: =
@@ -395,6 +457,7 @@
                     ZIndex: =1
 
                 txtItemAllergens As text:
+                    AccessibleLabel: =Self.Text
                     AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =RGBA(32, 54, 71, 1)
                     BorderThickness: =2
@@ -421,6 +484,7 @@
                     ZIndex: =2
 
                 txtItemLongDescription As text:
+                    AccessibleLabel: =Self.Text
                     AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =RGBA(32, 54, 71, 1)
                     BorderThickness: =2
@@ -441,16 +505,20 @@
                     Mode: =TextMode.MultiLine
                     PaddingLeft: =5
                     Size: =24
+                    TabIndex: =0   
                     Width: =Parent.Width - 60
                     X: =(Parent.Width - Self.Width) /2
                     ZIndex: =3
 
             recItemQuantityOverlayExtraInfo As rectangle:
+                AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =Color.Transparent
                 Height: =Parent.Height
                 OnSelect: |-
                     =UpdateContext({ctxShowItemQuantityControl: false});
+                TabIndex: =If(ctxShowItemQuantityControl, 0, -1)
+                Tooltip: =varLabels.DismissQuantityControl
                 Visible: =ctxShowItemQuantityControl
                 Width: =Parent.Width
                 X: =

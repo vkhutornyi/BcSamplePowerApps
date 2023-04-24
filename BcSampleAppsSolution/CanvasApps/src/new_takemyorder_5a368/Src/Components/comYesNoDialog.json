@@ -72,7 +72,7 @@
         "Name": "recBackgroundOverlay",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 155,
+        "PublishOrderIndex": 156,
         "Rules": [
           {
             "Category": "Design",
@@ -265,14 +265,7 @@
               "Italic",
               "Underline",
               "Strikethrough",
-              {
-                "AFDDataSourceName": "",
-                "AutoRuleBindingEnabled": false,
-                "AutoRuleBindingString": "0",
-                "InvariantPropertyName": "TabIndex",
-                "IsLockable": false,
-                "NameMapSourceSchema": "?"
-              }
+              "TabIndex"
             ],
             "ControlUniqueId": "12",
             "HasDynamicProperties": false,
@@ -287,7 +280,7 @@
             "Name": "btnBackground",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 157,
+            "PublishOrderIndex": 158,
             "Rules": [
               {
                 "Category": "Data",
@@ -489,7 +482,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "-1",
+                "InvariantScript": "0",
                 "Property": "TabIndex",
                 "RuleProviderType": "Unknown"
               },
@@ -621,7 +614,7 @@
             "Name": "lblDialogMessage",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 158,
+            "PublishOrderIndex": 159,
             "Rules": [
               {
                 "Category": "Data",
@@ -1058,7 +1051,7 @@
                 "Name": "btnNo",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 160,
+                "PublishOrderIndex": 161,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1473,7 +1466,7 @@
                 "Name": "btnYes",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 161,
+                "PublishOrderIndex": 162,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1802,7 +1795,7 @@
             "Name": "conButtons",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 159,
+            "PublishOrderIndex": 160,
             "Rules": [
               {
                 "Category": "Design",
@@ -2023,7 +2016,7 @@
         "Name": "conDialog",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 156,
+        "PublishOrderIndex": 157,
         "Rules": [
           {
             "Category": "Design",
@@ -2196,7 +2189,7 @@
       "behaviorNo",
       "PrimaryColor"
     ],
-    "LastModifiedTimestamp": "638175975123537212",
+    "LastModifiedTimestamp": "638179367202573122",
     "Name": "comYesNoDialog",
     "Rules": [
       {
@@ -2317,7 +2310,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638175975123537212",
+  "LastModifiedTimestamp": "638179367202573122",
   "Name": "01906efe1f6b4ac885f5f6ea0fc7bf76",
   "OverridableProperties": {},
   "Version": "638153340657157122"

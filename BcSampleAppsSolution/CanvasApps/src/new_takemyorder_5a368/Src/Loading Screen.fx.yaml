@@ -84,7 +84,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: = DisplayMode.Edit
+            DisplayMode: =DisplayMode.Disabled
             Fill: =varTheme.primaryColor
             Font: =varTheme.font
             FontWeight: =FontWeight.Semibold
@@ -111,8 +111,9 @@
 
     imgLearnMorePlaceholder As image:
         BorderColor: =RGBA(32, 54, 71, 1)
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.Disabled
         Image: ='info page white icon'
         PaddingBottom: =20
         PaddingLeft: =20
@@ -136,6 +137,7 @@
         BorderThickness: =0
         Duration: =1000
         Fill: =Color.Transparent
+        FontWeight: =FontWeight.Lighter
         Height: =Parent.Height
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =Color.Transparent
@@ -145,7 +147,12 @@
             Set(varLanguageResources, 'takeOrderLanguageResources (microsoft/powerApps/beta)');
             Set(varLabels, {
                 Subtract: LookUp(varLanguageResources, labelId = "Subtract").displayName,
+                LoadingMessage: LookUp(varLanguageResources, labelId = "LoadingMessage").displayName,
                 AddText: LookUp(varLanguageResources, labelId = "AddText").displayName,
+                FirstAdd: LookUp(varLanguageResources, labelId = "FirstAdd").displayName,
+                DismissQuantityControl: LookUp(varLanguageResources, labelId = "DismissQuantityControl").displayName,    
+                GallerySelect: LookUp(varLanguageResources, labelId = "GallerySelect").displayName,
+                ItemImageText: LookUp(varLanguageResources, labelId = "ItemImageText").displayName,    
                 StartScreen_TakeOrder: LookUp(varLanguageResources, labelId = "StartScreen_TakeOrder").displayName,
                 StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").displayName,
                 StartScreen_InfoScreen: LookUp(varLanguageResources, labelId = "StartScreen_InfoScreen").displayName,    
@@ -154,15 +161,19 @@
                 InfoScreen_ReadMore: LookUp(varLanguageResources, labelId = "InfoScreen_ReadMore").displayName,        
                 InfoScreen_Link: LookUp(varLanguageResources, labelId = "InfoScreen_Link").displayName,                   
                 InfoScreen_Close: LookUp(varLanguageResources, labelId = "InfoScreen_Close").displayName,        
+                InfoScreen_LinkToolTip: LookUp(varLanguageResources, labelId = "InfoScreen_LinkToolTip").displayName,        
                 SelectTableScreen_Title: LookUp(varLanguageResources, labelId = "SelectTableScreen_Title").displayName,            
                 SelectTableScreen_Free: LookUp(varLanguageResources, labelId = "SelectTableScreen_Free").displayName,            
                 SelectTableScreen_Occupied: LookUp(varLanguageResources, labelId = "SelectTableScreen_Occupied").displayName,            
                 SelectTableScreen_Update: LookUp(varLanguageResources, labelId = "SelectTableScreen_Update").displayName,           
+                SelectTableScreen_GalleryToolTip: LookUp(varLanguageResources, labelId = "SelectTableScreen_GalleryToolTip").displayName,                
                 TakeOrderScreen_FullMenu: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FullMenu").displayName,                
                 TakeOrderScreen_Items: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Items").displayName,                
                 TakeOrderScreen_Totals: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Totals").displayName,                
                 TakeOrderScreen_Review: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Review").displayName,    
                 TakeOrderScreen_Close: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Close").displayName,                
+                TakeOrderScreen_ItemGallery: LookUp(varLanguageResources, labelId = "TakeOrderScreen_ItemGallery").displayName,                
+                TakeOrderScreen_FilterGallery: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FilterGallery").displayName,                
                 TakeOrderScreen_Delete: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Delete").displayName,                
                 SummaryScreen_Delete: LookUp(varLanguageResources, labelId = "SummaryScreen_Delete").displayName,               
                 SummaryScreen_Back: LookUp(varLanguageResources, labelId = "SummaryScreen_Back").displayName,                 
@@ -171,6 +182,9 @@
                 SummaryScreen_CheckOut: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOut").displayName,                 
                 SummaryScreen_Total: LookUp(varLanguageResources, labelId = "SummaryScreen_Total").displayName,                 
                 SummaryScreen_DeleteMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_DeleteMessage").displayName,                 
+                SummaryScreen_Gallery: LookUp(varLanguageResources, labelId = "SummaryScreen_Gallery").displayName,                 
+                SummaryScreen_SummaryStateCollapsed: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateCollapsed").displayName,                 
+                SummaryScreen_SummaryStateExpanded: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateExpanded").displayName,                 
                 SummaryScreen_CheckOutMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOutMessage").displayName
             });
             
@@ -194,6 +208,7 @@
         OnTimerStart: =Select(Self);
         Start: =true
         Text: =
+        Tooltip: =varLabels.LoadingMessage
         Width: =Parent.Width
         ZIndex: =4
 

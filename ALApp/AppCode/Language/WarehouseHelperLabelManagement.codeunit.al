@@ -40,7 +40,7 @@ codeunit 51000 BCS_WH_LabelManagement
         InfoScreen_Link_ValueTxt: Label 'Sample apps';
 
         InfoScreen_LinkToolTip: Label 'InfoScreen_LinkToolTip', Locked = true;
-        InfoScreen_LinkToolTip_ValueTxt: Label 'Link to open the sample app documentation page';
+        InfoScreen_LinkToolTip_ValueTxt: Label 'Click to open the sample app documentation page';
 
         ItemScreen_Submit: Label 'ItemScreen_Submit', Locked = true;
         ItemScreen_Submit_ValueTxt: Label 'Submit';
