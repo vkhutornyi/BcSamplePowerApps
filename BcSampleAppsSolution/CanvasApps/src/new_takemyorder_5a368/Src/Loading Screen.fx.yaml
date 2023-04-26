@@ -14,7 +14,7 @@
         Y: =imgLearnMorePlaceholder.Height
         ZIndex: =1
 
-        imgLogo_1 As image:
+        imgLogoPlaceholder As image:
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -23,11 +23,11 @@
             LayoutMinHeight: =320
             LayoutMinWidth: =320
             Width: =320
-            X: =(Parent.Width / 2) - (imgLogo_1.Width / 2)
+            X: =(Parent.Width / 2) - (imgLogoPlaceholder.Width / 2)
             Y: =46
             ZIndex: =2
 
-        lblCompanyName_1 As label:
+        lblCompanyNamePlaceholder As label:
             Align: =Align.Center
             BorderColor: =RGBA(32, 54, 71, 1)
             Color: =RGBA(255, 255, 255, 1)

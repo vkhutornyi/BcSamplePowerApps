@@ -371,13 +371,14 @@
             ZIndex: =3
 
             htmlItemDetailsImageShadow As htmlViewer:
-                Height: =345
+                Height: =imgItemDetailsImage.Height + 20
                 HtmlText: |+
                     ="<div style='
-                    height: " & Self.Height -25 & "px;   
-                    width: " & Self.Width - 25 & "px;   
-                    box-shadow: 1px 1px 1px 1px gray;
-                    margin: 10px;
+                    height: " & Self.Height - 20 & "px;   
+                    width: " & Self.Width - 20 & "px;   
+                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+                    margin-left: 10px;
+                    margin-top: 10px;
                     '></div>
                     "
                     
@@ -386,9 +387,9 @@
                 PaddingRight: =0
                 PaddingTop: =0
                 Tooltip: =
-                Width: =345
-                X: =30
-                Y: =30
+                Width: =imgItemDetailsImage.Width + 20
+                X: =imgItemDetailsImage.X + (imgItemDetailsImage.Width/2) - (Self.Width/2)
+                Y: =imgItemDetailsImage.Y + (imgItemDetailsImage.Height/2) - (Self.Height/2)
                 ZIndex: =1
 
             imgItemDetailsImage As image:

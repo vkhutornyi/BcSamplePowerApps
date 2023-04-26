@@ -20,7 +20,7 @@
             Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
-            ZIndex: =3
+            ZIndex: =1
 
             lblUserNameValue As label:
                 Align: =Align.Center
@@ -54,7 +54,14 @@
             Width: =235
             X: =Parent.Width/2 - Self.Width/2
             Y: =80
-            ZIndex: =4
+            ZIndex: =2
+
+        imgLogoText As image:
+            Image: ='Warehouse Helper_logotype_x2'
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            Width: =320
+            ZIndex: =3
 
         conLocationSelector As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
@@ -66,7 +73,7 @@
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             Width: =Parent.Width
-            ZIndex: =5
+            ZIndex: =4
 
             recLocationTopDivider As rectangle:
                 Fill: =RGBA(255, 255, 255, 0.5)
@@ -149,7 +156,7 @@
             Width: =220
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height - Self.Height - 20
-            ZIndex: =6
+            ZIndex: =5
 
     imgOpenInfoPage As image:
         AccessibleLabel: =Self.Tooltip

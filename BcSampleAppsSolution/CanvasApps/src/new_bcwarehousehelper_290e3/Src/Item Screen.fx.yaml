@@ -122,27 +122,6 @@
                 X: =imgItemImage.X - 2
                 ZIndex: =1
 
-            imgItemImage As image:
-                BorderColor: =RGBA(149, 149, 149, 1)
-                Height: =400
-                Image: |-
-                    =If(varScannedItem.'Picture reference' = GUID("00000000-0000-0000-0000-000000000000"),
-                        placeholder
-                        ,
-                        varScannedItem.Picture  
-                    )
-                Visible: =Not(ctxShowLoadingScreen)
-                Width: |-
-                    =With({
-                        height: If(varScannedItem.'Picture Height' > 0, varScannedItem.'Picture Height', 1),
-                        width: If(varScannedItem.'Picture Width' > 0, varScannedItem.'Picture Width', 1)
-                    },
-                        Self.Height * (width/height)
-                    )
-                X: =Parent.Width/2 - Self.Width/2
-                Y: =10  
-                ZIndex: =2
-
             htmlItemDetailsImageShadow As htmlViewer:
                 Height: =imgItemImage.Height + 20
                 HtmlText: |+
@@ -164,6 +143,27 @@
                 Width: =imgItemImage.Width + 20
                 X: =imgItemImage.X + (imgItemImage.Width/2) - (Self.Width/2)
                 Y: =imgItemImage.Y + (imgItemImage.Height/2) - (Self.Height/2)
+                ZIndex: =2
+
+            imgItemImage As image:
+                BorderColor: =RGBA(149, 149, 149, 1)
+                Height: =400
+                Image: |-
+                    =If(varScannedItem.'Picture reference' = GUID("00000000-0000-0000-0000-000000000000"),
+                        placeholder
+                        ,
+                        varScannedItem.Picture  
+                    )
+                Visible: =Not(ctxShowLoadingScreen)
+                Width: |-
+                    =With({
+                        height: If(varScannedItem.'Picture Height' > 0, varScannedItem.'Picture Height', 1),
+                        width: If(varScannedItem.'Picture Width' > 0, varScannedItem.'Picture Width', 1)
+                    },
+                        Self.Height * (width/height)
+                    )
+                X: =Parent.Width/2 - Self.Width/2
+                Y: =10  
                 ZIndex: =3
 
         conItemDetails As groupContainer.manualLayoutContainer:

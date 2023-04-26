@@ -107,13 +107,14 @@
                 ZIndex: =1
 
             htmlItemImageShadow As htmlViewer:
-                Height: =imgItemImage.Height + 25    
+                Height: =imgItemImage.Height + 20
                 HtmlText: |+
                     ="<div style='
-                    height: " & Self.Height -25 & "px;   
-                    width: " & Self.Width - 25 & "px;   
-                    box-shadow: 1px 1px 1px 1px gray;
-                    margin: 10px;
+                    height: " & Self.Height - 20 & "px;   
+                    width: " & Self.Width - 20 & "px;   
+                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+                    margin-left: 10px;
+                    margin-top: 10px;
                     '></div>
                     "
                     
@@ -122,9 +123,9 @@
                 PaddingRight: =0
                 PaddingTop: =0
                 Tooltip: =
-                Width: =imgItemImage.Width + 25 
-                X: =imgItemImage.X - 10
-                Y: =imgItemImage.Y - 10
+                Width: =imgItemImage.Width + 20
+                X: =imgItemImage.X + (imgItemImage.Width/2) - (Self.Width/2)
+                Y: =imgItemImage.Y + (imgItemImage.Height/2) - (Self.Height/2)
                 ZIndex: =2
 
             imgItemImage As image:
@@ -145,7 +146,7 @@
                 Width: =80
                 X: =30  
                 Y: =30
-                ZIndex: =3
+                ZIndex: =4
 
             recItemImageOverlay As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
@@ -155,7 +156,7 @@
                 Width: =imgItemImage.Width
                 X: =imgItemImage.X
                 Y: =imgItemImage.Y
-                ZIndex: =4
+                ZIndex: =5
 
             lblItemDisplayName As label:
                 Color: =RGBA(0, 0, 0, 1)
@@ -172,7 +173,7 @@
                 Width: =371
                 X: =124
                 Y: =imgItemImage.Y
-                ZIndex: =5
+                ZIndex: =6
 
             lblItemPrice As label:
                 Color: =RGBA(0, 0, 0, 1)
@@ -191,7 +192,7 @@
                 Width: =300
                 X: =124
                 Y: =imgItemImage.Y + imgItemImage.Height - Self.Height
-                ZIndex: =6
+                ZIndex: =7
 
             figItemOverlay As rectangle:
                 AccessibleLabel: =Self.Tooltip
@@ -213,7 +214,7 @@
                 TabIndex: =0
                 Tooltip: =varLabels.DismissQuantityControl
                 Width: =Parent.TemplateWidth
-                ZIndex: =7
+                ZIndex: =8
 
             imgAddItem As image:
                 AccessibleLabel: =Self.Tooltip
