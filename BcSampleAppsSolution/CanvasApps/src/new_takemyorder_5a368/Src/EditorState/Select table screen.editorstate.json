@@ -898,7 +898,14 @@
         },
         "TemplatePadding",
         "Layout",
-        "Transition",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Transition",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -934,7 +941,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "false",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "ShowNavigation",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -952,6 +959,22 @@
           "AutoRuleBindingEnabled": false,
           "AutoRuleBindingString": "",
           "InvariantPropertyName": "TabIndex",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "ShowScrollbar",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "4",
+          "InvariantPropertyName": "FocusedBorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         }
@@ -1141,6 +1164,16 @@
         {
           "Category": "Design",
           "PropertyName": "TabIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ShowScrollbar",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderThickness",
           "RuleProviderType": "Unknown"
         }
       ],

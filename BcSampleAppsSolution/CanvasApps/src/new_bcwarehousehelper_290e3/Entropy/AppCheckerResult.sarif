@@ -158,36 +158,6 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Item Screen'.ctxErrorUpdatingItem"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Item Screen'.ctxErrorUpdatingItem",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "ctxErrorUpdatingItem",
-                "module": "Item Screen",
-                "type": "'Item Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 1
         }
       ],
       "tool": {

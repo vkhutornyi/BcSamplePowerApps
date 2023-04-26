@@ -91,7 +91,6 @@
             Layout: =Layout.Vertical
             OnSelect: =
             ShowScrollbar: =false
-            TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =140
             Width: =Parent.Width
@@ -199,6 +198,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledFill: =Color.Transparent
                 Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
                 Height: =Parent.TemplateHeight
                 HoverFill: =Color.Transparent
                 OnSelect: |-
@@ -220,7 +220,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Height: =80
+                FocusedBorderThickness: =0
                 Image: ='add icon'
                 OnSelect: |-
                     =// Clear quantity control if it is showing
@@ -256,14 +256,13 @@
                             {quantity: Value(btnQCQuantity.Text) + 1}
                         )
                     );
-                PaddingBottom: =20
-                PaddingLeft: =20
-                PaddingRight: =20
-                PaddingTop: =20
+                PaddingBottom: =30
+                PaddingLeft: =30
+                PaddingRight: =30
+                PaddingTop: =30
                 TabIndex: =0
                 Tooltip: =
                 Visible: =Not(btnQuantity.Visible)
-                Width: =80  
                 X: =Parent.TemplateWidth - Self.Width -10
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
                 ZIndex: =9
@@ -297,11 +296,12 @@
                 Visible: |-
                     =// Does quantity have a value
                     And(
-                        Not(btnQuantity.Text = "0"),
-                        Not(IsBlank(btnQuantity.Text))
+                        Value(btnQuantity.Text) > 0,
+                        //Not(IsBlank(btnQuantity.Text)),
+                        Not(ctxItemShowingQuantityControl = ThisItem.id)
                     )
                 Width: =60
-                X: =Parent.Width - (btnQuantity.Width/2) - 50
+                X: =Parent.Width - (btnQuantity.Width/2) - 60
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
                 ZIndex: =10
 
@@ -326,7 +326,7 @@
                     DisplayMode: =DisplayMode.View
                     Fill: =varTheme.primaryColor
                     FontWeight: =FontWeight.Semibold
-                    Height: =70
+                    Height: =Parent.Height
                     HoverColor: =RGBA(255, 255, 255, 1)
                     HoverFill: =varTheme.primaryColor
                     OnSelect: =
@@ -449,15 +449,19 @@
                     AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(Value(btnQCQuantity.Text) < 99, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =70
                     HoverBorderColor: =Color.Transparent
                     Image: ='add icon'
                     OnSelect: |-
-                        =Patch(
-                            colSelectedItems,
-                            {id: ThisItem.id},
-                            {quantity: Value(btnQCQuantity.Text) + 1}
+                        =If(Value(btnQCQuantity.Text) < 99, 
+                            Patch(
+                                colSelectedItems,
+                                {id: ThisItem.id},
+                                {quantity: Value(btnQCQuantity.Text) + 1}
+                        
+                            )
                         )
                     PaddingBottom: =15
                     PaddingLeft: =15
@@ -466,6 +470,7 @@
                     PressedBorderColor: =Color.Transparent
                     TabIndex: =0
                     Tooltip: =varLabels.Subtract
+                    Transparency: =If(Self.DisplayMode = DisplayMode.Disabled, 60%, 0)
                     Width: =70
                     X: =Parent.Width - Self.Width -10
                     ZIndex: =8
@@ -491,6 +496,7 @@
         galItemGroups As gallery.galleryHorizontal:
             AccessibleLabel: =varLabels.TakeOrderScreen_FilterGallery
             BorderColor: =RGBA(32, 54, 71, 1)
+            FocusedBorderThickness: =0
             Height: =70
             Items: =colItemGroup
             OnSelect: |-
@@ -503,7 +509,6 @@
             ShowScrollbar: =false
             TabIndex: =0
             TemplateSize: =(Parent.Width / 4) - 10
-            Transition: =Transition.Pop
             Width: =Parent.Width
             Y: =Parent.Height - Self.Height
             ZIndex: =1
@@ -562,7 +567,17 @@
             AccessibleLabel: =Self.Tooltip
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: |-
+                =With(
+                {
+                    allowDelete: Or(IsBlank(varActiveorderForSelectedTable), varAddItemsToCurrentOrder)
+                },
+                    If(allowDelete,    
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                )
             HoverBorderColor: =Color.Transparent
             Image: =If(Sum(colSelectedItems, quantity) > 0, 'delete icon', 'dismiss icon')
             OnSelect: |
@@ -587,6 +602,7 @@
             PressedBorderColor: =Color.Transparent
             TabIndex: =0
             Tooltip: =If(Sum(colSelectedItems, quantity) > 0, varLabels.TakeOrderScreen_Delete, varLabels.TakeOrderScreen_Close)
+            Transparency: =If(Self.DisplayMode = DisplayMode.Disabled, 60%, 0)
             X: =Parent.Width - Self.Width
             ZIndex: =4
 

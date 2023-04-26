@@ -15,6 +15,7 @@
         AccessibleLabel: =varLabels.SummaryScreen_Gallery
         BorderColor: =RGBA(32, 54, 71, 1)
         Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =0
         Height: =881
         Items: |-
             =Filter(colOrderSummary, Or(
@@ -136,6 +137,7 @@
                 AccessibleLabel: =Self.Tooltip
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =Color.Transparent
+                FocusedBorderThickness: =0
                 Height: =Parent.Height
                 OnSelect: |
                     =If(ThisItem.name in colCurrentOrderState_CollapsedGroups,
@@ -276,6 +278,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledFill: =Color.Transparent
                 Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
                 Height: =Parent.Height
                 HoverFill: =Color.Transparent
                 OnSelect: |-
@@ -449,8 +452,9 @@
                     Height: =70
                     HoverBorderColor: =Color.Transparent
                     Image: ='add icon'
-                    OnSelect: |-
-                        =UpdateContext(
+                    OnSelect: |
+                        =
+                        UpdateContext(
                             {
                                 ctxSelectedItemInList: LookUp(
                                     colSelectedItems,
@@ -458,10 +462,13 @@
                                 )
                             }
                         );
-                        Patch(
-                            colSelectedItems,
-                            ctxSelectedItemInList,
-                            {quantity: ctxSelectedItemInList.quantity + 1}
+                        
+                        If(ctxSelectedItemInList.quantity < 99,
+                            Patch(
+                                colSelectedItems,
+                                ctxSelectedItemInList,
+                                {quantity: ctxSelectedItemInList.quantity + 1}
+                            )
                         )
                     PaddingBottom: =15
                     PaddingLeft: =15
@@ -703,7 +710,17 @@
             AccessibleLabel: =Self.Tooltip
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: |-
+                =With(
+                {
+                    allowDelete: Or(IsBlank(varActiveorderForSelectedTable), varAddItemsToCurrentOrder)
+                },
+                    If(allowDelete,    
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                )
             Image: ='delete icon'
             OnSelect: |-
                 =UpdateContext({ctxShowDeleteDraftDialog: true});
@@ -713,6 +730,7 @@
             PaddingTop: =25
             TabIndex: =0
             Tooltip: =varLabels.SummaryScreen_Delete
+            Transparency: =If(Self.DisplayMode = DisplayMode.Disabled, 60%, 0)
             X: =Parent.Width - Self.Width
             ZIndex: =7
 

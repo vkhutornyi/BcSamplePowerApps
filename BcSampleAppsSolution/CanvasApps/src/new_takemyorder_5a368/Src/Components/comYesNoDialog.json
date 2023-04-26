@@ -2189,7 +2189,7 @@
       "behaviorNo",
       "PrimaryColor"
     ],
-    "LastModifiedTimestamp": "638179367202573122",
+    "LastModifiedTimestamp": "638180281630205056",
     "Name": "comYesNoDialog",
     "Rules": [
       {
@@ -2281,7 +2281,7 @@
       "Name": "behaviorYes",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.330\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.330\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 2,
@@ -2290,7 +2290,7 @@
       "Name": "behaviorNo",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.330\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.330\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -2310,7 +2310,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638179367202573122",
+  "LastModifiedTimestamp": "638180281630205056",
   "Name": "01906efe1f6b4ac885f5f6ea0fc7bf76",
   "OverridableProperties": {},
   "Version": "638153340657157122"

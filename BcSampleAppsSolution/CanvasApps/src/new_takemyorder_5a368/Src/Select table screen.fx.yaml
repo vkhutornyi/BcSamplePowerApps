@@ -98,6 +98,7 @@
         "galTables As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
             AccessibleLabel: =varLabels.SelectTableScreen_GalleryToolTip
             BorderColor: =RGBA(32, 54, 71, 1)
+            FocusedBorderThickness: =0
             Height: =979
             Items: =colTableStatus
             Layout: =Layout.Vertical
@@ -116,10 +117,11 @@
                     Navigate('Order Summary Screen', ScreenTransition.Cover, {ctxCallingPage: 'Select table screen'});    
                 );
                 
-            ShowNavigation: =true
+            ShowScrollbar: =false
             TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =120
+            Transition: =Transition.Push
             Y: =
             ZIndex: =4
 

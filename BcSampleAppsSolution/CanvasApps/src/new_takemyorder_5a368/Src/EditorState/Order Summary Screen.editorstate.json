@@ -5404,7 +5404,14 @@
         },
         "ZIndex",
         "BorderThickness",
-        "FocusedBorderThickness",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "2",
+          "InvariantPropertyName": "FocusedBorderThickness",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -5841,6 +5848,14 @@
           "InvariantPropertyName": "TabIndex",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "4",
+          "InvariantPropertyName": "FocusedBorderThickness",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "GalleryTemplateChildName": "galleryTemplate1_3",
@@ -5995,6 +6010,11 @@
         {
           "Category": "Design",
           "PropertyName": "TabIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderThickness",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -6680,7 +6700,14 @@
           "NameMapSourceSchema": "?"
         },
         "Fill",
-        "DisabledFill",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "DisabledFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "PressedFill",
         "HoverFill",
         "BorderColor",
@@ -6689,7 +6716,14 @@
         "HoverBorderColor",
         "FocusedBorderColor",
         "BorderStyle",
-        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DisplayMode.Edit",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ZIndex",
         "RadiusTopLeft",
         "RadiusTopRight",
@@ -6758,6 +6792,14 @@
           "AutoRuleBindingEnabled": false,
           "AutoRuleBindingString": "\"\"",
           "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "0",
+          "InvariantPropertyName": "Transparency",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         }
@@ -6933,6 +6975,11 @@
         {
           "Category": "Design",
           "PropertyName": "TabIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Transparency",
           "RuleProviderType": "Unknown"
         },
         {
@@ -10805,7 +10852,14 @@
         },
         "ZIndex",
         "BorderThickness",
-        "FocusedBorderThickness",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "2",
+          "InvariantPropertyName": "FocusedBorderThickness",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

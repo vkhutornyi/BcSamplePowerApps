@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas",
     "CdpRevision": {
       "BaseUrl": "/v3",
-      "LastChangedTimeString": "2023-03-17T21:39:52.4860000Z",
+      "LastChangedTimeString": "2023-03-24T16:12:47.5350000Z",
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -16,9 +16,12 @@
       "itemCategoryCode": "Item Category Code",
       "itemCategoryName": "Item Category Name",
       "itemImageText": "Picture reference",
+      "locationFilter": "Location Filter",
       "LongItemDescription": "Long Item Description",
       "number": "Number",
       "picture": "Picture",
+      "pictureHeight": "Picture Height",
+      "pictureWidth": "Picture Width",
       "SoldInRestaurant": "Sold In Restaurant",
       "unitPrice": "Unit price"
     },
