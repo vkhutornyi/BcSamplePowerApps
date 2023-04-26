@@ -27,6 +27,7 @@ codeunit 51001 BCS_SampleDataGenerator
         UpdateItemWithGTIN('1928-S', '5901234123457');
         UpdateItemWithGTIN('SP-SCM1004', '9312345678907');
         UpdateItemWithGTIN('1906-S', '9780201379624');
+        UpdateItemWithGTIN('1980-S', '9780201376532');
     end;
 
 

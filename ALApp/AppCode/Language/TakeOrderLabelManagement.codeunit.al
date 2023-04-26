@@ -46,7 +46,7 @@ codeunit 51002 BCS_TO_LabelManagement
         InfoScreen_Title_ValueTxt: Label 'Business Central sample app';
 
         InfoScreen_Text: Label 'InfoScreen_Text', Locked = true;
-        InfoScreen_Text_ValueTxt: Label 'Take Order is a simple sample app that shows how to build a high fedelity Power App using Business Central data.';
+        InfoScreen_Text_ValueTxt: Label 'Take Order is a simple sample app that shows how to build a high fidelity Power App using Business Central data.';
 
         InfoScreen_ReadMore: Label 'InfoScreen_ReadMore', Locked = true;
         InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample app:';

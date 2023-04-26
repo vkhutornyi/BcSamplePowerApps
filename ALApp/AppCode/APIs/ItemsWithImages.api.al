@@ -39,9 +39,14 @@ page 51001 BCS_ItemWithImage
                 {
                     Caption = 'Base Unit Of Measure Code';
                 }
-                field(inventory; Rec.Inventory)
+                field(inventory; inventoryValue)
                 {
                     Caption = 'Inventory';
+                }
+                field(locationFilter; Rec."Location Filter")
+                {
+                    Editable = false;
+                    Caption = 'Location Filter';
                 }
                 field(itemImageText; Rec.Picture)
                 {
@@ -76,6 +81,16 @@ page 51001 BCS_ItemWithImage
                 {
                     Caption = 'Picture';
                 }
+                field(pictureHeight; PictureHeight)
+                {
+                    Editable = false;
+                    Caption = 'Picture Height';
+                }
+                field(pictureWidth; PictureWidth)
+                {
+                    Editable = false;
+                    Caption = 'Picture Width';
+                }
             }
         }
     }
@@ -84,6 +99,9 @@ page 51001 BCS_ItemWithImage
         ItemCatagoryName: Text[100];
         NameValueBufferBlob: Record "Name/Value Buffer" temporary; // This can be any table with a field of type Blob
         ConfigMediaBuffer: Record "Config. Media Buffer" temporary; // This can be any table with a field of type Media
+        PictureHeight: Integer;
+        PictureWidth: Integer;
+        inventoryValue: Decimal;
 
     trigger OnAfterGetRecord()
     var
@@ -116,17 +134,55 @@ page 51001 BCS_ItemWithImage
 
             TenantMedia.Content.CreateInStream(InStr);
             CopyStream(OutStr, InStr);
+
+            // Get the picture dimensions
+            PictureWidth := TenantMedia.Width;
+            PictureHeight := TenantMedia.Height;
         end;
-        // **END**
 
         NameValueBufferBlob.Insert();
 
-        //Anders test
+        //Set Item Category Name
         ItemCatagoryName := '';
         if Rec."Item Category Code" <> '' then begin
             if ItemCategory.Get(Rec."Item Category Code")
             then
                 ItemCatagoryName := ItemCategory.Description
         end;
+
+        // Calculate inventory value
+        Rec.CalcFields(Inventory);
+        inventoryValue := Rec.Inventory;
+    end;
+
+    trigger OnModifyRecord(): Boolean
+    begin
+        UpdateInventory();
+    end;
+
+    local procedure UpdateInventory()
+    var
+        ItemJournalLine: Record "Item Journal Line";
+        ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
+    begin
+        Rec.calcfields(Inventory);
+        if Rec.Inventory = InventoryValue then
+            exit;
+        ItemJournalLine.Init();
+        ItemJournalLine.Validate("Posting Date", Today());
+        ItemJournalLine."Document No." := Rec."No.";
+        ItemJournalLine."Location Code" := Rec.GetRangeMax("Location Filter");
+
+        if Rec.Inventory < InventoryValue then
+            ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Positive Adjmt.")
+        else
+            ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Negative Adjmt.");
+
+        ItemJournalLine.Validate("Item No.", Rec."No.");
+        ItemJournalLine.Validate(Description, Rec.Description);
+        ItemJournalLine.Validate(Quantity, Abs(InventoryValue - Rec.Inventory));
+
+        ItemJnlPostLine.RunWithCheck(ItemJournalLine);
+        Rec.Get(Rec."No.");
     end;
 }
