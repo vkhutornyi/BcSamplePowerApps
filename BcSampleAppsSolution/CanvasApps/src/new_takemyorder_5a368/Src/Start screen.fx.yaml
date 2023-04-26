@@ -114,6 +114,7 @@
         BorderColor: =RGBA(32, 54, 71, 1)
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =0
         Image: ='info page white icon'
         OnSelect: =Navigate('Info screen', ScreenTransition.Cover);
         PaddingBottom: =20

@@ -83,7 +83,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "conInfoContent",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -473,7 +473,14 @@
         "RadiusBottomLeft",
         "RadiusBottomRight",
         "BorderThickness",
-        "FocusedBorderThickness",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "2",
+          "InvariantPropertyName": "FocusedBorderThickness",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -549,7 +556,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCloseInfoScreen",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

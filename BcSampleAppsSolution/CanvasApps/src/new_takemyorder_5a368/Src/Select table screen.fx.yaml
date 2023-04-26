@@ -210,7 +210,7 @@
                 ZIndex: =6
 
     conLoadingOverlay As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(255, 255, 255, 0.2)
+        Fill: =varTheme.secondaryColor
         Height: =galTables.Height
         Visible: =ctxShowLoading
         Width: =Parent.Width

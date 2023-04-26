@@ -55,6 +55,7 @@
             Font: =varTheme.font
             FontWeight: =FontWeight.Normal
             Height: =220
+            HoverFill: =Self.Fill
             LayoutMinHeight: =70
             LayoutMinWidth: =280
             OnSelect: |-

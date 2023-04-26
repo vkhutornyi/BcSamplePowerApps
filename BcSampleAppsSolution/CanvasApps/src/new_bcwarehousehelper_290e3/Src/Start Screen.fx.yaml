@@ -133,10 +133,13 @@
             Fill: =varTheme.secondaryColor
             Font: =varTheme.font
             Height: =220
+            HoverFill: =Self.Fill
             LayoutMinHeight: =70
             LayoutMinWidth: =280
             OnSelect: |-
                 =Navigate('Item Screen', ScreenTransition.Fade, {ctxStartScan: true});
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
             RadiusBottomLeft: =Self.Width / 2
             RadiusBottomRight: =Self.Width / 2
             RadiusTopLeft: =Self.Width / 2

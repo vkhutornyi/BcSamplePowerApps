@@ -58,13 +58,9 @@
             ZIndex: =4
 
         conLocationSelectorPlaceholder As groupContainer.verticalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
-            FillPortions: =0
             Height: =conLocationSelectorControl_1.Height + recLocationTopDivider_1.Height * 2
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
-            LayoutMinHeight: =112
-            LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             Width: =Parent.Width
             ZIndex: =5
@@ -76,54 +72,8 @@
                 ZIndex: =1
 
             conLocationSelectorControl_1 As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                FillPortions: =0
                 Height: =120 
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
                 ZIndex: =3
-
-                lblLocationValue_1 As label:
-                    Align: =Align.Right
-                    Color: =RGBA(255, 255, 255, 1)
-                    Font: =varTheme.font
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =21
-                    Text: =varSelectedWarehouse.Name
-                    Visible: =false
-                    Width: =Min(Len(Self.Text) * 16, 400)
-                    X: =Parent.Width/2 - Self.Width/2 - imgChevron_1.Width/2
-                    Y: =Parent.Height/2 - Self.Height/2
-                    ZIndex: =1
-
-                imgChevron_1 As image:
-                    Height: =80
-                    Image: ='warehouse name arrow'
-                    PaddingBottom: =10
-                    PaddingLeft: =10
-                    PaddingRight: =10
-                    PaddingTop: =10
-                    Visible: =false
-                    Width: =80
-                    X: =392
-                    Y: =20
-                    ZIndex: =2
-
-                btnSelectLocationOverlay_1 As button:
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    FontWeight: =FontWeight.Normal
-                    Height: =Parent.Height
-                    HoverFill: =Color.Transparent
-                    OnSelect: =Navigate('Select Warehouse Screen', ScreenTransition.Cover);
-                    PressedFill: =Color.Transparent
-                    Size: =24
-                    TabIndex: =0   
-                    Text: =""
-                    Visible: =false
-                    Width: =Parent.Width
-                    ZIndex: =3
 
             recLocationBottomDivider_1 As rectangle:
                 Fill: =RGBA(255, 255, 255, 0.5)
@@ -135,8 +85,8 @@
         btnScanItemPlaceholder As button:
             BorderThickness: =0
             Color: =varTheme.brandColor
-            DisabledColor: =RGBA(255, 255, 255, 1)
-            DisabledFill: =RGBA(237, 237, 237, 1)
+            DisabledColor: =varTheme.brandColor
+            DisabledFill: =varTheme.secondaryColor
             DisplayMode: =DisplayMode.Disabled
             Fill: =varTheme.secondaryColor
             Font: =varTheme.font
@@ -173,17 +123,11 @@
         Y: =20
         ZIndex: =2
 
-    imgLoadingSpinner As image:
-        Image: =Spinner_DarkBlue_2x
-        X: =270
-        Y: =659
-        ZIndex: =3
-
     timeStartLoading As timer:
         AutoStart: =true
         BorderThickness: =0
         Duration: =1000
-        Fill: =RGBA(230, 230, 230, 0.31)
+        Fill: =RGBA(24, 108, 203, 30%)
         Height: =Parent.Height
         HoverFill: =Color.Transparent
         OnSelect: |-
@@ -253,5 +197,12 @@
         Text: =
         Tooltip: =varLabels.LoadingScreen_placeholder
         Width: =Parent.Width
+        ZIndex: =3
+
+    imgLoadingSpinner As image:
+        Fill: =
+        Image: =Spinner_DarkBlue_2x
+        X: =(Parent.Width- Self.Width)/2
+        Y: =(Parent.Height - Self.Height)/2
         ZIndex: =4
 

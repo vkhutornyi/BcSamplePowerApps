@@ -579,7 +579,7 @@
                     )
                 )
             HoverBorderColor: =Color.Transparent
-            Image: =If(Sum(colSelectedItems, quantity) > 0, 'delete icon', 'dismiss icon')
+            Image: ='delete icon'
             OnSelect: |
                 =If(Sum(colSelectedItems, quantity) > 0, 
                     //Show dialog

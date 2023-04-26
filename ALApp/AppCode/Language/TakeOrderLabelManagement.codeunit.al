@@ -49,7 +49,7 @@ codeunit 51002 BCS_TO_LabelManagement
         InfoScreen_Text_ValueTxt: Label 'Take Order is a simple sample app that shows how to build a high fidelity Power App using Business Central data.';
 
         InfoScreen_ReadMore: Label 'InfoScreen_ReadMore', Locked = true;
-        InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample app:';
+        InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample apps:';
 
         InfoScreen_Link: Label 'InfoScreen_Link', Locked = true;
         InfoScreen_Link_ValueTxt: Label 'Sample apps';
@@ -129,6 +129,12 @@ codeunit 51002 BCS_TO_LabelManagement
         SummaryScreen_SummaryStateCollapsed: Label 'SummaryScreen_SummaryStateCollapsed', Locked = true;
         SummaryScreen_SummaryStateCollapsed_ValueTxt: Label 'Group summar collapsed.';
 
+        SummaryScreen_SummaryDraftTitle: Label 'SummaryScreen_SummaryDraftTitle', Locked = true;
+        SummaryScreen_SummaryDraftTitle_ValueTxt: Label 'Order (draft)';
+
+        SummaryScreen_SummarySubmittedTitle: Label 'SummaryScreen_SummarySubmittedTitle', Locked = true;
+        SummaryScreen_SummarySubmittedTitle_ValueTxt: Label 'Order ';
+
 
         // Telemetry labels
         LabelsGeneratedTelemetryTxt: Label 'Retrieving Power Apps labels for language "%1" (system language is "%2").', Locked = true;
@@ -202,7 +208,8 @@ codeunit 51002 BCS_TO_LabelManagement
         InsertLabel(TempPowerAppsLabels, SummaryScreen_Gallery, SummaryScreen_Gallery_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateExpanded, SummaryScreen_SummaryStateExpanded_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateCollapsed, SummaryScreen_SummaryStateCollapsed_ValueTxt, 'en-US');
-
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryDraftTitle, SummaryScreen_SummaryDraftTitle_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummarySubmittedTitle, SummaryScreen_SummarySubmittedTitle_ValueTxt, 'en-US');
     end;
 
     local procedure InsertLabel(var TempPowerAppsLabels: Record BCS_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; labelLanguage: Text[10])

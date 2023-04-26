@@ -185,7 +185,9 @@
                 SummaryScreen_Gallery: LookUp(varLanguageResources, labelId = "SummaryScreen_Gallery").displayName,                 
                 SummaryScreen_SummaryStateCollapsed: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateCollapsed").displayName,                 
                 SummaryScreen_SummaryStateExpanded: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateExpanded").displayName,                 
-                SummaryScreen_CheckOutMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOutMessage").displayName
+                SummaryScreen_CheckOutMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOutMessage").displayName,
+                SummaryScreen_SummaryDraftTitle: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryDraftTitle").displayName,
+                SummaryScreen_SummarySubmittedTitle: LookUp(varLanguageResources, labelId = "SummaryScreen_SummarySubmittedTitle").displayName    
             });
             
             // Set up data

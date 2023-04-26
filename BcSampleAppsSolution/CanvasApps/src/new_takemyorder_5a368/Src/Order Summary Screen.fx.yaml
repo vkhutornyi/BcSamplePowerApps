@@ -681,7 +681,10 @@
             Height: =60
             Size: =34
             Text: |-
-                ="Order " & If(ctxHasOrderBeenCreated, "#"&varActiveorderForSelectedTable.number, "")
+                =If(ctxHasOrderBeenCreated, 
+                    varLabels.SummaryScreen_SummarySubmittedTitle &" #"&varActiveorderForSelectedTable.number, 
+                    varLabels.SummaryScreen_SummaryDraftTitle
+                )
             Width: =560
             X: =40
             Y: =110

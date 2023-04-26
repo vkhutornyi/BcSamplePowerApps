@@ -34,7 +34,7 @@ codeunit 51000 BCS_WH_LabelManagement
         InfoScreen_Text_ValueTxt: Label 'Warehouse helper is a simple sample app that shows how to use the Power Apps integration in Business Central.';
 
         InfoScreen_ReadMore: Label 'InfoScreen_ReadMore', Locked = true;
-        InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample app:';
+        InfoScreen_ReadMore_ValueTxt: Label 'Read more about Business Central sample apps:';
 
         InfoScreen_Link: Label 'InfoScreen_Link', Locked = true;
         InfoScreen_Link_ValueTxt: Label 'Sample apps';
@@ -61,7 +61,7 @@ codeunit 51000 BCS_WH_LabelManagement
         NotFoundScreen_Title_ValueTxt: Label 'Scan another item or try again';
 
         NotFoundScreen_Text: Label 'NotFoundScreen_Text', Locked = true;
-        NotFoundScreen_Text_ValueTxt: Label 'We could not find an item with a code that matches the scanned item.';
+        NotFoundScreen_Text_ValueTxt: Label 'We could`t find an item with a code that matches the scanned item.';
 
         NotFoundScreen_Scan: Label 'NotFoundScreen_Scan', Locked = true;
         NotFoundScreen_Scan_ValueTxt: Label 'Scan item';

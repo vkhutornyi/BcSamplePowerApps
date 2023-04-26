@@ -34,7 +34,7 @@
                 Size: =34
                 Text: ="Item Details"
                 Width: =Parent.Width
-                Y: =25
+                Y: =15
                 ZIndex: =2
 
             imgCloseItemScreen As image:
@@ -42,14 +42,15 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Image: ='dismiss icon'
+                FocusedBorderThickness: =0
+                Image: ='back arrow'
                 OnSelect: |-
                     =UpdateContext({ctxShowItemQuantityControl: false});
                     
                     If(ctxCallingPage = 'Order Summary Screen',
-                        Navigate('Order Summary Screen', ScreenTransition.Fade, {ctxCallingPage: 'Item Details Screen'})
+                        Navigate('Order Summary Screen', ScreenTransition.UnCoverRight, {ctxCallingPage: 'Item Details Screen'})
                         ,
-                        Back(ScreenTransition.Fade);
+                        Back(ScreenTransition.UnCoverRight);
                     );
                 PaddingBottom: =30
                 PaddingLeft: =30
@@ -57,7 +58,6 @@
                 PaddingTop: =30
                 TabIndex: =0
                 Tooltip: =varLabels.InfoScreen_Close
-                X: =Parent.Width -Self.Width
                 ZIndex: =4
 
         conItemMainInfo As groupContainer.manualLayoutContainer:

@@ -109,7 +109,7 @@
         conItemImage As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
-            Height: =imgItemImage.Height + 4
+            Height: =imgItemImage.Height + 20
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             ZIndex: =4
@@ -131,6 +131,7 @@
                         ,
                         varScannedItem.Picture  
                     )
+                Visible: =Not(ctxShowLoadingScreen)
                 Width: |-
                     =With({
                         height: If(varScannedItem.'Picture Height' > 0, varScannedItem.'Picture Height', 1),
@@ -139,17 +140,18 @@
                         Self.Height * (width/height)
                     )
                 X: =Parent.Width/2 - Self.Width/2
-                Y: =1
+                Y: =10  
                 ZIndex: =2
 
             htmlItemDetailsImageShadow As htmlViewer:
-                Height: =imgItemImage.Height + 2
+                Height: =imgItemImage.Height + 20
                 HtmlText: |+
                     ="<div style='
-                    height: " & Self.Height - 3 & "px;   
-                    width: " & Self.Width - 2 & "px;   
-                    box-shadow: 1px 1px 1px 1px gray;
-                    margin: 1px;
+                    height: " & Self.Height - 20 & "px;   
+                    width: " & Self.Width - 20 & "px;   
+                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+                    margin-left: 10px;
+                    margin-top: 10px;
                     '></div>
                     "
                     
@@ -158,8 +160,10 @@
                 PaddingRight: =0
                 PaddingTop: =0
                 Tooltip: =
-                Width: =imgItemImage.Width + 2
-                X: =imgItemImage.X - 1
+                Visible: =Not(ctxShowLoadingScreen)
+                Width: =imgItemImage.Width + 20
+                X: =imgItemImage.X + (imgItemImage.Width/2) - (Self.Width/2)
+                Y: =imgItemImage.Y + (imgItemImage.Height/2) - (Self.Height/2)
                 ZIndex: =3
 
         conItemDetails As groupContainer.manualLayoutContainer:
@@ -179,6 +183,7 @@
                 Height: =70
                 Size: =22
                 Text: =varScannedItem.DisplayName
+                Visible: =Not(ctxShowLoadingScreen)
                 Width: =454
                 X: =Parent.Width/2 - Self.Width/2
                 Y: =10
@@ -189,6 +194,7 @@
                 Font: =varTheme.font
                 Size: =17
                 Text: =varScannedItem.baseUnitOfMeasureCode & "   |   " & varScannedItem.Number
+                Visible: =Not(ctxShowLoadingScreen)
                 Width: =300
                 X: =Parent.Width/2 - Self.Width/2
                 Y: =70
@@ -285,11 +291,13 @@
         btnSubChanges As button:
             BorderThickness: =0
             DisabledColor: =RGBA(255, 255, 255, 1)
-            DisabledFill: =RGBA(237, 237, 237, 1)
+            DisabledFill: =varTheme.brandColor
             DisplayMode: =If(And(ctxInventory >= 0, ctxInventory <= 99999), DisplayMode.Edit, DisplayMode.Disabled)
             Fill: =varTheme.brandColor
             Font: =varTheme.font
             Height: =220
+            HoverBorderColor: =Self.Fill
+            HoverFill: =Self.Fill
             LayoutMinHeight: =70
             LayoutMinWidth: =280
             OnSelect: |
@@ -319,16 +327,14 @@
             ZIndex: =7
 
     conLoadingOverlay As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(186, 186, 186, 0.69)
+        Fill: =RGBA(226, 248, 255, 50%)
         Height: =Parent.Height
         Visible: =ctxShowLoadingScreen
         Width: =Parent.Width
         ZIndex: =4
 
         imgLoadingSubmit As image:
-            Height: =200
             Image: =Spinner_LightBlue_2x
-            Width: =200
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height/2 - Self.Height/2
             ZIndex: =1
