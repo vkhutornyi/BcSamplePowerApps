@@ -77,7 +77,7 @@
         "galDebugItems As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
             AccessibleLabel: =varLabels.DebugScreen_Gallery
             AlignInContainer: =AlignInContainer.SetByContainer
-            Items: =Filter(ShowColumns('itemsWithImage (microsoft/powerApps/beta)', "id", "displayName", "picture", "unitPrice", "itemImageText", "GTIN", "number", "baseUnitOfMeasureCode"), Not(IsBlank(GTIN)))
+            Items: =Filter(ShowColumns('itemsWithImage (microsoft/powerApps/beta)', "id", "displayName", "picture", "unitPrice", "itemImageText", "GTIN", "number", "baseUnitOfMeasureCode", "pictureHeight", "pictureWidth"), Not(IsBlank(GTIN)))
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320

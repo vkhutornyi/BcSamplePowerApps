@@ -50,9 +50,6 @@
     "datasets": {
       "Sandbox,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f": {
         "dataSources": {
-          "items (v2.0)": {
-            "tableName": "items,v2.0"
-          },
           "itemsWithImage (microsoft/powerApps/beta)": {
             "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
           },
@@ -69,7 +66,6 @@
       }
     },
     "dataSources": [
-      "items (v2.0)",
       "itemsWithImage (microsoft/powerApps/beta)",
       "locations (v2.0)",
       "localizationInformations (microsoft/powerApps/beta)",

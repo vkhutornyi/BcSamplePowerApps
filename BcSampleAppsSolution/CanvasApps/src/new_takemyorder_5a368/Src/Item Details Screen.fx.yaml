@@ -306,16 +306,20 @@
                     AccessibleLabel: =Self.Tooltip
                     BorderColor: =RGBA(32, 54, 71, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(Value(btnQCQuantityItemDetails.Text) < 99, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =70
                     HoverBorderColor: =Color.Transparent
                     Image: ='add icon'
-                    OnSelect: |
-                        =Patch(
-                            colSelectedItems,
-                            {id: ctxSelectedItem.id},
-                            {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
+                    OnSelect: |+
+                        =If(Value(btnQCQuantityItemDetails.Text) < 99,
+                            Patch(
+                                colSelectedItems,
+                                {id: ctxSelectedItem.id},
+                                {quantity: Value(btnQCQuantityItemDetails.Text) + 1}
+                            )
                         )
+                        
                     PaddingBottom: =15
                     PaddingLeft: =15
                     PaddingRight: =15
@@ -323,6 +327,7 @@
                     PressedBorderColor: =Color.Transparent
                     TabIndex: =0
                     Tooltip: =varLabels.Subtract
+                    Transparency: =If(Self.DisplayMode = DisplayMode.Disabled, 60%, 0)
                     Width: =70
                     X: =Parent.Width - Self.Width - 10
                     ZIndex: =7
