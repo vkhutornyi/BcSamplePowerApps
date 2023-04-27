@@ -86,7 +86,7 @@
                 Font: =varTheme.font
                 Height: =70
                 Size: =26
-                Text: =varSelectedWarehouse.Name
+                Text: =varSelectedWarehouse.displayName
                 Width: =Parent.Width
                 Y: =(Parent.Height - Self.Height)/2
                 ZIndex: =1
@@ -303,14 +303,14 @@
             OnSelect: |
                 =UpdateContext({ctxShowLoadingScreen: true, ctxShouldShowError: false});
                 
-                IfError(Patch('itemsWithImage (microsoft/powerApps/beta)', {id: varScannedItem.id }, {inventory: ctxInventory}),
+                IfError(UpdateItemInventoryForLocation.Run(varScannedItem.'System ID', ctxInventory, varSelectedWarehouse.code),
                     // Parse error message
-                    UpdateContext({ctxShouldShowError: true, ctxErrorMessage: Match(FirstError.Message, ":.*").FullMatch});
+                    UpdateContext({ctxShouldShowError: true, ctxErrorMessage: FirstError.Message});
                     Trace("Inventory update failed for " &varScannedItem.DisplayName, NotificationType.Error, FirstError);    
                 );
                 
                 If(ctxShouldShowError, 
-                    Notify(Substitute(ctxErrorMessage, ":", ""), NotificationType.Error);   
+                    Notify(ctxErrorMessage, NotificationType.Error);   
                     UpdateContext({ctxShowLoadingScreen: false, ctxShouldShowError: false });
                     ,
                     Navigate('Item updated screen', ScreenTransition.Fade);

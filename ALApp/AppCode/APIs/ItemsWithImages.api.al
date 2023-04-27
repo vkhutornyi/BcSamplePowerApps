@@ -39,15 +39,6 @@ page 51001 BCS_ItemWithImage
                 {
                     Caption = 'Base Unit Of Measure Code';
                 }
-                field(inventory; inventoryValue)
-                {
-                    Caption = 'Inventory';
-                }
-                field(locationFilter; Rec."Location Filter")
-                {
-                    Editable = false;
-                    Caption = 'Location Filter';
-                }
                 field(itemImageText; Rec.Picture)
                 {
                     Caption = 'Picture reference';
@@ -101,7 +92,6 @@ page 51001 BCS_ItemWithImage
         ConfigMediaBuffer: Record "Config. Media Buffer" temporary; // This can be any table with a field of type Media
         PictureHeight: Integer;
         PictureWidth: Integer;
-        inventoryValue: Decimal;
 
     trigger OnAfterGetRecord()
     var
@@ -149,38 +139,32 @@ page 51001 BCS_ItemWithImage
             then
                 ItemCatagoryName := ItemCategory.Description
         end;
-
-        // Calculate inventory value
-        Rec.CalcFields(Inventory);
-        inventoryValue := Rec.Inventory;
     end;
 
-    trigger OnModifyRecord(): Boolean
-    begin
-        UpdateInventory();
-    end;
-
-    local procedure UpdateInventory()
+    [ServiceEnabled]
+    procedure UpdateInventoryForLocation(locationCode: Code[10]; newInventoryValue: Decimal)
     var
         ItemJournalLine: Record "Item Journal Line";
         ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
     begin
+        Rec.SetRange("Location Filter", locationCode);
         Rec.calcfields(Inventory);
-        if Rec.Inventory = InventoryValue then
+        if Rec.Inventory = newInventoryValue then
             exit;
+
         ItemJournalLine.Init();
         ItemJournalLine.Validate("Posting Date", Today());
         ItemJournalLine."Document No." := Rec."No.";
-        ItemJournalLine."Location Code" := Rec.GetRangeMax("Location Filter");
+        ItemJournalLine."Location Code" := locationCode;
 
-        if Rec.Inventory < InventoryValue then
+        if Rec.Inventory < newInventoryValue then
             ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Positive Adjmt.")
         else
             ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Negative Adjmt.");
 
         ItemJournalLine.Validate("Item No.", Rec."No.");
         ItemJournalLine.Validate(Description, Rec.Description);
-        ItemJournalLine.Validate(Quantity, Abs(InventoryValue - Rec.Inventory));
+        ItemJournalLine.Validate(Quantity, Abs(newInventoryValue - Rec.Inventory));
 
         ItemJnlPostLine.RunWithCheck(ItemJournalLine);
         Rec.Get(Rec."No.");

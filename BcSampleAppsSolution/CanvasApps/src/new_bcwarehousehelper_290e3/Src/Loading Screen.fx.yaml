@@ -91,6 +91,12 @@
                 LayoutMinWidth: =250
                 ZIndex: =3
 
+                Rectangle1 As rectangle:
+                    Height: =1
+                    Visible: =false
+                    Width: =1
+                    ZIndex: =1
+
             recLocationBottomDivider_1 As rectangle:
                 Fill: =RGBA(255, 255, 255, 0.5)
                 Height: =2
@@ -148,7 +154,7 @@
         OnSelect: |-
             =// Load Data
             Concurrent(
-                Set(varWarehouses, 'locations (v2.0)'),
+                Set(varWarehouses, Filter(ShowColumns('warehouses (microsoft/powerApps/beta)',"id", "code", "displayName", "useAsInTransit", "city"), useAsInTransit = false)),
                 Set(varCompanyInformation, First('localizationInformations (microsoft/powerApps/beta)'));
             );
             Set(varSelectedWarehouse, First(varWarehouses));
@@ -198,7 +204,7 @@
             
             If(varAppStateAvailable, 
                 With({
-                    storedWarehouse: LookUp(varWarehouses, id = First(colStoredAppState).warehouse)
+                    storedWarehouse: LookUp(varWarehouses, id = First(colStoredAppState).warehouseId)
                 },
                     If(Not(IsBlankOrError(storedWarehouse)),
                         Set(varSelectedWarehouse, storedWarehouse);

@@ -1,8 +1,0 @@
-[
-  {
-    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
-    "Name": "PostBCSalesOrder",
-    "ServiceKind": "ConnectedWadl",
-    "Type": "ServiceInfo"
-  }
-]

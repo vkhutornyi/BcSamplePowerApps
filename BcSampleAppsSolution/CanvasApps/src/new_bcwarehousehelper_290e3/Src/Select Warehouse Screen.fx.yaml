@@ -60,7 +60,7 @@
                 =Set(varSelectedWarehouse, ThisItem);
                 
                 // Persists in local storage
-                ClearCollect(colStoredAppState, {warehouse: varSelectedWarehouse.Id});
+                ClearCollect(colStoredAppState, {warehouseId: varSelectedWarehouse.id});
                 
                 If(varAppStateAvailable, 
                     SaveData(colStoredAppState, varAppStateKey)
@@ -94,7 +94,7 @@
                     Height: =36
                     OnSelect: =
                     Size: =21
-                    Text: =ThisItem.City
+                    Text: =ThisItem.city
                     Width: =425
                     Y: =Parent.Height/2 
                     ZIndex: =1
@@ -106,7 +106,7 @@
                     Height: =36
                     OnSelect: =
                     Size: =21
-                    Text: =ThisItem.Name
+                    Text: =ThisItem.displayName
                     Width: =425
                     Y: =Parent.Height/2 - Self.Height
                     ZIndex: =2
@@ -145,7 +145,7 @@
                 PressedFill: =Color.Transparent
                 Size: =24
                 Text: =""
-                Tooltip: =ThisItem.Name & ". " & varLabels.SelectWarehouseScreen_GallerySelect
+                Tooltip: =ThisItem.displayName & ". " & varLabels.SelectWarehouseScreen_GallerySelect
                 Width: =Parent.TemplateWidth
                 ZIndex: =4
 

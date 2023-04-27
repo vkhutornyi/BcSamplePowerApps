@@ -1,42 +1,42 @@
 {
-  "870dfb89-5a04-4c28-9b03-98ba7bf445bb": {
+  "ee123637-2356-445b-95e8-9fd73dbd9f2d": {
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
-        "aae83c9c-696b-45a6-8171-5eb3b316643e": {
+        "fc5cc552-9879-4472-be2f-2efce8c414bd": {
           "value": "shared_dynamicssmbsaas"
         },
         "workflowEntityId": {
-          "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
+          "value": "c84ed00d-d4e4-ed11-a7c6-000d3a991110"
         },
         "workflowName": {
-          "value": "26482914-a262-4070-b23b-0e916fc6b794"
+          "value": "f84e883c-cb55-49f1-adea-d24602cb85a4"
         }
       },
       "parameterHintsV2": {
         "shared_dynamicssmbsaas": {
-          "value": "aae83c9c-696b-45a6-8171-5eb3b316643e"
+          "value": "fc5cc552-9879-4472-be2f-2efce8c414bd"
         },
         "workflowEntityId": {
-          "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
+          "value": "c84ed00d-d4e4-ed11-a7c6-000d3a991110"
         },
         "workflowName": {
-          "value": "26482914-a262-4070-b23b-0e916fc6b794"
+          "value": "f84e883c-cb55-49f1-adea-d24602cb85a4"
         }
       }
     },
     "datasets": {},
     "dataSources": [
-      "PostBCSalesOrder"
+      "UpdateItemInventoryForLocation"
     ],
     "dependencies": {
-      "shared_dynamicssmbsaas": "aae83c9c-696b-45a6-8171-5eb3b316643e"
+      "shared_dynamicssmbsaas": "fc5cc552-9879-4472-be2f-2efce8c414bd"
     },
     "dependents": [],
-    "id": "870dfb89-5a04-4c28-9b03-98ba7bf445bb"
+    "id": "ee123637-2356-445b-95e8-9fd73dbd9f2d"
   },
   "fc5cc552-9879-4472-be2f-2efce8c414bd": {
     "connectionRef": {
@@ -61,6 +61,9 @@
           },
           "warehousehelperlanguageresources (microsoft/powerApps/beta)": {
             "tableName": "warehousehelperlanguageresources,microsoft%252FpowerApps%252Fbeta"
+          },
+          "warehouses (microsoft/powerApps/beta)": {
+            "tableName": "warehouses,microsoft%252FpowerApps%252Fbeta"
           }
         }
       }
@@ -69,10 +72,13 @@
       "itemsWithImage (microsoft/powerApps/beta)",
       "locations (v2.0)",
       "localizationInformations (microsoft/powerApps/beta)",
-      "warehousehelperlanguageresources (microsoft/powerApps/beta)"
+      "warehousehelperlanguageresources (microsoft/powerApps/beta)",
+      "warehouses (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
-    "dependents": [],
+    "dependents": [
+      "ee123637-2356-445b-95e8-9fd73dbd9f2d"
+    ],
     "id": "fc5cc552-9879-4472-be2f-2efce8c414bd"
   }
 }
