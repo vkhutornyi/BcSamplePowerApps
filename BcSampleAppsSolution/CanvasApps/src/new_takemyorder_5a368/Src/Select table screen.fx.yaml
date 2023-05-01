@@ -33,7 +33,7 @@
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
-                Height: =91
+                Height: =Parent.Height
                 Size: =30
                 Text: =varLabels.SelectTableScreen_Title
                 Width: =Parent.Width
@@ -84,6 +84,7 @@
                 PaddingTop: =30
                 TabIndex: =0
                 Tooltip: =varLabels.SelectTableScreen_Update
+                Visible: =false
                 Width: =100
                 X: =Parent.Width - Self.Width
                 ZIndex: =2
@@ -121,13 +122,12 @@
             TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =120
-            Transition: =Transition.Push
             Y: =
             ZIndex: =4
 
             recTableGallerySeperator As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Fill: =Color.DarkGray
+                Fill: =ColorFade(varTheme.primaryColor, 50%)
                 Height: =2
                 OnSelect: =Select(Parent)
                 Width: =Parent.TemplateWidth - 40
@@ -166,7 +166,7 @@
 
             figStatusCircle As circle:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Fill: =If(ThisItem.free, Color.DarkGray, varTheme.primaryColor)
+                Fill: =If(ThisItem.free, RGBA(223, 218, 204, 1), varTheme.primaryColor)
                 Height: =60
                 OnSelect: =Select(Parent)
                 Width: =60
@@ -178,7 +178,7 @@
                 BorderColor: =RGBA(32, 54, 71, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Height: =figStatusCircle.Height
+                Height: =figStatusCircle.Height - 20
                 Image: ='people icon'
                 OnSelect: =Select(Parent)
                 PaddingBottom: =3
@@ -186,9 +186,9 @@
                 PaddingRight: =3
                 PaddingTop: =3
                 Visible: =Not(ThisItem.free)
-                Width: =figStatusCircle.Width
-                X: =figStatusCircle.X
-                Y: =figStatusCircle.Y
+                Width: =figStatusCircle.Width - 20
+                X: =figStatusCircle.X + 10
+                Y: =figStatusCircle.Y + 10
                 ZIndex: =5
 
             imgSelectTable As image:
@@ -199,13 +199,13 @@
                 Height: =Parent.TemplateHeight
                 Image: ='select table arrow'
                 OnSelect: =Select(Parent)
-                PaddingBottom: =20
-                PaddingLeft: =20
-                PaddingRight: =20
-                PaddingTop: =20
+                PaddingBottom: =40
+                PaddingLeft: =40
+                PaddingRight: =40
+                PaddingTop: =40
                 TabIndex: =0
                 Tooltip: =ThisItem.displayName & ". " & varLabels.GallerySelect
-                Width: =100 
+                Width: =Self.Height
                 X: =Parent.TemplateWidth - Self.Width
                 ZIndex: =6
 
@@ -221,10 +221,8 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            Height: =150
             Image: =Spinner_LightBeige_2x
-            Width: =150
-            X: =Parent.Width/2 - Self.Width/2
-            Y: =Parent.Height/2 - Self.Height/2
+            X: =App.Width/2 - Self.Width/2
+            Y: =App.Height/2 - Self.Height/2 - Parent.Y
             ZIndex: =1
 

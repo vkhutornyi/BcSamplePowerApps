@@ -824,6 +824,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.substract icon"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.substract icon",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "substract icon",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Item Details Screen'.ctxItemShowingQuantityControl"
                 }
               ],

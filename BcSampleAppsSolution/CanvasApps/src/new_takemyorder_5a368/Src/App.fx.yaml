@@ -12,7 +12,7 @@ App As appinfo:
                 font: Font.'Segoe UI',
                 primaryColor: ColorValue("#615B4C"),
                 secondaryColor: ColorValue("#FFFAEC"),    
-                dividerColor: ColorFade(RGBA(202, 202, 202, 1), 70%)
+                textColor: RGBA(33, 33, 33, 1)
             }
         );
     StartScreen: ='Loading Screen'

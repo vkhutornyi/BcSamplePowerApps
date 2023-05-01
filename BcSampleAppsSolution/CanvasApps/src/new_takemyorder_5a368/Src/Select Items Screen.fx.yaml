@@ -98,7 +98,7 @@
 
             figItemSeparator As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Fill: =ColorFade(varTheme.primaryColor, 60%)
+                Fill: =ColorFade(varTheme.primaryColor, 50%)
                 Height: =2
                 OnSelect: =Select(Parent)
                 Width: =Parent.TemplateWidth - 40
@@ -279,13 +279,13 @@
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =varTheme.primaryColor
                 OnSelect: |-
-                    =/*// Update item quantity
+                    =// Update item quantity
                     Patch(
                         colSelectedItems,
                         {id: ThisItem.id},
                         // Consider getting the value via look up in the list
                         {quantity: Value(btnQCQuantity.Text) + 1}
-                    );*/
+                    );
                     
                     UpdateContext({ctxItemShowingQuantityControl: ThisItem.id});
                 RadiusBottomLeft: =35
@@ -424,7 +424,7 @@
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     Height: =70
                     HoverBorderColor: =Color.Transparent
-                    Image: ='substract icon'
+                    Image: ='panel substract icon'
                     OnSelect: |-
                         =If(
                             Value(btnQCQuantity.Text) > 0,
@@ -454,7 +454,7 @@
                     DisplayMode: =If(Value(btnQCQuantity.Text) < 99, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =70
                     HoverBorderColor: =Color.Transparent
-                    Image: ='add icon'
+                    Image: ='panel add icon'
                     OnSelect: |-
                         =If(Value(btnQCQuantity.Text) < 99, 
                             Patch(
@@ -528,7 +528,7 @@
             btnItemGroup As button:
                 BorderColor: =Color.Transparent
                 BorderThickness: =0
-                Color: =RGBA(32, 54, 71, 1)
+                Color: =varTheme.textColor
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -621,10 +621,14 @@
         OnSelect: |-
             =UpdateContext({ctxItemShowingQuantityControl: Blank()});
             Navigate('Order Summary Screen', ScreenTransition.Cover, {ctxCallingPage: 'Select Items Screen'});
-        RadiusBottomLeft: =30
-        RadiusBottomRight: =30
-        RadiusTopLeft: =30
-        RadiusTopRight: =30
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: |
+            =Self.Height/2
+        RadiusBottomRight: =Self.Height/2
+        RadiusTopLeft: =Self.Height/2
+        RadiusTopRight: =Self.Height/2
         Size: =24
         Text: =varLabels.TakeOrderScreen_Review
         Visible: =Not(varAddItemsToCurrentOrder)

@@ -4,7 +4,7 @@
         =UpdateContext({ctxInventory: 0, ctxShowLoadingScreen: false});
         
         If(ctxStartScan,
-            UpdateContext({ctxStartScan: false});
+            UpdateContext({ctxStartScan: false, ctxShowLoadingScreen: true});
             Select(btnTriggerBarcodeScanner);
         );
         

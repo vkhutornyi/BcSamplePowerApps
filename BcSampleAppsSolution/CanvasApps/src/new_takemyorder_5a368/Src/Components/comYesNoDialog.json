@@ -57,7 +57,15 @@
           },
           "ZIndex",
           "BorderThickness",
-          "FocusedBorderThickness"
+          "FocusedBorderThickness",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "Visible",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          }
         ],
         "ControlUniqueId": "10",
         "HasDynamicProperties": false,
@@ -72,7 +80,7 @@
         "Name": "recBackgroundOverlay",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 157,
+        "PublishOrderIndex": 163,
         "Rules": [
           {
             "Category": "Design",
@@ -163,6 +171,12 @@
             "InvariantScript": "Self.Fill",
             "Property": "DisabledFill",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "true",
+            "Property": "Visible",
+            "RuleProviderType": "Unknown"
           }
         ],
         "StyleName": "defaultRectangleStyle",
@@ -197,7 +211,14 @@
                 "NameMapSourceSchema": "?"
               },
               "BorderColor",
-              "DisabledBorderColor",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "DisabledBorderColor",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "PressedBorderColor",
               "HoverBorderColor",
               "BorderStyle",
@@ -214,8 +235,22 @@
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
               },
-              "Fill",
-              "DisabledFill",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "Fill",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "DisabledFill",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "PressedFill",
               "HoverFill",
               "Font",
@@ -255,11 +290,46 @@
                 "NameMapSourceSchema": "?"
               },
               "ZIndex",
-              "RadiusTopLeft",
-              "RadiusTopRight",
-              "RadiusBottomLeft",
-              "RadiusBottomRight",
-              "BorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "RadiusTopLeft",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "RadiusTopRight",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "RadiusBottomLeft",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "RadiusBottomRight",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "BorderThickness",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "FocusedBorderThickness",
               "Size",
               "Italic",
@@ -280,7 +350,7 @@
             "Name": "btnBackground",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 159,
+            "PublishOrderIndex": 165,
             "Rules": [
               {
                 "Category": "Data",
@@ -296,13 +366,13 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "RGBA(100, 118, 132, 1)",
+                "InvariantScript": "RGBA(255, 255, 255, 1)",
                 "Property": "Fill",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "RGBA(244, 244, 244, 1)",
+                "InvariantScript": "RGBA(255, 255, 255, 1)",
                 "Property": "DisabledFill",
                 "RuleProviderType": "Unknown"
               },
@@ -344,7 +414,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "2",
+                "InvariantScript": "0",
                 "Property": "BorderThickness",
                 "RuleProviderType": "Unknown"
               },
@@ -368,7 +438,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "1",
+                "InvariantScript": "2",
                 "Property": "ZIndex",
                 "RuleProviderType": "Unknown"
               },
@@ -386,7 +456,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "10",
+                "InvariantScript": "20",
                 "Property": "RadiusTopLeft",
                 "RuleProviderType": "Unknown"
               },
@@ -398,7 +468,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "10",
+                "InvariantScript": "20",
                 "Property": "RadiusTopRight",
                 "RuleProviderType": "Unknown"
               },
@@ -446,7 +516,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "10",
+                "InvariantScript": "20",
                 "Property": "RadiusBottomRight",
                 "RuleProviderType": "Unknown"
               },
@@ -470,7 +540,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "10",
+                "InvariantScript": "20",
                 "Property": "RadiusBottomLeft",
                 "RuleProviderType": "Unknown"
               },
@@ -488,7 +558,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "RGBA(166, 166, 166, 1)",
+                "InvariantScript": "RGBA(230, 230, 230, 1)",
                 "Property": "DisabledBorderColor",
                 "RuleProviderType": "Unknown"
               },
@@ -597,9 +667,23 @@
               "Underline",
               "Strikethrough",
               "PaddingTop",
-              "PaddingRight",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "PaddingRight",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "PaddingBottom",
-              "PaddingLeft"
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "PaddingLeft",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "13",
             "HasDynamicProperties": false,
@@ -614,7 +698,7 @@
             "Name": "lblDialogMessage",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 160,
+            "PublishOrderIndex": 166,
             "Rules": [
               {
                 "Category": "Data",
@@ -696,13 +780,13 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "5",
+                "InvariantScript": "",
                 "Property": "PaddingTop",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "5",
+                "InvariantScript": "25",
                 "Property": "PaddingRight",
                 "RuleProviderType": "Unknown"
               },
@@ -714,7 +798,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "160",
+                "InvariantScript": "140",
                 "Property": "Height",
                 "RuleProviderType": "Unknown"
               },
@@ -726,7 +810,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "5",
+                "InvariantScript": "25",
                 "Property": "PaddingLeft",
                 "RuleProviderType": "Unknown"
               },
@@ -738,7 +822,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "4",
+                "InvariantScript": "3",
                 "Property": "ZIndex",
                 "RuleProviderType": "Unknown"
               },
@@ -1051,7 +1135,7 @@
                 "Name": "btnNo",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 162,
+                "PublishOrderIndex": 168,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1067,7 +1151,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusBottomRight",
                     "RuleProviderType": "Unknown"
                   },
@@ -1079,7 +1163,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusBottomLeft",
                     "RuleProviderType": "Unknown"
                   },
@@ -1097,7 +1181,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusTopRight",
                     "RuleProviderType": "Unknown"
                   },
@@ -1109,7 +1193,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusTopLeft",
                     "RuleProviderType": "Unknown"
                   },
@@ -1466,7 +1550,7 @@
                 "Name": "btnYes",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 163,
+                "PublishOrderIndex": 169,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1500,7 +1584,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusBottomRight",
                     "RuleProviderType": "Unknown"
                   },
@@ -1566,7 +1650,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusTopLeft",
                     "RuleProviderType": "Unknown"
                   },
@@ -1578,7 +1662,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusTopRight",
                     "RuleProviderType": "Unknown"
                   },
@@ -1596,7 +1680,7 @@
                   },
                   {
                     "Category": "Design",
-                    "InvariantScript": "30",
+                    "InvariantScript": "35",
                     "Property": "RadiusBottomLeft",
                     "RuleProviderType": "Unknown"
                   },
@@ -1795,11 +1879,11 @@
             "Name": "conButtons",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 161,
+            "PublishOrderIndex": 167,
             "Rules": [
               {
                 "Category": "Design",
-                "InvariantScript": "5",
+                "InvariantScript": "4",
                 "Property": "ZIndex",
                 "RuleProviderType": "Unknown"
               },
@@ -1823,13 +1907,13 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "0",
+                "InvariantScript": "30",
                 "Property": "LayoutGap",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "LayoutJustifyContent.SpaceBetween",
+                "InvariantScript": "LayoutJustifyContent.Center",
                 "Property": "LayoutJustifyContent",
                 "RuleProviderType": "Unknown"
               },
@@ -1877,7 +1961,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "lblDialogMessage.Height + 20    ",
+                "InvariantScript": "lblDialogMessage.Height + 5",
                 "Property": "Y",
                 "RuleProviderType": "Unknown"
               },
@@ -1956,7 +2040,14 @@
         "ControlPropertyState": [
           "BorderColor",
           "BorderStyle",
-          "Fill",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "Fill",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           {
             "AFDDataSourceName": "",
             "AutoRuleBindingEnabled": false,
@@ -2016,7 +2107,7 @@
         "Name": "conDialog",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 158,
+        "PublishOrderIndex": 164,
         "Rules": [
           {
             "Category": "Design",
@@ -2074,7 +2165,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "500",
+            "InvariantScript": "Parent.Width - 60",
             "Property": "Width",
             "RuleProviderType": "Unknown"
           },
@@ -2189,7 +2280,7 @@
       "behaviorNo",
       "PrimaryColor"
     ],
-    "LastModifiedTimestamp": "638181169162812569",
+    "LastModifiedTimestamp": "638182841951543934",
     "Name": "comYesNoDialog",
     "Rules": [
       {
@@ -2310,7 +2401,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638181169162812569",
+  "LastModifiedTimestamp": "638182841951543934",
   "Name": "01906efe1f6b4ac885f5f6ea0fc7bf76",
   "OverridableProperties": {},
   "Version": "638153340657157122"

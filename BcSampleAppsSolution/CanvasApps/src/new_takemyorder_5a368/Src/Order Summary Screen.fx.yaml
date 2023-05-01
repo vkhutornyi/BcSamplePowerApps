@@ -29,6 +29,7 @@
         TabIndex: =0
         TemplatePadding: =0
         TemplateSize: =123
+        Visible: =Not(ctxShowLoadingScreen)
         Width: =Parent.Width
         Y: =conOrderSummaryHeader.Height
         ZIndex: =1
@@ -40,7 +41,7 @@
             ZIndex: =1
 
             lblTotalOrder As label:
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =varTheme.textColor
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
@@ -60,9 +61,10 @@
 
             lblItemTotalSum As label:
                 Align: =Align.Right
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =varTheme.textColor
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
+                FontWeight: =FontWeight.Semibold
                 Height: =80
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -77,6 +79,15 @@
                 Y: =Parent.Height/2 - Self.Height/2
                 ZIndex: =2
 
+            recTotalDevider As rectangle:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Fill: =ColorFade(varTheme.primaryColor, 0%)
+                Height: =2
+                OnSelect: =
+                Width: =Parent.Width - 40
+                X: =20
+                ZIndex: =3
+
         conHeader As groupContainer.manualLayoutContainer:
             Height: =85
             Visible: =ThisItem.header
@@ -86,7 +97,7 @@
 
             recCurrentOrderDivider As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Fill: =varTheme.primaryColor
+                Fill: =ColorFade(varTheme.primaryColor, 50%)
                 Height: =2
                 OnSelect: =
                 Width: =Parent.Width - 40
@@ -97,7 +108,7 @@
             lblSumCost As label:
                 Align: =Align.Right
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =varTheme.primaryColor
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 Height: =Parent.Height
@@ -469,7 +480,7 @@
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     Height: =70
                     HoverBorderColor: =Color.Transparent
-                    Image: ='add icon'
+                    Image: ='panel add icon'
                     OnSelect: |
                         =
                         UpdateContext(
@@ -507,7 +518,7 @@
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     Height: =70
                     HoverBorderColor: =Color.Transparent
-                    Image: ='substract icon'
+                    Image: ='panel substract icon'
                     OnSelect: |-
                         =UpdateContext(
                             {
@@ -617,10 +628,11 @@
             );
             
             UpdateContext({ctxError: false, ctxShowLoadingScreen: false});
-        RadiusBottomLeft: =30
-        RadiusBottomRight: =30
-        RadiusTopLeft: =30
-        RadiusTopRight: =30
+        PaddingTop: =0
+        RadiusBottomLeft: =40
+        RadiusBottomRight: =40
+        RadiusTopLeft: =40
+        RadiusTopRight: =40
         Size: =24
         Text: =varLabels.SummaryScreen_Submit
         Visible: =Not(ctxHasOrderBeenCreated)
@@ -646,20 +658,21 @@
             Fill: =Color.White
             FontWeight: =FontWeight.Semibold
             Height: =70
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            HoverFill: =Self.Fill
             OnSelect: |-
                 =ClearCollect(colSelectedItems, Blank());
                 Set(varAddItemsToCurrentOrder, true);
                 Navigate('Select Items Screen', ScreenTransition.Cover);
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
+            PaddingLeft: =40
+            PaddingTop: =0
+            RadiusBottomLeft: =35
+            RadiusBottomRight: =35
+            RadiusTopLeft: =35
+            RadiusTopRight: =35
             Size: =20
             Text: =varLabels.SummaryScreen_AddMore
             Width: =280
-            X: =(Parent.Width - (2 * Self.Width))/4
+            X: =30
             Y: =1
             ZIndex: =1
 
@@ -675,16 +688,28 @@
             HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
             OnSelect: |-
                 =UpdateContext({ctxShowCheckOutDialog: true});
-            RadiusBottomLeft: =30
-            RadiusBottomRight: =30
-            RadiusTopLeft: =30
-            RadiusTopRight: =30
+            PaddingTop: =0
+            RadiusBottomLeft: =35
+            RadiusBottomRight: =35
+            RadiusTopLeft: =35
+            RadiusTopRight: =35
             Size: =20
             Text: =varLabels.SummaryScreen_CheckOut
             Width: =280
-            X: =Parent.Width - ((Parent.Width - (2 * Self.Width))/4) - Self.Width
+            X: =Parent.Width - Self.Width - 30
             Y: =1
             ZIndex: =2
+
+        imgAddMoreIcon As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =40
+            Image: ='panel add icon'
+            Width: =40
+            X: =70
+            Y: =15
+            ZIndex: =3
 
     conOrderSummaryHeader As groupContainer:
         Height: =173
@@ -696,6 +721,7 @@
             Color: =varTheme.primaryColor
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =varTheme.font
+            FontWeight: =FontWeight.Semibold
             Height: =60
             Size: =34
             Text: |-
@@ -703,9 +729,9 @@
                     varLabels.SummaryScreen_SummarySubmittedTitle &" #"&varActiveorderForSelectedTable.number, 
                     varLabels.SummaryScreen_SummaryDraftTitle
                 )
-            Width: =560
-            X: =40
-            Y: =110
+            Width: =Parent.Width *80%
+            X: =25
+            Y: =115
             ZIndex: =1
 
         lblCurrentOrderTable As label:
@@ -918,9 +944,7 @@
             BorderColor: =RGBA(32, 54, 71, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            Height: =150
             Image: =Spinner_WhiteBeige_2x
-            Width: =150
             X: =Parent.Width/2 - Self.Width/2
             Y: =Parent.Height/2 - Self.Height/2
             ZIndex: =1
