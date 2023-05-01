@@ -655,7 +655,7 @@
         RadiusTopLeft: =30
         RadiusTopRight: =30
         Size: =20
-        Text: ="Add to order"
+        Text: =varLabels.TakeOrderScreen_Review
         Visible: =varAddItemsToCurrentOrder
         Width: =280
         X: =(Parent.Width/2) - (btnAddSelectedItems.Width/2)

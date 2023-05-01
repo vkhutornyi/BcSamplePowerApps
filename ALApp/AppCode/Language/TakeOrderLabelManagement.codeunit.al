@@ -64,7 +64,7 @@ codeunit 51002 BCS_TO_LabelManagement
         SelectTableScreen_Free_ValueTxt: Label 'Free';
 
         SelectTableScreen_Occupied: Label 'SelectTableScreen_Occupied', Locked = true;
-        SelectTableScreen_Occupied_ValueTxt: Label 'Occupied';
+        SelectTableScreen_Occupied_ValueTxt: Label 'Order placed';
 
         SelectTableScreen_Update: Label 'SelectTableScreen_Update', Locked = true;
         SelectTableScreen_Update_ValueTxt: Label 'Refresh the list';
@@ -106,7 +106,7 @@ codeunit 51002 BCS_TO_LabelManagement
         SummaryScreen_Submit_ValueTxt: Label 'Submit';
 
         SummaryScreen_AddMore: Label 'SummaryScreen_AddMore', Locked = true;
-        SummaryScreen_AddMore_ValueTxt: Label '+ Add more';
+        SummaryScreen_AddMore_ValueTxt: Label 'Add more';
 
         SummaryScreen_CheckOut: Label 'SummaryScreen_CheckOut', Locked = true;
         SummaryScreen_CheckOut_ValueTxt: Label 'Checkout';
@@ -132,8 +132,14 @@ codeunit 51002 BCS_TO_LabelManagement
         SummaryScreen_SummaryDraftTitle: Label 'SummaryScreen_SummaryDraftTitle', Locked = true;
         SummaryScreen_SummaryDraftTitle_ValueTxt: Label 'Order (draft)';
 
+        SummaryScreen_SummaryAddTo: Label 'SummaryScreen_SummaryAddTo', Locked = true;
+        SummaryScreen_SummaryAddTo_ValueTxt: Label 'Add to order';
+
         SummaryScreen_SummarySubmittedTitle: Label 'SummaryScreen_SummarySubmittedTitle', Locked = true;
         SummaryScreen_SummarySubmittedTitle_ValueTxt: Label 'Order ';
+
+        SummaryScreen_OrderUpdatedMessage: Label 'SummaryScreen_OrderUpdatedMessage', Locked = true;
+        SummaryScreen_OrderUpdatedMessage_ValueTxt: Label 'Order updated for ';
 
 
         // Telemetry labels
@@ -210,6 +216,8 @@ codeunit 51002 BCS_TO_LabelManagement
         InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateCollapsed, SummaryScreen_SummaryStateCollapsed_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryDraftTitle, SummaryScreen_SummaryDraftTitle_ValueTxt, 'en-US');
         InsertLabel(TempPowerAppsLabels, SummaryScreen_SummarySubmittedTitle, SummaryScreen_SummarySubmittedTitle_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryAddTo, SummaryScreen_SummaryAddTo_ValueTxt, 'en-US');
+        insertLabel(TempPowerAppsLabels, SummaryScreen_OrderUpdatedMessage, SummaryScreen_OrderUpdatedMessage_ValueTxt, 'en-US');
     end;
 
     local procedure InsertLabel(var TempPowerAppsLabels: Record BCS_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; labelLanguage: Text[10])

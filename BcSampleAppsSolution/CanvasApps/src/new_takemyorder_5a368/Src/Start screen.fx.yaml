@@ -106,7 +106,7 @@
                 Text: =varLabels.StartScreen_TakeOrder
                 Width: =280
                 X: =(Parent.Width / 2) - (btnStart.Width / 2)
-                Y: =
+                Y: =5
                 ZIndex: =1
 
     imgLearnMore As image:

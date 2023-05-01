@@ -445,7 +445,7 @@
                 Width: =Parent.Width
                 ZIndex: =1
 
-                lblItemAllergens_1 As label:
+                lblItemAllergens As label:
                     BorderColor: =RGBA(32, 54, 71, 1)
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -455,14 +455,14 @@
                     LayoutMinHeight: =70
                     LayoutMinWidth: =560
                     Size: =24
-                    Text: ="Ingredients"
+                    Text: ="Allergens"
                     Visible: =ctxItemDetails.'Allergen Information' <> ""
                     Width: =560
                     X: =40
                     Y: =40
                     ZIndex: =1
 
-                txtItemAllergens_1 As text:
+                txtItemAllergens As text:
                     AccessibleLabel: =Self.Text
                     AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =RGBA(32, 54, 71, 1)
@@ -517,51 +517,6 @@
                     Width: =Parent.Width - 60
                     X: =(Parent.Width - Self.Width) /2
                     ZIndex: =3
-
-                lblItemAllergens As label:
-                    BorderColor: =RGBA(32, 54, 71, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Font: =varTheme.font
-                    FontWeight: =FontWeight.Semibold
-                    Height: =50
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =24
-                    Text: ="Allergens"
-                    Visible: =ctxItemDetails.'Allergen Information' <> ""
-                    Width: =560
-                    X: =40
-                    Y: =40
-                    ZIndex: =4
-
-                txtItemAllergens As text:
-                    AccessibleLabel: =Self.Text
-                    AlignInContainer: =AlignInContainer.Stretch
-                    BorderColor: =RGBA(32, 54, 71, 1)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ctxItemDetails.'Allergen Information'
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =DisplayMode.View
-                    FocusedBorderThickness: =4
-                    Font: =varTheme.font
-                    Height: =90
-                    HoverBorderColor: =RGBA(32, 54, 71, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(205, 209, 213, 1)
-                    Italic: =true
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Mode: =TextMode.MultiLine
-                    PaddingLeft: =5
-                    Size: =24
-                    Visible: =ctxItemDetails.'Allergen Information' <> ""
-                    Width: =Parent.Width - 60
-                    X: =(Parent.Width - Self.Width) /2
-                    ZIndex: =5
 
             recItemQuantityOverlayExtraInfo As rectangle:
                 AccessibleLabel: =Self.Tooltip

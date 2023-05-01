@@ -569,21 +569,26 @@
             =UpdateContext({ctxShowLoadingScreen: true});
             
             // Add selected items to existing order
+            // TODO - add error handling
             ForAll(
                 colSelectedItems,
-                Patch('salesOrderLines (v2.0)', Defaults('salesOrderLines (v2.0)'), {documentId: varActiveorderForSelectedTable.id, itemId: ThisRecord.id, quantity: ThisRecord.quantity});
+                Patch('salesOrderLines (v2.0)', 
+                      Defaults('salesOrderLines (v2.0)'), 
+                      {documentId: varActiveorderForSelectedTable.id, itemId: ThisRecord.id, quantity: ThisRecord.quantity}
+                    );
             );
             
             ClearCollect(colSelectedItems, Blank());
             Set(varAddItemsToCurrentOrder, false);
             UpdateContext({ctxShowLoadingScreen: false});
+            Notify(varLabels.SummaryScreen_OrderUpdatedMessage & varSelectedTable.displayName);
             Navigate('Action Success Screen', ScreenTransition.Fade);
         RadiusBottomLeft: =30
         RadiusBottomRight: =30
         RadiusTopLeft: =30
         RadiusTopRight: =30
         Size: =20
-        Text: ="Add to order"
+        Text: =varLabels.SummaryScreen_Submit
         Visible: =varAddItemsToCurrentOrder
         Width: =280
         X: =Parent.Width/2 - Self.Width/2
@@ -725,9 +730,14 @@
             Height: =60
             Size: =34
             Text: |-
-                =If(ctxHasOrderBeenCreated, 
-                    varLabels.SummaryScreen_SummarySubmittedTitle &" #"&varActiveorderForSelectedTable.number, 
+                =If(Not(ctxHasOrderBeenCreated), 
                     varLabels.SummaryScreen_SummaryDraftTitle
+                    ,
+                    If(varAddItemsToCurrentOrder,
+                        "Add to order"
+                        ,
+                        varLabels.SummaryScreen_SummarySubmittedTitle &" #"&varActiveorderForSelectedTable.number
+                    )
                 )
             Width: =Parent.Width *80%
             X: =25
